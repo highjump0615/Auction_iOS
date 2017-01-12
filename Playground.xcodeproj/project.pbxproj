@@ -9,12 +9,33 @@
 /* Begin PBXBuildFile section */
 		C3033FF71E2052BE00782925 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3033FF61E2052BE00782925 /* main.m */; };
 		C3033FFA1E2052BE00782925 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3033FF91E2052BE00782925 /* AppDelegate.m */; };
-		C3033FFD1E2052BE00782925 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3033FFC1E2052BE00782925 /* ViewController.m */; };
 		C30340001E2052BE00782925 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3033FFE1E2052BE00782925 /* Main.storyboard */; };
 		C30340021E2052BE00782925 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C30340011E2052BE00782925 /* Assets.xcassets */; };
 		C30340051E2052BE00782925 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30340031E2052BE00782925 /* LaunchScreen.storyboard */; };
 		C30340101E2052BE00782925 /* PlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C303400F1E2052BE00782925 /* PlaygroundTests.m */; };
 		C303401B1E2052BE00782925 /* PlaygroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C303401A1E2052BE00782925 /* PlaygroundUITests.m */; };
+		C38731421E22D2F0007B6BD1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C387313F1E22D2F0007B6BD1 /* logo.png */; };
+		C38731431E22D2F0007B6BD1 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C38731401E22D2F0007B6BD1 /* logo@2x.png */; };
+		C38731441E22D2F0007B6BD1 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C38731411E22D2F0007B6BD1 /* logo@3x.png */; };
+		C3D6D8A71E26AFDC00019747 /* login_crown.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D89E1E26AFDC00019747 /* login_crown.png */; };
+		C3D6D8A81E26AFDC00019747 /* login_crown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D89F1E26AFDC00019747 /* login_crown@2x.png */; };
+		C3D6D8A91E26AFDC00019747 /* login_crown@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8A01E26AFDC00019747 /* login_crown@3x.png */; };
+		C3D6D8AA1E26AFDC00019747 /* login_gradient_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8A11E26AFDC00019747 /* login_gradient_bg.png */; };
+		C3D6D8AB1E26AFDC00019747 /* login_gradient_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8A21E26AFDC00019747 /* login_gradient_bg@2x.png */; };
+		C3D6D8AC1E26AFDC00019747 /* login_gradient_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8A31E26AFDC00019747 /* login_gradient_bg@3x.png */; };
+		C3D6D8AD1E26AFDC00019747 /* login_playground.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8A41E26AFDC00019747 /* login_playground.png */; };
+		C3D6D8AE1E26AFDC00019747 /* login_playground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8A51E26AFDC00019747 /* login_playground@2x.png */; };
+		C3D6D8AF1E26AFDC00019747 /* login_playground@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8A61E26AFDC00019747 /* login_playground@3x.png */; };
+		C3D6D8B31E26B3E800019747 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D6D8B21E26B3E800019747 /* LoginViewController.m */; };
+		C3D6D8B71E26B72100019747 /* login_login_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8B41E26B72100019747 /* login_login_bg.png */; };
+		C3D6D8B81E26B72100019747 /* login_login_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8B51E26B72100019747 /* login_login_bg@2x.png */; };
+		C3D6D8B91E26B72100019747 /* login_login_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8B61E26B72100019747 /* login_login_bg@3x.png */; };
+		C3D6D8BE1E26CE9F00019747 /* PLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D6D8BD1E26CE9F00019747 /* PLTextField.m */; };
+		C3D6D8C11E26DCBE00019747 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8BF1E26DCBE00019747 /* MyriadPro-Bold.otf */; };
+		C3D6D8C21E26DCBE00019747 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8C01E26DCBE00019747 /* MyriadPro-Regular.otf */; };
+		C3D6D8C61E26E61800019747 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D6D8C51E26E61800019747 /* BaseViewController.m */; };
+		C3D6D8CB1E27089300019747 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D6D8CA1E27089300019747 /* LandingViewController.m */; };
+		C3D6D8CE1E27096200019747 /* PHTextHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D6D8CD1E27096200019747 /* PHTextHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +60,6 @@
 		C3033FF61E2052BE00782925 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C3033FF81E2052BE00782925 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C3033FF91E2052BE00782925 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C3033FFB1E2052BE00782925 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C3033FFC1E2052BE00782925 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C3033FFF1E2052BE00782925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C30340011E2052BE00782925 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C30340041E2052BE00782925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +70,33 @@
 		C30340161E2052BE00782925 /* PlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C303401A1E2052BE00782925 /* PlaygroundUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundUITests.m; sourceTree = "<group>"; };
 		C303401C1E2052BE00782925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C387313F1E22D2F0007B6BD1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		C38731401E22D2F0007B6BD1 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		C38731411E22D2F0007B6BD1 /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
+		C3D6D89E1E26AFDC00019747 /* login_crown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_crown.png; sourceTree = "<group>"; };
+		C3D6D89F1E26AFDC00019747 /* login_crown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_crown@2x.png"; sourceTree = "<group>"; };
+		C3D6D8A01E26AFDC00019747 /* login_crown@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_crown@3x.png"; sourceTree = "<group>"; };
+		C3D6D8A11E26AFDC00019747 /* login_gradient_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_gradient_bg.png; sourceTree = "<group>"; };
+		C3D6D8A21E26AFDC00019747 /* login_gradient_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_gradient_bg@2x.png"; sourceTree = "<group>"; };
+		C3D6D8A31E26AFDC00019747 /* login_gradient_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_gradient_bg@3x.png"; sourceTree = "<group>"; };
+		C3D6D8A41E26AFDC00019747 /* login_playground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_playground.png; sourceTree = "<group>"; };
+		C3D6D8A51E26AFDC00019747 /* login_playground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_playground@2x.png"; sourceTree = "<group>"; };
+		C3D6D8A61E26AFDC00019747 /* login_playground@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_playground@3x.png"; sourceTree = "<group>"; };
+		C3D6D8B11E26B3E800019747 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C3D6D8B21E26B3E800019747 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		C3D6D8B41E26B72100019747 /* login_login_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_login_bg.png; sourceTree = "<group>"; };
+		C3D6D8B51E26B72100019747 /* login_login_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_login_bg@2x.png"; sourceTree = "<group>"; };
+		C3D6D8B61E26B72100019747 /* login_login_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_login_bg@3x.png"; sourceTree = "<group>"; };
+		C3D6D8BC1E26CE9F00019747 /* PLTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTextField.h; sourceTree = "<group>"; };
+		C3D6D8BD1E26CE9F00019747 /* PLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLTextField.m; sourceTree = "<group>"; };
+		C3D6D8BF1E26DCBE00019747 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
+		C3D6D8C01E26DCBE00019747 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
+		C3D6D8C41E26E61800019747 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		C3D6D8C51E26E61800019747 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		C3D6D8C91E27089300019747 /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
+		C3D6D8CA1E27089300019747 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
+		C3D6D8CC1E27096200019747 /* PHTextHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHTextHelper.h; sourceTree = "<group>"; };
+		C3D6D8CD1E27096200019747 /* PHTextHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHTextHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +147,14 @@
 		C3033FF41E2052BE00782925 /* Playground */ = {
 			isa = PBXGroup;
 			children = (
+				C3D6D8C71E26FE3100019747 /* Helpers */,
+				C387313A1E22C0D9007B6BD1 /* Resource */,
+				C387313C1E22C0D9007B6BD1 /* View */,
 				C3033FF81E2052BE00782925 /* AppDelegate.h */,
 				C3033FF91E2052BE00782925 /* AppDelegate.m */,
-				C3033FFB1E2052BE00782925 /* ViewController.h */,
-				C3033FFC1E2052BE00782925 /* ViewController.m */,
 				C3033FFE1E2052BE00782925 /* Main.storyboard */,
 				C30340011E2052BE00782925 /* Assets.xcassets */,
 				C30340031E2052BE00782925 /* LaunchScreen.storyboard */,
-				C30340061E2052BE00782925 /* Info.plist */,
 				C3033FF51E2052BE00782925 /* Supporting Files */,
 			);
 			path = Playground;
@@ -117,6 +163,7 @@
 		C3033FF51E2052BE00782925 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C30340061E2052BE00782925 /* Info.plist */,
 				C3033FF61E2052BE00782925 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,6 +185,118 @@
 				C303401C1E2052BE00782925 /* Info.plist */,
 			);
 			path = PlaygroundUITests;
+			sourceTree = "<group>";
+		};
+		C387313A1E22C0D9007B6BD1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C387313E1E22D2F0007B6BD1 /* Image */,
+				C387313B1E22C0D9007B6BD1 /* Font */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		C387313B1E22C0D9007B6BD1 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C3D6D8BF1E26DCBE00019747 /* MyriadPro-Bold.otf */,
+				C3D6D8C01E26DCBE00019747 /* MyriadPro-Regular.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		C387313C1E22C0D9007B6BD1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3D6D8C81E27084700019747 /* LandingViewController */,
+				C3D6D8C31E26E60300019747 /* BaseViewController */,
+				C3D6D8BA1E26CE7200019747 /* CustomUI */,
+				C3D6D8B01E26B3C700019747 /* LoginViewController */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C387313E1E22D2F0007B6BD1 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				C3D6D89D1E26AFDC00019747 /* Login */,
+				C387313F1E22D2F0007B6BD1 /* logo.png */,
+				C38731401E22D2F0007B6BD1 /* logo@2x.png */,
+				C38731411E22D2F0007B6BD1 /* logo@3x.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		C3D6D89D1E26AFDC00019747 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C3D6D8B41E26B72100019747 /* login_login_bg.png */,
+				C3D6D8B51E26B72100019747 /* login_login_bg@2x.png */,
+				C3D6D8B61E26B72100019747 /* login_login_bg@3x.png */,
+				C3D6D89E1E26AFDC00019747 /* login_crown.png */,
+				C3D6D89F1E26AFDC00019747 /* login_crown@2x.png */,
+				C3D6D8A01E26AFDC00019747 /* login_crown@3x.png */,
+				C3D6D8A11E26AFDC00019747 /* login_gradient_bg.png */,
+				C3D6D8A21E26AFDC00019747 /* login_gradient_bg@2x.png */,
+				C3D6D8A31E26AFDC00019747 /* login_gradient_bg@3x.png */,
+				C3D6D8A41E26AFDC00019747 /* login_playground.png */,
+				C3D6D8A51E26AFDC00019747 /* login_playground@2x.png */,
+				C3D6D8A61E26AFDC00019747 /* login_playground@3x.png */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C3D6D8B01E26B3C700019747 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3D6D8B11E26B3E800019747 /* LoginViewController.h */,
+				C3D6D8B21E26B3E800019747 /* LoginViewController.m */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		C3D6D8BA1E26CE7200019747 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				C3D6D8BB1E26CE7200019747 /* PLTextField */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		C3D6D8BB1E26CE7200019747 /* PLTextField */ = {
+			isa = PBXGroup;
+			children = (
+				C3D6D8BC1E26CE9F00019747 /* PLTextField.h */,
+				C3D6D8BD1E26CE9F00019747 /* PLTextField.m */,
+			);
+			path = PLTextField;
+			sourceTree = "<group>";
+		};
+		C3D6D8C31E26E60300019747 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3D6D8C41E26E61800019747 /* BaseViewController.h */,
+				C3D6D8C51E26E61800019747 /* BaseViewController.m */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		C3D6D8C71E26FE3100019747 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C3D6D8CC1E27096200019747 /* PHTextHelper.h */,
+				C3D6D8CD1E27096200019747 /* PHTextHelper.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C3D6D8C81E27084700019747 /* LandingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3D6D8C91E27089300019747 /* LandingViewController.h */,
+				C3D6D8CA1E27089300019747 /* LandingViewController.m */,
+			);
+			path = LandingViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,9 +405,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3D6D8AA1E26AFDC00019747 /* login_gradient_bg.png in Resources */,
+				C3D6D8B81E26B72100019747 /* login_login_bg@2x.png in Resources */,
+				C3D6D8A91E26AFDC00019747 /* login_crown@3x.png in Resources */,
+				C3D6D8AF1E26AFDC00019747 /* login_playground@3x.png in Resources */,
+				C3D6D8A81E26AFDC00019747 /* login_crown@2x.png in Resources */,
+				C38731431E22D2F0007B6BD1 /* logo@2x.png in Resources */,
+				C3D6D8C21E26DCBE00019747 /* MyriadPro-Regular.otf in Resources */,
+				C3D6D8B91E26B72100019747 /* login_login_bg@3x.png in Resources */,
+				C3D6D8AD1E26AFDC00019747 /* login_playground.png in Resources */,
+				C3D6D8AC1E26AFDC00019747 /* login_gradient_bg@3x.png in Resources */,
+				C3D6D8A71E26AFDC00019747 /* login_crown.png in Resources */,
+				C3D6D8AB1E26AFDC00019747 /* login_gradient_bg@2x.png in Resources */,
+				C38731421E22D2F0007B6BD1 /* logo.png in Resources */,
 				C30340051E2052BE00782925 /* LaunchScreen.storyboard in Resources */,
 				C30340021E2052BE00782925 /* Assets.xcassets in Resources */,
+				C38731441E22D2F0007B6BD1 /* logo@3x.png in Resources */,
 				C30340001E2052BE00782925 /* Main.storyboard in Resources */,
+				C3D6D8C11E26DCBE00019747 /* MyriadPro-Bold.otf in Resources */,
+				C3D6D8B71E26B72100019747 /* login_login_bg.png in Resources */,
+				C3D6D8AE1E26AFDC00019747 /* login_playground@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,8 +449,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3033FFD1E2052BE00782925 /* ViewController.m in Sources */,
+				C3D6D8B31E26B3E800019747 /* LoginViewController.m in Sources */,
+				C3D6D8C61E26E61800019747 /* BaseViewController.m in Sources */,
+				C3D6D8CE1E27096200019747 /* PHTextHelper.m in Sources */,
 				C3033FFA1E2052BE00782925 /* AppDelegate.m in Sources */,
+				C3D6D8BE1E26CE9F00019747 /* PLTextField.m in Sources */,
+				C3D6D8CB1E27089300019747 /* LandingViewController.m in Sources */,
 				C3033FF71E2052BE00782925 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +603,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Playground/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fred.Playground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -434,6 +615,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Playground/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fred.Playground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,6 +687,7 @@
 				C30340211E2052BF00782925 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C30340221E2052BF00782925 /* Build configuration list for PBXNativeTarget "PlaygroundTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +696,7 @@
 				C30340241E2052BF00782925 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C30340251E2052BF00782925 /* Build configuration list for PBXNativeTarget "PlaygroundUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +705,7 @@
 				C30340271E2052BF00782925 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
