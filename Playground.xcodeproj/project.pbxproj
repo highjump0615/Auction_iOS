@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63398D181E28C85800BB3E55 /* navbar_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63398D151E28C85800BB3E55 /* navbar_back@2x.png */; };
+		63398D191E28C85800BB3E55 /* navbar_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 63398D161E28C85800BB3E55 /* navbar_back.png */; };
+		63398D1A1E28C85800BB3E55 /* navbar_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63398D171E28C85800BB3E55 /* navbar_back@3x.png */; };
+		63398D3E1E28CF3E00BB3E55 /* PCBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63398D321E28CF3E00BB3E55 /* PCBaseView.m */; };
+		63398D3F1E28CF3E00BB3E55 /* PCNavbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63398D351E28CF3E00BB3E55 /* PCNavbarView.m */; };
+		63398D401E28CF3E00BB3E55 /* PCNavbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63398D361E28CF3E00BB3E55 /* PCNavbarView.xib */; };
+		63398D411E28CF3E00BB3E55 /* PCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 63398D391E28CF3E00BB3E55 /* PCTextField.m */; };
+		63398D421E28CF3E00BB3E55 /* PCUploadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63398D3C1E28CF3E00BB3E55 /* PCUploadView.m */; };
+		63398D431E28CF3E00BB3E55 /* PCUploadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63398D3D1E28CF3E00BB3E55 /* PCUploadView.xib */; };
+		63398D471E28D93B00BB3E55 /* PCBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63398D461E28D93B00BB3E55 /* PCBorderView.m */; };
+		63398D4A1E28E7EC00BB3E55 /* PHColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 63398D491E28E7EC00BB3E55 /* PHColorHelper.m */; };
+		63B36C521E2831B60086DF46 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B36C511E2831B60086DF46 /* SignupViewController.m */; };
+		63B36C5A1E283F1F0086DF46 /* upload_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B36C571E283F1F0086DF46 /* upload_add.png */; };
+		63B36C5B1E283F1F0086DF46 /* upload_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B36C581E283F1F0086DF46 /* upload_add@2x.png */; };
+		63B36C5C1E283F1F0086DF46 /* upload_add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B36C591E283F1F0086DF46 /* upload_add@3x.png */; };
 		C3033FF71E2052BE00782925 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3033FF61E2052BE00782925 /* main.m */; };
 		C3033FFA1E2052BE00782925 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3033FF91E2052BE00782925 /* AppDelegate.m */; };
 		C30340001E2052BE00782925 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3033FFE1E2052BE00782925 /* Main.storyboard */; };
@@ -30,7 +45,6 @@
 		C3D6D8B71E26B72100019747 /* login_login_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8B41E26B72100019747 /* login_login_bg.png */; };
 		C3D6D8B81E26B72100019747 /* login_login_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8B51E26B72100019747 /* login_login_bg@2x.png */; };
 		C3D6D8B91E26B72100019747 /* login_login_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8B61E26B72100019747 /* login_login_bg@3x.png */; };
-		C3D6D8BE1E26CE9F00019747 /* PLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D6D8BD1E26CE9F00019747 /* PLTextField.m */; };
 		C3D6D8C11E26DCBE00019747 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8BF1E26DCBE00019747 /* MyriadPro-Bold.otf */; };
 		C3D6D8C21E26DCBE00019747 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3D6D8C01E26DCBE00019747 /* MyriadPro-Regular.otf */; };
 		C3D6D8C61E26E61800019747 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D6D8C51E26E61800019747 /* BaseViewController.m */; };
@@ -56,6 +70,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63398D151E28C85800BB3E55 /* navbar_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_back@2x.png"; sourceTree = "<group>"; };
+		63398D161E28C85800BB3E55 /* navbar_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_back.png; sourceTree = "<group>"; };
+		63398D171E28C85800BB3E55 /* navbar_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_back@3x.png"; sourceTree = "<group>"; };
+		63398D311E28CF3E00BB3E55 /* PCBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBaseView.h; sourceTree = "<group>"; };
+		63398D321E28CF3E00BB3E55 /* PCBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBaseView.m; sourceTree = "<group>"; };
+		63398D341E28CF3E00BB3E55 /* PCNavbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCNavbarView.h; sourceTree = "<group>"; };
+		63398D351E28CF3E00BB3E55 /* PCNavbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCNavbarView.m; sourceTree = "<group>"; };
+		63398D361E28CF3E00BB3E55 /* PCNavbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCNavbarView.xib; sourceTree = "<group>"; };
+		63398D381E28CF3E00BB3E55 /* PCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCTextField.h; sourceTree = "<group>"; };
+		63398D391E28CF3E00BB3E55 /* PCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCTextField.m; sourceTree = "<group>"; };
+		63398D3B1E28CF3E00BB3E55 /* PCUploadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCUploadView.h; sourceTree = "<group>"; };
+		63398D3C1E28CF3E00BB3E55 /* PCUploadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCUploadView.m; sourceTree = "<group>"; };
+		63398D3D1E28CF3E00BB3E55 /* PCUploadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCUploadView.xib; sourceTree = "<group>"; };
+		63398D451E28D93B00BB3E55 /* PCBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBorderView.h; sourceTree = "<group>"; };
+		63398D461E28D93B00BB3E55 /* PCBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBorderView.m; sourceTree = "<group>"; };
+		63398D481E28E7EC00BB3E55 /* PHColorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHColorHelper.h; sourceTree = "<group>"; };
+		63398D491E28E7EC00BB3E55 /* PHColorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHColorHelper.m; sourceTree = "<group>"; };
+		63B36C501E2831B60086DF46 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = SignupViewController/SignupViewController.h; sourceTree = "<group>"; };
+		63B36C511E2831B60086DF46 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignupViewController.m; path = SignupViewController/SignupViewController.m; sourceTree = "<group>"; };
+		63B36C571E283F1F0086DF46 /* upload_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload_add.png; sourceTree = "<group>"; };
+		63B36C581E283F1F0086DF46 /* upload_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload_add@2x.png"; sourceTree = "<group>"; };
+		63B36C591E283F1F0086DF46 /* upload_add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload_add@3x.png"; sourceTree = "<group>"; };
 		C3033FF21E2052BE00782925 /* Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3033FF61E2052BE00782925 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C3033FF81E2052BE00782925 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -87,8 +123,6 @@
 		C3D6D8B41E26B72100019747 /* login_login_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_login_bg.png; sourceTree = "<group>"; };
 		C3D6D8B51E26B72100019747 /* login_login_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_login_bg@2x.png"; sourceTree = "<group>"; };
 		C3D6D8B61E26B72100019747 /* login_login_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_login_bg@3x.png"; sourceTree = "<group>"; };
-		C3D6D8BC1E26CE9F00019747 /* PLTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTextField.h; sourceTree = "<group>"; };
-		C3D6D8BD1E26CE9F00019747 /* PLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLTextField.m; sourceTree = "<group>"; };
 		C3D6D8BF1E26DCBE00019747 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
 		C3D6D8C01E26DCBE00019747 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
 		C3D6D8C41E26E61800019747 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -124,6 +158,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63398D301E28CF3E00BB3E55 /* PCBaseView */ = {
+			isa = PBXGroup;
+			children = (
+				63398D311E28CF3E00BB3E55 /* PCBaseView.h */,
+				63398D321E28CF3E00BB3E55 /* PCBaseView.m */,
+			);
+			path = PCBaseView;
+			sourceTree = "<group>";
+		};
+		63398D331E28CF3E00BB3E55 /* PCNavbarView */ = {
+			isa = PBXGroup;
+			children = (
+				63398D341E28CF3E00BB3E55 /* PCNavbarView.h */,
+				63398D351E28CF3E00BB3E55 /* PCNavbarView.m */,
+				63398D361E28CF3E00BB3E55 /* PCNavbarView.xib */,
+			);
+			path = PCNavbarView;
+			sourceTree = "<group>";
+		};
+		63398D371E28CF3E00BB3E55 /* PCTextField */ = {
+			isa = PBXGroup;
+			children = (
+				63398D381E28CF3E00BB3E55 /* PCTextField.h */,
+				63398D391E28CF3E00BB3E55 /* PCTextField.m */,
+			);
+			path = PCTextField;
+			sourceTree = "<group>";
+		};
+		63398D3A1E28CF3E00BB3E55 /* PCUploadView */ = {
+			isa = PBXGroup;
+			children = (
+				63398D3B1E28CF3E00BB3E55 /* PCUploadView.h */,
+				63398D3C1E28CF3E00BB3E55 /* PCUploadView.m */,
+				63398D3D1E28CF3E00BB3E55 /* PCUploadView.xib */,
+			);
+			path = PCUploadView;
+			sourceTree = "<group>";
+		};
+		63398D441E28D92600BB3E55 /* PCBorderView */ = {
+			isa = PBXGroup;
+			children = (
+				63398D451E28D93B00BB3E55 /* PCBorderView.h */,
+				63398D461E28D93B00BB3E55 /* PCBorderView.m */,
+			);
+			path = PCBorderView;
+			sourceTree = "<group>";
+		};
+		63B36C4F1E2831880086DF46 /* SignupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				63B36C501E2831B60086DF46 /* SignupViewController.h */,
+				63B36C511E2831B60086DF46 /* SignupViewController.m */,
+			);
+			name = SignupViewController;
+			sourceTree = "<group>";
+		};
+		63B36C561E283F1F0086DF46 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				63398D151E28C85800BB3E55 /* navbar_back@2x.png */,
+				63398D161E28C85800BB3E55 /* navbar_back.png */,
+				63398D171E28C85800BB3E55 /* navbar_back@3x.png */,
+				63B36C571E283F1F0086DF46 /* upload_add.png */,
+				63B36C581E283F1F0086DF46 /* upload_add@2x.png */,
+				63B36C591E283F1F0086DF46 /* upload_add@3x.png */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
 		C3033FE91E2052BD00782925 = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +311,7 @@
 		C387313C1E22C0D9007B6BD1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63B36C4F1E2831880086DF46 /* SignupViewController */,
 				C3D6D8C81E27084700019747 /* LandingViewController */,
 				C3D6D8C31E26E60300019747 /* BaseViewController */,
 				C3D6D8BA1E26CE7200019747 /* CustomUI */,
@@ -219,6 +323,7 @@
 		C387313E1E22D2F0007B6BD1 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				63B36C561E283F1F0086DF46 /* Signup */,
 				C3D6D89D1E26AFDC00019747 /* Login */,
 				C387313F1E22D2F0007B6BD1 /* logo.png */,
 				C38731401E22D2F0007B6BD1 /* logo@2x.png */,
@@ -258,18 +363,13 @@
 		C3D6D8BA1E26CE7200019747 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
-				C3D6D8BB1E26CE7200019747 /* PLTextField */,
+				63398D441E28D92600BB3E55 /* PCBorderView */,
+				63398D301E28CF3E00BB3E55 /* PCBaseView */,
+				63398D331E28CF3E00BB3E55 /* PCNavbarView */,
+				63398D371E28CF3E00BB3E55 /* PCTextField */,
+				63398D3A1E28CF3E00BB3E55 /* PCUploadView */,
 			);
 			path = CustomUI;
-			sourceTree = "<group>";
-		};
-		C3D6D8BB1E26CE7200019747 /* PLTextField */ = {
-			isa = PBXGroup;
-			children = (
-				C3D6D8BC1E26CE9F00019747 /* PLTextField.h */,
-				C3D6D8BD1E26CE9F00019747 /* PLTextField.m */,
-			);
-			path = PLTextField;
 			sourceTree = "<group>";
 		};
 		C3D6D8C31E26E60300019747 /* BaseViewController */ = {
@@ -286,6 +386,8 @@
 			children = (
 				C3D6D8CC1E27096200019747 /* PHTextHelper.h */,
 				C3D6D8CD1E27096200019747 /* PHTextHelper.m */,
+				63398D481E28E7EC00BB3E55 /* PHColorHelper.h */,
+				63398D491E28E7EC00BB3E55 /* PHColorHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -361,7 +463,7 @@
 		C3033FEA1E2052BD00782925 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = fred;
 				TargetAttributes = {
 					C3033FF11E2052BE00782925 = {
@@ -409,20 +511,28 @@
 				C3D6D8B81E26B72100019747 /* login_login_bg@2x.png in Resources */,
 				C3D6D8A91E26AFDC00019747 /* login_crown@3x.png in Resources */,
 				C3D6D8AF1E26AFDC00019747 /* login_playground@3x.png in Resources */,
+				63398D431E28CF3E00BB3E55 /* PCUploadView.xib in Resources */,
 				C3D6D8A81E26AFDC00019747 /* login_crown@2x.png in Resources */,
 				C38731431E22D2F0007B6BD1 /* logo@2x.png in Resources */,
 				C3D6D8C21E26DCBE00019747 /* MyriadPro-Regular.otf in Resources */,
 				C3D6D8B91E26B72100019747 /* login_login_bg@3x.png in Resources */,
+				63398D181E28C85800BB3E55 /* navbar_back@2x.png in Resources */,
+				63398D191E28C85800BB3E55 /* navbar_back.png in Resources */,
 				C3D6D8AD1E26AFDC00019747 /* login_playground.png in Resources */,
+				63B36C5A1E283F1F0086DF46 /* upload_add.png in Resources */,
 				C3D6D8AC1E26AFDC00019747 /* login_gradient_bg@3x.png in Resources */,
+				63B36C5C1E283F1F0086DF46 /* upload_add@3x.png in Resources */,
+				63B36C5B1E283F1F0086DF46 /* upload_add@2x.png in Resources */,
 				C3D6D8A71E26AFDC00019747 /* login_crown.png in Resources */,
 				C3D6D8AB1E26AFDC00019747 /* login_gradient_bg@2x.png in Resources */,
+				63398D1A1E28C85800BB3E55 /* navbar_back@3x.png in Resources */,
 				C38731421E22D2F0007B6BD1 /* logo.png in Resources */,
 				C30340051E2052BE00782925 /* LaunchScreen.storyboard in Resources */,
 				C30340021E2052BE00782925 /* Assets.xcassets in Resources */,
 				C38731441E22D2F0007B6BD1 /* logo@3x.png in Resources */,
 				C30340001E2052BE00782925 /* Main.storyboard in Resources */,
 				C3D6D8C11E26DCBE00019747 /* MyriadPro-Bold.otf in Resources */,
+				63398D401E28CF3E00BB3E55 /* PCNavbarView.xib in Resources */,
 				C3D6D8B71E26B72100019747 /* login_login_bg.png in Resources */,
 				C3D6D8AE1E26AFDC00019747 /* login_playground@2x.png in Resources */,
 			);
@@ -449,12 +559,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63398D3E1E28CF3E00BB3E55 /* PCBaseView.m in Sources */,
+				63398D471E28D93B00BB3E55 /* PCBorderView.m in Sources */,
+				63398D3F1E28CF3E00BB3E55 /* PCNavbarView.m in Sources */,
 				C3D6D8B31E26B3E800019747 /* LoginViewController.m in Sources */,
 				C3D6D8C61E26E61800019747 /* BaseViewController.m in Sources */,
+				63398D4A1E28E7EC00BB3E55 /* PHColorHelper.m in Sources */,
 				C3D6D8CE1E27096200019747 /* PHTextHelper.m in Sources */,
 				C3033FFA1E2052BE00782925 /* AppDelegate.m in Sources */,
-				C3D6D8BE1E26CE9F00019747 /* PLTextField.m in Sources */,
+				63398D411E28CF3E00BB3E55 /* PCTextField.m in Sources */,
 				C3D6D8CB1E27089300019747 /* LandingViewController.m in Sources */,
+				63398D421E28CF3E00BB3E55 /* PCUploadView.m in Sources */,
+				63B36C521E2831B60086DF46 /* SignupViewController.m in Sources */,
 				C3033FF71E2052BE00782925 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,6 +644,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -575,6 +692,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

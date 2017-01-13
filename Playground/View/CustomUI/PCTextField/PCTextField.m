@@ -6,9 +6,20 @@
 //  Copyright © 2017 fred. All rights reserved.
 //
 
-#import "PLTextField.h"
+#import "PCTextField.h"
 
-@implementation PLTextField
+@interface PCTextField() {
+    int mnLeftMargin;
+}
+@end
+
+@implementation PCTextField
+
+- (void) awakeFromNib {
+    [super awakeFromNib];
+    
+    mnLeftMargin = 10;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -19,15 +30,15 @@
 */
 
 - (CGRect)textRectForBounds:(CGRect)bounds {
-    return CGRectInset(bounds, 10, 0);
+    return CGRectInset(bounds, mnLeftMargin, 0);
 }
 
 - (CGRect)placeholderRectForBounds:(CGRect)bounds {
-    return CGRectInset(bounds, 10, 0);
+    return CGRectInset(bounds, mnLeftMargin, 0);
 }
 
 - (CGRect)editingRectForBounds:(CGRect)bounds {
-    return CGRectInset(bounds, 10, 0);
+    return CGRectInset(bounds, mnLeftMargin, 0);
 }
 
 

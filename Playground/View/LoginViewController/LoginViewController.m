@@ -7,13 +7,14 @@
 //
 
 #import "LoginViewController.h"
-#import "PLTextField.h"
+#import "PCTextField.h"
 #import "PHTextHelper.h"
+#import "PHColorHelper.h"
 
 @interface LoginViewController ()
 
-@property (weak, nonatomic) IBOutlet PLTextField *mTxtUsername;
-@property (weak, nonatomic) IBOutlet PLTextField *mTxtPassword;
+@property (weak, nonatomic) IBOutlet PCTextField *mTxtUsername;
+@property (weak, nonatomic) IBOutlet PCTextField *mTxtPassword;
 
 @property (weak, nonatomic) IBOutlet UIButton *mButLogin;
 @property (weak, nonatomic) IBOutlet UIButton *mButFacebook;
@@ -49,10 +50,7 @@
     [textfield setFont:fontBold];
     
     // placeholder
-    UIColor *colorGray = [UIColor colorWithRed:164/255.0
-                                         green:170/255.0
-                                          blue:179/255.0
-                                         alpha:1.0];
+    UIColor *colorGray = [PHColorHelper colorTextGray];
     if ([textfield respondsToSelector:@selector(setAttributedPlaceholder:)]) {
         textfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textfield.placeholder
                                                                           attributes:@{NSForegroundColorAttributeName:colorGray}];

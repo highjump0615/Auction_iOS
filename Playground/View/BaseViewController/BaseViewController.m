@@ -8,8 +8,11 @@
 
 #import "BaseViewController.h"
 #import "PHTextHelper.h"
+#import "PCNavbarView.h"
 
 @interface BaseViewController ()
+
+@property (weak, nonatomic) IBOutlet UIView *mViewNavbar;
 
 @end
 
@@ -17,7 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // add navigation bar view
+    PCNavbarView *viewNavbar = [PCNavbarView getView];
+    viewNavbar.frame = self.mViewNavbar.bounds;
+    
+    // back button
+    [viewNavbar.mButBack addTarget:self action:@selector(onButBack:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.mViewNavbar addSubview:viewNavbar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,13 +57,31 @@
     [button.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
 }
 
+/**
+ Initialize round buttons
+ */
+- (void)initRoundButton:(UIButton *)button {
+    // make them rounded
+    [button.layer setMasksToBounds:YES];
+    [button.layer setCornerRadius:button.frame.size.height / 2.0];
+    [button.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
+}
 
 /**
  Hides keyboard
  @param sender -
  */
--(void)dismissKeyboard:(UITapGestureRecognizer *) sender {
+- (void)dismissKeyboard:(UITapGestureRecognizer *) sender {
     [self.view endEditing:YES];
+}
+
+
+/**
+ back to prev page
+ @param sender sender description
+ */
+- (void)onButBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

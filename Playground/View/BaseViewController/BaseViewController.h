@@ -11,6 +11,7 @@
 @interface BaseViewController : UIViewController
 
 - (void)initLoginButton:(UIButton *)button;
+- (void)initRoundButton:(UIButton *)button;
 - (void)dismissKeyboard:(UITapGestureRecognizer *) sender;
 
 @end
