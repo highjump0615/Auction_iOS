@@ -46,15 +46,7 @@
     [textfield.layer setCornerRadius:nRadius];
     
     // font
-    UIFont *fontBold = [PHTextHelper myriadProBold:14];
-    [textfield setFont:fontBold];
-    
-    // placeholder
-    UIColor *colorGray = [PHColorHelper colorTextGray];
-    if ([textfield respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        textfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textfield.placeholder
-                                                                          attributes:@{NSForegroundColorAttributeName:colorGray}];
-    }
+    [PHTextHelper initTextBold:textfield];
 }
 
 - (void)viewDidLoad {

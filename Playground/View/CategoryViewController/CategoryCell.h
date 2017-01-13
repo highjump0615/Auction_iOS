@@ -1,5 +1,5 @@
 //
-//  PHColorHelper.h
+//  CategoryCell.h
 //  Playground
 //
 //  Created by Top1 on 1/13/17.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PHColorHelper : NSObject
-
-+ (UIColor*)colorTextGray;
-+ (UIColor*)colorTextBlack;
+@interface CategoryCell : UITableViewCell
 
 @end

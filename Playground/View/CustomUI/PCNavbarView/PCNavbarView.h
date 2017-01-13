@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *mButBack;
 
 + (id)getView;
+- (void)showSearch:(BOOL)showSearch showBack:(BOOL)showBack;
 
 @end

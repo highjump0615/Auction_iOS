@@ -14,4 +14,6 @@
 - (void)initRoundButton:(UIButton *)button;
 - (void)dismissKeyboard:(UITapGestureRecognizer *) sender;
 
+- (void)showSearch:(BOOL)showSearch showBack:(BOOL)showBack;
+
 @end

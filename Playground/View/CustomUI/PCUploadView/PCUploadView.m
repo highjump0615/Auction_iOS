@@ -43,4 +43,5 @@
     [self.mViewPhoto.layer setCornerRadius:frame.size.height / 2.0];
 }
 
+
 @end

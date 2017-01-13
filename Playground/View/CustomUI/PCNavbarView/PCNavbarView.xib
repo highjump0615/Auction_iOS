@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugG-Au-zcc">
+                <visualEffectView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugG-Au-zcc">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9UC-yP-ZXO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
@@ -28,17 +28,29 @@
                                 </constraints>
                                 <state key="normal" image="navbar_back.png"/>
                             </button>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfg-6v-tye">
+                                <rect key="frame" x="44" y="27" width="263" height="30"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0c3-4s-eW2"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="kfg-6v-tye" firstAttribute="leading" secondItem="J4h-bE-Vrv" secondAttribute="trailing" id="B42-JN-1hS"/>
                             <constraint firstItem="J4h-bE-Vrv" firstAttribute="leading" secondItem="9UC-yP-ZXO" secondAttribute="leading" id="DcU-EU-5ZQ"/>
                             <constraint firstItem="J4h-bE-Vrv" firstAttribute="top" secondItem="9UC-yP-ZXO" secondAttribute="top" constant="20" id="I6s-sF-Y9G"/>
+                            <constraint firstAttribute="trailing" secondItem="kfg-6v-tye" secondAttribute="trailing" constant="13" id="N3h-9y-wDE"/>
+                            <constraint firstItem="kfg-6v-tye" firstAttribute="centerY" secondItem="J4h-bE-Vrv" secondAttribute="centerY" id="XGJ-ne-Jtq"/>
                             <constraint firstAttribute="bottom" secondItem="J4h-bE-Vrv" secondAttribute="bottom" id="wbG-1W-yPC"/>
                         </constraints>
                     </view>
-                    <blurEffect style="light"/>
+                    <blurEffect style="extraLight"/>
                 </visualEffectView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="ugG-Au-zcc" secondAttribute="trailing" id="JZd-xk-5ms"/>
                 <constraint firstItem="ugG-Au-zcc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KgJ-FN-0TK"/>
@@ -49,6 +61,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="mButBack" destination="J4h-bE-Vrv" id="mcL-T3-dwJ"/>
+                <outlet property="mCstBackWidth" destination="7De-hw-Wes" id="67C-p3-eGK"/>
+                <outlet property="mCstSapcing" destination="B42-JN-1hS" id="e73-Gx-1Zd"/>
+                <outlet property="mTxtSearch" destination="kfg-6v-tye" id="c5g-NX-2sw"/>
             </connections>
         </view>
     </objects>

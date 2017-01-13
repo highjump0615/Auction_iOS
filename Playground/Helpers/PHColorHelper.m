@@ -17,5 +17,13 @@
                            alpha:1.0];
 }
 
++ (UIColor*)colorTextBlack {
+    return [UIColor colorWithRed:53/255.0
+                           green:53/255.0
+                            blue:53/255.0
+                           alpha:1.0];
+}
+
+
 
 @end

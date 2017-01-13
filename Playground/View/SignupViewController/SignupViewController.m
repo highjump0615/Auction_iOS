@@ -40,15 +40,7 @@
  */
 - (void)initTextField:(UITextField *)textfield {
     // font
-    UIFont *fontBold = [PHTextHelper myriadProBold:mnFontSize];
-    [textfield setFont:fontBold];
-    
-    // placeholder
-    UIColor *colorGray = [PHColorHelper colorTextGray];
-    if ([textfield respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        textfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textfield.placeholder
-                                                                          attributes:@{NSForegroundColorAttributeName:colorGray}];
-    }
+    [PHTextHelper initTextBold:textfield];
 }
 
 - (void)viewDidLoad {

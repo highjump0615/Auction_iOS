@@ -10,7 +10,9 @@
 #import "PHTextHelper.h"
 #import "PCNavbarView.h"
 
-@interface BaseViewController ()
+@interface BaseViewController () {
+    PCNavbarView *mNavbar;
+}
 
 @property (weak, nonatomic) IBOutlet UIView *mViewNavbar;
 
@@ -22,13 +24,13 @@
     [super viewDidLoad];
     
     // add navigation bar view
-    PCNavbarView *viewNavbar = [PCNavbarView getView];
-    viewNavbar.frame = self.mViewNavbar.bounds;
+    mNavbar = [PCNavbarView getView];
+    mNavbar.frame = self.mViewNavbar.bounds;
     
     // back button
-    [viewNavbar.mButBack addTarget:self action:@selector(onButBack:) forControlEvents:UIControlEventTouchUpInside];
+    [mNavbar.mButBack addTarget:self action:@selector(onButBack:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.mViewNavbar addSubview:viewNavbar];
+    [self.mViewNavbar addSubview:mNavbar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,7 +77,6 @@
     [self.view endEditing:YES];
 }
 
-
 /**
  back to prev page
  @param sender sender description
@@ -83,6 +84,16 @@
 - (void)onButBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+/**
+ show/hide search text field
+ @param showSearch <#showSearch description#>
+ @param showBack show/hide back button
+ */
+- (void)showSearch:(BOOL)showSearch showBack:(BOOL)showBack {
+    [mNavbar showSearch:showSearch showBack:showBack];
+}
+
 
 
 @end

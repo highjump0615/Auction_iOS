@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PCItemView">
+            <rect key="frame" x="0.0" y="0.0" width="85" height="97"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="jRR-N1-dc1">
+                    <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="jRR-N1-dc1" secondAttribute="height" multiplier="1:1" id="cQU-TT-CqJ"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AF2-bj-Tfs">
+                    <rect key="frame" x="2" y="2" width="81" height="81"/>
+                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="AF2-bj-Tfs" secondAttribute="height" multiplier="1:1" id="xK2-SE-11i"/>
+                    </constraints>
+                </imageView>
+                <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0b-lx-Juw">
+                    <rect key="frame" x="22.5" y="72" width="39" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="19" id="UDi-e0-h0R"/>
+                        <constraint firstAttribute="width" constant="39" id="imc-lC-wtt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <state key="normal" title="168:00" backgroundImage="blue_bg.png">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="jRR-N1-dc1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="AVs-fv-wrP"/>
+                <constraint firstItem="A0b-lx-Juw" firstAttribute="bottom" secondItem="jRR-N1-dc1" secondAttribute="bottom" constant="6" id="GIA-CN-Xdo"/>
+                <constraint firstAttribute="trailing" secondItem="jRR-N1-dc1" secondAttribute="trailing" id="byo-ht-lRD"/>
+                <constraint firstItem="AF2-bj-Tfs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="geL-cp-vpE"/>
+                <constraint firstItem="AF2-bj-Tfs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="2" id="hMN-Os-QCZ"/>
+                <constraint firstItem="A0b-lx-Juw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iR8-qg-C0r"/>
+                <constraint firstAttribute="trailing" secondItem="AF2-bj-Tfs" secondAttribute="trailing" constant="2" id="kIx-Kv-awZ"/>
+                <constraint firstItem="jRR-N1-dc1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rGU-t6-drL"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mButTime" destination="A0b-lx-Juw" id="qYX-Iy-W1G"/>
+                <outlet property="mImgViewBg" destination="jRR-N1-dc1" id="JX8-BP-fJa"/>
+                <outlet property="mImgviewPhoto" destination="AF2-bj-Tfs" id="cNZ-gQ-8wD"/>
+            </connections>
+            <point key="canvasLocation" x="9.5" y="-40.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="blue_bg.png" width="1" height="88"/>
+    </resources>
+</document>

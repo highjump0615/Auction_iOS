@@ -13,4 +13,8 @@
 + (UIFont *)myriadProRegular:(CGFloat)size;
 + (UIFont *)myriadProBold:(CGFloat)size;
 
+// textfield functions
++ (void)initTextRegular:(UITextField *)textfield;
++ (void)initTextBold:(UITextField *)textfield;
+
 @end
