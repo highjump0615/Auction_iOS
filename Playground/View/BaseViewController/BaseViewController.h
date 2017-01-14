@@ -10,10 +10,14 @@
 
 @interface BaseViewController : UIViewController
 
+// navbar
+- (void)showSearch:(BOOL)showSearch showBack:(BOOL)showBack;
+- (void)setSearchDelegate:(UIViewController<UITextFieldDelegate> *)controller;
+- (NSString *)getSearchString;
+
 - (void)initLoginButton:(UIButton *)button;
 - (void)initRoundButton:(UIButton *)button;
 - (void)dismissKeyboard:(UITapGestureRecognizer *) sender;
-
-- (void)showSearch:(BOOL)showSearch showBack:(BOOL)showBack;
+- (void)initTableView:(UITableView *)tableview;
 
 @end

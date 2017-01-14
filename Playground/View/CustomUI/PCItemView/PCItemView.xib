@@ -22,7 +22,7 @@
                         <constraint firstAttribute="width" secondItem="jRR-N1-dc1" secondAttribute="height" multiplier="1:1" id="cQU-TT-CqJ"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AF2-bj-Tfs">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="AF2-bj-Tfs">
                     <rect key="frame" x="2" y="2" width="81" height="81"/>
                     <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -30,7 +30,7 @@
                     </constraints>
                 </imageView>
                 <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0b-lx-Juw">
-                    <rect key="frame" x="22.5" y="72" width="39" height="19"/>
+                    <rect key="frame" x="23" y="72" width="39" height="19"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="19" id="UDi-e0-h0R"/>
                         <constraint firstAttribute="width" constant="39" id="imc-lC-wtt"/>
@@ -64,5 +64,6 @@
     </objects>
     <resources>
         <image name="blue_bg.png" width="1" height="88"/>
+        <image name="img_default.png" width="1" height="1"/>
     </resources>
 </document>

@@ -94,6 +94,30 @@
     [mNavbar showSearch:showSearch showBack:showBack];
 }
 
+- (void)setSearchDelegate:(UIViewController<UITextFieldDelegate> *)controller {
+    [mNavbar.mTxtSearch setDelegate:controller];
+}
+
+/**
+ initialze table view for data
+ @param tableview <#tableview description#>
+ */
+- (void)initTableView:(UITableView *)tableview {
+    // set margin for tableview
+    UIEdgeInsets edgeTable = tableview.contentInset;
+    edgeTable.top = 44;
+    edgeTable.bottom = 50;
+    [tableview setContentInset:edgeTable];
+}
+
+
+/**
+ get search string on nav bar
+ @return <#return value description#>
+ */
+- (NSString *)getSearchString {
+    return mNavbar.mTxtSearch.text;
+}
 
 
 @end

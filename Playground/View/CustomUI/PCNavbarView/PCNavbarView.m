@@ -11,7 +11,6 @@
 
 @interface PCNavbarView()
 
-@property (weak, nonatomic) IBOutlet UITextField *mTxtSearch;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstSapcing;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstBackWidth;
 

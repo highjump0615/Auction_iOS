@@ -30,12 +30,8 @@
     
     // hide back button
     [self showSearch:YES showBack:NO];
-    
-    // set margin for tableview
-    UIEdgeInsets edgeTable = self.mTableView.contentInset;
-    edgeTable.top = 44;
-    edgeTable.bottom = 50;
-    [self.mTableView setContentInset:edgeTable];
+
+    [self initTableView:self.mTableView];
     
     // init parameter
     dCategoryHeight = 80;
@@ -139,6 +135,11 @@
     
     return dHeight;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"Category2Detail" sender:nil];
+}
+
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

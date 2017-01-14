@@ -11,6 +11,7 @@
 @interface PCNavbarView : PCBaseView
 
 @property (weak, nonatomic) IBOutlet UIButton *mButBack;
+@property (weak, nonatomic) IBOutlet UITextField *mTxtSearch;
 
 + (id)getView;
 - (void)showSearch:(BOOL)showSearch showBack:(BOOL)showBack;

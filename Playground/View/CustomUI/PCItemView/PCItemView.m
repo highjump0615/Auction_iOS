@@ -7,6 +7,7 @@
 //
 
 #import "PCItemView.h"
+#import "PHUiHelper.h"
 
 @interface PCItemView()
 
@@ -49,16 +50,13 @@
     //
     
     // border view
-    [self.mImgViewBg.layer setMasksToBounds:YES];
-    [self.mImgViewBg.layer setCornerRadius:self.mImgViewBg.frame.size.width/2.0];
+    [PHUiHelper makeRounded:self.mImgViewBg];
     
     // photo view
-    [self.mImgviewPhoto.layer setMasksToBounds:YES];
-    [self.mImgviewPhoto.layer setCornerRadius:self.mImgviewPhoto.frame.size.width/2.0];
+    [PHUiHelper makeRounded:self.mImgviewPhoto];
     
     // time button
-    [self.mButTime.layer setMasksToBounds:YES];
-    [self.mButTime.layer setCornerRadius:self.mButTime.frame.size.height/2.0];
+    [PHUiHelper makeRounded:self.mButTime];
 }
 
 
