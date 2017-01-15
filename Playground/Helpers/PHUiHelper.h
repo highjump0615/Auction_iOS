@@ -11,5 +11,6 @@
 @interface PHUiHelper : NSObject
 
 + (void)makeRounded:(UIView *)view;
++ (void)setPurpleBorder:(UIView *)view cornerRadius:(double)radius;
 
 @end

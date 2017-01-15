@@ -10,6 +10,7 @@
 #import "PCTextField.h"
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
+#import "PHUiHelper.h"
 
 @interface LoginViewController ()
 
@@ -33,17 +34,7 @@
  */
 - (void)initTextField:(UITextField *)textfield {
     
-    int nRadius = 10;
-    
-    // make border
-    [textfield.layer setMasksToBounds:YES];
-    [textfield.layer setBorderColor:[UIColor colorWithRed:122/255.0
-                                                    green:167/255.0
-                                                     blue:244/255.0
-                                                    alpha:1.0].CGColor];
-    [textfield.layer setBorderWidth:1.0f];
-    
-    [textfield.layer setCornerRadius:nRadius];
+    [PHUiHelper setPurpleBorder:textfield cornerRadius:10];
     
     // font
     [PHTextHelper initTextBold:textfield];

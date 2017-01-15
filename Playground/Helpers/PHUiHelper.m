@@ -15,4 +15,17 @@
     [view.layer setCornerRadius:view.frame.size.height/2.0];
 }
 
++ (void)setPurpleBorder:(UIView *)view cornerRadius:(double)radius {
+    
+    // make border
+    [view.layer setMasksToBounds:YES];
+    [view.layer setBorderColor:[UIColor colorWithRed:122/255.0
+                                                    green:167/255.0
+                                                     blue:244/255.0
+                                                    alpha:1.0].CGColor];
+    [view.layer setBorderWidth:1.0f];
+    
+    [view.layer setCornerRadius:radius];
+}
+
 @end

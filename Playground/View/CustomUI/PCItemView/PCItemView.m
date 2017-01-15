@@ -8,6 +8,7 @@
 
 #import "PCItemView.h"
 #import "PHUiHelper.h"
+#import "PHTextHelper.h"
 
 @interface PCItemView()
 
@@ -28,6 +29,9 @@
     
     [self.mButTime.layer setBorderWidth:2];
     [self.mButTime.layer setBorderColor:[UIColor whiteColor].CGColor];
+    
+    // font
+    [self.mButTime.titleLabel setFont:[PHTextHelper myriadProRegular:11]];
 }
 
 /*
@@ -59,5 +63,13 @@
     [PHUiHelper makeRounded:self.mButTime];
 }
 
+
+/**
+ show/hide time limit on the bottom
+ @param show <#show description#>
+ */
+- (void)showTimeLimit:(BOOL)show {
+    [self.mButTime setHidden:!show];
+}
 
 @end

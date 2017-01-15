@@ -18,6 +18,7 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="jRR-N1-dc1">
                     <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="jRR-N1-dc1" secondAttribute="height" multiplier="1:1" id="cQU-TT-CqJ"/>
                     </constraints>

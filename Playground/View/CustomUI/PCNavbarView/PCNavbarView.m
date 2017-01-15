@@ -11,6 +11,8 @@
 
 @interface PCNavbarView()
 
+@property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstSapcing;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstBackWidth;
 
@@ -26,6 +28,9 @@
     [self.mTxtSearch.layer setCornerRadius:5];
     
     [PHTextHelper initTextRegular:self.mTxtSearch];
+    
+    // init title label
+    [self.mLblTitle setFont:[PHTextHelper myriadProRegular:21]];
 }
 
 /*
@@ -62,6 +67,14 @@
         [self.mCstBackWidth setConstant:0];
         [self.mButBack setHidden:YES];
     }
+}
+
+/**
+ show/hide title label
+ @param show <#show description#>
+ */
+- (void)showTitle:(BOOL)show {
+    [self.mLblTitle setHidden:!show];
 }
 
 @end

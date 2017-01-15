@@ -10,4 +10,6 @@
 
 @interface PCBorderView : UIView
 
+- (void)removeBottom;
+
 @end

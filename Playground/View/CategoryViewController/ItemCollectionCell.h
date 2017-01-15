@@ -10,4 +10,6 @@
 
 @interface ItemCollectionCell : UICollectionViewCell
 
+- (void)showTimeLimit:(BOOL)show;
+
 @end

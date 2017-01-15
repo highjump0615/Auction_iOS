@@ -9,9 +9,7 @@
 #import "CategoryExploreCell.h"
 #import "PCItemView.h"
 
-@interface CategoryExploreCell() {
-    PCItemView *mItemView;
-}
+@interface CategoryExploreCell()
 
 @property (weak, nonatomic) IBOutlet UICollectionView *mCollectionView;
 
@@ -21,12 +19,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    // add item view
-    mItemView = [PCItemView getView];
-    mItemView.frame = self.bounds;
-    
-    [self.maskView addSubview:mItemView];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

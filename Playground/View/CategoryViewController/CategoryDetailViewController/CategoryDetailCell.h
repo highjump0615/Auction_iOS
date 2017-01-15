@@ -6,8 +6,8 @@
 //  Copyright © 2017 fred. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ItemBaseCell.h"
 
-@interface CategoryDetailCell : UITableViewCell
+@interface CategoryDetailCell : ItemBaseCell
 
 @end

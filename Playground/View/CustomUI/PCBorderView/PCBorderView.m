@@ -9,6 +9,13 @@
 #import "PCBorderView.h"
 #import "PHColorHelper.h"
 
+@interface PCBorderView() {
+    CALayer *mborderTop;
+    CALayer *mborderBottom;
+}
+
+@end
+
 @implementation PCBorderView
 
 /*
@@ -21,23 +28,28 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
- 
+    
     //
     // add top & bottom border
     //
     double dBorderWidth = 0.5;
     
-    CALayer *borderTop = [CALayer layer];
-    borderTop.backgroundColor = [PHColorHelper colorTextGray].CGColor;
+    mborderTop = [CALayer layer];
+    mborderTop.backgroundColor = [PHColorHelper colorTextGray].CGColor;
+    mborderTop.frame = CGRectMake(0, 0, self.frame.size.width, dBorderWidth);
+    [self.layer addSublayer:mborderTop];
     
-    CALayer *borderBottom = [CALayer layer];
-    borderBottom.backgroundColor = [PHColorHelper colorTextGray].CGColor;
-    
-    borderTop.frame = CGRectMake(0, 0, self.frame.size.width, dBorderWidth);
-    borderBottom.frame = CGRectMake(0, self.frame.size.height - dBorderWidth, self.frame.size.width, dBorderWidth);
-    
-    [self.layer addSublayer:borderTop];
-    [self.layer addSublayer:borderBottom];
+    mborderBottom = [CALayer layer];
+    mborderBottom.backgroundColor = [PHColorHelper colorTextGray].CGColor;
+    mborderBottom.frame = CGRectMake(0, self.frame.size.height - dBorderWidth, self.frame.size.width, dBorderWidth);
+    [self.layer addSublayer:mborderBottom];
+}
+
+/**
+ remove bottom border
+ */
+- (void)removeBottom {
+    [mborderBottom removeFromSuperlayer];
 }
 
 @end

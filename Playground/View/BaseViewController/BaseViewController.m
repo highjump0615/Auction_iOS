@@ -94,6 +94,15 @@
     [mNavbar showSearch:showSearch showBack:showBack];
 }
 
+/**
+ show/hide title label
+ @param show <#show description#>
+ */
+- (void)showTitle:(BOOL)show {
+    [mNavbar showTitle:YES];
+}
+
+
 - (void)setSearchDelegate:(UIViewController<UITextFieldDelegate> *)controller {
     [mNavbar.mTxtSearch setDelegate:controller];
 }
@@ -108,6 +117,9 @@
     edgeTable.top = 44;
     edgeTable.bottom = 50;
     [tableview setContentInset:edgeTable];
+    
+    [tableview setTableHeaderView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, tableview.bounds.size.width, 0.01f)]];
+    [tableview setTableFooterView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, tableview.bounds.size.width, 0.01f)]];
 }
 
 
