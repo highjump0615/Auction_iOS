@@ -1,0 +1,115 @@
+//
+//  BidItemCell.m
+//  Playground
+//
+//  Created by Top1 on 1/16/17.
+//  Copyright © 2017 fred. All rights reserved.
+//
+
+#import "BidItemCell.h"
+#import "PCItemView.h"
+#import "BidViewController.h"
+#import "PHTextHelper.h"
+#import "PHUiHelper.h"
+
+@interface BidItemCell() {
+    NSMutableArray *maryButTab;
+    NSMutableArray *maryImgNormal;
+    NSMutableArray *maryImgSelected;
+    
+    PCItemView *mViewItemCore;
+}
+
+@property (weak, nonatomic) IBOutlet PCItemView *mViewItem;
+@property (weak, nonatomic) IBOutlet UILabel *mLblItemname;
+@property (weak, nonatomic) IBOutlet UILabel *mLblUsername;
+
+@property (weak, nonatomic) IBOutlet UIButton *mButBid;
+
+@property (weak, nonatomic) IBOutlet UIButton *mButDesc;
+@property (weak, nonatomic) IBOutlet UIButton *mButPhoto;
+@property (weak, nonatomic) IBOutlet UIButton *mButComment;
+
+@end
+
+@implementation BidItemCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    // add item view
+    mViewItemCore = [PCItemView getView];
+    mViewItemCore.frame = self.mViewItem.bounds;
+    
+    [self.mViewItem addSubview:mViewItemCore];
+    
+    // font
+    [self.mLblItemname setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mLblUsername setFont:[PHTextHelper myriadProRegular:10]];
+    
+    // bid button
+    [self.mButBid.titleLabel setFont:[PHTextHelper myriadProRegular:12]];
+    [PHUiHelper makeRounded:self.mButBid];
+    
+    //
+    // tab buttons
+    //
+    maryButTab = [[NSMutableArray alloc] init];
+    maryImgNormal = [[NSMutableArray alloc] init];
+    maryImgSelected = [[NSMutableArray alloc] init];
+    
+    // add button objects
+    [maryButTab addObject:self.mButDesc];
+    [maryImgNormal addObject:@"bid_desc"];
+    [maryImgSelected addObject:@"bid_desc_selected"];
+    
+    [maryButTab addObject:self.mButPhoto];
+    [maryImgNormal addObject:@"bid_photo"];
+    [maryImgSelected addObject:@"bid_photo_selected"];
+    
+    [maryButTab addObject:self.mButComment];
+    [maryImgNormal addObject:@"bid_comment"];
+    [maryImgSelected addObject:@"bid_comment_selected"];
+    
+    for (UIButton *button in maryButTab) {
+        [button addTarget:self action:@selector(onButTab:) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+
+/**
+ event handler for tab buttons
+ @param sender tab button
+ */
+- (void)onButTab:(id)sender {
+    NSInteger nTag = ((UIButton *)sender).tag;
+    
+    int nTab = (int)nTag;
+    
+    // update view content
+    BidViewController *viewController = (BidViewController *)self.delegate;
+    [viewController setSelectedTab:nTab];
+    
+    //
+    // set button icons
+    //
+    for (int i = 0; i <= nTab; i++) {
+        UIButton *button = maryButTab[i];
+        
+        if (i == nTab) {
+            [button setImage:[UIImage imageNamed:maryImgSelected[i]] forState:UIControlStateNormal];
+        }
+        else {
+            [button setImage:[UIImage imageNamed:maryImgNormal[i]] forState:UIControlStateNormal];
+        }
+    }
+}
+
+
+@end

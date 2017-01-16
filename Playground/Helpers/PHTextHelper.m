@@ -19,6 +19,11 @@
     return [UIFont fontWithName:@"MyriadPro-Bold" size:size];
 }
 
++ (UIFont*)myriadProSemibold:(CGFloat)size {
+    return [UIFont fontWithName:@"MyriadPro-Semibold" size:size];
+}
+
+
 
 /**
  set textfield placeholder color

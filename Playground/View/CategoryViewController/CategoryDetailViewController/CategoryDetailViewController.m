@@ -134,6 +134,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    // go to detail page
+    [self performSegueWithIdentifier:@"CategoryDetail2Bid" sender:nil];
 }
 
 #pragma mark - UITextFieldDelegate
