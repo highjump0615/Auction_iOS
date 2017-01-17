@@ -96,19 +96,16 @@
     BidViewController *viewController = (BidViewController *)self.delegate;
     [viewController setSelectedTab:nTab];
     
-    //
-    // set button icons
-    //
-    for (int i = 0; i <= nTab; i++) {
+    // init button icon with normal image
+    int i = 0;
+    for (i = 0; i < [maryButTab count]; i++) {
         UIButton *button = maryButTab[i];
-        
-        if (i == nTab) {
-            [button setImage:[UIImage imageNamed:maryImgSelected[i]] forState:UIControlStateNormal];
-        }
-        else {
-            [button setImage:[UIImage imageNamed:maryImgNormal[i]] forState:UIControlStateNormal];
-        }
+        [button setImage:[UIImage imageNamed:maryImgNormal[i]] forState:UIControlStateNormal];
     }
+    
+    // set selected button icon
+    UIButton *button = maryButTab[nTab];
+    [button setImage:[UIImage imageNamed:maryImgSelected[nTab]] forState:UIControlStateNormal];
 }
 
 

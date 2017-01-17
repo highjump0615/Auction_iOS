@@ -31,7 +31,7 @@
     [self showSearch:YES showBack:YES];
     [self setSearchDelegate:self];
     
-    [self initTableView:self.mTableView];
+    [self initTableView:self.mTableView haveBottombar:YES];
     
     // init param
     mdCellHeight = 100;

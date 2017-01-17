@@ -9,6 +9,7 @@
 #import "ChatViewController.h"
 #import "ChatCell.h"
 #import "PCBorderView.h"
+#import "PHTextHelper.h"
 
 @interface ChatViewController () {
     NSString *mstrCellId;
@@ -16,6 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 @property (weak, nonatomic) IBOutlet PCBorderView *mViewInput;
+@property (weak, nonatomic) IBOutlet UITextField *mTextInput;
 
 @end
 
@@ -26,27 +28,20 @@
     
     // nav bar
     [self showTitle:YES];
-    [self initTableView:self.mTableView];
+    [self initTableView:self.mTableView haveBottombar:YES];
     
     // table view
     self.mTableView.estimatedRowHeight = UITableViewAutomaticDimension;
     
     // init param
     mstrCellId = @"ChatTableCell";
-    
-    // keyboard
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-    
+        
     // input view
     [self.mViewInput removeBottom];
+    [PHTextHelper initTextRegular:self.mTextInput];
+    
+    // keyboard event
+    [self enableKeyboardNotification];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,31 +74,6 @@
     }
 }
 
-/**
- shrink the screen
- @param yPos size
- */
-- (void)animationView:(CGFloat)yPos {
-    
-    if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait)
-    {
-        CGSize sz = [[UIScreen mainScreen] bounds].size;
-        if(yPos == sz.height - self.view.frame.size.height)
-            return;
-
-        //        self.view.userInteractionEnabled = NO;
-        [UIView animateWithDuration:0.3
-                         animations:^{
-                             CGRect rt = self.view.frame;
-                             rt.size.height = sz.height - yPos;
-                             self.view.frame = rt;
-                             
-                             [self.view layoutIfNeeded];
-                         }completion:^(BOOL finished) {
-                             [self scrollToBottomAnimated:YES];
-                         }];
-    }
-}
 
 
 /**
@@ -152,19 +122,8 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     [textField setText:@""];
-
-    return YES;
-}
-
-#pragma mark - KeyBoard notifications
-- (void)keyboardWillShow:(NSNotification*)notify {
-    CGRect rtKeyBoard = [(NSValue*)[notify.userInfo valueForKey:@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
     
-    [self animationView:rtKeyBoard.size.height];
-}
-
-- (void)keyboardWillHide:(NSNotification*)notify {
-    [self animationView:0];
+    return YES;
 }
 
 

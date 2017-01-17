@@ -111,11 +111,16 @@
  initialze table view for data
  @param tableview <#tableview description#>
  */
-- (void)initTableView:(UITableView *)tableview {
+- (void)initTableView:(UITableView *)tableview haveBottombar:(BOOL)haveBottombar {
     // set margin for tableview
     UIEdgeInsets edgeTable = tableview.contentInset;
     edgeTable.top = 44;
-    edgeTable.bottom = 50;
+    
+    // if has bottom tab bar
+    if (haveBottombar) {
+        edgeTable.bottom = 50;
+    }
+    
     [tableview setContentInset:edgeTable];
     
     [tableview setTableHeaderView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, tableview.bounds.size.width, 0.01f)]];
@@ -129,6 +134,60 @@
  */
 - (NSString *)getSearchString {
     return mNavbar.mTxtSearch.text;
+}
+
+
+/**
+ add keyboard show & hide notification
+ */
+- (void)enableKeyboardNotification {
+    // keyboard
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+/**
+ shrink the screen
+ @param yPos size
+ */
+- (void)animationView:(CGFloat)yPos {
+    
+    if ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait)
+    {
+        CGSize sz = [[UIScreen mainScreen] bounds].size;
+        if(yPos == sz.height - self.view.frame.size.height)
+            return;
+        
+        //        self.view.userInteractionEnabled = NO;
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             CGRect rt = self.view.frame;
+                             rt.size.height = sz.height - yPos;
+                             self.view.frame = rt;
+                             
+                             [self.view layoutIfNeeded];
+                         }completion:^(BOOL finished) {
+//                             [self scrollToBottomAnimated:YES];
+                         }];
+    }
+}
+
+#pragma mark - KeyBoard notifications
+- (void)keyboardWillShow:(NSNotification*)notify {
+    CGRect rtKeyBoard = [(NSValue*)[notify.userInfo valueForKey:@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
+    
+    [self animationView:rtKeyBoard.size.height];
+}
+
+- (void)keyboardWillHide:(NSNotification*)notify {
+    [self animationView:0];
 }
 
 

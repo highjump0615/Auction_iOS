@@ -13,6 +13,8 @@
 #import "BidPhotoCell.h"
 #import "BidCommentCell.h"
 #import "BidPhotoCollectionCell.h"
+#import "PHTextHelper.h"
+#import "PHUiHelper.h"
 
 #define BID_TAB_DESCRIPTION     0
 #define BID_TAB_PHOTO           1
@@ -24,6 +26,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableview;
 @property (weak, nonatomic) IBOutlet PCBorderView *mViewInput;
+@property (weak, nonatomic) IBOutlet UITextField *mTextInput;
 @property (weak, nonatomic) IBOutlet UIButton *mButComment;
 
 @end
@@ -36,8 +39,22 @@
     // init param
     mnSelectedTab = BID_TAB_DESCRIPTION;
     
+    // hide back button
+    [self showSearch:YES showBack:YES];
+    
     // table view
+    [self initTableView:self.mTableview haveBottombar:NO];
     self.mTableview.estimatedRowHeight = UITableViewAutomaticDimension;
+    
+    // font
+    [self.mButComment.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
+    [PHUiHelper makeRounded:self.mButComment];
+    
+    // keyboard event
+    [self enableKeyboardNotification];
+    
+    // input text field
+    [PHTextHelper initTextRegular:self.mTextInput];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,6 +80,15 @@
 - (void)setSelectedTab:(int)value {
     mnSelectedTab = value;
     [self.mTableview reloadData];
+    
+    // if comment, show comment button
+    if (mnSelectedTab == BID_TAB_COMMENT) {
+        [self.mButComment setHidden:NO];
+    }
+    else {
+        [self.mButComment setHidden:YES];
+        [self showCommentInput:NO];
+    }
 }
 
 /**
@@ -77,6 +103,8 @@
     // item cell is the first
     if (index == 0) {
         BidItemCell *cellItem = (BidItemCell *)[tableView dequeueReusableCellWithIdentifier:@"BidItemCell"];
+        cellItem.delegate = self;
+        
         cell = cellItem;
     }
     else {
@@ -85,12 +113,20 @@
             BidDescCell *cellDesc = (BidDescCell *)[tableView dequeueReusableCellWithIdentifier:@"BidDescCell"];
             cell = cellDesc;
         }
-        else if (mnSelectedTab == BID_TAB_DESCRIPTION) {
+        else if (mnSelectedTab == BID_TAB_PHOTO) {
             BidPhotoCell *cellPhoto = (BidPhotoCell *)[tableView dequeueReusableCellWithIdentifier:@"BidPhotoCell"];
             cell = cellPhoto;
         }
         else {
             BidCommentCell *cellComment = (BidCommentCell *)[tableView dequeueReusableCellWithIdentifier:@"BidCommentCell"];
+            
+            if (index == 1) {
+                [cellComment showTime:YES];
+            }
+            else {
+                [cellComment showTime:NO];
+            }
+            
             cell = cellComment;
         }
     }
@@ -98,6 +134,34 @@
     return cell;
 }
 
+
+/**
+ show/hide input view for comment
+ @param show <#show description#>
+ */
+- (void)showCommentInput:(BOOL)show {
+    [self.mViewInput setHidden:!show];
+    
+    //
+    // set bottom margin for tableview
+    //
+    UIEdgeInsets edgeTable = self.mTableview.contentInset;
+    
+    // if show, add bottom inset
+    if (show) {
+        edgeTable.bottom += self.mViewInput.bounds.size.height;
+    }
+    else {
+        edgeTable.bottom -= self.mViewInput.bounds.size.height;
+    }
+    
+    [self.mTableview setContentInset:edgeTable];
+}
+
+- (IBAction)onButComment:(id)sender {
+    [self showCommentInput:YES];
+    [self.mButComment setHidden:YES];
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -143,6 +207,10 @@
         // other cells are determined by the selected tab
         if (mnSelectedTab == BID_TAB_DESCRIPTION || mnSelectedTab == BID_TAB_COMMENT) {
             UITableViewCell *cell = [self configureChatCell:tableView index:indexPath.row];
+            
+            // reset layout
+            [cell layoutIfNeeded];
+            
             dHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         }
         else {
@@ -166,6 +234,15 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     return CGSizeMake(120, 200);
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    [textField setText:@""];
+    
+    return YES;
 }
 
 

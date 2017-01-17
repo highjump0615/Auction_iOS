@@ -12,5 +12,7 @@
 
 + (void)makeRounded:(UIView *)view;
 + (void)setPurpleBorder:(UIView *)view cornerRadius:(double)radius;
++ (UIImage *)blueBackground;
++ (UIImage *)redBackground;
 
 @end

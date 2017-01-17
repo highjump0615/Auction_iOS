@@ -12,6 +12,8 @@
 @interface PCBorderView() {
     CALayer *mborderTop;
     CALayer *mborderBottom;
+    
+    double mdBorderWidth;
 }
 
 @end
@@ -29,20 +31,17 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    //
-    // add top & bottom border
-    //
-    double dBorderWidth = 0.5;
+    // init param
+    mdBorderWidth = 0.5;
     
+    //
+    // add top border
+    //
     mborderTop = [CALayer layer];
     mborderTop.backgroundColor = [PHColorHelper colorTextGray].CGColor;
-    mborderTop.frame = CGRectMake(0, 0, self.frame.size.width, dBorderWidth);
+    mborderTop.frame = CGRectMake(0, 0, self.frame.size.width, mdBorderWidth);
     [self.layer addSublayer:mborderTop];
     
-    mborderBottom = [CALayer layer];
-    mborderBottom.backgroundColor = [PHColorHelper colorTextGray].CGColor;
-    mborderBottom.frame = CGRectMake(0, self.frame.size.height - dBorderWidth, self.frame.size.width, dBorderWidth);
-    [self.layer addSublayer:mborderBottom];
 }
 
 /**
@@ -50,6 +49,24 @@
  */
 - (void)removeBottom {
     [mborderBottom removeFromSuperlayer];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    // remove bottomborder if exist
+    if (mborderBottom) {
+        [mborderBottom removeFromSuperlayer];
+    }
+
+    //
+    // add bottom border
+    //
+    mborderBottom = [CALayer layer];
+    mborderBottom.backgroundColor = [PHColorHelper colorTextGray].CGColor;
+    mborderBottom.frame = CGRectMake(0, self.frame.size.height - mdBorderWidth, self.frame.size.width, mdBorderWidth);
+    [self.layer addSublayer:mborderBottom];
 }
 
 @end
