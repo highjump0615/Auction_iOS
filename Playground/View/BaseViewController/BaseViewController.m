@@ -102,6 +102,14 @@
     [mNavbar showTitle:YES];
 }
 
+/**
+ show/hide congratulations title
+ @param show <#show description#>
+ */
+- (void)showNavbarCongrat:(BOOL)show {
+    [mNavbar showCongrat:show];
+}
+
 
 - (void)setSearchDelegate:(UIViewController<UITextFieldDelegate> *)controller {
     [mNavbar.mTxtSearch setDelegate:controller];

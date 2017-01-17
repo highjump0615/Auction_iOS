@@ -20,7 +20,7 @@
     PCItemView *mViewItemCore;
 }
 
-@property (weak, nonatomic) IBOutlet PCItemView *mViewItem;
+@property (weak, nonatomic) IBOutlet UIView *mViewItem;
 @property (weak, nonatomic) IBOutlet UILabel *mLblItemname;
 @property (weak, nonatomic) IBOutlet UILabel *mLblUsername;
 

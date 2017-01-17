@@ -15,6 +15,7 @@
 - (void)showTitle:(BOOL)show;
 - (void)setSearchDelegate:(UIViewController<UITextFieldDelegate> *)controller;
 - (NSString *)getSearchString;
+- (void)showNavbarCongrat:(BOOL)show;
 
 // controls
 - (void)initLoginButton:(UIButton *)button;

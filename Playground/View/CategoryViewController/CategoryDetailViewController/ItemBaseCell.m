@@ -14,7 +14,7 @@
     PCItemView *mItemView;
 }
 
-@property (weak, nonatomic) IBOutlet PCItemView *mViewPhoto;
+@property (weak, nonatomic) IBOutlet UIView *mViewPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *mLblUsername;
 

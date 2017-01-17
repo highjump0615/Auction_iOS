@@ -12,6 +12,7 @@
 @interface PCNavbarView()
 
 @property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
+@property (weak, nonatomic) IBOutlet UIImageView *mImgviewCongrat;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstSapcing;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstBackWidth;
@@ -76,5 +77,14 @@
 - (void)showTitle:(BOOL)show {
     [self.mLblTitle setHidden:!show];
 }
+
+/**
+ show/hide congratulations title
+ @param show <#show description#>
+ */
+- (void)showCongrat:(BOOL)show {
+    [self.mImgviewCongrat setHidden:!show];
+}
+
 
 @end

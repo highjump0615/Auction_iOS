@@ -16,5 +16,6 @@
 + (id)getView;
 - (void)showSearch:(BOOL)showSearch showBack:(BOOL)showBack;
 - (void)showTitle:(BOOL)show;
+- (void)showCongrat:(BOOL)show;
 
 @end

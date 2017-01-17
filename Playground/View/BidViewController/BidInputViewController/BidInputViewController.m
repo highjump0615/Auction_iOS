@@ -19,7 +19,7 @@
     PCNoticePrice *mViewBidCore;
 }
 
-@property (weak, nonatomic) IBOutlet PCItemView *mViewItem;
+@property (weak, nonatomic) IBOutlet UIView *mViewItem;
 @property (weak, nonatomic) IBOutlet UILabel *mLblItemname;
 @property (weak, nonatomic) IBOutlet UILabel *mLblUsername;
 
@@ -61,7 +61,6 @@
     // add item view
     mViewItemCore = [PCItemView getView];
     mViewItemCore.frame = self.mViewItem.bounds;
-    
     [self.mViewItem addSubview:mViewItemCore];
     
     //

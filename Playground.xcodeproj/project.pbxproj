@@ -99,6 +99,12 @@
 		63890D731E29726B002A3C16 /* PCItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63890D721E29726B002A3C16 /* PCItemView.m */; };
 		63890D761E29736D002A3C16 /* CategoryExploreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63890D751E29736D002A3C16 /* CategoryExploreCell.m */; };
 		63890D7C1E29779B002A3C16 /* ItemCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63890D7B1E29779B002A3C16 /* ItemCollectionCell.m */; };
+		63A29DF51E2E9C060059FEB4 /* auct_congrat.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A29DF21E2E9C060059FEB4 /* auct_congrat.png */; };
+		63A29DF61E2E9C060059FEB4 /* auct_congrat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A29DF31E2E9C060059FEB4 /* auct_congrat@2x.png */; };
+		63A29DF71E2E9C060059FEB4 /* auct_congrat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A29DF41E2E9C060059FEB4 /* auct_congrat@3x.png */; };
+		63A29DFB1E2EAB780059FEB4 /* AuctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A29DFA1E2EAB780059FEB4 /* AuctionViewController.m */; };
+		63A29DFF1E2ECE010059FEB4 /* PCAlertDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A29DFE1E2ECE010059FEB4 /* PCAlertDialog.m */; };
+		63A29E011E2ED0AA0059FEB4 /* PCAlertDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63A29E001E2ED0A90059FEB4 /* PCAlertDialog.xib */; };
 		63AC619B1E2D395800F0E79D /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 63AC619A1E2D395800F0E79D /* MyriadPro-Semibold.otf */; };
 		63AC619E1E2D445F00F0E79D /* BidPhotoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC619D1E2D445F00F0E79D /* BidPhotoCollectionCell.m */; };
 		63AC61A11E2D471400F0E79D /* BidCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC61A01E2D471400F0E79D /* BidCommentCell.m */; };
@@ -289,6 +295,14 @@
 		63890D751E29736D002A3C16 /* CategoryExploreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryExploreCell.m; sourceTree = "<group>"; };
 		63890D7A1E29779B002A3C16 /* ItemCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCollectionCell.h; sourceTree = "<group>"; };
 		63890D7B1E29779B002A3C16 /* ItemCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCollectionCell.m; sourceTree = "<group>"; };
+		63A29DF21E2E9C060059FEB4 /* auct_congrat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auct_congrat.png; sourceTree = "<group>"; };
+		63A29DF31E2E9C060059FEB4 /* auct_congrat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "auct_congrat@2x.png"; sourceTree = "<group>"; };
+		63A29DF41E2E9C060059FEB4 /* auct_congrat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "auct_congrat@3x.png"; sourceTree = "<group>"; };
+		63A29DF91E2EAB780059FEB4 /* AuctionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionViewController.h; sourceTree = "<group>"; };
+		63A29DFA1E2EAB780059FEB4 /* AuctionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionViewController.m; sourceTree = "<group>"; };
+		63A29DFD1E2ECE010059FEB4 /* PCAlertDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAlertDialog.h; sourceTree = "<group>"; };
+		63A29DFE1E2ECE010059FEB4 /* PCAlertDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAlertDialog.m; sourceTree = "<group>"; };
+		63A29E001E2ED0A90059FEB4 /* PCAlertDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCAlertDialog.xib; sourceTree = "<group>"; };
 		63AC619A1E2D395800F0E79D /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
 		63AC619C1E2D445F00F0E79D /* BidPhotoCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidPhotoCollectionCell.h; sourceTree = "<group>"; };
 		63AC619D1E2D445F00F0E79D /* BidPhotoCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidPhotoCollectionCell.m; sourceTree = "<group>"; };
@@ -662,6 +676,35 @@
 			path = Item;
 			sourceTree = "<group>";
 		};
+		63A29DF11E2E9C060059FEB4 /* Auction */ = {
+			isa = PBXGroup;
+			children = (
+				63A29DF21E2E9C060059FEB4 /* auct_congrat.png */,
+				63A29DF31E2E9C060059FEB4 /* auct_congrat@2x.png */,
+				63A29DF41E2E9C060059FEB4 /* auct_congrat@3x.png */,
+			);
+			path = Auction;
+			sourceTree = "<group>";
+		};
+		63A29DF81E2EAB6A0059FEB4 /* AuctionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				63A29DF91E2EAB780059FEB4 /* AuctionViewController.h */,
+				63A29DFA1E2EAB780059FEB4 /* AuctionViewController.m */,
+			);
+			path = AuctionViewController;
+			sourceTree = "<group>";
+		};
+		63A29DFC1E2ECDEA0059FEB4 /* PCAlertDialog */ = {
+			isa = PBXGroup;
+			children = (
+				63A29DFD1E2ECE010059FEB4 /* PCAlertDialog.h */,
+				63A29DFE1E2ECE010059FEB4 /* PCAlertDialog.m */,
+				63A29E001E2ED0A90059FEB4 /* PCAlertDialog.xib */,
+			);
+			path = PCAlertDialog;
+			sourceTree = "<group>";
+		};
 		63B36C4F1E2831880086DF46 /* SignupViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -810,6 +853,7 @@
 		C387313C1E22C0D9007B6BD1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63A29DF81E2EAB6A0059FEB4 /* AuctionViewController */,
 				630731C61E2CB3C400A15A20 /* BidViewController */,
 				63608A461E2B3F52001D0853 /* ProfileViewController */,
 				63398D651E292F3B00BB3E55 /* CategoryViewController */,
@@ -826,6 +870,7 @@
 		C387313E1E22D2F0007B6BD1 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				63A29DF11E2E9C060059FEB4 /* Auction */,
 				63057DD91E2C20FD00496FD3 /* Bid */,
 				63608A4A1E2B4284001D0853 /* Profile */,
 				63890D5E1E296E15002A3C16 /* Item */,
@@ -871,6 +916,7 @@
 		C3D6D8BA1E26CE7200019747 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				63A29DFC1E2ECDEA0059FEB4 /* PCAlertDialog */,
 				6316B88A1E2D7EB200DFFA07 /* PCNotice */,
 				63F1C8251E2BA98800F79EA7 /* PCRateView */,
 				63890D481E296889002A3C16 /* PCItemView */,
@@ -1020,6 +1066,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A29DF71E2E9C060059FEB4 /* auct_congrat@3x.png in Resources */,
 				63057E0F1E2C37FF00496FD3 /* red_bg@3x.png in Resources */,
 				C3D6D8AA1E26AFDC00019747 /* login_gradient_bg.png in Resources */,
 				C3D6D8B81E26B72100019747 /* login_login_bg@2x.png in Resources */,
@@ -1056,6 +1103,8 @@
 				63057E091E2C20FD00496FD3 /* bid_tw@3x.png in Resources */,
 				63057E0D1E2C37FF00496FD3 /* red_bg.png in Resources */,
 				63890D421E295764002A3C16 /* cat_forhim.png in Resources */,
+				63A29E011E2ED0AA0059FEB4 /* PCAlertDialog.xib in Resources */,
+				63A29DF61E2E9C060059FEB4 /* auct_congrat@2x.png in Resources */,
 				63398D551E291ADC00BB3E55 /* tab_category.png in Resources */,
 				63057E071E2C20FD00496FD3 /* bid_tw.png in Resources */,
 				63057DF51E2C20FD00496FD3 /* bid_comment_selected.png in Resources */,
@@ -1063,6 +1112,7 @@
 				63398D191E28C85800BB3E55 /* navbar_back.png in Resources */,
 				C3D6D8AD1E26AFDC00019747 /* login_playground.png in Resources */,
 				63057E4B1E2C428100496FD3 /* bid_reply@2x.png in Resources */,
+				63A29DF51E2E9C060059FEB4 /* auct_congrat.png in Resources */,
 				63B36C5A1E283F1F0086DF46 /* upload_add.png in Resources */,
 				63057DF91E2C20FD00496FD3 /* bid_desc@2x.png in Resources */,
 				63398D5A1E291ADC00BB3E55 /* tab_oval@3x.png in Resources */,
@@ -1145,6 +1195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F1C8151E2B887100F79EA7 /* InboxCell.m in Sources */,
+				63A29DFF1E2ECE010059FEB4 /* PCAlertDialog.m in Sources */,
 				63398D3E1E28CF3E00BB3E55 /* PCBaseView.m in Sources */,
 				637678FE1E2A35C200AB0B31 /* CategoryDetailViewController.m in Sources */,
 				63398D681E292F6A00BB3E55 /* CategoryViewController.m in Sources */,
@@ -1161,6 +1212,7 @@
 				63398D4A1E28E7EC00BB3E55 /* PHColorHelper.m in Sources */,
 				63F1C8421E2BD54700F79EA7 /* ChatViewController.m in Sources */,
 				637679091E2A42E100AB0B31 /* PHUiHelper.m in Sources */,
+				63A29DFB1E2EAB780059FEB4 /* AuctionViewController.m in Sources */,
 				63890D761E29736D002A3C16 /* CategoryExploreCell.m in Sources */,
 				63890D471E295976002A3C16 /* CategoryCell.m in Sources */,
 				630731CC1E2CBEA200A15A20 /* BidItemCell.m in Sources */,

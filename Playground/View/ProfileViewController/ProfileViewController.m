@@ -166,5 +166,9 @@
     return CGSizeMake(dItemWidth, dItemHeight);
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // go to auction page
+    [self performSegueWithIdentifier:@"Profile2Auction" sender:nil];
+}
 
 @end
