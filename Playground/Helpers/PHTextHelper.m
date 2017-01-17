@@ -19,17 +19,30 @@
     return [UIFont fontWithName:@"MyriadPro-Bold" size:size];
 }
 
++ (UIFont*)myriadProSemibold:(CGFloat)size {
+    return [UIFont fontWithName:@"MyriadPro-Semibold" size:size];
+}
+
+
 
 /**
  set textfield placeholder color
  @param textfield <#textfield description#>
  */
 + (void)setGrayPlaceHolder:(UITextField *)textfield {
-    UIColor *colorGray = [PHColorHelper colorTextGray];
-    if ([textfield respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        textfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textfield.placeholder
-                                                                          attributes:@{NSForegroundColorAttributeName:colorGray}];
+
+    // check validity
+    if (![textfield respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        return;
     }
+    
+    if (!textfield.placeholder) {
+        return;
+    }
+
+    UIColor *colorGray = [PHColorHelper colorTextGray];
+    textfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textfield.placeholder
+                                                                      attributes:@{NSForegroundColorAttributeName:colorGray}];
 }
 
 /**

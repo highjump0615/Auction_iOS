@@ -12,5 +12,6 @@
 
 + (UIColor*)colorTextGray;
 + (UIColor*)colorTextBlack;
++ (UIColor*)colorShadow;
 
 @end

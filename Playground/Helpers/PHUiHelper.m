@@ -28,4 +28,12 @@
     [view.layer setCornerRadius:radius];
 }
 
++ (UIImage *)blueBackground {
+    return [UIImage imageNamed:@"blue_bg"];
+}
+
++ (UIImage *)redBackground {
+    return [UIImage imageNamed:@"red_bg"];
+}
+
 @end

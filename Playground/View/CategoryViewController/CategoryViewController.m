@@ -31,7 +31,7 @@
     // hide back button
     [self showSearch:YES showBack:NO];
 
-    [self initTableView:self.mTableView];
+    [self initTableView:self.mTableView haveBottombar:YES];
     
     // init parameter
     dCategoryHeight = 80;

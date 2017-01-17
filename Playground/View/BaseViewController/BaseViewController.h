@@ -16,9 +16,13 @@
 - (void)setSearchDelegate:(UIViewController<UITextFieldDelegate> *)controller;
 - (NSString *)getSearchString;
 
+// controls
 - (void)initLoginButton:(UIButton *)button;
 - (void)initRoundButton:(UIButton *)button;
+- (void)initTableView:(UITableView *)tableview haveBottombar:(BOOL)haveBottombar;
+
+// actions
+- (void)enableKeyboardNotification;
 - (void)dismissKeyboard:(UITapGestureRecognizer *) sender;
-- (void)initTableView:(UITableView *)tableview;
 
 @end
