@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-/**
- * Playground Login TextField
- */
-@interface PLTextField : UITextField
+@interface PCTextField : UITextField
 
 @end

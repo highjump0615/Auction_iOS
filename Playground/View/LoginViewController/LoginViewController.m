@@ -7,13 +7,15 @@
 //
 
 #import "LoginViewController.h"
-#import "PLTextField.h"
+#import "PCTextField.h"
 #import "PHTextHelper.h"
+#import "PHColorHelper.h"
+#import "PHUiHelper.h"
 
 @interface LoginViewController ()
 
-@property (weak, nonatomic) IBOutlet PLTextField *mTxtUsername;
-@property (weak, nonatomic) IBOutlet PLTextField *mTxtPassword;
+@property (weak, nonatomic) IBOutlet PCTextField *mTxtUsername;
+@property (weak, nonatomic) IBOutlet PCTextField *mTxtPassword;
 
 @property (weak, nonatomic) IBOutlet UIButton *mButLogin;
 @property (weak, nonatomic) IBOutlet UIButton *mButFacebook;
@@ -32,31 +34,10 @@
  */
 - (void)initTextField:(UITextField *)textfield {
     
-    int nRadius = 10;
-    
-    // make border
-    [textfield.layer setMasksToBounds:YES];
-    [textfield.layer setBorderColor:[UIColor colorWithRed:122/255.0
-                                                    green:167/255.0
-                                                     blue:244/255.0
-                                                    alpha:1.0].CGColor];
-    [textfield.layer setBorderWidth:1.0f];
-    
-    [textfield.layer setCornerRadius:nRadius];
+    [PHUiHelper setPurpleBorder:textfield cornerRadius:10];
     
     // font
-    UIFont *fontBold = [PHTextHelper myriadProBold:14];
-    [textfield setFont:fontBold];
-    
-    // placeholder
-    UIColor *colorGray = [UIColor colorWithRed:164/255.0
-                                         green:170/255.0
-                                          blue:179/255.0
-                                         alpha:1.0];
-    if ([textfield respondsToSelector:@selector(setAttributedPlaceholder:)]) {
-        textfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textfield.placeholder
-                                                                          attributes:@{NSForegroundColorAttributeName:colorGray}];
-    }
+    [PHTextHelper initTextBold:textfield];
 }
 
 - (void)viewDidLoad {
@@ -105,7 +86,7 @@
 }
 */
 
-#pragma mark - TextField
+#pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     

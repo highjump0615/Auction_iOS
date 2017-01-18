@@ -3,7 +3,7 @@
 //  PlaygroundTests
 //
 //  Created by Administrator on 17/1/7.
-//  Copyright © 2017年 fred. All rights reserved.
+//  Copyright © 2017 fred. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

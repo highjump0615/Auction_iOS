@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PCUploadView">
+            <rect key="frame" x="0.0" y="0.0" width="93" height="128"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAY-b3-yUi" userLabel="Photo View">
+                    <rect key="frame" x="0.0" y="0.0" width="93" height="93"/>
+                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="nAY-b3-yUi" secondAttribute="height" multiplier="1:1" id="hoV-nH-Sbd"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co7-XA-odY">
+                    <rect key="frame" x="29" y="93" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Co7-XA-odY" secondAttribute="height" multiplier="1:1" id="NK3-XS-lx4"/>
+                    </constraints>
+                    <state key="normal" image="upload_add.png"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="nAY-b3-yUi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8sH-ye-eNn"/>
+                <constraint firstAttribute="trailing" secondItem="nAY-b3-yUi" secondAttribute="trailing" id="AUf-cD-nl4"/>
+                <constraint firstItem="Co7-XA-odY" firstAttribute="centerX" secondItem="nAY-b3-yUi" secondAttribute="centerX" id="X1j-MH-Diw"/>
+                <constraint firstItem="Co7-XA-odY" firstAttribute="top" secondItem="nAY-b3-yUi" secondAttribute="bottom" id="lVU-WL-ZXo"/>
+                <constraint firstItem="nAY-b3-yUi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="obN-tl-DBB"/>
+                <constraint firstAttribute="bottom" secondItem="Co7-XA-odY" secondAttribute="bottom" id="qCh-xv-o6Q"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mViewPhoto" destination="nAY-b3-yUi" id="RFn-KC-N8n"/>
+            </connections>
+            <point key="canvasLocation" x="-116.5" y="-219"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="upload_add.png" width="15" height="15"/>
+    </resources>
+</document>

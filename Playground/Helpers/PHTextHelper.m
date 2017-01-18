@@ -7,6 +7,7 @@
 //
 
 #import "PHTextHelper.h"
+#import "PHColorHelper.h"
 
 @implementation PHTextHelper
 
@@ -16,6 +17,58 @@
 
 + (UIFont*)myriadProBold:(CGFloat)size {
     return [UIFont fontWithName:@"MyriadPro-Bold" size:size];
+}
+
++ (UIFont*)myriadProSemibold:(CGFloat)size {
+    return [UIFont fontWithName:@"MyriadPro-Semibold" size:size];
+}
+
+
+
+/**
+ set textfield placeholder color
+ @param textfield <#textfield description#>
+ */
++ (void)setGrayPlaceHolder:(UITextField *)textfield {
+
+    // check validity
+    if (![textfield respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        return;
+    }
+    
+    if (!textfield.placeholder) {
+        return;
+    }
+
+    UIColor *colorGray = [PHColorHelper colorTextGray];
+    textfield.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textfield.placeholder
+                                                                      attributes:@{NSForegroundColorAttributeName:colorGray}];
+}
+
+/**
+ initialize text field with regular font
+ @param textfield <#textfield description#>
+ */
++ (void)initTextRegular:(UITextField *)textfield {
+    // font
+    UIFont *fontBold = [PHTextHelper myriadProRegular:14];
+    [textfield setFont:fontBold];
+    
+    // placeholder
+    [self setGrayPlaceHolder:textfield];
+}
+
+/**
+ initialize text field with bold font
+ @param textfield <#textfield description#>
+ */
++ (void)initTextBold:(UITextField *)textfield {
+    // font
+    UIFont *fontBold = [PHTextHelper myriadProBold:14];
+    [textfield setFont:fontBold];
+    
+    // placeholder
+    [self setGrayPlaceHolder:textfield];
 }
 
 
