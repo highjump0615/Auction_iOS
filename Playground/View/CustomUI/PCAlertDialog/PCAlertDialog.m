@@ -68,6 +68,30 @@
 }
 
 /**
+ set title of the alert
+ @param value <#value description#>
+ */
+- (void)setTitle:(NSString *)value {
+    [self.mLblTitle setText:value];
+}
+
+/**
+ set message of the alert
+ @param value <#value description#>
+ */
+- (void)setMessage:(NSString *)value {
+    [self.mLblMessage setText:value];
+}
+
+/**
+ set title of the primary button
+ @param value <#value description#>
+ */
+- (void)setPrimaryButName:(NSString *)value {
+    [self.mButPrimary setTitle:value forState:UIControlStateNormal];
+}
+
+/**
  show/hide alert dialog
  @param bShow <#bShow description#>
  @param animated <#animated description#>

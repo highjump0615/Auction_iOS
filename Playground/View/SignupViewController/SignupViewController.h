@@ -6,8 +6,8 @@
 //  Copyright © 2017 fred. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "EditProfileViewController.h"
 
-@interface SignupViewController : BaseViewController
+@interface SignupViewController : EditProfileViewController
 
 @end

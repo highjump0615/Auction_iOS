@@ -13,20 +13,11 @@
 #import "PHColorHelper.h"
 
 @interface SignupViewController () {
-    int mnFontSize;
 }
 
-@property (weak, nonatomic) IBOutlet UIView *mViewPhoto;
-
-@property (weak, nonatomic) IBOutlet PCTextField *mTxtName;
-@property (weak, nonatomic) IBOutlet PCTextField *mTxtUsername;
 @property (weak, nonatomic) IBOutlet PCTextField *mTxtPasswd;
 @property (weak, nonatomic) IBOutlet PCTextField *mTxtPasswdRetype;
 @property (weak, nonatomic) IBOutlet PCTextField *mTxtEmail;
-
-@property (weak, nonatomic) IBOutlet UILabel *mLblBirthCaption;
-@property (weak, nonatomic) IBOutlet UILabel *mLblBirthday;
-@property (weak, nonatomic) IBOutlet UILabel *mLblGenderCaption;
 
 @property (weak, nonatomic) IBOutlet UIButton *mButSignup;
 
@@ -34,38 +25,12 @@
 
 @implementation SignupViewController
 
-/**
- Initialize text field
- @param textfield - text field to decorate
- */
-- (void)initTextField:(UITextField *)textfield {
-    // font
-    [PHTextHelper initTextBold:textfield];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // init parameter
-    mnFontSize = 14;
-    
-    // add photo upload view
-    PCUploadView *viewPhoto = [PCUploadView getView:UPLOAD_VIEW_RIGHT];
-    viewPhoto.frame = self.mViewPhoto.bounds;
-    [self.mViewPhoto addSubview:viewPhoto];
-    
-    // textfields
-    [self initTextField:self.mTxtName];
-    [self initTextField:self.mTxtUsername];
     [self initTextField:self.mTxtPasswd];
     [self initTextField:self.mTxtPasswdRetype];
     [self initTextField:self.mTxtEmail];
-    
-    // labels
-    UIFont *fontBold = [PHTextHelper myriadProBold:mnFontSize];
-    [self.mLblBirthCaption setFont:fontBold];
-    [self.mLblBirthday setFont:fontBold];
-    [self.mLblGenderCaption setFont:fontBold];
     
     // signup button
     [self initRoundButton:self.mButSignup];

@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "PHTextHelper.h"
+#import "PCAlertDialog.h"
 
 @interface SettingsViewController ()
 
@@ -54,5 +55,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)onButDeleteAccount:(id)sender {
+    PCAlertDialog *viewAlert = [PCAlertDialog getView];
+    viewAlert.frame = self.view.bounds;
+    
+    // set content
+    [viewAlert setTitle:@"Delete account"];
+    [viewAlert setMessage:@""];
+    [viewAlert setPrimaryButName:@"Delete"];
+    
+    [self.view addSubview:viewAlert];
+    
+    [viewAlert showView:YES animated:YES];
+}
 
 @end

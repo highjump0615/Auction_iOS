@@ -13,4 +13,8 @@
 + (id)getView;
 - (void)showView:(BOOL)bShow animated:(BOOL)animated;
 
+- (void)setTitle:(NSString *)value;
+- (void)setMessage:(NSString *)value;
+- (void)setPrimaryButName:(NSString *)value;
+
 @end

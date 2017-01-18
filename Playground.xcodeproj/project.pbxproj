@@ -115,6 +115,9 @@
 		63AC93CD1E300FAA0060CC5D /* UploadCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC93CC1E300FAA0060CC5D /* UploadCategoryViewController.m */; };
 		63AC93D01E3010120060CC5D /* UploadCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC93CF1E3010120060CC5D /* UploadCategoryCell.m */; };
 		63AC93D41E3017570060CC5D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC93D31E3017570060CC5D /* SettingsViewController.m */; };
+		63AC93D81E301CA50060CC5D /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC93D71E301CA50060CC5D /* EditProfileViewController.m */; };
+		63AC93DC1E30275C0060CC5D /* EditSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC93DB1E30275C0060CC5D /* EditSettingViewController.m */; };
+		63AC93E01E302BC40060CC5D /* EditNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC93DF1E302BC40060CC5D /* EditNotificationViewController.m */; };
 		63B36C521E2831B60086DF46 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B36C511E2831B60086DF46 /* SignupViewController.m */; };
 		63B36C5A1E283F1F0086DF46 /* upload_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B36C571E283F1F0086DF46 /* upload_add.png */; };
 		63B36C5B1E283F1F0086DF46 /* upload_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B36C581E283F1F0086DF46 /* upload_add@2x.png */; };
@@ -328,6 +331,12 @@
 		63AC93CF1E3010120060CC5D /* UploadCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadCategoryCell.m; sourceTree = "<group>"; };
 		63AC93D21E3017570060CC5D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		63AC93D31E3017570060CC5D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		63AC93D61E301CA50060CC5D /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		63AC93D71E301CA50060CC5D /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
+		63AC93DA1E30275C0060CC5D /* EditSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSettingViewController.h; sourceTree = "<group>"; };
+		63AC93DB1E30275C0060CC5D /* EditSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSettingViewController.m; sourceTree = "<group>"; };
+		63AC93DE1E302BC40060CC5D /* EditNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNotificationViewController.h; sourceTree = "<group>"; };
+		63AC93DF1E302BC40060CC5D /* EditNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNotificationViewController.m; sourceTree = "<group>"; };
 		63B36C501E2831B60086DF46 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = SignupViewController/SignupViewController.h; sourceTree = "<group>"; };
 		63B36C511E2831B60086DF46 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignupViewController.m; path = SignupViewController/SignupViewController.m; sourceTree = "<group>"; };
 		63B36C571E283F1F0086DF46 /* upload_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload_add.png; sourceTree = "<group>"; };
@@ -777,10 +786,40 @@
 		63AC93D11E3016F70060CC5D /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				63AC93DD1E302BB80060CC5D /* EditNotificationViewController */,
+				63AC93D91E3027490060CC5D /* EditSettingViewController */,
+				63AC93D51E301C980060CC5D /* EditProfileViewController */,
 				63AC93D21E3017570060CC5D /* SettingsViewController.h */,
 				63AC93D31E3017570060CC5D /* SettingsViewController.m */,
 			);
 			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		63AC93D51E301C980060CC5D /* EditProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				63AC93D61E301CA50060CC5D /* EditProfileViewController.h */,
+				63AC93D71E301CA50060CC5D /* EditProfileViewController.m */,
+			);
+			path = EditProfileViewController;
+			sourceTree = "<group>";
+		};
+		63AC93D91E3027490060CC5D /* EditSettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				63AC93DA1E30275C0060CC5D /* EditSettingViewController.h */,
+				63AC93DB1E30275C0060CC5D /* EditSettingViewController.m */,
+			);
+			path = EditSettingViewController;
+			sourceTree = "<group>";
+		};
+		63AC93DD1E302BB80060CC5D /* EditNotificationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				63AC93DE1E302BC40060CC5D /* EditNotificationViewController.h */,
+				63AC93DF1E302BC40060CC5D /* EditNotificationViewController.m */,
+			);
+			path = EditNotificationViewController;
 			sourceTree = "<group>";
 		};
 		63B36C4F1E2831880086DF46 /* SignupViewController */ = {
@@ -1289,6 +1328,7 @@
 				637679011E2A371E00AB0B31 /* CategoryDetailCell.m in Sources */,
 				63AC93CD1E300FAA0060CC5D /* UploadCategoryViewController.m in Sources */,
 				63608A491E2B3FBB001D0853 /* ProfileViewController.m in Sources */,
+				63AC93DC1E30275C0060CC5D /* EditSettingViewController.m in Sources */,
 				63AC93C51E2FE9DD0060CC5D /* PlaceholderTextView.m in Sources */,
 				63F1C8081E2B6E5500F79EA7 /* ProfileStatisticsCell.m in Sources */,
 				C3D6D8C61E26E61800019747 /* BaseViewController.m in Sources */,
@@ -1299,6 +1339,7 @@
 				637679091E2A42E100AB0B31 /* PHUiHelper.m in Sources */,
 				63AC93C01E2FD72F0060CC5D /* UploadViewController.m in Sources */,
 				63A29DFB1E2EAB780059FEB4 /* AuctionViewController.m in Sources */,
+				63AC93E01E302BC40060CC5D /* EditNotificationViewController.m in Sources */,
 				63890D761E29736D002A3C16 /* CategoryExploreCell.m in Sources */,
 				63890D471E295976002A3C16 /* CategoryCell.m in Sources */,
 				63AC93D01E3010120060CC5D /* UploadCategoryCell.m in Sources */,
@@ -1317,6 +1358,7 @@
 				6339E58F1E2E415E009927AE /* BidInputViewController.m in Sources */,
 				63057DD81E2BDE3100496FD3 /* ChatCell.m in Sources */,
 				63398D421E28CF3E00BB3E55 /* PCUploadView.m in Sources */,
+				63AC93D81E301CA50060CC5D /* EditProfileViewController.m in Sources */,
 				63B36C521E2831B60086DF46 /* SignupViewController.m in Sources */,
 				63398D641E2921AA00BB3E55 /* MainTabbarController.m in Sources */,
 				6316B8921E2D7F6600DFFA07 /* PCNoticePrice.m in Sources */,
