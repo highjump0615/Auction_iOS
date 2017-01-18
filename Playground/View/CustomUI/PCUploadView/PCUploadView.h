@@ -8,9 +8,12 @@
 
 #import "PCBaseView.h"
 
+#define UPLOAD_VIEW_RIGHT   0
+#define UPLOAD_VIEW_BOTTOM  1
+
 @interface PCUploadView : PCBaseView
 
-+ (id)getView;
++ (id)getView:(int)mode;
 
 - (void)setFrame:(CGRect)frame;
 

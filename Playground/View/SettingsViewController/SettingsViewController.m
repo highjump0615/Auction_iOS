@@ -1,0 +1,58 @@
+//
+//  SettingsViewController.m
+//  Playground
+//
+//  Created by Top1 on 1/18/17.
+//  Copyright © 2017 fred. All rights reserved.
+//
+
+#import "SettingsViewController.h"
+#import "PHTextHelper.h"
+
+@interface SettingsViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
+
+@property (weak, nonatomic) IBOutlet UIButton *mButEditProfile;
+@property (weak, nonatomic) IBOutlet UIButton *mButEditSetting;
+@property (weak, nonatomic) IBOutlet UIButton *mButEditNotification;
+@property (weak, nonatomic) IBOutlet UIButton *mButRestartTutorial;
+@property (weak, nonatomic) IBOutlet UIButton *mButDeleteAccount;
+@property (weak, nonatomic) IBOutlet UIButton *mButLogOut;
+
+@end
+
+@implementation SettingsViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // font
+    [self.mLblTitle setFont:[PHTextHelper myriadProBold:35]];
+    
+    double dFontSize = 14;
+    
+    [self.mButEditProfile.titleLabel setFont:[PHTextHelper myriadProBold:dFontSize]];
+    [self.mButEditSetting.titleLabel setFont:[PHTextHelper myriadProBold:dFontSize]];
+    [self.mButEditNotification.titleLabel setFont:[PHTextHelper myriadProBold:dFontSize]];
+    [self.mButRestartTutorial.titleLabel setFont:[PHTextHelper myriadProBold:dFontSize]];
+    [self.mButDeleteAccount.titleLabel setFont:[PHTextHelper myriadProBold:dFontSize]];
+    [self.mButLogOut.titleLabel setFont:[PHTextHelper myriadProBold:dFontSize]];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

@@ -73,7 +73,6 @@
 
 #pragma mark - UITableViewDelegate
 
-
 /**
  calc header height
  @return <#return value description#>

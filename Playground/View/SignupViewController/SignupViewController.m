@@ -50,7 +50,7 @@
     mnFontSize = 14;
     
     // add photo upload view
-    PCUploadView *viewPhoto = [PCUploadView getView];
+    PCUploadView *viewPhoto = [PCUploadView getView:UPLOAD_VIEW_RIGHT];
     viewPhoto.frame = self.mViewPhoto.bounds;
     [self.mViewPhoto addSubview:viewPhoto];
     

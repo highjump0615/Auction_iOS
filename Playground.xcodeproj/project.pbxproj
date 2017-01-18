@@ -108,6 +108,13 @@
 		63AC619B1E2D395800F0E79D /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 63AC619A1E2D395800F0E79D /* MyriadPro-Semibold.otf */; };
 		63AC619E1E2D445F00F0E79D /* BidPhotoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC619D1E2D445F00F0E79D /* BidPhotoCollectionCell.m */; };
 		63AC61A11E2D471400F0E79D /* BidCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC61A01E2D471400F0E79D /* BidCommentCell.m */; };
+		63AC93BC1E2FAE720060CC5D /* PCUploadViewBottom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63AC93BB1E2FAE720060CC5D /* PCUploadViewBottom.xib */; };
+		63AC93C01E2FD72F0060CC5D /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC93BF1E2FD72F0060CC5D /* UploadViewController.m */; };
+		63AC93C51E2FE9DD0060CC5D /* PlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC93C41E2FE9DD0060CC5D /* PlaceholderTextView.m */; };
+		63AC93C91E3001E30060CC5D /* UploadInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC93C81E3001E30060CC5D /* UploadInputViewController.m */; };
+		63AC93CD1E300FAA0060CC5D /* UploadCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC93CC1E300FAA0060CC5D /* UploadCategoryViewController.m */; };
+		63AC93D01E3010120060CC5D /* UploadCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC93CF1E3010120060CC5D /* UploadCategoryCell.m */; };
+		63AC93D41E3017570060CC5D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AC93D31E3017570060CC5D /* SettingsViewController.m */; };
 		63B36C521E2831B60086DF46 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B36C511E2831B60086DF46 /* SignupViewController.m */; };
 		63B36C5A1E283F1F0086DF46 /* upload_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B36C571E283F1F0086DF46 /* upload_add.png */; };
 		63B36C5B1E283F1F0086DF46 /* upload_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B36C581E283F1F0086DF46 /* upload_add@2x.png */; };
@@ -308,6 +315,19 @@
 		63AC619D1E2D445F00F0E79D /* BidPhotoCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidPhotoCollectionCell.m; sourceTree = "<group>"; };
 		63AC619F1E2D471400F0E79D /* BidCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidCommentCell.h; sourceTree = "<group>"; };
 		63AC61A01E2D471400F0E79D /* BidCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidCommentCell.m; sourceTree = "<group>"; };
+		63AC93BB1E2FAE720060CC5D /* PCUploadViewBottom.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCUploadViewBottom.xib; sourceTree = "<group>"; };
+		63AC93BE1E2FD72F0060CC5D /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
+		63AC93BF1E2FD72F0060CC5D /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
+		63AC93C31E2FE9DD0060CC5D /* PlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderTextView.h; sourceTree = "<group>"; };
+		63AC93C41E2FE9DD0060CC5D /* PlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderTextView.m; sourceTree = "<group>"; };
+		63AC93C71E3001E30060CC5D /* UploadInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadInputViewController.h; sourceTree = "<group>"; };
+		63AC93C81E3001E30060CC5D /* UploadInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadInputViewController.m; sourceTree = "<group>"; };
+		63AC93CB1E300FAA0060CC5D /* UploadCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadCategoryViewController.h; sourceTree = "<group>"; };
+		63AC93CC1E300FAA0060CC5D /* UploadCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadCategoryViewController.m; sourceTree = "<group>"; };
+		63AC93CE1E3010120060CC5D /* UploadCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadCategoryCell.h; sourceTree = "<group>"; };
+		63AC93CF1E3010120060CC5D /* UploadCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadCategoryCell.m; sourceTree = "<group>"; };
+		63AC93D21E3017570060CC5D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		63AC93D31E3017570060CC5D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		63B36C501E2831B60086DF46 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = SignupViewController/SignupViewController.h; sourceTree = "<group>"; };
 		63B36C511E2831B60086DF46 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignupViewController.m; path = SignupViewController/SignupViewController.m; sourceTree = "<group>"; };
 		63B36C571E283F1F0086DF46 /* upload_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload_add.png; sourceTree = "<group>"; };
@@ -522,6 +542,7 @@
 				63398D3B1E28CF3E00BB3E55 /* PCUploadView.h */,
 				63398D3C1E28CF3E00BB3E55 /* PCUploadView.m */,
 				63398D3D1E28CF3E00BB3E55 /* PCUploadView.xib */,
+				63AC93BB1E2FAE720060CC5D /* PCUploadViewBottom.xib */,
 			);
 			path = PCUploadView;
 			sourceTree = "<group>";
@@ -705,6 +726,63 @@
 			path = PCAlertDialog;
 			sourceTree = "<group>";
 		};
+		63AC93BD1E2FD7080060CC5D /* UploadViewController */ = {
+			isa = PBXGroup;
+			children = (
+				63AC93CA1E300F9B0060CC5D /* UploadCategoryViewController */,
+				63AC93C61E3000910060CC5D /* UploadInputViewController */,
+				63AC93BE1E2FD72F0060CC5D /* UploadViewController.h */,
+				63AC93BF1E2FD72F0060CC5D /* UploadViewController.m */,
+			);
+			path = UploadViewController;
+			sourceTree = "<group>";
+		};
+		63AC93C11E2FE9DD0060CC5D /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				63AC93C21E2FE9DD0060CC5D /* PlaceholderTextView */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		63AC93C21E2FE9DD0060CC5D /* PlaceholderTextView */ = {
+			isa = PBXGroup;
+			children = (
+				63AC93C31E2FE9DD0060CC5D /* PlaceholderTextView.h */,
+				63AC93C41E2FE9DD0060CC5D /* PlaceholderTextView.m */,
+			);
+			path = PlaceholderTextView;
+			sourceTree = "<group>";
+		};
+		63AC93C61E3000910060CC5D /* UploadInputViewController */ = {
+			isa = PBXGroup;
+			children = (
+				63AC93C71E3001E30060CC5D /* UploadInputViewController.h */,
+				63AC93C81E3001E30060CC5D /* UploadInputViewController.m */,
+			);
+			path = UploadInputViewController;
+			sourceTree = "<group>";
+		};
+		63AC93CA1E300F9B0060CC5D /* UploadCategoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				63AC93CB1E300FAA0060CC5D /* UploadCategoryViewController.h */,
+				63AC93CC1E300FAA0060CC5D /* UploadCategoryViewController.m */,
+				63AC93CE1E3010120060CC5D /* UploadCategoryCell.h */,
+				63AC93CF1E3010120060CC5D /* UploadCategoryCell.m */,
+			);
+			path = UploadCategoryViewController;
+			sourceTree = "<group>";
+		};
+		63AC93D11E3016F70060CC5D /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				63AC93D21E3017570060CC5D /* SettingsViewController.h */,
+				63AC93D31E3017570060CC5D /* SettingsViewController.m */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
 		63B36C4F1E2831880086DF46 /* SignupViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -791,6 +869,7 @@
 		C3033FF41E2052BE00782925 /* Playground */ = {
 			isa = PBXGroup;
 			children = (
+				63AC93C11E2FE9DD0060CC5D /* Lib */,
 				C3D6D8C71E26FE3100019747 /* Helpers */,
 				C387313A1E22C0D9007B6BD1 /* Resource */,
 				C387313C1E22C0D9007B6BD1 /* View */,
@@ -853,6 +932,8 @@
 		C387313C1E22C0D9007B6BD1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63AC93D11E3016F70060CC5D /* SettingsViewController */,
+				63AC93BD1E2FD7080060CC5D /* UploadViewController */,
 				63A29DF81E2EAB6A0059FEB4 /* AuctionViewController */,
 				630731C61E2CB3C400A15A20 /* BidViewController */,
 				63608A461E2B3F52001D0853 /* ProfileViewController */,
@@ -1068,6 +1149,7 @@
 			files = (
 				63A29DF71E2E9C060059FEB4 /* auct_congrat@3x.png in Resources */,
 				63057E0F1E2C37FF00496FD3 /* red_bg@3x.png in Resources */,
+				63AC93BC1E2FAE720060CC5D /* PCUploadViewBottom.xib in Resources */,
 				C3D6D8AA1E26AFDC00019747 /* login_gradient_bg.png in Resources */,
 				C3D6D8B81E26B72100019747 /* login_login_bg@2x.png in Resources */,
 				C3D6D8A91E26AFDC00019747 /* login_crown@3x.png in Resources */,
@@ -1200,11 +1282,14 @@
 				637678FE1E2A35C200AB0B31 /* CategoryDetailViewController.m in Sources */,
 				63398D681E292F6A00BB3E55 /* CategoryViewController.m in Sources */,
 				63398D471E28D93B00BB3E55 /* PCBorderView.m in Sources */,
+				63AC93C91E3001E30060CC5D /* UploadInputViewController.m in Sources */,
 				63608A591E2B44DE001D0853 /* ProfileUserCell.m in Sources */,
 				63398D3F1E28CF3E00BB3E55 /* PCNavbarView.m in Sources */,
 				C3D6D8B31E26B3E800019747 /* LoginViewController.m in Sources */,
 				637679011E2A371E00AB0B31 /* CategoryDetailCell.m in Sources */,
+				63AC93CD1E300FAA0060CC5D /* UploadCategoryViewController.m in Sources */,
 				63608A491E2B3FBB001D0853 /* ProfileViewController.m in Sources */,
+				63AC93C51E2FE9DD0060CC5D /* PlaceholderTextView.m in Sources */,
 				63F1C8081E2B6E5500F79EA7 /* ProfileStatisticsCell.m in Sources */,
 				C3D6D8C61E26E61800019747 /* BaseViewController.m in Sources */,
 				63F1C8281E2BA9C200F79EA7 /* PCRateView.m in Sources */,
@@ -1212,9 +1297,11 @@
 				63398D4A1E28E7EC00BB3E55 /* PHColorHelper.m in Sources */,
 				63F1C8421E2BD54700F79EA7 /* ChatViewController.m in Sources */,
 				637679091E2A42E100AB0B31 /* PHUiHelper.m in Sources */,
+				63AC93C01E2FD72F0060CC5D /* UploadViewController.m in Sources */,
 				63A29DFB1E2EAB780059FEB4 /* AuctionViewController.m in Sources */,
 				63890D761E29736D002A3C16 /* CategoryExploreCell.m in Sources */,
 				63890D471E295976002A3C16 /* CategoryCell.m in Sources */,
+				63AC93D01E3010120060CC5D /* UploadCategoryCell.m in Sources */,
 				630731CC1E2CBEA200A15A20 /* BidItemCell.m in Sources */,
 				6316B8951E2D7F7500DFFA07 /* PCNoticeTimeout.m in Sources */,
 				63890D731E29726B002A3C16 /* PCItemView.m in Sources */,
@@ -1236,6 +1323,7 @@
 				630731CF1E2CBF1000A15A20 /* BidDescCell.m in Sources */,
 				C3033FF71E2052BE00782925 /* main.m in Sources */,
 				630731C91E2CB3D400A15A20 /* BidViewController.m in Sources */,
+				63AC93D41E3017570060CC5D /* SettingsViewController.m in Sources */,
 				63F1C8181E2B8D6B00F79EA7 /* ItemBaseCell.m in Sources */,
 				6316B88F1E2D7ECC00DFFA07 /* PCNotice.m in Sources */,
 			);

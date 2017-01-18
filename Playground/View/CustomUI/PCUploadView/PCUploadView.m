@@ -7,9 +7,11 @@
 //
 
 #import "PCUploadView.h"
-#import "PHColorHelper.h"
+#import "PHColorHelper.h" 
 
-@interface PCUploadView()
+@interface PCUploadView() {
+    int mnMode;
+}
 
 @property (weak, nonatomic) IBOutlet UIView *mViewPhoto;
 
@@ -25,8 +27,17 @@
 }
 */
 
-+ (id)getView {
-    return [super getView:@"PCUploadView"];
++ (id)getView:(int)mode {
+    NSString *strName = @"PCUploadView";
+    
+    if (mode == UPLOAD_VIEW_BOTTOM) {
+        strName = @"PCUploadViewBottom";
+    }
+
+    PCUploadView *viewUpload = [super getView:strName];
+    [viewUpload setViewMode:mode];
+    
+    return viewUpload;
 }
 
 - (void)awakeFromNib {
@@ -39,8 +50,14 @@
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     
-    [self.mViewPhoto.layer setMasksToBounds:YES];
-    [self.mViewPhoto.layer setCornerRadius:frame.size.height / 2.0];
+    if (mnMode == UPLOAD_VIEW_RIGHT) {
+        [self.mViewPhoto.layer setMasksToBounds:YES];
+        [self.mViewPhoto.layer setCornerRadius:frame.size.height / 2.0];
+    }
+}
+
+- (void)setViewMode:(int)mode {
+    mnMode = mode;
 }
 
 
