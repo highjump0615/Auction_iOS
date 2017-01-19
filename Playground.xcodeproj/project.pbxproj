@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0827842E32F1F3BC46321485 /* libPods-PlaygroundUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E5EEFA76E75C6A6FE4158AB /* libPods-PlaygroundUITests.a */; };
-		29ED76949D63D0BE5DFFD6DE /* libPods-PlaygroundTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96933CD09CA2670BA2A86FE1 /* libPods-PlaygroundTests.a */; };
+		2176AE951FA67D30C6D15883 /* Pods_PlaygroundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635FEB2225CFBD8B92E1EC66 /* Pods_PlaygroundTests.framework */; };
 		63057DD81E2BDE3100496FD3 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63057DD71E2BDE3100496FD3 /* ChatCell.m */; };
 		63057DF21E2C20FD00496FD3 /* bid_comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 63057DDA1E2C20FD00496FD3 /* bid_comment.png */; };
 		63057DF31E2C20FD00496FD3 /* bid_comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63057DDB1E2C20FD00496FD3 /* bid_comment@2x.png */; };
@@ -141,6 +140,7 @@
 		63F1C8361E2BAA8E00F79EA7 /* rate_star@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F1C8301E2BAA8E00F79EA7 /* rate_star@3x.png */; };
 		63F1C83A1E2BB86200F79EA7 /* RateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F1C8391E2BB86200F79EA7 /* RateViewController.m */; };
 		63F1C8421E2BD54700F79EA7 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F1C8411E2BD54700F79EA7 /* ChatViewController.m */; };
+		AA9E58715CF3D9BCFC53CBBB /* Pods_PlaygroundUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7238A6FADD30811398AACC0B /* Pods_PlaygroundUITests.framework */; };
 		C3033FF71E2052BE00782925 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3033FF61E2052BE00782925 /* main.m */; };
 		C3033FFA1E2052BE00782925 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3033FF91E2052BE00782925 /* AppDelegate.m */; };
 		C30340001E2052BE00782925 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3033FFE1E2052BE00782925 /* Main.storyboard */; };
@@ -169,7 +169,7 @@
 		C3D6D8C61E26E61800019747 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D6D8C51E26E61800019747 /* BaseViewController.m */; };
 		C3D6D8CB1E27089300019747 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D6D8CA1E27089300019747 /* LandingViewController.m */; };
 		C3D6D8CE1E27096200019747 /* PHTextHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D6D8CD1E27096200019747 /* PHTextHelper.m */; };
-		D072E85A606312F805A3E310 /* libPods-Playground.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AAC2D5EDA51FA56F9A53680 /* libPods-Playground.a */; };
+		F49882641BC992C000729888 /* Pods_Playground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA1C7FD90AA09582B99D71F /* Pods_Playground.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -271,6 +271,7 @@
 		63398D671E292F6A00BB3E55 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		6339E58D1E2E415E009927AE /* BidInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidInputViewController.h; sourceTree = "<group>"; };
 		6339E58E1E2E415E009927AE /* BidInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidInputViewController.m; sourceTree = "<group>"; };
+		635FEB2225CFBD8B92E1EC66 /* Pods_PlaygroundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlaygroundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63608A471E2B3FBB001D0853 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		63608A481E2B3FBB001D0853 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		63608A4B1E2B4284001D0853 /* profile_mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_mail.png; sourceTree = "<group>"; };
@@ -371,9 +372,8 @@
 		63F1C8401E2BD54700F79EA7 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		63F1C8411E2BD54700F79EA7 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		691F022C2884FCE23114777B /* Pods-PlaygroundUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlaygroundUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlaygroundUITests/Pods-PlaygroundUITests.release.xcconfig"; sourceTree = "<group>"; };
-		7AAC2D5EDA51FA56F9A53680 /* libPods-Playground.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Playground.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E5EEFA76E75C6A6FE4158AB /* libPods-PlaygroundUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlaygroundUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		96933CD09CA2670BA2A86FE1 /* libPods-PlaygroundTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PlaygroundTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7238A6FADD30811398AACC0B /* Pods_PlaygroundUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlaygroundUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CA1C7FD90AA09582B99D71F /* Pods_Playground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Playground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A699822898E11B1AC4D90C8B /* Pods-PlaygroundUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlaygroundUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlaygroundUITests/Pods-PlaygroundUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A9D3CFC4456B6EF05D861568 /* Pods-PlaygroundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlaygroundTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlaygroundTests/Pods-PlaygroundTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD56ABF7080BD54B66D25A54 /* Pods-Playground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Playground.release.xcconfig"; path = "Pods/Target Support Files/Pods-Playground/Pods-Playground.release.xcconfig"; sourceTree = "<group>"; };
@@ -424,7 +424,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D072E85A606312F805A3E310 /* libPods-Playground.a in Frameworks */,
+				F49882641BC992C000729888 /* Pods_Playground.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +432,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29ED76949D63D0BE5DFFD6DE /* libPods-PlaygroundTests.a in Frameworks */,
+				2176AE951FA67D30C6D15883 /* Pods_PlaygroundTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +440,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0827842E32F1F3BC46321485 /* libPods-PlaygroundUITests.a in Frameworks */,
+				AA9E58715CF3D9BCFC53CBBB /* Pods_PlaygroundUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1113,9 +1113,9 @@
 		C78845788221DF96412CAA69 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7AAC2D5EDA51FA56F9A53680 /* libPods-Playground.a */,
-				96933CD09CA2670BA2A86FE1 /* libPods-PlaygroundTests.a */,
-				8E5EEFA76E75C6A6FE4158AB /* libPods-PlaygroundUITests.a */,
+				9CA1C7FD90AA09582B99D71F /* Pods_Playground.framework */,
+				635FEB2225CFBD8B92E1EC66 /* Pods_PlaygroundTests.framework */,
+				7238A6FADD30811398AACC0B /* Pods_PlaygroundUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

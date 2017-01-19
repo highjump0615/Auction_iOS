@@ -1,3 +1,18 @@
-PODFILE CHECKSUM: c6be542a8fc47bdb340785bc71c7f3e4117ce17a
+PODS:
+  - ActionSheetPicker-3.0 (2.2.0)
+  - TPKeyboardAvoiding (1.3.1)
+  - TTTAttributedLabel (2.0.0)
+
+DEPENDENCIES:
+  - ActionSheetPicker-3.0
+  - TPKeyboardAvoiding
+  - TTTAttributedLabel
+
+SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
+  TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+
+PODFILE CHECKSUM: f0ea37e37ca86ddb3de2d4b291a085af08985c6f
 
 COCOAPODS: 1.1.1
