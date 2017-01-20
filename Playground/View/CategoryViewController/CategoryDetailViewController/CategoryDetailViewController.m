@@ -10,7 +10,7 @@
 #import "CategoryDetailCell.h"
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
-
+#import "CategoryData.h"
 
 @interface CategoryDetailViewController () <UITextFieldDelegate>  {
     double mdCellHeight;
@@ -96,7 +96,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     double dHeight = [self getHeaderHeight];
-    NSString *strTitle = @"For Him";
+    NSString *strTitle = self.mCategory.name;
     
     // if search, more content in title
     if ([self getSearchString].length > 0) {

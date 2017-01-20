@@ -12,6 +12,8 @@
 #import "PHColorHelper.h"
 #import "PCRateView.h"
 #import "PHUiHelper.h"
+#import "CategoryData.h"
+#import "UploadCategoryViewController.h"
 
 @interface UploadInputViewController () {
     PCRateView *mViewRateCore;
@@ -74,19 +76,33 @@
     [PHUiHelper makeRounded:self.mButAuction];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // set category
+    if (self.mCategory) {
+        [self.mTxtCategory setText:self.mCategory.name];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"Upload2Category"]) {
+        UploadCategoryViewController *viewController = [segue destinationViewController];
+        viewController.delegate = self;
+    }
 }
-*/
+
 
 @end

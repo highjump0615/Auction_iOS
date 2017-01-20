@@ -449,7 +449,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileUserCell" rowHeight="210" id="ou3-iZ-SvU" customClass="ProfileUserCell">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="210"/>
+                                        <rect key="frame" x="0.0" y="56" width="320" height="210"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ou3-iZ-SvU" id="SxP-tQ-pfS">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
@@ -507,7 +507,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileItemCell" rowHeight="85" id="AGK-PG-ejk" customClass="CategoryExploreCell">
-                                        <rect key="frame" x="0.0" y="265.5" width="320" height="85"/>
+                                        <rect key="frame" x="0.0" y="266" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AGK-PG-ejk" id="CBp-lt-brt">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
@@ -551,7 +551,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileStatisticsCell" rowHeight="148" id="6Kc-xi-3f6" customClass="ProfileStatisticsCell">
-                                        <rect key="frame" x="0.0" y="350.5" width="320" height="148"/>
+                                        <rect key="frame" x="0.0" y="351" width="320" height="148"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Kc-xi-3f6" id="baq-Pl-Avj">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
@@ -2001,7 +2001,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jEc-Vm-6Tk" id="3aM-pO-6Eh">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Him" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dru-Ws-Lfu">
@@ -2219,7 +2219,7 @@ EENoYXRUYWJsZUNlbGw
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat_forhim.png" translatesAutoresizingMaskIntoConstraints="NO" id="40M-AR-erI">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ct00.png" translatesAutoresizingMaskIntoConstraints="NO" id="40M-AR-erI">
                                                     <rect key="frame" x="10" y="5" width="300" height="71"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Him" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU8-4M-e1O">
@@ -2557,7 +2557,7 @@ EENoYXRUYWJsZUNlbGw
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28f-1w-y3p">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28f-1w-y3p" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVj-XA-4qi">
@@ -2628,7 +2628,7 @@ EENoYXRUYWJsZUNlbGw
                                                         </constraints>
                                                         <state key="normal" image="upload_add.png"/>
                                                         <connections>
-                                                            <segue destination="9gU-1h-rSL" kind="show" id="Ii6-Hx-gXl"/>
+                                                            <segue destination="9gU-1h-rSL" kind="show" identifier="Upload2Category" id="Ii6-Hx-gXl"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -2928,7 +2928,7 @@ EENoYXRUYWJsZUNlbGw
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="8OU-d1-nx7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pDi-f2-sFG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pDi-f2-sFG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3271,7 +3271,7 @@ EENoYXRUYWJsZUNlbGw
         <image name="bid_photo.png" width="50" height="50"/>
         <image name="bid_reply.png" width="21" height="16"/>
         <image name="bid_tw.png" width="35" height="35"/>
-        <image name="cat_forhim.png" width="343" height="90"/>
+        <image name="ct00.png" width="343" height="90"/>
         <image name="inbox_setting.png" width="30" height="30"/>
         <image name="login_crown.png" width="111" height="267"/>
         <image name="login_gradient_bg.png" width="375" height="1"/>

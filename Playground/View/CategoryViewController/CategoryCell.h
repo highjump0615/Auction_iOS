@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class CategoryData;
+
 @interface CategoryCell : UITableViewCell
+
+- (void)fillContent:(CategoryData *)category;
 
 @end

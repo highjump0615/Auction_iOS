@@ -10,4 +10,6 @@
 
 @interface UploadCategoryViewController : BaseViewController
 
+@property (weak, nonatomic) id delegate;
+
 @end

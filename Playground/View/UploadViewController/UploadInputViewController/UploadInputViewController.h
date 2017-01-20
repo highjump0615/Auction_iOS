@@ -8,6 +8,10 @@
 
 #import "BaseViewController.h"
 
+@class CategoryData;
+
 @interface UploadInputViewController : BaseViewController
+
+@property (nonatomic, strong) CategoryData *mCategory;
 
 @end

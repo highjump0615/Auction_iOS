@@ -11,12 +11,18 @@
 #import "PHColorHelper.h"
 #import "CategoryExploreCell.h"
 #import "ItemCollectionCell.h"
+#import "CommonUtils.h"
+#import "CategoryCell.h"
+#import "CategoryDetailViewController.h"
+#import "CategoryData.h"
 
 @interface CategoryViewController () {
     double dCategoryHeight;
     double dExploreHeight;
     double dExploreWidth;
     double dTitleHeight;
+    
+    CategoryData *mCategorySelected;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
@@ -45,15 +51,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"Category2Detail"]) {
+        CategoryDetailViewController *view = (CategoryDetailViewController *)[segue destinationViewController];
+        view.mCategory = mCategorySelected;
+    }
 }
-*/
+
 
 #pragma mark - UITableViewDataSource
 
@@ -66,11 +77,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Explore in default
-    int nCount = 1;
+    NSInteger nCount = 1;
     
     // Categories
     if (section == 1) {
-        nCount = 7;
+        nCount = [CategoryData getCount];
     }
     
     return nCount;
@@ -86,7 +97,14 @@
     }
     // Categories
     else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"CateCateCell"];
+        // get category
+        CategoryData *ct = [CategoryData getItem:indexPath.row];
+        
+        // fill data
+        CategoryCell * cellCategory = [tableView dequeueReusableCellWithIdentifier:@"CateCateCell"];
+        [cellCategory fillContent:ct];
+        
+        cell = cellCategory;
     }
     
     return cell;
@@ -137,6 +155,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // get category
+    CommonUtils *utils = [CommonUtils sharedObject];
+    CategoryData *ct = utils.maryCategory[indexPath.row];
+    
+    mCategorySelected = ct;
+    
     [self performSegueWithIdentifier:@"Category2Detail" sender:nil];
 }
 
