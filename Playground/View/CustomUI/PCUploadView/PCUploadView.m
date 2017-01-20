@@ -7,13 +7,18 @@
 //
 
 #import "PCUploadView.h"
-#import "PHColorHelper.h" 
+#import "PHColorHelper.h"
+
+#import <MobileCoreServices/MobileCoreServices.h>
 
 @interface PCUploadView() {
     int mnMode;
+    UIImagePickerController *mImagePicker;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *mViewPhoto;
+@property (weak, nonatomic) IBOutlet UIImageView *mImgviewPhoto;
+@property (weak, nonatomic) IBOutlet UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate> *mViewController;
 
 @end
 
@@ -27,7 +32,7 @@
 }
 */
 
-+ (id)getView:(int)mode {
++ (id)getView:(int)mode controller:(UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate> *)controller {
     NSString *strName = @"PCUploadView";
     
     if (mode == UPLOAD_VIEW_BOTTOM) {
@@ -36,6 +41,7 @@
 
     PCUploadView *viewUpload = [super getView:strName];
     [viewUpload setViewMode:mode];
+    viewUpload.mViewController = controller;
     
     return viewUpload;
 }
@@ -43,21 +49,67 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    [self.mViewPhoto.layer setBorderWidth:0.5f];
-    [self.mViewPhoto.layer setBorderColor:[PHColorHelper colorTextGray].CGColor];
+    [self.mImgviewPhoto.layer setBorderWidth:0.5f];
+    [self.mImgviewPhoto.layer setBorderColor:[PHColorHelper colorTextGray].CGColor];
 }
 
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     
     if (mnMode == UPLOAD_VIEW_RIGHT) {
-        [self.mViewPhoto.layer setMasksToBounds:YES];
-        [self.mViewPhoto.layer setCornerRadius:frame.size.height / 2.0];
+        [self.mImgviewPhoto.layer setMasksToBounds:YES];
+        [self.mImgviewPhoto.layer setCornerRadius:frame.size.height / 2.0];
     }
+}
+
+/**
+ set image to imageview
+ @param image <#image description#>
+ */
+- (void)setImage:(UIImage *)image {
+    [self.mImgviewPhoto setImage:image];
 }
 
 - (void)setViewMode:(int)mode {
     mnMode = mode;
+}
+
+- (IBAction)onButAdd:(id)sender {
+    [self shouldStartCameraController];
+}
+
+- (BOOL)shouldStartCameraController {
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO) {
+        return NO;
+    }
+    
+    mImagePicker = [[UIImagePickerController alloc] init];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]
+        && [[UIImagePickerController availableMediaTypesForSourceType:
+             UIImagePickerControllerSourceTypeCamera] containsObject:(NSString *)kUTTypeImage]) {
+        
+        mImagePicker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *) kUTTypeImage, nil];
+        mImagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear]) {
+            mImagePicker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+        } else if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]) {
+            mImagePicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+        }
+        
+    } else {
+        return NO;
+    }
+    
+    mImagePicker.allowsEditing = YES;
+    mImagePicker.showsCameraControls = YES;
+    mImagePicker.delegate = self.mViewController;
+    
+    [self.mViewController presentViewController:mImagePicker animated:YES completion:nil];
+    
+    return YES;
 }
 
 

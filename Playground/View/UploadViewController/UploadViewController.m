@@ -11,7 +11,7 @@
 #import "PCUploadView.h"
 #import "PHUiHelper.h"
 
-@interface UploadViewController () {
+@interface UploadViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     PCUploadView *mViewUploadCoverCore;
     NSMutableArray *maryViewUploadPreview;
 }
@@ -55,7 +55,7 @@
     [maryViewUploadPreview addObject:self.mViewUploadPreview3];
     
     for (UIView *view in maryViewUploadPreview) {
-        PCUploadView *viewUpload = [PCUploadView getView:UPLOAD_VIEW_BOTTOM];
+        PCUploadView *viewUpload = [PCUploadView getView:UPLOAD_VIEW_BOTTOM controller:self];
         viewUpload.frame = view.bounds;
         [view addSubview:viewUpload];
     }

@@ -95,6 +95,7 @@
 		633EB92E1E3176A500C3A4C0 /* ct06.png in Resources */ = {isa = PBXBuildFile; fileRef = 633EB9191E3176A500C3A4C0 /* ct06.png */; };
 		633EB92F1E3176A500C3A4C0 /* ct06@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 633EB91A1E3176A500C3A4C0 /* ct06@2x.png */; };
 		633EB9301E3176A500C3A4C0 /* ct06@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 633EB91B1E3176A500C3A4C0 /* ct06@3x.png */; };
+		6356D8141E326CE000DCFF36 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6356D8131E326CE000DCFF36 /* MobileCoreServices.framework */; };
 		63608A491E2B3FBB001D0853 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63608A481E2B3FBB001D0853 /* ProfileViewController.m */; };
 		63608A4E1E2B4284001D0853 /* profile_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 63608A4B1E2B4284001D0853 /* profile_mail.png */; };
 		63608A4F1E2B4284001D0853 /* profile_mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63608A4C1E2B4284001D0853 /* profile_mail@2x.png */; };
@@ -318,6 +319,7 @@
 		633EB9191E3176A500C3A4C0 /* ct06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ct06.png; sourceTree = "<group>"; };
 		633EB91A1E3176A500C3A4C0 /* ct06@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ct06@2x.png"; sourceTree = "<group>"; };
 		633EB91B1E3176A500C3A4C0 /* ct06@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ct06@3x.png"; sourceTree = "<group>"; };
+		6356D8131E326CE000DCFF36 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		635FEB2225CFBD8B92E1EC66 /* Pods_PlaygroundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlaygroundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63608A471E2B3FBB001D0853 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		63608A481E2B3FBB001D0853 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6356D8141E326CE000DCFF36 /* MobileCoreServices.framework in Frameworks */,
 				F49882641BC992C000729888 /* Pods_Playground.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1196,6 +1199,7 @@
 		C78845788221DF96412CAA69 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6356D8131E326CE000DCFF36 /* MobileCoreServices.framework */,
 				9CA1C7FD90AA09582B99D71F /* Pods_Playground.framework */,
 				635FEB2225CFBD8B92E1EC66 /* Pods_PlaygroundTests.framework */,
 				7238A6FADD30811398AACC0B /* Pods_PlaygroundUITests.framework */,
@@ -1279,6 +1283,7 @@
 				TargetAttributes = {
 					C3033FF11E2052BE00782925 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 6SAT2NT3Q2;
 						ProvisioningStyle = Automatic;
 					};
 					C303400A1E2052BE00782925 = {
@@ -1808,10 +1813,12 @@
 			baseConfigurationReference = F04C7E1ED6880529C6A5FDBC /* Pods-Playground.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6SAT2NT3Q2;
 				INFOPLIST_FILE = Playground/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fred.Playground;
+				PRODUCT_BUNDLE_IDENTIFIER = "life.playground.-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1821,10 +1828,12 @@
 			baseConfigurationReference = AD56ABF7080BD54B66D25A54 /* Pods-Playground.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6SAT2NT3Q2;
 				INFOPLIST_FILE = Playground/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fred.Playground;
+				PRODUCT_BUNDLE_IDENTIFIER = "life.playground.-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

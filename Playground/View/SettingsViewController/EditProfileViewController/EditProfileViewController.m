@@ -24,10 +24,12 @@
 
 #define kGenderKey              @"gender"
 
-@interface EditProfileViewController () {
+@interface EditProfileViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     int mnFontSize;
     NSDateFormatter *mDateFormat;
     NSDate *mDateBirthday;
+    
+    PCUploadView *viewPhotoCore;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *mViewPhoto;
@@ -51,9 +53,9 @@
     [mDateFormat setDateFormat:@"dd / MM / yyyy"];
     
     // add photo upload view
-    PCUploadView *viewPhoto = [PCUploadView getView:UPLOAD_VIEW_RIGHT];
-    viewPhoto.frame = self.mViewPhoto.bounds;
-    [self.mViewPhoto addSubview:viewPhoto];
+    viewPhotoCore = [PCUploadView getView:UPLOAD_VIEW_RIGHT controller:self];
+    viewPhotoCore.frame = self.mViewPhoto.bounds;
+    [self.mViewPhoto addSubview:viewPhotoCore];
     
     // textfields
     [self initTextField:self.mTxtName];
@@ -219,6 +221,20 @@
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithTransitInformation:(NSDictionary *)components {
     int nGender = [components[kGenderKey] intValue];
     [self updateGenderLabel:nGender];
+}
+
+#pragma mark - UIImagePickerDelegate
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *imgRes = [info objectForKey:UIImagePickerControllerEditedImage];
+    [viewPhotoCore setImage:imgRes];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
