@@ -8,7 +8,12 @@
 
 #import "BaseViewController.h"
 
+@class PCTextField;
+
 @interface EditProfileViewController : BaseViewController
+
+@property (weak, nonatomic) IBOutlet PCTextField *mTxtName;
+@property (weak, nonatomic) IBOutlet PCTextField *mTxtUsername;
 
 - (void)initTextField:(UITextField *)textfield;
 

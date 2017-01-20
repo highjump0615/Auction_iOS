@@ -16,34 +16,37 @@
             <rect key="frame" x="0.0" y="0.0" width="93" height="128"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAY-b3-yUi" userLabel="Photo View">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dJf-XP-fTY">
                     <rect key="frame" x="0.0" y="0.0" width="93" height="93"/>
-                    <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="nAY-b3-yUi" secondAttribute="height" multiplier="1:1" id="hoV-nH-Sbd"/>
+                        <constraint firstAttribute="width" secondItem="dJf-XP-fTY" secondAttribute="height" multiplier="1:1" id="aGs-4g-kDS"/>
                     </constraints>
-                </view>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co7-XA-odY">
                     <rect key="frame" x="29" y="93" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Co7-XA-odY" secondAttribute="height" multiplier="1:1" id="NK3-XS-lx4"/>
                     </constraints>
                     <state key="normal" image="upload_add.png"/>
+                    <connections>
+                        <action selector="onButAdd:" destination="iN0-l3-epB" eventType="touchUpInside" id="le6-bq-oyY"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="nAY-b3-yUi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8sH-ye-eNn"/>
-                <constraint firstAttribute="trailing" secondItem="nAY-b3-yUi" secondAttribute="trailing" id="AUf-cD-nl4"/>
-                <constraint firstItem="Co7-XA-odY" firstAttribute="centerX" secondItem="nAY-b3-yUi" secondAttribute="centerX" id="X1j-MH-Diw"/>
-                <constraint firstItem="Co7-XA-odY" firstAttribute="top" secondItem="nAY-b3-yUi" secondAttribute="bottom" id="lVU-WL-ZXo"/>
-                <constraint firstItem="nAY-b3-yUi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="obN-tl-DBB"/>
+                <constraint firstItem="dJf-XP-fTY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6Mc-qy-pfL"/>
+                <constraint firstItem="Co7-XA-odY" firstAttribute="centerX" secondItem="dJf-XP-fTY" secondAttribute="centerX" id="9ak-aE-OQM"/>
+                <constraint firstItem="dJf-XP-fTY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="C0I-jI-hnB"/>
+                <constraint firstAttribute="trailing" secondItem="dJf-XP-fTY" secondAttribute="trailing" id="GbD-bM-10Y"/>
+                <constraint firstItem="Co7-XA-odY" firstAttribute="top" secondItem="dJf-XP-fTY" secondAttribute="bottom" id="KC2-mY-Gvr"/>
                 <constraint firstAttribute="bottom" secondItem="Co7-XA-odY" secondAttribute="bottom" id="qCh-xv-o6Q"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="mViewPhoto" destination="nAY-b3-yUi" id="RFn-KC-N8n"/>
+                <outlet property="mImgviewPhoto" destination="dJf-XP-fTY" id="4eZ-Ez-3y0"/>
             </connections>
             <point key="canvasLocation" x="-116.5" y="-219"/>
         </view>

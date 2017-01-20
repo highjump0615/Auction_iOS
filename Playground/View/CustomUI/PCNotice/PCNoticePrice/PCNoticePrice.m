@@ -27,13 +27,17 @@
     //
     [self.mLblTitle setFont:[PHTextHelper myriadProBold:18]];
     [self.mLblValue setFont:[PHTextHelper myriadProBold:22]];
-    
-    // shadow
-    [self setShadow:5 opacity:0.5f radius:5];
 }
 
 + (id)getView {
     return [super getView:@"PCNoticePrice"];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    // shadow
+    [self setShadow:5 opacity:0.5f radius:5];
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "CategoryCell.h"
 #import "PHTextHelper.h"
+#import "CategoryData.h"
 
 @interface CategoryCell()
 
@@ -28,6 +29,14 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)fillContent:(CategoryData *)category {
+    // set image
+    [self.mImgviewPhoto setImage:[UIImage imageNamed:[category getImageName]]];
+    
+    // set name
+    [self.mLblTitle setText:category.name];
 }
 
 @end

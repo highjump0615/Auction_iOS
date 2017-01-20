@@ -13,8 +13,10 @@
 
 @interface PCUploadView : PCBaseView
 
-+ (id)getView:(int)mode;
++ (id)getView:(int)mode controller:(UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate> *)controller;
 
 - (void)setFrame:(CGRect)frame;
+- (void)setImage:(UIImage *)image;
+- (UIImagePickerController *)getImagePicker;
 
 @end

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>category</key>
+	<array>
+		<dict>
+			<key>id</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string>For Him</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>1</string>
+			<key>name</key>
+			<string>For Her</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>2</string>
+			<key>name</key>
+			<string>Tech</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>3</string>
+			<key>name</key>
+			<string>Entertainment</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>4</string>
+			<key>name</key>
+			<string>Beauty</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>5</string>
+			<key>name</key>
+			<string>Kids</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>6</string>
+			<key>name</key>
+			<string>Others</string>
+		</dict>
+	</array>
+</dict>
+</plist>

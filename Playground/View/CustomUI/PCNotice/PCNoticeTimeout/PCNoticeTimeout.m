@@ -32,13 +32,17 @@
     //
     [self.mLblTitle setFont:[PHTextHelper myriadProBold:21]];
     [self.mLblValue setFont:[PHTextHelper myriadProBold:35]];
-    
-    // shadow
-    [self setShadow:10 opacity:0.5f radius:10];
 }
 
 + (id)getView {
     return [super getView:@"PCNoticeTimeout"];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    // shadow
+    [self setShadow:10 opacity:0.5f radius:10];
 }
 
 

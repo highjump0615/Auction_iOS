@@ -8,6 +8,7 @@
 
 #import "UploadCategoryCell.h"
 #import "PHTextHelper.h"
+#import "CategoryData.h"
 
 @interface UploadCategoryCell ()
 
@@ -28,5 +29,11 @@
 
     // Configure the view for the selected state
 }
+
+- (void)fillContent:(CategoryData *)category {
+    // set name
+    [self.mLblName setText:category.name];
+}
+
 
 @end

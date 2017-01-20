@@ -70,4 +70,8 @@
     [viewAlert showView:YES animated:YES];
 }
 
+- (IBAction)onButLogout:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 @end

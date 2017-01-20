@@ -51,4 +51,28 @@
 }
 */
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if (textField == self.mTxtName) {
+        [self.mTxtUsername becomeFirstResponder];
+    }
+    else if (textField == self.mTxtUsername) {
+        [self.mTxtPasswd becomeFirstResponder];
+    }
+    else if (textField == self.mTxtPasswd) {
+        [self.mTxtPasswdRetype becomeFirstResponder];
+    }
+    else if (textField == self.mTxtPasswdRetype) {
+        [self.mTxtEmail becomeFirstResponder];
+    }
+    else if (textField == self.mTxtEmail) {
+        [textField resignFirstResponder];
+    }
+    
+    return YES;
+}
+
+
 @end

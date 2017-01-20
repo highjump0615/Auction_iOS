@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "CategoryData.h"
+#import "CommonUtils.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +18,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // load category data
+    NSString *strPath = [[NSBundle mainBundle] pathForResource:@"Category" ofType:@"plist"];
+    NSMutableDictionary *userDic = [[NSMutableDictionary alloc] initWithContentsOfFile:strPath];
+    
+    CommonUtils *utils = [CommonUtils sharedObject];
+    
+    NSArray *aryCategory = [userDic objectForKey:@"category"];
+    for (NSDictionary *dict in aryCategory) {
+        CategoryData *category = [[CategoryData alloc] initWithDictionary:dict];
+        [utils.maryCategory addObject:category];
+    }
     
     return YES;
 }

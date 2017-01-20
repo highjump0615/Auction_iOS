@@ -7,8 +7,10 @@
 //
 
 #import "UploadCategoryViewController.h"
+#import "UploadInputViewController.h"
 #import "PHTextHelper.h"
 #import "UploadCategoryCell.h"
+#import "CategoryData.h"
 
 @interface UploadCategoryViewController ()
 
@@ -49,12 +51,17 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
+    return [CategoryData getCount];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    // get category
+    CategoryData *ct = [CategoryData getItem:indexPath.row];
+    
+    // fill data
     UploadCategoryCell *cellCategory = (UploadCategoryCell *)[tableView dequeueReusableCellWithIdentifier:@"UploadCategoryCell"];
+    [cellCategory fillContent:ct];
     
     return cellCategory;
 }
@@ -67,6 +74,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // send category to back page
+    UploadInputViewController *viewController = (UploadInputViewController *)self.delegate;
+    viewController.mCategory = [CategoryData getItem:indexPath.row];
     
     // back to prev page
     [self.navigationController popViewControllerAnimated:YES];

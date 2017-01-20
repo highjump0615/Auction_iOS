@@ -16,34 +16,37 @@
             <rect key="frame" x="0.0" y="0.0" width="115" height="80"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAY-b3-yUi" userLabel="Photo View">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0VS-j6-3Un">
                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                     <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="nAY-b3-yUi" secondAttribute="height" multiplier="1:1" id="hoV-nH-Sbd"/>
+                        <constraint firstAttribute="width" secondItem="0VS-j6-3Un" secondAttribute="height" multiplier="1:1" id="Ec5-Pv-RyT"/>
                     </constraints>
-                </view>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co7-XA-odY">
                     <rect key="frame" x="80" y="23" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Co7-XA-odY" secondAttribute="height" multiplier="1:1" id="NK3-XS-lx4"/>
                     </constraints>
                     <state key="normal" image="upload_add.png"/>
+                    <connections>
+                        <action selector="onButAdd:" destination="iN0-l3-epB" eventType="touchUpInside" id="VFu-t9-QEe"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="nAY-b3-yUi" secondAttribute="bottom" id="1B0-vW-CMt"/>
+                <constraint firstItem="0VS-j6-3Un" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0bv-Z1-VD6"/>
+                <constraint firstAttribute="bottom" secondItem="0VS-j6-3Un" secondAttribute="bottom" id="5Ff-Cp-oCY"/>
                 <constraint firstAttribute="trailing" secondItem="Co7-XA-odY" secondAttribute="trailing" id="8Zc-YQ-Cf9"/>
-                <constraint firstItem="Co7-XA-odY" firstAttribute="leading" secondItem="nAY-b3-yUi" secondAttribute="trailing" id="FcF-wA-tfg"/>
+                <constraint firstItem="Co7-XA-odY" firstAttribute="leading" secondItem="0VS-j6-3Un" secondAttribute="trailing" id="R51-H0-iRw"/>
                 <constraint firstItem="Co7-XA-odY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="R5Z-gz-W2N"/>
-                <constraint firstItem="nAY-b3-yUi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SgK-0s-oPi"/>
-                <constraint firstItem="nAY-b3-yUi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="z1h-rv-gmQ"/>
+                <constraint firstItem="0VS-j6-3Un" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cbk-hB-LR1"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="mViewPhoto" destination="nAY-b3-yUi" id="RFn-KC-N8n"/>
+                <outlet property="mImgviewPhoto" destination="0VS-j6-3Un" id="HPe-Lf-Ijl"/>
             </connections>
             <point key="canvasLocation" x="-105.5" y="-243"/>
         </view>
