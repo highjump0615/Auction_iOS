@@ -38,5 +38,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera is used for taking portrait of the user.</string>
 </dict>
 </plist>

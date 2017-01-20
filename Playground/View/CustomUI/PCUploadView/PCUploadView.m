@@ -16,7 +16,6 @@
     UIImagePickerController *mImagePicker;
 }
 
-@property (weak, nonatomic) IBOutlet UIView *mViewPhoto;
 @property (weak, nonatomic) IBOutlet UIImageView *mImgviewPhoto;
 @property (weak, nonatomic) IBOutlet UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate> *mViewController;
 
@@ -72,6 +71,10 @@
 
 - (void)setViewMode:(int)mode {
     mnMode = mode;
+}
+
+- (UIImagePickerController *)getImagePicker {
+    return mImagePicker;
 }
 
 - (IBAction)onButAdd:(id)sender {

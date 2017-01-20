@@ -14,6 +14,7 @@
 @interface UploadViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     PCUploadView *mViewUploadCoverCore;
     NSMutableArray *maryViewUploadPreview;
+    NSMutableArray *maryViewUploadPreviewCore;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
@@ -44,12 +45,14 @@
     [self.mButNext.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
     
     // add upload cover
-    mViewUploadCoverCore = [PCUploadView getView:UPLOAD_VIEW_RIGHT];
+    mViewUploadCoverCore = [PCUploadView getView:UPLOAD_VIEW_RIGHT controller:self];
     mViewUploadCoverCore.frame = self.mViewUploadCover.bounds;
     [self.mViewUploadCover addSubview:mViewUploadCoverCore];
     
     // add photo upload view
     maryViewUploadPreview = [[NSMutableArray alloc] init];
+    maryViewUploadPreviewCore = [[NSMutableArray alloc] init];
+    
     [maryViewUploadPreview addObject:self.mViewUploadPreview1];
     [maryViewUploadPreview addObject:self.mViewUploadPreview2];
     [maryViewUploadPreview addObject:self.mViewUploadPreview3];
@@ -58,6 +61,8 @@
         PCUploadView *viewUpload = [PCUploadView getView:UPLOAD_VIEW_BOTTOM controller:self];
         viewUpload.frame = view.bounds;
         [view addSubview:viewUpload];
+        
+        [maryViewUploadPreviewCore addObject:viewUpload];
     }
     
     // next button
@@ -78,5 +83,30 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - UIImagePickerDelegate
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    // get image
+    UIImage *imgRes = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    if ([mViewUploadCoverCore getImagePicker] == picker) {
+        [mViewUploadCoverCore setImage:imgRes];
+    }
+    
+    for (PCUploadView *viewUpload in maryViewUploadPreviewCore) {
+        if ([viewUpload getImagePicker] == picker) {
+            [viewUpload setImage:imgRes];
+        }
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end
