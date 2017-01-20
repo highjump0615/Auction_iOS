@@ -83,12 +83,17 @@
     
     // if comment, show comment button
     if (mnSelectedTab == BID_TAB_COMMENT) {
-        [self.mButComment setHidden:NO];
+        // shows comment button if only input text is hidden
+        if (self.mViewInput.isHidden) {
+            [self.mButComment setHidden:NO];
+        }
     }
     else {
         [self.mButComment setHidden:YES];
         [self showCommentInput:NO];
     }
+    
+    [self.view endEditing:YES];
 }
 
 /**
@@ -140,22 +145,22 @@
  @param show <#show description#>
  */
 - (void)showCommentInput:(BOOL)show {
-    [self.mViewInput setHidden:!show];
-    
     //
     // set bottom margin for tableview
     //
     UIEdgeInsets edgeTable = self.mTableview.contentInset;
     
     // if show, add bottom inset
-    if (show) {
+    if (self.mViewInput.isHidden && show) {
         edgeTable.bottom += self.mViewInput.bounds.size.height;
     }
-    else {
+    else if (!self.mViewInput.isHidden && !show) {
         edgeTable.bottom -= self.mViewInput.bounds.size.height;
     }
     
     [self.mTableview setContentInset:edgeTable];
+    
+    [self.mViewInput setHidden:!show];
 }
 
 - (IBAction)onButComment:(id)sender {

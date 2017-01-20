@@ -104,5 +104,16 @@
     }
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if (textField == self.mTxtTitle) {
+        [self.mTxtDescription becomeFirstResponder];
+    }
+    
+    return NO;
+}
+
 
 @end

@@ -54,4 +54,25 @@
 }
 */
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if (textField == self.mTxtEmail) {
+        [textField resignFirstResponder];
+    }
+    else if (textField == self.mTxtPswdOld) {
+        [self.mTxtPswdNew becomeFirstResponder];
+    }
+    else if (textField == self.mTxtPswdNew) {
+        [self.mTxtPswdRetype becomeFirstResponder];
+    }
+    else if (textField == self.mTxtPswdRetype) {
+        [textField resignFirstResponder];
+    }
+    
+    return YES;
+}
+
+
 @end

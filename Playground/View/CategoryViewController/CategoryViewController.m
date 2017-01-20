@@ -180,6 +180,12 @@
     return CGSizeMake(dExploreWidth, dExploreHeight);
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // go to auction page
+    [self performSegueWithIdentifier:@"Category2Bid" sender:nil];
+}
+
+
 
 
 @end

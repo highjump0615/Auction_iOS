@@ -204,13 +204,7 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-    if (textField == self.mTxtName) {
-        [self.mTxtUsername becomeFirstResponder];
-    }
-//    else if (textField == self.mTxtPassword) {
-//        [textField resignFirstResponder];
-//    }
+    [textField resignFirstResponder];
     
     return YES;
 }
