@@ -1288,11 +1288,13 @@
 					};
 					C303400A1E2052BE00782925 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 6SAT2NT3Q2;
 						ProvisioningStyle = Automatic;
 						TestTargetID = C3033FF11E2052BE00782925;
 					};
 					C30340151E2052BE00782925 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 6SAT2NT3Q2;
 						ProvisioningStyle = Automatic;
 						TestTargetID = C3033FF11E2052BE00782925;
 					};
@@ -1740,9 +1742,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6SAT2NT3Q2;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1788,9 +1792,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6SAT2NT3Q2;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1813,12 +1819,13 @@
 			baseConfigurationReference = F04C7E1ED6880529C6A5FDBC /* Pods-Playground.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6SAT2NT3Q2;
 				INFOPLIST_FILE = Playground/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "life.playground.-";
+				PRODUCT_BUNDLE_IDENTIFIER = life.playground.playground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1828,12 +1835,13 @@
 			baseConfigurationReference = AD56ABF7080BD54B66D25A54 /* Pods-Playground.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6SAT2NT3Q2;
 				INFOPLIST_FILE = Playground/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "life.playground.-";
+				PRODUCT_BUNDLE_IDENTIFIER = life.playground.playground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
