@@ -12,8 +12,8 @@
 
 @interface EditProfileViewController : BaseViewController
 
-@property (weak, nonatomic) IBOutlet PCTextField *mTxtName;
-@property (weak, nonatomic) IBOutlet PCTextField *mTxtUsername;
+@property (weak, nonatomic) IBOutlet UITextField *mTxtName;
+@property (weak, nonatomic) IBOutlet UITextField *mTxtUsername;
 
 - (void)initTextField:(UITextField *)textfield;
 

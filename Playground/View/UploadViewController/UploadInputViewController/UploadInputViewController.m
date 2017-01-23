@@ -42,13 +42,13 @@
     [super viewDidLoad];
     
     // upload label
-    [self.mLblTitle setFont:[PHTextHelper myriadProBold:35]];
+    [self.mLblTitle setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeLarge]]];
     
     // title
     [PHTextHelper initTextRegular:self.mTxtTitle];
     
     // description
-    [self.mTxtDescription setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mTxtDescription setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     [self.mTxtDescription setPlaceholder:@"Description (up to 300 characters)"];
     [self.mTxtDescription setPlaceholderColor:[PHColorHelper colorTextGray]];
     
@@ -62,17 +62,17 @@
     [PHTextHelper initTextRegular:self.mTxtPeriod];
     
     // condition
-    [self.mLblCondition setFont:[PHTextHelper myriadProBold:14]];
+    [self.mLblCondition setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     mViewRateCore = [PCRateView getView];
     mViewRateCore.frame = self.mViewRate.bounds;
     [self.mViewRate addSubview:mViewRateCore];
     
     // share
-    [self.mLblShare setFont:[PHTextHelper myriadProBold:14]];
+    [self.mLblShare setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     // auction button
-    [self.mButAuction.titleLabel setFont:[PHTextHelper myriadProBold:14]];
+    [self.mButAuction.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     [PHUiHelper makeRounded:self.mButAuction];
 }
 

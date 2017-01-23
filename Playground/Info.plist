@@ -29,6 +29,8 @@
 		<string>MyriadPro-Regular.otf</string>
 		<string>MyriadPro-Bold.otf</string>
 		<string>MyriadPro-Semibold.otf</string>
+		<string>MyriadPro-Black.otf</string>
+		<string>MyriadPro-Light.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

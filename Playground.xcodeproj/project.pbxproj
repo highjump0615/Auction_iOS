@@ -95,6 +95,11 @@
 		633EB92E1E3176A500C3A4C0 /* ct06.png in Resources */ = {isa = PBXBuildFile; fileRef = 633EB9191E3176A500C3A4C0 /* ct06.png */; };
 		633EB92F1E3176A500C3A4C0 /* ct06@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 633EB91A1E3176A500C3A4C0 /* ct06@2x.png */; };
 		633EB9301E3176A500C3A4C0 /* ct06@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 633EB91B1E3176A500C3A4C0 /* ct06@3x.png */; };
+		63507DBC1E3679E00076D66A /* MyriadPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 63507DBB1E3679E00076D66A /* MyriadPro-Black.otf */; };
+		63507DBE1E3685CD0076D66A /* MyriadPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 63507DBD1E3685CD0076D66A /* MyriadPro-Light.otf */; };
+		63507DC21E36906A0076D66A /* orange_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 63507DBF1E36906A0076D66A /* orange_bg.png */; };
+		63507DC31E36906A0076D66A /* orange_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63507DC01E36906A0076D66A /* orange_bg@2x.png */; };
+		63507DC41E36906A0076D66A /* orange_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63507DC11E36906A0076D66A /* orange_bg@3x.png */; };
 		6356D8141E326CE000DCFF36 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6356D8131E326CE000DCFF36 /* MobileCoreServices.framework */; };
 		63608A491E2B3FBB001D0853 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63608A481E2B3FBB001D0853 /* ProfileViewController.m */; };
 		63608A4E1E2B4284001D0853 /* profile_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 63608A4B1E2B4284001D0853 /* profile_mail.png */; };
@@ -319,6 +324,11 @@
 		633EB9191E3176A500C3A4C0 /* ct06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ct06.png; sourceTree = "<group>"; };
 		633EB91A1E3176A500C3A4C0 /* ct06@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ct06@2x.png"; sourceTree = "<group>"; };
 		633EB91B1E3176A500C3A4C0 /* ct06@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ct06@3x.png"; sourceTree = "<group>"; };
+		63507DBB1E3679E00076D66A /* MyriadPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Black.otf"; sourceTree = "<group>"; };
+		63507DBD1E3685CD0076D66A /* MyriadPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Light.otf"; sourceTree = "<group>"; };
+		63507DBF1E36906A0076D66A /* orange_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange_bg.png; sourceTree = "<group>"; };
+		63507DC01E36906A0076D66A /* orange_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange_bg@2x.png"; sourceTree = "<group>"; };
+		63507DC11E36906A0076D66A /* orange_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange_bg@3x.png"; sourceTree = "<group>"; };
 		6356D8131E326CE000DCFF36 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		635FEB2225CFBD8B92E1EC66 /* Pods_PlaygroundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlaygroundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63608A471E2B3FBB001D0853 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -787,6 +797,9 @@
 		63890D5E1E296E15002A3C16 /* Item */ = {
 			isa = PBXGroup;
 			children = (
+				63507DBF1E36906A0076D66A /* orange_bg.png */,
+				63507DC01E36906A0076D66A /* orange_bg@2x.png */,
+				63507DC11E36906A0076D66A /* orange_bg@3x.png */,
 				63057E0A1E2C37FF00496FD3 /* red_bg.png */,
 				63057E0B1E2C37FF00496FD3 /* red_bg@2x.png */,
 				63057E0C1E2C37FF00496FD3 /* red_bg@3x.png */,
@@ -1077,6 +1090,8 @@
 		C387313B1E22C0D9007B6BD1 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				63507DBD1E3685CD0076D66A /* MyriadPro-Light.otf */,
+				63507DBB1E3679E00076D66A /* MyriadPro-Black.otf */,
 				63AC619A1E2D395800F0E79D /* MyriadPro-Semibold.otf */,
 				C3D6D8BF1E26DCBE00019747 /* MyriadPro-Bold.otf */,
 				C3D6D8C01E26DCBE00019747 /* MyriadPro-Regular.otf */,
@@ -1335,12 +1350,14 @@
 				63057E011E2C20FD00496FD3 /* bid_photo.png in Resources */,
 				63057DFE1E2C20FD00496FD3 /* bid_fb.png in Resources */,
 				63608A541E2B4374001D0853 /* profile_setting.png in Resources */,
+				63507DC21E36906A0076D66A /* orange_bg.png in Resources */,
 				63057DF81E2C20FD00496FD3 /* bid_desc.png in Resources */,
 				63890D6C1E296E15002A3C16 /* purple_bg@2x.png in Resources */,
 				C3D6D8AF1E26AFDC00019747 /* login_playground@3x.png in Resources */,
 				63057DFD1E2C20FD00496FD3 /* bid_desc_selected@3x.png in Resources */,
 				63057E0E1E2C37FF00496FD3 /* red_bg@2x.png in Resources */,
 				63890D6F1E296E15002A3C16 /* yellow_bg@2x.png in Resources */,
+				63507DC31E36906A0076D66A /* orange_bg@2x.png in Resources */,
 				63398D431E28CF3E00BB3E55 /* PCUploadView.xib in Resources */,
 				6316B8971E2D811700DFFA07 /* PCNoticePrice.xib in Resources */,
 				63608A561E2B4374001D0853 /* profile_setting@3x.png in Resources */,
@@ -1361,6 +1378,7 @@
 				63398D5D1E291ADC00BB3E55 /* tab_profile@3x.png in Resources */,
 				63398D581E291ADC00BB3E55 /* tab_oval.png in Resources */,
 				C3D6D8C21E26DCBE00019747 /* MyriadPro-Regular.otf in Resources */,
+				63507DC41E36906A0076D66A /* orange_bg@3x.png in Resources */,
 				63F1C82A1E2BA9D400F79EA7 /* PCRateView.xib in Resources */,
 				63F1C8311E2BAA8E00F79EA7 /* rate_star_disable.png in Resources */,
 				C3D6D8B91E26B72100019747 /* login_login_bg@3x.png in Resources */,
@@ -1369,6 +1387,7 @@
 				63057E0D1E2C37FF00496FD3 /* red_bg.png in Resources */,
 				63A29E011E2ED0AA0059FEB4 /* PCAlertDialog.xib in Resources */,
 				63A29DF61E2E9C060059FEB4 /* auct_congrat@2x.png in Resources */,
+				63507DBE1E3685CD0076D66A /* MyriadPro-Light.otf in Resources */,
 				63398D551E291ADC00BB3E55 /* tab_category.png in Resources */,
 				63057E071E2C20FD00496FD3 /* bid_tw.png in Resources */,
 				63057DF51E2C20FD00496FD3 /* bid_comment_selected.png in Resources */,
@@ -1417,6 +1436,7 @@
 				C30340001E2052BE00782925 /* Main.storyboard in Resources */,
 				63057E031E2C20FD00496FD3 /* bid_photo@3x.png in Resources */,
 				633EB9241E3176A500C3A4C0 /* ct02@3x.png in Resources */,
+				63507DBC1E3679E00076D66A /* MyriadPro-Black.otf in Resources */,
 				63F1C8331E2BAA8E00F79EA7 /* rate_star_disable@3x.png in Resources */,
 				C3D6D8C11E26DCBE00019747 /* MyriadPro-Bold.otf in Resources */,
 				633EB9261E3176A500C3A4C0 /* ct03@2x.png in Resources */,

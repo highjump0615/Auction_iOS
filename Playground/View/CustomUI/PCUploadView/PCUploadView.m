@@ -55,11 +55,28 @@
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     
+    // make round
+    [self.mImgviewPhoto.layer setMasksToBounds:YES];
+    
     if (mnMode == UPLOAD_VIEW_RIGHT) {
-        [self.mImgviewPhoto.layer setMasksToBounds:YES];
         [self.mImgviewPhoto.layer setCornerRadius:frame.size.height / 2.0];
     }
+    else {
+        [self.mImgviewPhoto.layer setCornerRadius:4];
+    }
 }
+
+
+/**
+ redefine set background color
+ @param backgroundColor <#backgroundColor description#>
+ */
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    [super setBackgroundColor:backgroundColor];
+    
+    [self.mImgviewPhoto setBackgroundColor:backgroundColor];
+}
+
 
 /**
  set image to imageview
@@ -101,8 +118,8 @@
         } else if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]) {
             mImagePicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
         }
-        
-    } else {
+    }
+    else {
         return NO;
     }
     

@@ -24,7 +24,7 @@
     [super awakeFromNib];
     
     // init price cell
-    [self.mLblPrice setFont:[PHTextHelper myriadProRegular:12]];
+    [self.mLblPrice setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeMedium]]];
     [self.mLblPrice.layer setBorderWidth:1];
     [self.mLblPrice.layer setBorderColor:[PHColorHelper colorTextBlack].CGColor];
 }

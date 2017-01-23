@@ -42,14 +42,14 @@
     [self.mLblTitle setFont:[PHTextHelper myriadProBold:18]];
     
     // message
-    [self.mLblMessage setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mLblMessage setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     // primary button
-    [self.mButPrimary.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mButPrimary.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     [PHUiHelper makeRounded:self.mButPrimary];
     
     // cancel button
-    [self.mButCancel.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mButCancel.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     // add tap guesture
     if ([self.gestureRecognizers count] == 0) {

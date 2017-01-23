@@ -38,8 +38,8 @@
     [super viewDidLoad];
     
     // font
-    [self.mButBid.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
-    [self.mLblItemname setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mButBid.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
+    [self.mLblItemname setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     [self.mLblUsername setFont:[PHTextHelper myriadProRegular:10]];
     [self.mLblLimit setFont:[PHTextHelper myriadProRegular:10]];
     

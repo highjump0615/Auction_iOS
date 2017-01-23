@@ -32,7 +32,7 @@
     // nav bar
     [self showSearch:YES showBack:YES];
     
-    [self.mLblTitle setFont:[PHTextHelper myriadProBold:32]];
+    [self.mLblTitle setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeLarge]]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,7 +91,7 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    return 120;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -56,7 +56,7 @@
     // make them rounded
     [button.layer setMasksToBounds:YES];
     [button.layer setCornerRadius:7];
-    [button.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
+    [button.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
 }
 
 /**
@@ -66,7 +66,7 @@
     // make them rounded
     [button.layer setMasksToBounds:YES];
     [button.layer setCornerRadius:button.frame.size.height / 2.0];
-    [button.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
+    [button.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
 }
 
 /**

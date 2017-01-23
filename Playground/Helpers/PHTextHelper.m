@@ -8,8 +8,42 @@
 
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
+#import "PHUiHelper.h"
 
 @implementation PHTextHelper
+
++ (NSInteger)fontSizeSmall {
+    return 11;
+}
+
++ (NSInteger)fontSizeMedium {
+    return 13;
+}
+
++ (NSInteger)fontSizeNormal {
+    return 15;
+}
+
++ (NSInteger)fontSizeNormalLarge {
+    return 22;
+}
+
++ (NSInteger)fontSizeSemiLarge {
+    return 30;
+}
+
++ (NSInteger)fontSizeLarge {
+    return 40;
+}
+
++ (NSInteger)fontNoticeSmall {
+    return 20;
+}
+
++ (NSInteger)fontNoticeMedium {
+    return 24;
+}
+
 
 + (UIFont*)myriadProRegular:(CGFloat)size {
     return [UIFont fontWithName:@"MyriadPro-Regular" size:size];
@@ -17,6 +51,14 @@
 
 + (UIFont*)myriadProBold:(CGFloat)size {
     return [UIFont fontWithName:@"MyriadPro-Bold" size:size];
+}
+
++ (UIFont*)myriadProBlack:(CGFloat)size {
+    return [UIFont fontWithName:@"MyriadPro-Black" size:size];
+}
+
++ (UIFont*)myriadProLight:(CGFloat)size {
+    return [UIFont fontWithName:@"MyriadPro-Light" size:size];
 }
 
 + (UIFont*)myriadProSemibold:(CGFloat)size {
@@ -51,8 +93,8 @@
  */
 + (void)initTextRegular:(UITextField *)textfield {
     // font
-    UIFont *fontBold = [PHTextHelper myriadProRegular:14];
-    [textfield setFont:fontBold];
+    UIFont *fontRegular = [PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]];
+    [textfield setFont:fontRegular];
     
     // placeholder
     [self setGrayPlaceHolder:textfield];
@@ -64,7 +106,7 @@
  */
 + (void)initTextBold:(UITextField *)textfield {
     // font
-    UIFont *fontBold = [PHTextHelper myriadProBold:14];
+    UIFont *fontBold = [PHTextHelper myriadProBold:[PHTextHelper fontSizeNormal]];
     [textfield setFont:fontBold];
     
     // placeholder

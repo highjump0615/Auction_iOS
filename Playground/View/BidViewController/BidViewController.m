@@ -47,7 +47,7 @@
     self.mTableview.estimatedRowHeight = UITableViewAutomaticDimension;
     
     // font
-    [self.mButComment.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mButComment.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     [PHUiHelper makeRounded:self.mButComment];
     
     // keyboard event
@@ -102,7 +102,7 @@
  @param index <#index description#>
  @return <#return value description#>
  */
-- (UITableViewCell *)configureChatCell:(UITableView *)tableView index:(NSInteger)index {
+- (UITableViewCell *)configureCell:(UITableView *)tableView index:(NSInteger)index {
     UITableViewCell *cell;
     
     // item cell is the first
@@ -184,7 +184,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [self configureChatCell:tableView index:indexPath.row];
+    UITableViewCell *cell = [self configureCell:tableView index:indexPath.row];
     
     return cell;
 }
@@ -206,12 +206,12 @@
     
     // item cell is the first
     if (indexPath.row == 0) {
-        dHeight = 266;
+        dHeight = 308;
     }
     else {
         // other cells are determined by the selected tab
         if (mnSelectedTab == BID_TAB_DESCRIPTION || mnSelectedTab == BID_TAB_COMMENT) {
-            UITableViewCell *cell = [self configureChatCell:tableView index:indexPath.row];
+            UITableViewCell *cell = [self configureCell:tableView index:indexPath.row];
             
             // reset layout
             [cell layoutIfNeeded];
@@ -219,7 +219,7 @@
             dHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         }
         else {
-            dHeight = 216;
+            dHeight = 218 + 8 + 8;
         }
     }
     
@@ -238,7 +238,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    return CGSizeMake(120, 200);
+    return CGSizeMake(145, 218);
 }
 
 #pragma mark - UITextFieldDelegate

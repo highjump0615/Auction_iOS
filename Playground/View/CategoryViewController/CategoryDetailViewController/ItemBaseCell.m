@@ -32,8 +32,8 @@
     [self.mViewPhoto addSubview:mItemView];
     
     // init labels
-    [self.mLblTitle setFont:[PHTextHelper myriadProRegular:14]];
-    [self.mLblUsername setFont:[PHTextHelper myriadProRegular:10]];
+    [self.mLblTitle setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
+    [self.mLblUsername setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeSmall]]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

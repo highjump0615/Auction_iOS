@@ -22,7 +22,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    [self.mLblTitle setFont:[PHTextHelper myriadProBold:20]];
+    [self.mLblTitle setFont:[PHTextHelper myriadProBold:24]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

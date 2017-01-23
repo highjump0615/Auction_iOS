@@ -24,14 +24,14 @@
     [super awakeFromNib];
     
     // init borders
-    [self.mImgviewPhoto.layer setBorderWidth:2];
+    [self.mImgviewPhoto.layer setBorderWidth:3];
     [self.mImgviewPhoto.layer setBorderColor:[UIColor whiteColor].CGColor];
     
     [self.mButTime.layer setBorderWidth:2];
     [self.mButTime.layer setBorderColor:[UIColor whiteColor].CGColor];
     
     // font
-    [self.mButTime.titleLabel setFont:[PHTextHelper myriadProRegular:11]];
+    [self.mButTime.titleLabel setFont:[PHTextHelper myriadProLight:12]];
 }
 
 /*

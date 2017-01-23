@@ -29,7 +29,7 @@
                                 <state key="normal" image="navbar_back.png"/>
                             </button>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfg-6v-tye">
-                                <rect key="frame" x="44" y="27" width="263" height="30"/>
+                                <rect key="frame" x="44" y="27" width="260" height="30"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0c3-4s-eW2"/>
@@ -39,13 +39,13 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kyle Anderson" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqI-YD-Ar4">
-                                <rect key="frame" x="44" y="29" width="263" height="26"/>
+                                <rect key="frame" x="16" y="29" width="288" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="auct_congrat.png" translatesAutoresizingMaskIntoConstraints="NO" id="E72-bO-63T">
-                                <rect key="frame" x="44" y="32" width="263" height="21"/>
+                                <rect key="frame" x="16" y="32" width="288" height="21"/>
                             </imageView>
                         </subviews>
                         <constraints>
@@ -53,10 +53,10 @@
                             <constraint firstItem="J4h-bE-Vrv" firstAttribute="leading" secondItem="9UC-yP-ZXO" secondAttribute="leading" id="DcU-EU-5ZQ"/>
                             <constraint firstItem="J4h-bE-Vrv" firstAttribute="top" secondItem="9UC-yP-ZXO" secondAttribute="top" constant="20" id="I6s-sF-Y9G"/>
                             <constraint firstItem="tqI-YD-Ar4" firstAttribute="centerY" secondItem="J4h-bE-Vrv" secondAttribute="centerY" id="MsK-kh-UQA"/>
-                            <constraint firstAttribute="trailing" secondItem="kfg-6v-tye" secondAttribute="trailing" constant="13" id="N3h-9y-wDE"/>
+                            <constraint firstAttribute="trailing" secondItem="kfg-6v-tye" secondAttribute="trailing" constant="16" id="N3h-9y-wDE"/>
+                            <constraint firstItem="tqI-YD-Ar4" firstAttribute="leading" secondItem="9UC-yP-ZXO" secondAttribute="leading" constant="16" id="OVX-Bh-y70"/>
                             <constraint firstItem="E72-bO-63T" firstAttribute="leading" secondItem="tqI-YD-Ar4" secondAttribute="leading" id="Woa-dF-Qat"/>
                             <constraint firstItem="kfg-6v-tye" firstAttribute="centerY" secondItem="J4h-bE-Vrv" secondAttribute="centerY" id="XGJ-ne-Jtq"/>
-                            <constraint firstItem="tqI-YD-Ar4" firstAttribute="leading" secondItem="kfg-6v-tye" secondAttribute="leading" id="bys-6t-BnM"/>
                             <constraint firstItem="E72-bO-63T" firstAttribute="trailing" secondItem="tqI-YD-Ar4" secondAttribute="trailing" id="dYL-A2-XiL"/>
                             <constraint firstItem="tqI-YD-Ar4" firstAttribute="trailing" secondItem="kfg-6v-tye" secondAttribute="trailing" id="iVA-42-9PW"/>
                             <constraint firstItem="E72-bO-63T" firstAttribute="centerY" secondItem="tqI-YD-Ar4" secondAttribute="centerY" id="uBv-Re-pZU"/>

@@ -44,11 +44,11 @@
     [self.mViewItem addSubview:mViewItemCore];
     
     // font
-    [self.mLblItemname setFont:[PHTextHelper myriadProRegular:14]];
-    [self.mLblUsername setFont:[PHTextHelper myriadProRegular:10]];
+    [self.mLblItemname setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
+    [self.mLblUsername setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeSmall]]];
     
     // bid button
-    [self.mButBid.titleLabel setFont:[PHTextHelper myriadProRegular:12]];
+    [self.mButBid.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeMedium]]];
     [PHUiHelper makeRounded:self.mButBid];
     
     //

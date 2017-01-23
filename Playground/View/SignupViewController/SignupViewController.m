@@ -15,9 +15,9 @@
 @interface SignupViewController () {
 }
 
-@property (weak, nonatomic) IBOutlet PCTextField *mTxtPasswd;
-@property (weak, nonatomic) IBOutlet PCTextField *mTxtPasswdRetype;
-@property (weak, nonatomic) IBOutlet PCTextField *mTxtEmail;
+@property (weak, nonatomic) IBOutlet UITextField *mTxtPasswd;
+@property (weak, nonatomic) IBOutlet UITextField *mTxtPasswdRetype;
+@property (weak, nonatomic) IBOutlet UITextField *mTxtEmail;
 
 @property (weak, nonatomic) IBOutlet UIButton *mButSignup;
 

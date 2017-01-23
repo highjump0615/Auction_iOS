@@ -10,6 +10,7 @@
 #import "CategoryDetailCell.h"
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
+#import "PHUiHelper.h"
 #import "CategoryData.h"
 
 @interface CategoryDetailViewController () <UITextFieldDelegate>  {
@@ -34,9 +35,9 @@
     [self initTableView:self.mTableView haveBottombar:YES];
     
     // init param
-    mdCellHeight = 100;
-    mdTitleHeight = 50;
-    mdSearchHeight = 30;
+    mdCellHeight = 120;
+    mdTitleHeight = 70;
+    mdSearchHeight = 55;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,7 +82,7 @@
     double dHeight = mdTitleHeight;
     
     if ([self getSearchString].length > 0) {
-        dHeight += mdTitleHeight;
+        dHeight += mdSearchHeight;
     }
     
     return dHeight;
@@ -96,6 +97,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     double dHeight = [self getHeaderHeight];
+    double dMarginTop = 20;
     NSString *strTitle = self.mCategory.name;
     
     // if search, more content in title
@@ -105,18 +107,25 @@
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, dHeight)];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width, mdTitleHeight)];
-    [label setFont:[PHTextHelper myriadProBold:35]];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake([PHUiHelper marginLeftNormal],
+                                                               dMarginTop,
+                                                               tableView.frame.size.width,
+                                                               mdTitleHeight - dMarginTop)];
+    [label setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeLarge]]];
     [label setTextColor:[PHColorHelper colorTextBlack]];
     [label setText:strTitle];
     [view addSubview:label];
     
     // if search, more content in title
     if ([self getSearchString].length > 0) {
-        label = [[UILabel alloc] initWithFrame:CGRectMake(10, mdTitleHeight, tableView.frame.size.width, mdSearchHeight)];
-        [label setFont:[PHTextHelper myriadProBold:35]];
+        label = [[UILabel alloc] initWithFrame:CGRectMake([PHUiHelper marginLeftNormal],
+                                                          mdTitleHeight,
+                                                          tableView.frame.size.width,
+                                                          mdSearchHeight)];
+        [label setFont:[PHTextHelper myriadProBold:[PHTextHelper fontSizeLarge]]];
         [label setTextColor:[PHColorHelper colorTextGray]];
         [label setText:[self getSearchString]];
+        [label sizeToFit];
         [view addSubview:label];
     }
     
@@ -125,6 +134,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return [self getHeaderHeight];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -137,6 +150,7 @@
     // go to detail page
     [self performSegueWithIdentifier:@"CategoryDetail2Bid" sender:nil];
 }
+
 
 #pragma mark - UITextFieldDelegate
 
