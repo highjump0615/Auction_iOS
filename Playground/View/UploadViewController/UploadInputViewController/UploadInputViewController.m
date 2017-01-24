@@ -122,7 +122,7 @@
         [self.mLblLimit setHidden:NO];
         
         // update limit
-        [self.mLblLimit setText:[NSString stringWithFormat:@"%lu/%lu", mnTitleMaxLen - textField.text.length, mnTitleMaxLen]];
+        [self.mLblLimit setText:[NSString stringWithFormat:@"%ld/%ld", (long)(mnTitleMaxLen - textField.text.length), (long)mnTitleMaxLen]];
     }
 }
 
@@ -156,7 +156,7 @@
     NSUInteger newLength = oldLength - rangeLength + replacementLength;
     
     if (newLength <= mnTitleMaxLen) {
-        [self.mLblLimit setText:[NSString stringWithFormat:@"%lu/%ld", mnTitleMaxLen - newLength, (long)mnTitleMaxLen]];
+        [self.mLblLimit setText:[NSString stringWithFormat:@"%ld/%ld", (long)(mnTitleMaxLen - newLength), (long)mnTitleMaxLen]];
         return YES;
     }
     else {
@@ -177,7 +177,7 @@
     NSUInteger newLength = oldLength - rangeLength + replacementLength;
     
     if (newLength <= mnDescMaxLen) {
-        [self.mLblLimit setText:[NSString stringWithFormat:@"%lu/%lu", mnDescMaxLen - newLength, mnDescMaxLen]];
+        [self.mLblLimit setText:[NSString stringWithFormat:@"%ld/%ld", (long)(mnDescMaxLen - newLength), (long)mnDescMaxLen]];
         bRes = YES;
     }
 
@@ -189,7 +189,7 @@
     [self.mLblLimit setHidden:NO];
     
     // update limit
-    [self.mLblLimit setText:[NSString stringWithFormat:@"%lu/%lu", mnDescMaxLen - textView.text.length, mnDescMaxLen]];
+    [self.mLblLimit setText:[NSString stringWithFormat:@"%ld/%ld", (long)(mnDescMaxLen - textView.text.length), (long)mnDescMaxLen]];
 }
 
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView {
