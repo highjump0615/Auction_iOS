@@ -1463,23 +1463,23 @@
                                                     <state key="normal" image="bid_desc_selected.png"/>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdK-hZ-7pe">
-                                                    <rect key="frame" x="93" y="238" width="42" height="50"/>
+                                                    <rect key="frame" x="93" y="238" width="42.5" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y36-D5-e2C">
-                                                    <rect key="frame" x="135" y="238" width="50" height="50"/>
+                                                    <rect key="frame" x="135.5" y="238" width="50" height="50"/>
                                                     <state key="normal" image="bid_photo.png"/>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5U-lZ-pc5">
-                                                    <rect key="frame" x="185" y="238" width="42.5" height="50"/>
+                                                    <rect key="frame" x="185.5" y="238" width="42.5" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQc-0p-bzK">
-                                                    <rect key="frame" x="227.5" y="238" width="50" height="50"/>
+                                                    <rect key="frame" x="228" y="238" width="50" height="50"/>
                                                     <state key="normal" image="bid_comment.png"/>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJu-eW-lgL">
-                                                    <rect key="frame" x="277.5" y="238" width="42.5" height="50"/>
+                                                    <rect key="frame" x="278" y="238" width="42" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -2589,12 +2589,18 @@ EENoYXRUYWJsZUNlbGw
                                                 <color key="textColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13 / 300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paV-he-bpj">
+                                                <rect key="frame" x="247" y="103" width="57" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.64313725490196072" green="0.66666666666666663" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78f-aK-aCO" customClass="PCBorderView">
                                                 <rect key="frame" x="0.0" y="126" width="320" height="40"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title (up to 30 characters)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pcn-Qa-r1Y">
                                                         <rect key="frame" x="16" y="0.0" width="288" height="40"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                         <connections>
@@ -2617,6 +2623,7 @@ EENoYXRUYWJsZUNlbGw
                                                         <rect key="frame" x="8" y="5" width="304" height="136"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                                        <color key="textColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         <connections>
@@ -2637,7 +2644,7 @@ EENoYXRUYWJsZUNlbGw
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dx2-Rs-FNk">
                                                         <rect key="frame" x="16" y="0.0" width="288" height="40"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -2667,7 +2674,7 @@ EENoYXRUYWJsZUNlbGw
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Auction Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQk-l6-z1l">
                                                         <rect key="frame" x="16" y="0.0" width="288" height="40"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         <connections>
@@ -2738,6 +2745,7 @@ EENoYXRUYWJsZUNlbGw
                                             <constraint firstItem="JKI-W2-2bW" firstAttribute="height" secondItem="yHc-io-KYL" secondAttribute="height" id="2Df-ih-7Ca"/>
                                             <constraint firstItem="JKI-W2-2bW" firstAttribute="leading" secondItem="yHc-io-KYL" secondAttribute="trailing" constant="29" id="3AE-RL-ItF"/>
                                             <constraint firstItem="JKI-W2-2bW" firstAttribute="centerY" secondItem="yHc-io-KYL" secondAttribute="centerY" id="3PL-98-U8f"/>
+                                            <constraint firstItem="paV-he-bpj" firstAttribute="trailing" secondItem="pcn-Qa-r1Y" secondAttribute="trailing" id="3Ya-nr-Xk4"/>
                                             <constraint firstAttribute="trailing" secondItem="nXz-hu-hhI" secondAttribute="trailing" constant="15" id="4Mg-Iz-egj"/>
                                             <constraint firstItem="oTM-80-4gi" firstAttribute="top" secondItem="h9E-ai-YEZ" secondAttribute="bottom" constant="10" id="7xg-R2-DyH"/>
                                             <constraint firstItem="KIx-ZW-YZE" firstAttribute="leading" secondItem="oVj-XA-4qi" secondAttribute="leading" constant="16" id="8m9-7c-kg2"/>
@@ -2746,6 +2754,7 @@ EENoYXRUYWJsZUNlbGw
                                             <constraint firstItem="JKI-W2-2bW" firstAttribute="width" secondItem="yHc-io-KYL" secondAttribute="width" id="FwU-Zo-XNP"/>
                                             <constraint firstItem="qtr-yf-TDK" firstAttribute="top" secondItem="n7D-a5-Rmi" secondAttribute="bottom" constant="10" id="JEr-wZ-EvT"/>
                                             <constraint firstItem="n7D-a5-Rmi" firstAttribute="top" secondItem="78f-aK-aCO" secondAttribute="bottom" constant="10" id="Kdg-fz-PW0"/>
+                                            <constraint firstItem="78f-aK-aCO" firstAttribute="top" secondItem="paV-he-bpj" secondAttribute="bottom" constant="5" id="Mde-pi-esS"/>
                                             <constraint firstItem="78f-aK-aCO" firstAttribute="top" secondItem="KIx-ZW-YZE" secondAttribute="bottom" constant="20" id="N5R-U8-BgD"/>
                                             <constraint firstItem="KIx-ZW-YZE" firstAttribute="top" secondItem="oVj-XA-4qi" secondAttribute="top" constant="64" id="Og4-o9-U4a"/>
                                             <constraint firstItem="h9E-ai-YEZ" firstAttribute="leading" secondItem="oVj-XA-4qi" secondAttribute="leading" id="Ors-SJ-Xys"/>
@@ -2786,7 +2795,7 @@ EENoYXRUYWJsZUNlbGw
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Xl-lJ-tP1">
-                                            <rect key="frame" x="77.5" y="30" width="164" height="40"/>
+                                            <rect key="frame" x="78" y="30" width="164" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="EbN-4n-Vto"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="N8j-FA-kUx"/>
@@ -2837,6 +2846,7 @@ EENoYXRUYWJsZUNlbGw
                     <connections>
                         <outlet property="mButAuction" destination="8Xl-lJ-tP1" id="Bjz-ys-ttE"/>
                         <outlet property="mLblCondition" destination="Eg9-wM-GAt" id="6p1-lL-u7c"/>
+                        <outlet property="mLblLimit" destination="paV-he-bpj" id="wuK-IC-ynb"/>
                         <outlet property="mLblShare" destination="lpK-27-Bf6" id="9oL-D7-s1a"/>
                         <outlet property="mLblTitle" destination="KIx-ZW-YZE" id="Jff-o8-Jnv"/>
                         <outlet property="mTxtCategory" destination="Dx2-Rs-FNk" id="WSb-yR-9cE"/>
@@ -3349,7 +3359,7 @@ EENoYXRUYWJsZUNlbGw
         <image name="upload_add.png" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yQN-u0-LWF"/>
+        <segue reference="Uuh-Hg-rlV"/>
         <segue reference="SLK-SU-Ipp"/>
     </inferredMetricsTieBreakers>
 </document>

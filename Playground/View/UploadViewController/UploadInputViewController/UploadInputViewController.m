@@ -17,9 +17,12 @@
 
 @interface UploadInputViewController () {
     PCRateView *mViewRateCore;
+    NSInteger mnTitleMaxLen;
+    NSInteger mnDescMaxLen;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
+@property (weak, nonatomic) IBOutlet UILabel *mLblLimit;
 
 @property (weak, nonatomic) IBOutlet UITextField *mTxtTitle;
 @property (weak, nonatomic) IBOutlet PlaceholderTextView *mTxtDescription;
@@ -41,8 +44,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // input param
+    mnTitleMaxLen = 30;
+    mnDescMaxLen = 300;
+    
     // upload label
     [self.mLblTitle setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeLarge]]];
+    
+    // limit label
+    [self.mLblLimit setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     // title
     [PHTextHelper initTextRegular:self.mTxtTitle];
@@ -106,13 +116,87 @@
 
 #pragma mark - UITextFieldDelegate
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    if ([textField isEqual:self.mTxtTitle]) {
+        // show limit number
+        [self.mLblLimit setHidden:NO];
+        
+        // update limit
+        [self.mLblLimit setText:[NSString stringWithFormat:@"%lu/%lu", mnTitleMaxLen - textField.text.length, mnTitleMaxLen]];
+    }
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    // hide limit number
+    [self.mLblLimit setHidden:YES];
+
+    return YES;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    if (textField == self.mTxtTitle) {
+    if ([textField isEqual:self.mTxtTitle]) {
         [self.mTxtDescription becomeFirstResponder];
     }
     
     return NO;
+}
+
+- (BOOL)textField:(UITextField *) textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    // only consider title text field
+    if (textField != self.mTxtTitle) {
+        return YES;
+    }
+    
+    NSUInteger oldLength = [textField.text length];
+    NSUInteger replacementLength = [string length];
+    NSUInteger rangeLength = range.length;
+    
+    NSUInteger newLength = oldLength - rangeLength + replacementLength;
+    
+    if (newLength <= mnTitleMaxLen) {
+        [self.mLblLimit setText:[NSString stringWithFormat:@"%lu/%ld", mnTitleMaxLen - newLength, (long)mnTitleMaxLen]];
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
+#pragma mark - UITextViewDelegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    BOOL bRes = NO;
+    
+    NSUInteger oldLength = [textView.text length];
+    NSUInteger replacementLength = [text length];
+    NSUInteger rangeLength = range.length;
+    
+    NSUInteger newLength = oldLength - rangeLength + replacementLength;
+    
+    if (newLength <= mnDescMaxLen) {
+        [self.mLblLimit setText:[NSString stringWithFormat:@"%lu/%lu", mnDescMaxLen - newLength, mnDescMaxLen]];
+        bRes = YES;
+    }
+
+    return bRes;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    // show limit number
+    [self.mLblLimit setHidden:NO];
+    
+    // update limit
+    [self.mLblLimit setText:[NSString stringWithFormat:@"%lu/%lu", mnDescMaxLen - textView.text.length, mnDescMaxLen]];
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
+    // hide limit number
+    [self.mLblLimit setHidden:YES];
+
+    return YES;
 }
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,37 +15,28 @@
             <rect key="frame" x="0.0" y="0.0" width="138" height="103"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="n8B-db-ObS">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_bg.png" id="n8B-db-ObS">
                     <rect key="frame" x="0.0" y="0.0" width="138" height="103"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Auctioned Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeP-8Q-QDl">
-                    <rect key="frame" x="5" y="20" width="128" height="21.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="Auctioned Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CeP-8Q-QDl">
+                    <rect key="frame" x="0.0" y="20" width="138" height="22"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="$150" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1T-hT-WyP">
-                    <rect key="frame" x="43" y="55.5" width="51" height="27"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="$150" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y1T-hT-WyP">
+                    <rect key="frame" x="0.0" y="56" width="138" height="27"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <constraints>
-                <constraint firstItem="y1T-hT-WyP" firstAttribute="top" secondItem="CeP-8Q-QDl" secondAttribute="bottom" constant="14" id="6te-7r-6Bu"/>
-                <constraint firstAttribute="trailing" secondItem="n8B-db-ObS" secondAttribute="trailing" id="7eX-yl-VS2"/>
-                <constraint firstAttribute="bottom" secondItem="n8B-db-ObS" secondAttribute="bottom" id="CCn-ud-ccj"/>
-                <constraint firstItem="y1T-hT-WyP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OjZ-tc-han"/>
-                <constraint firstItem="CeP-8Q-QDl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="WZ0-Aw-g3p"/>
-                <constraint firstItem="n8B-db-ObS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gTu-hj-7S6"/>
-                <constraint firstItem="CeP-8Q-QDl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="hCH-Mo-bI0"/>
-                <constraint firstItem="n8B-db-ObS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mJi-Nj-IG9"/>
-            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="mCstMarginMiddle" destination="6te-7r-6Bu" id="Zm5-rH-qoI"/>
-                <outlet property="mCstMarginTop" destination="hCH-Mo-bI0" id="9zS-CT-jQL"/>
                 <outlet property="mLblTitle" destination="CeP-8Q-QDl" id="qEW-bs-NEg"/>
                 <outlet property="mLblValue" destination="y1T-hT-WyP" id="lKb-Ta-aHE"/>
                 <outlet property="mViewTimeBg" destination="n8B-db-ObS" id="6Qn-VU-geM"/>
@@ -56,4 +47,9 @@
     <resources>
         <image name="blue_bg.png" width="1" height="88"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>
