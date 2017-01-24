@@ -44,6 +44,8 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="mCstMarginMiddle" destination="6te-7r-6Bu" id="Zm5-rH-qoI"/>
+                <outlet property="mCstMarginTop" destination="hCH-Mo-bI0" id="9zS-CT-jQL"/>
                 <outlet property="mLblTitle" destination="CeP-8Q-QDl" id="qEW-bs-NEg"/>
                 <outlet property="mLblValue" destination="y1T-hT-WyP" id="lKb-Ta-aHE"/>
                 <outlet property="mViewTimeBg" destination="n8B-db-ObS" id="6Qn-VU-geM"/>

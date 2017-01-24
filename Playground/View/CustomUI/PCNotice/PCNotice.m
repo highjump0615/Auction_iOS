@@ -11,6 +11,9 @@
 
 @interface PCNotice()
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstMarginTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstMarginMiddle;
+
 @end
 
 @implementation PCNotice
@@ -34,6 +37,18 @@
     [self.mViewTimeBg.layer setMasksToBounds:YES];
     [self.mViewTimeBg.layer setCornerRadius:mdRadius];
 }
+
+/**
+ redefine for regulating margin
+ @param frame <#frame description#>
+ */
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    
+    [self.mCstMarginTop setConstant:frame.size.height * 0.16f];
+    [self.mCstMarginMiddle setConstant:frame.size.height * 0.1f];
+}
+
 
 /**
  add shadow to the view

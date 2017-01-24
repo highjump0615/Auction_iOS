@@ -40,6 +40,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *mButContact;
 @property (weak, nonatomic) IBOutlet UIButton *mButDelete;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstTimeHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstPriceHeight;
+
 @end
 
 @implementation AuctionViewController
@@ -114,6 +117,12 @@
     
     // delete button
     [PHUiHelper makeRounded:self.mButDelete];
+    
+    // margin
+    if ([PHUiHelper deviceType] == PHDevice_iPhone5) {
+        [self.mCstTimeHeight setConstant:99];
+        [self.mCstPriceHeight setConstant:80];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
