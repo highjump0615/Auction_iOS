@@ -95,9 +95,37 @@
 }
 
 - (IBAction)onButAdd:(id)sender {
-    [self shouldStartCameraController];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Choose photo"
+                                                                             message:nil
+                                                                      preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
+    
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Use Your Camera"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction *action) {
+                                                             [self shouldStartCameraController];
+                                                         }];
+    UIAlertAction *mediaAction = [UIAlertAction actionWithTitle:@"Media From Library"
+                                                          style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction *action) {
+                                                            [self shouldStartPhotoLibraryPickerController];
+                                                        }];
+    
+    [alertController addAction:cameraAction];
+    [alertController addAction:mediaAction];
+    [alertController addAction:cancelAction];
+    
+    [self.mViewController presentViewController:alertController animated:YES completion:nil];
 }
 
+/**
+ open camera and take photo
+ @return <#return value description#>
+ */
 - (BOOL)shouldStartCameraController {
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO) {
@@ -125,6 +153,40 @@
     
     mImagePicker.allowsEditing = YES;
     mImagePicker.showsCameraControls = YES;
+    mImagePicker.delegate = self.mViewController;
+    
+    [self.mViewController presentViewController:mImagePicker animated:YES completion:nil];
+    
+    return YES;
+}
+
+/**
+ open photo library and select picture
+ @return <#return value description#>
+ */
+- (BOOL)shouldStartPhotoLibraryPickerController {
+    if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary] == NO &&
+         [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum] == NO)) {
+        return NO;
+    }
+    
+    mImagePicker = [[UIImagePickerController alloc] init];
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary] &&
+        [[UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary] containsObject:(NSString *)kUTTypeImage]) {
+        
+        mImagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        //        cameraUI.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *) kUTTypeImage, (NSString *) kUTTypeMovie, nil];
+    }
+    else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum] &&
+             [[UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum] containsObject:(NSString *)kUTTypeImage]) {
+        mImagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        //        cameraUI.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *) kUTTypeImage, nil];
+    }
+    else {
+        return NO;
+    }
+    
+    mImagePicker.allowsEditing = YES;
     mImagePicker.delegate = self.mViewController;
     
     [self.mViewController presentViewController:mImagePicker animated:YES completion:nil];
