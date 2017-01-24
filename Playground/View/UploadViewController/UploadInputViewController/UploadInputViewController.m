@@ -14,11 +14,13 @@
 #import "PHUiHelper.h"
 #import "CategoryData.h"
 #import "UploadCategoryViewController.h"
+#import "ActionSheetStringPicker.h"
 
 @interface UploadInputViewController () {
     PCRateView *mViewRateCore;
     NSInteger mnTitleMaxLen;
     NSInteger mnDescMaxLen;
+    int mnPeriod;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
@@ -47,6 +49,7 @@
     // input param
     mnTitleMaxLen = 30;
     mnDescMaxLen = 300;
+    mnPeriod = 0;
     
     // upload label
     [self.mLblTitle setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeLarge]]];
@@ -100,6 +103,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSString *)getDayString:(int)day {
+    NSString *strDay = [NSString stringWithFormat:@"%d Day", day + 1];
+    
+    // if more than 1, make it plural form
+    if (day > 0) {
+        strDay = [strDay stringByAppendingString:@"s"];
+    }
+    
+    return strDay;
+}
 
 #pragma mark - Navigation
 
@@ -114,7 +127,45 @@
     }
 }
 
+#pragma mark - Actionsheet selector
+
+- (void)OnSelect:(NSNumber *)selectedIndex element:(id)element {
+    mnPeriod = [selectedIndex intValue];
+    [self.mTxtPeriod setText:[self getDayString:mnPeriod]];
+}
+
+- (void)OnCancel:(id)sender {
+}
+
 #pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if ([textField isEqual:self.mTxtPeriod]) {
+        
+        // close keyboard first
+        [self.view endEditing:YES];
+        
+        //
+        // show picker
+        //
+        NSMutableArray *aryPeriod = [[NSMutableArray alloc] init];
+        for (int i = 0; i < 7; i++) {
+            [aryPeriod addObject:[self getDayString:i]];
+        }
+        
+        [ActionSheetStringPicker showPickerWithTitle:@"Choose Period"
+                                                rows:aryPeriod
+                                    initialSelection:mnPeriod
+                                              target:self
+                                       successAction:@selector(OnSelect:element:)
+                                        cancelAction:@selector(OnCancel:)
+                                              origin:textField];
+        
+        return NO;
+    }
+    
+    return YES;
+}
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     if ([textField isEqual:self.mTxtTitle]) {
