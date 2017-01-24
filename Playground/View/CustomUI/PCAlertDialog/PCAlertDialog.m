@@ -36,7 +36,7 @@
 
     // content view
     [self.mViewContent.layer setMasksToBounds:YES];
-    [self.mViewContent.layer setCornerRadius:5];
+    [self.mViewContent.layer setCornerRadius:8];
     
     // title
     [self.mLblTitle setFont:[PHTextHelper myriadProBold:18]];

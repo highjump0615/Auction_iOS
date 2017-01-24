@@ -26,7 +26,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    mdRadius = 5;
+    mdRadius = 8;
     
     //
     // corner round

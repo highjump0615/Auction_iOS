@@ -962,15 +962,8 @@
                                     <segue destination="Wne-2t-vs4" kind="show" id="odS-2b-4t4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Lb-61-kc6">
-                                <rect key="frame" x="16" y="296" width="289" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Restart tutorial">
-                                    <color key="titleColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SD7-NJ-ihT">
-                                <rect key="frame" x="16" y="346" width="289" height="50"/>
+                                <rect key="frame" x="16" y="296" width="289" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Delete account">
                                     <color key="titleColor" red="1" green="0.15686274509803921" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
@@ -980,7 +973,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLf-ky-7mq">
-                                <rect key="frame" x="16" y="396" width="289" height="50"/>
+                                <rect key="frame" x="16" y="346" width="289" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -992,20 +985,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="SD7-NJ-ihT" firstAttribute="top" secondItem="e64-Xd-gDv" secondAttribute="bottom" id="032-qS-d2s"/>
                             <constraint firstItem="nLf-ky-7mq" firstAttribute="height" secondItem="EC7-Vs-2wW" secondAttribute="height" id="10B-X6-Bvt"/>
                             <constraint firstItem="nLf-ky-7mq" firstAttribute="leading" secondItem="ijN-HX-rtU" secondAttribute="leading" id="2aX-qQ-wpc"/>
                             <constraint firstAttribute="trailing" secondItem="e64-Xd-gDv" secondAttribute="trailing" constant="15" id="5Ei-HQ-YXB"/>
                             <constraint firstAttribute="trailing" secondItem="XFw-uL-UIE" secondAttribute="trailing" constant="15" id="9JL-Sd-3mn"/>
                             <constraint firstItem="e64-Xd-gDv" firstAttribute="leading" secondItem="ijN-HX-rtU" secondAttribute="leading" id="9tR-Xs-m8c"/>
-                            <constraint firstItem="1Lb-61-kc6" firstAttribute="height" secondItem="EC7-Vs-2wW" secondAttribute="height" id="DXH-d6-zcs"/>
                             <constraint firstItem="EC7-Vs-2wW" firstAttribute="top" secondItem="ijN-HX-rtU" secondAttribute="bottom" constant="20" id="EuE-E1-wan"/>
                             <constraint firstItem="ijN-HX-rtU" firstAttribute="top" secondItem="jPZ-HE-Ll7" secondAttribute="bottom" constant="20" id="FQU-Kw-dBl"/>
                             <constraint firstItem="SD7-NJ-ihT" firstAttribute="height" secondItem="EC7-Vs-2wW" secondAttribute="height" id="Flw-U3-eSs"/>
-                            <constraint firstItem="1Lb-61-kc6" firstAttribute="leading" secondItem="ijN-HX-rtU" secondAttribute="leading" id="IIT-Oh-tcR"/>
-                            <constraint firstItem="SD7-NJ-ihT" firstAttribute="top" secondItem="1Lb-61-kc6" secondAttribute="bottom" id="K1h-cP-lfP"/>
-                            <constraint firstAttribute="trailing" secondItem="1Lb-61-kc6" secondAttribute="trailing" constant="15" id="KLg-Wd-ofz"/>
                             <constraint firstItem="EC7-Vs-2wW" firstAttribute="leading" secondItem="ijN-HX-rtU" secondAttribute="leading" id="Mwg-lC-4g2"/>
-                            <constraint firstItem="1Lb-61-kc6" firstAttribute="top" secondItem="e64-Xd-gDv" secondAttribute="bottom" id="UPs-JM-GcJ"/>
                             <constraint firstItem="e64-Xd-gDv" firstAttribute="top" secondItem="XFw-uL-UIE" secondAttribute="bottom" id="Uon-e7-x8U"/>
                             <constraint firstItem="XFw-uL-UIE" firstAttribute="leading" secondItem="ijN-HX-rtU" secondAttribute="leading" id="VDC-G1-QsR"/>
                             <constraint firstItem="e64-Xd-gDv" firstAttribute="height" secondItem="EC7-Vs-2wW" secondAttribute="height" id="WAZ-qF-NOT"/>
@@ -1028,7 +1017,6 @@
                         <outlet property="mButEditProfile" destination="EC7-Vs-2wW" id="YKH-Dw-9r1"/>
                         <outlet property="mButEditSetting" destination="XFw-uL-UIE" id="pcN-TE-6jT"/>
                         <outlet property="mButLogOut" destination="nLf-ky-7mq" id="jkE-4x-20P"/>
-                        <outlet property="mButRestartTutorial" destination="1Lb-61-kc6" id="Jnp-Bq-TB2"/>
                         <outlet property="mLblTitle" destination="ijN-HX-rtU" id="qBj-pf-BzX"/>
                         <outlet property="mViewNavbar" destination="jPZ-HE-Ll7" id="bg3-oG-JwY"/>
                     </connections>
