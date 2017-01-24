@@ -17,7 +17,7 @@
 #import "CategoryDetailViewController.h"
 #import "CategoryData.h"
 
-@interface CategoryViewController () {
+@interface CategoryViewController () <UITextFieldDelegate> {
     double dCategoryHeight;
     double dExploreHeight;
     double dExploreWidth;
@@ -39,6 +39,10 @@
     [self showSearch:YES showBack:NO];
 
     [self initTableView:self.mTableView haveBottombar:YES];
+    
+    // text & keyboard
+    [self setSearchDelegate:self];
+    [self setGestureRecognizer];
     
     // init parameter
     dCategoryHeight = 100;

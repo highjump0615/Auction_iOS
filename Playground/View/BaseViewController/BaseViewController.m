@@ -110,9 +110,19 @@
     [mNavbar showCongrat:show];
 }
 
-
 - (void)setSearchDelegate:(UIViewController<UITextFieldDelegate> *)controller {
     [mNavbar.mTxtSearch setDelegate:controller];
+}
+
+/**
+ for closing soft keyboard
+ */
+- (void)setGestureRecognizer {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard:)];
+    tap.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tap];
 }
 
 /**
@@ -198,5 +208,12 @@
     [self animationView:0];
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 
 @end

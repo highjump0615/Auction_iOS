@@ -10,7 +10,7 @@
 #import "InboxCell.h"
 #import "PHTextHelper.h"
 
-@interface InboxViewController ()
+@interface InboxViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *mViewTitle;
@@ -28,6 +28,10 @@
     edgeTable.top = 44 + self.mViewTitle.bounds.size.height;
 //    edgeTable.bottom = 50;
     [self.mTableview setContentInset:edgeTable];
+    
+    // text & keyboard
+    [self setSearchDelegate:self];
+    [self setGestureRecognizer];
     
     // nav bar
     [self showSearch:YES showBack:YES];

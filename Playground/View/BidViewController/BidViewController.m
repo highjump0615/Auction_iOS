@@ -20,7 +20,7 @@
 #define BID_TAB_PHOTO           1
 #define BID_TAB_COMMENT         2
 
-@interface BidViewController () {
+@interface BidViewController () <UITextFieldDelegate> {
     int mnSelectedTab;
 }
 
@@ -45,6 +45,10 @@
     // table view
     [self initTableView:self.mTableview haveBottombar:NO];
     self.mTableview.estimatedRowHeight = UITableViewAutomaticDimension;
+    
+    // text & keyboard
+    [self setSearchDelegate:self];
+    [self setGestureRecognizer];
     
     // font
     [self.mButComment.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
@@ -244,7 +248,8 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
+    [super textFieldShouldReturn:textField];
+    
     [textField setText:@""];
     
     return YES;

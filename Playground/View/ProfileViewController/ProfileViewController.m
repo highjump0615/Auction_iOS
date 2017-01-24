@@ -15,7 +15,7 @@
 #import "ItemCollectionCell.h"
 
 
-@interface ProfileViewController () {
+@interface ProfileViewController () <UITextFieldDelegate> {
     double dTitleHeight;
     double dItemHeight;
     double dItemWidth;
@@ -34,6 +34,10 @@
     [self showSearch:YES showBack:NO];
     
     [self initTableView:self.mTableView haveBottombar:YES];
+    
+    // text & keyboard
+    [self setSearchDelegate:self];
+    [self setGestureRecognizer];
     
     // init param
     dTitleHeight = 52;

@@ -34,6 +34,10 @@
     
     [self initTableView:self.mTableView haveBottombar:YES];
     
+    // text & keyboard
+    [self setSearchDelegate:self];
+    [self setGestureRecognizer];
+    
     // init param
     mdCellHeight = 120;
     mdTitleHeight = 70;
@@ -155,7 +159,7 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
+    [super textFieldShouldReturn:textField];
     
     [self.mTableView reloadData];
     
