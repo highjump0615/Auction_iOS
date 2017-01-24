@@ -18,6 +18,8 @@
 #import "CategoryData.h"
 
 @interface CategoryViewController () <UITextFieldDelegate> {
+    UIRefreshControl *mRefreshControl;
+    
     double dCategoryHeight;
     double dExploreHeight;
     double dExploreWidth;
@@ -38,7 +40,13 @@
     // hide back button
     [self showSearch:YES showBack:NO];
 
+    // table view
     [self initTableView:self.mTableView haveBottombar:YES];
+    
+    // Pull to refresh
+    mRefreshControl = [[UIRefreshControl alloc] init];
+    [mRefreshControl addTarget:self action:@selector(loadItem:) forControlEvents:UIControlEventValueChanged];
+    [self.mTableView addSubview:mRefreshControl];
     
     // text & keyboard
     [self setSearchDelegate:self];
@@ -56,6 +64,31 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+/**
+ load items from api
+ @param sender <#sender description#>
+ */
+- (void)loadItem:(UIRefreshControl *)sender {
+    
+    if (sender) { // refreshing
+    }
+    
+    // todo: add api
+    [NSTimer scheduledTimerWithTimeInterval:2.0
+                                     target:self
+                                   selector:@selector(waitThread:)
+                                   userInfo:nil
+                                    repeats:NO];
+}
+
+- (void) waitThread:(NSTimer*)theTimer {
+    [self stopRefresh];
+}
+
+- (void)stopRefresh {
+    [mRefreshControl endRefreshing];
+}
 
 #pragma mark - Navigation
 
