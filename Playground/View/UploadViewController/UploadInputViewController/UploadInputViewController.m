@@ -79,6 +79,7 @@
     
     mViewRateCore = [PCRateView getView];
     mViewRateCore.frame = self.mViewRate.bounds;
+    [mViewRateCore setRate:0];
     [self.mViewRate addSubview:mViewRateCore];
     
     // share

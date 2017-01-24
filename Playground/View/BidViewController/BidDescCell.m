@@ -83,6 +83,7 @@
     //
     mViewRateCore = [PCRateView getView];
     mViewRateCore.frame = self.mViewRate.bounds;
+    [mViewRateCore setUserInteractionEnabled:NO];
     [self.mViewRate addSubview:mViewRateCore];
 }
 
