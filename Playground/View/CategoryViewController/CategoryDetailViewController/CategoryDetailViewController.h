@@ -13,5 +13,6 @@
 @interface CategoryDetailViewController : BaseViewController
 
 @property (nonatomic, strong) CategoryData *mCategory;
+@property (nonatomic, strong) NSString *mstrSearch;
 
 @end

@@ -15,6 +15,7 @@
 - (void)showTitle:(BOOL)show;
 - (void)setSearchDelegate:(UIViewController<UITextFieldDelegate> *)controller;
 - (NSString *)getSearchString;
+- (void)setSearchString:(NSString *)value;
 - (void)showNavbarCongrat:(BOOL)show;
 
 - (void)setGestureRecognizer;

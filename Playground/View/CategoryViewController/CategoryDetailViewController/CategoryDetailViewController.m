@@ -30,6 +30,7 @@
     
     // show search on nav bar
     [self showSearch:YES showBack:YES];
+    [self setSearchString:self.mstrSearch];
     [self setSearchDelegate:self];
     
     [self initTableView:self.mTableView haveBottombar:YES];

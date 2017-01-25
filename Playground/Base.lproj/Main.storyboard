@@ -2321,7 +2321,7 @@ EENoYXRUYWJsZUNlbGw
         <!--Category Detail View Controller-->
         <scene sceneID="vXG-wW-j4j">
             <objects>
-                <viewController id="eYG-Zw-Xav" customClass="CategoryDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoryDetailViewController" id="eYG-Zw-Xav" customClass="CategoryDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aXC-A2-1QB"/>
                         <viewControllerLayoutGuide type="bottom" id="0Bx-59-uRA"/>
