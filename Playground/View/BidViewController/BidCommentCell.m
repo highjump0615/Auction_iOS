@@ -8,6 +8,12 @@
 
 #import "BidCommentCell.h"
 
+@interface BidCommentCell()
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstBubbleMargin;
+
+@end
+
 @implementation BidCommentCell
 
 /*
@@ -17,5 +23,9 @@
     // Drawing code
 }
 */
+
+- (void)fillContent {
+    [self.mCstBubbleMargin setConstant:39];
+}
 
 @end

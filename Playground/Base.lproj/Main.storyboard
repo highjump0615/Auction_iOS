@@ -1383,7 +1383,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VXm-3o-dXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5070" y="1670"/>
+            <point key="canvasLocation" x="5100" y="1898"/>
         </scene>
         <!--Bid View Controller-->
         <scene sceneID="9Pe-EU-wwZ">
@@ -1745,6 +1745,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="dNg-qi-DyK" firstAttribute="leading" secondItem="9pp-rX-dZy" secondAttribute="leading" id="0iw-K7-FoK"/>
                                                 <constraint firstItem="iVG-oA-3n4" firstAttribute="leading" secondItem="9pp-rX-dZy" secondAttribute="trailing" constant="2" id="3Zu-Kf-l8X"/>
                                                 <constraint firstAttribute="bottom" secondItem="9pp-rX-dZy" secondAttribute="bottom" priority="750" constant="10" id="3mb-aK-gnx"/>
                                                 <constraint firstAttribute="trailing" secondItem="dNg-qi-DyK" secondAttribute="trailing" constant="15" id="4YC-h1-mdE"/>
@@ -1754,12 +1755,13 @@
                                                 <constraint firstItem="9pp-rX-dZy" firstAttribute="top" secondItem="dNg-qi-DyK" secondAttribute="bottom" id="Inz-rT-Lyz"/>
                                                 <constraint firstItem="xOi-kR-akc" firstAttribute="centerX" secondItem="iGu-cV-Msj" secondAttribute="centerX" id="aE5-yu-Ew3"/>
                                                 <constraint firstItem="dNg-qi-DyK" firstAttribute="top" secondItem="xOi-kR-akc" secondAttribute="bottom" id="fZo-br-RIp"/>
-                                                <constraint firstItem="dNg-qi-DyK" firstAttribute="leading" secondItem="iGu-cV-Msj" secondAttribute="leading" constant="15" id="gmk-kx-gDz"/>
                                                 <constraint firstItem="xOi-kR-akc" firstAttribute="top" secondItem="iGu-cV-Msj" secondAttribute="top" id="jKv-gr-wCk"/>
                                                 <constraint firstItem="9pp-rX-dZy" firstAttribute="leading" secondItem="iGu-cV-Msj" secondAttribute="leading" constant="15" id="sld-Mm-aTR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="mButReply" destination="iVG-oA-3n4" id="bLF-cC-zyH"/>
+                                            <outlet property="mCstBubbleMargin" destination="sld-Mm-aTR" id="dbm-PY-TkD"/>
                                             <outlet property="mCstHeightUsername" destination="520-Ne-DHh" id="Zsc-MX-Pcs"/>
                                             <outlet property="mCstTimeHeight" destination="OU6-2H-yt1" id="DWs-5q-lHL"/>
                                             <outlet property="mLblBubble" destination="lyr-VX-nkj" id="CV8-2a-mJj"/>
@@ -3321,7 +3323,7 @@ EENoYXRUYWJsZUNlbGw
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckt-5y-cqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5754.375" y="1271.8309859154929"/>
+            <point key="canvasLocation" x="5833" y="1294"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Klo-gn-dER">
