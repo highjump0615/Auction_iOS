@@ -41,7 +41,7 @@
     [self showSearch:YES showBack:NO];
 
     // table view
-    [self initTableView:self.mTableView haveBottombar:YES];
+    [self initTableView:self.mTableView haveBottombar:NO];
     
     // Pull to refresh
     mRefreshControl = [[UIRefreshControl alloc] init];

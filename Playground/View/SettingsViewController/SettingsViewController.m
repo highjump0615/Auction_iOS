@@ -39,6 +39,9 @@
     [self.mButRestartTutorial.titleLabel setFont:[PHTextHelper myriadProBold:dFontSize]];
     [self.mButDeleteAccount.titleLabel setFont:[PHTextHelper myriadProBold:dFontSize]];
     [self.mButLogOut.titleLabel setFont:[PHTextHelper myriadProBold:dFontSize]];
+    
+    // hide tab bar
+    [self.tabBarController.tabBar setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,6 +75,9 @@
 
 - (IBAction)onButLogout:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    // back to login page
+    [self.tabBarController.navigationController popViewControllerAnimated:YES];
 }
 
 @end
