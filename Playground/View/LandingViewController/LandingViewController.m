@@ -27,7 +27,7 @@
     //
     // init appearance of the controls
     //
-    UIFont *fontRegular = [PHTextHelper myriadProRegular:14];
+    UIFont *fontRegular = [PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]];
     
     // signin button
     [self initLoginButton:self.mButSignup];

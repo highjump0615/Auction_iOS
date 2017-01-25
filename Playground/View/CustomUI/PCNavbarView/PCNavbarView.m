@@ -8,6 +8,7 @@
 
 #import "PCNavbarView.h"
 #import "PHTextHelper.h"
+#import "PHUiHelper.h"
 
 @interface PCNavbarView()
 
@@ -31,7 +32,7 @@
     [PHTextHelper initTextRegular:self.mTxtSearch];
     
     // init title label
-    [self.mLblTitle setFont:[PHTextHelper myriadProRegular:21]];
+    [self.mLblTitle setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormalLarge]]];
 }
 
 /*
@@ -64,7 +65,7 @@
     }
     else {
         // hide back button
-        [self.mCstSapcing setConstant:13];
+        [self.mCstSapcing setConstant:[PHUiHelper marginLeftNormal]];
         [self.mCstBackWidth setConstant:0];
         [self.mButBack setHidden:YES];
     }

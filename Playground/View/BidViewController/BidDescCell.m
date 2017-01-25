@@ -44,12 +44,12 @@
     //
     // font
     //
-    [self.mLblTitle setFont:[PHTextHelper myriadProSemibold:14]];
-    [self.mLblContent setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mLblTitle setFont:[PHTextHelper myriadProSemibold:[PHTextHelper fontSizeNormal]]];
+    [self.mLblContent setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
-    [self.mLblCondition setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mLblCondition setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
-    [self.mLblShare setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mLblShare setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     //
     // add timeout view
@@ -57,7 +57,7 @@
     mViewTimeoutCore = [PCNoticeTimeout getView];
     
     // Set the width of the cell to match the width of the container view
-    mViewTimeoutCore.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.mViewTime.bounds), CGRectGetHeight(mViewTimeoutCore.bounds));
+    mViewTimeoutCore.frame = self.mViewTime.bounds;
     [self.mViewTime addSubview:mViewTimeoutCore];
     
     //
@@ -83,6 +83,7 @@
     //
     mViewRateCore = [PCRateView getView];
     mViewRateCore.frame = self.mViewRate.bounds;
+    [mViewRateCore setUserInteractionEnabled:NO];
     [self.mViewRate addSubview:mViewRateCore];
 }
 

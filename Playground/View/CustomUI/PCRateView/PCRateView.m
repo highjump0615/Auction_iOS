@@ -52,10 +52,22 @@
     return [super getView:@"PCRateView"];
 }
 
+/**
+ init stars according to the rate
+ @param rate 0~100
+ */
+- (void)setRate:(NSInteger)rate {
+    mnStar = round(rate / 20.0) - 1;
+    [self onButStar:nil];
+}
+
 - (void)onButStar:(id)sender {
-    NSInteger nTag = ((UIButton *)sender).tag;
-    
-    mnStar = (int)nTag;
+
+    if (sender) {
+        // this is setting star manually
+        NSInteger nTag = ((UIButton *)sender).tag;
+        mnStar = (int)nTag;
+    }
     
     // remove all star
     for (UIButton *button in maryButStar) {

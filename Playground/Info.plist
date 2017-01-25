@@ -17,14 +17,20 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>1.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera is used for taking portrait of the profile or goods.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo Library is used for taking portrait of the profile or goods</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MyriadPro-Regular.otf</string>
 		<string>MyriadPro-Bold.otf</string>
 		<string>MyriadPro-Semibold.otf</string>
+		<string>MyriadPro-Black.otf</string>
+		<string>MyriadPro-Light.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -38,7 +44,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>Camera is used for taking portrait of the user.</string>
 </dict>
 </plist>

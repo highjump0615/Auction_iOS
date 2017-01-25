@@ -17,6 +17,8 @@
 - (NSString *)getSearchString;
 - (void)showNavbarCongrat:(BOOL)show;
 
+- (void)setGestureRecognizer;
+
 // controls
 - (void)initLoginButton:(UIButton *)button;
 - (void)initRoundButton:(UIButton *)button;
@@ -25,5 +27,8 @@
 // actions
 - (void)enableKeyboardNotification;
 - (void)dismissKeyboard:(UITapGestureRecognizer *) sender;
+
+// delegations
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
 
 @end

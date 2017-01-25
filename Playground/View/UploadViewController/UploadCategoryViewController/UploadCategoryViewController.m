@@ -25,7 +25,7 @@
     [super viewDidLoad];
     
     // title
-    [self.mLblTitle setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mLblTitle setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
 
     // remove separator of the empty cell
     [self.mTableView setTableHeaderView:[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.mTableView.bounds.size.width, 0.01f)]];
@@ -69,7 +69,7 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 35;
+    return 40;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -20,7 +20,7 @@
 #define BID_TAB_PHOTO           1
 #define BID_TAB_COMMENT         2
 
-@interface BidViewController () {
+@interface BidViewController () <UITextFieldDelegate> {
     int mnSelectedTab;
 }
 
@@ -46,8 +46,12 @@
     [self initTableView:self.mTableview haveBottombar:NO];
     self.mTableview.estimatedRowHeight = UITableViewAutomaticDimension;
     
+    // text & keyboard
+    [self setSearchDelegate:self];
+    [self setGestureRecognizer];
+    
     // font
-    [self.mButComment.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mButComment.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     [PHUiHelper makeRounded:self.mButComment];
     
     // keyboard event
@@ -102,7 +106,7 @@
  @param index <#index description#>
  @return <#return value description#>
  */
-- (UITableViewCell *)configureChatCell:(UITableView *)tableView index:(NSInteger)index {
+- (UITableViewCell *)configureCell:(UITableView *)tableView index:(NSInteger)index {
     UITableViewCell *cell;
     
     // item cell is the first
@@ -184,7 +188,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [self configureChatCell:tableView index:indexPath.row];
+    UITableViewCell *cell = [self configureCell:tableView index:indexPath.row];
     
     return cell;
 }
@@ -206,12 +210,12 @@
     
     // item cell is the first
     if (indexPath.row == 0) {
-        dHeight = 266;
+        dHeight = 308;
     }
     else {
         // other cells are determined by the selected tab
         if (mnSelectedTab == BID_TAB_DESCRIPTION || mnSelectedTab == BID_TAB_COMMENT) {
-            UITableViewCell *cell = [self configureChatCell:tableView index:indexPath.row];
+            UITableViewCell *cell = [self configureCell:tableView index:indexPath.row];
             
             // reset layout
             [cell layoutIfNeeded];
@@ -219,7 +223,7 @@
             dHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         }
         else {
-            dHeight = 216;
+            dHeight = 218 + 8 + 8;
         }
     }
     
@@ -238,13 +242,14 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    return CGSizeMake(120, 200);
+    return CGSizeMake(145, 218);
 }
 
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
+    [super textFieldShouldReturn:textField];
+    
     [textField setText:@""];
     
     return YES;

@@ -34,9 +34,9 @@
     [PHTextHelper initTextBold:self.mTxtPswdRetype];
     
     // label
-    [self.mLblSocial setFont:[PHTextHelper myriadProRegular:14]];
-    [self.mLblFacebook setFont:[PHTextHelper myriadProBold:14]];
-    [self.mLblTwitter setFont:[PHTextHelper myriadProBold:14]];
+    [self.mLblSocial setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
+    [self.mLblFacebook setFont:[PHTextHelper myriadProBold:[PHTextHelper fontSizeNormal]]];
+    [self.mLblTwitter setFont:[PHTextHelper myriadProBold:[PHTextHelper fontSizeNormal]]];
 }
 
 - (void)didReceiveMemoryWarning {

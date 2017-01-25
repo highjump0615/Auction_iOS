@@ -14,12 +14,17 @@
 #import "PHUiHelper.h"
 #import "CategoryData.h"
 #import "UploadCategoryViewController.h"
+#import "ActionSheetStringPicker.h"
 
 @interface UploadInputViewController () {
     PCRateView *mViewRateCore;
+    NSInteger mnTitleMaxLen;
+    NSInteger mnDescMaxLen;
+    int mnPeriod;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
+@property (weak, nonatomic) IBOutlet UILabel *mLblLimit;
 
 @property (weak, nonatomic) IBOutlet UITextField *mTxtTitle;
 @property (weak, nonatomic) IBOutlet PlaceholderTextView *mTxtDescription;
@@ -41,14 +46,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // input param
+    mnTitleMaxLen = 30;
+    mnDescMaxLen = 300;
+    mnPeriod = 0;
+    
     // upload label
-    [self.mLblTitle setFont:[PHTextHelper myriadProBold:35]];
+    [self.mLblTitle setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeLarge]]];
+    
+    // limit label
+    [self.mLblLimit setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     // title
     [PHTextHelper initTextRegular:self.mTxtTitle];
     
     // description
-    [self.mTxtDescription setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mTxtDescription setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     [self.mTxtDescription setPlaceholder:@"Description (up to 300 characters)"];
     [self.mTxtDescription setPlaceholderColor:[PHColorHelper colorTextGray]];
     
@@ -62,17 +75,18 @@
     [PHTextHelper initTextRegular:self.mTxtPeriod];
     
     // condition
-    [self.mLblCondition setFont:[PHTextHelper myriadProBold:14]];
+    [self.mLblCondition setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     mViewRateCore = [PCRateView getView];
     mViewRateCore.frame = self.mViewRate.bounds;
+    [mViewRateCore setRate:0];
     [self.mViewRate addSubview:mViewRateCore];
     
     // share
-    [self.mLblShare setFont:[PHTextHelper myriadProBold:14]];
+    [self.mLblShare setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     // auction button
-    [self.mButAuction.titleLabel setFont:[PHTextHelper myriadProBold:14]];
+    [self.mButAuction.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     [PHUiHelper makeRounded:self.mButAuction];
 }
 
@@ -90,6 +104,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSString *)getDayString:(int)day {
+    NSString *strDay = [NSString stringWithFormat:@"%d Day", day + 1];
+    
+    // if more than 1, make it plural form
+    if (day > 0) {
+        strDay = [strDay stringByAppendingString:@"s"];
+    }
+    
+    return strDay;
+}
 
 #pragma mark - Navigation
 
@@ -104,15 +128,127 @@
     }
 }
 
+#pragma mark - Actionsheet selector
+
+- (void)OnSelect:(NSNumber *)selectedIndex element:(id)element {
+    mnPeriod = [selectedIndex intValue];
+    [self.mTxtPeriod setText:[self getDayString:mnPeriod]];
+}
+
+- (void)OnCancel:(id)sender {
+}
+
 #pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if ([textField isEqual:self.mTxtPeriod]) {
+        
+        // close keyboard first
+        [self.view endEditing:YES];
+        
+        //
+        // show picker
+        //
+        NSMutableArray *aryPeriod = [[NSMutableArray alloc] init];
+        for (int i = 0; i < 7; i++) {
+            [aryPeriod addObject:[self getDayString:i]];
+        }
+        
+        [ActionSheetStringPicker showPickerWithTitle:@"Choose Period"
+                                                rows:aryPeriod
+                                    initialSelection:mnPeriod
+                                              target:self
+                                       successAction:@selector(OnSelect:element:)
+                                        cancelAction:@selector(OnCancel:)
+                                              origin:textField];
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    if ([textField isEqual:self.mTxtTitle]) {
+        // show limit number
+        [self.mLblLimit setHidden:NO];
+        
+        // update limit
+        [self.mLblLimit setText:[NSString stringWithFormat:@"%ld/%ld", (long)(mnTitleMaxLen - textField.text.length), (long)mnTitleMaxLen]];
+    }
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    // hide limit number
+    [self.mLblLimit setHidden:YES];
+
+    return YES;
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    if (textField == self.mTxtTitle) {
+    if ([textField isEqual:self.mTxtTitle]) {
         [self.mTxtDescription becomeFirstResponder];
     }
     
     return NO;
+}
+
+- (BOOL)textField:(UITextField *) textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    // only consider title text field
+    if (textField != self.mTxtTitle) {
+        return YES;
+    }
+    
+    NSUInteger oldLength = [textField.text length];
+    NSUInteger replacementLength = [string length];
+    NSUInteger rangeLength = range.length;
+    
+    NSUInteger newLength = oldLength - rangeLength + replacementLength;
+    
+    if (newLength <= mnTitleMaxLen) {
+        [self.mLblLimit setText:[NSString stringWithFormat:@"%ld/%ld", (long)(mnTitleMaxLen - newLength), (long)mnTitleMaxLen]];
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
+#pragma mark - UITextViewDelegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    BOOL bRes = NO;
+    
+    NSUInteger oldLength = [textView.text length];
+    NSUInteger replacementLength = [text length];
+    NSUInteger rangeLength = range.length;
+    
+    NSUInteger newLength = oldLength - rangeLength + replacementLength;
+    
+    if (newLength <= mnDescMaxLen) {
+        [self.mLblLimit setText:[NSString stringWithFormat:@"%ld/%ld", (long)(mnDescMaxLen - newLength), (long)mnDescMaxLen]];
+        bRes = YES;
+    }
+
+    return bRes;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    // show limit number
+    [self.mLblLimit setHidden:NO];
+    
+    // update limit
+    [self.mLblLimit setText:[NSString stringWithFormat:@"%ld/%ld", (long)(mnDescMaxLen - textView.text.length), (long)mnDescMaxLen]];
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
+    // hide limit number
+    [self.mLblLimit setHidden:YES];
+
+    return YES;
 }
 
 

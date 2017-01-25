@@ -11,10 +11,11 @@
 #import "ProfileStatisticsCell.h"
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
+#import "PHUiHelper.h"
 #import "ItemCollectionCell.h"
 
 
-@interface ProfileViewController () {
+@interface ProfileViewController () <UITextFieldDelegate> {
     double dTitleHeight;
     double dItemHeight;
     double dItemWidth;
@@ -34,10 +35,14 @@
     
     [self initTableView:self.mTableView haveBottombar:YES];
     
+    // text & keyboard
+    [self setSearchDelegate:self];
+    [self setGestureRecognizer];
+    
     // init param
-    dTitleHeight = 35;
-    dItemWidth = 85;
-    dItemHeight = 95;
+    dTitleHeight = 52;
+    dItemWidth = 100;
+    dItemHeight = 108;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,8 +111,8 @@
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, dTitleHeight)];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, tableView.frame.size.width, dTitleHeight)];
-    [label setFont:[PHTextHelper myriadProBold:21]];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake([PHUiHelper marginLeftNormal], 0, tableView.frame.size.width, dTitleHeight)];
+    [label setFont:[PHTextHelper myriadProBold:[PHTextHelper fontSizeNormalLarge]]];
     [label setTextColor:[PHColorHelper colorTextBlack]];
     
     if (section == 1) {
@@ -134,13 +139,17 @@
     return dTitleHeight;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // default: Autions & Bids
     double dHeight = dItemHeight;
     
     // User
     if (indexPath.section == 0) {
-        dHeight = 200;
+        dHeight = 225;
     }
     else if (indexPath.section == 3) {
         dHeight = 148;

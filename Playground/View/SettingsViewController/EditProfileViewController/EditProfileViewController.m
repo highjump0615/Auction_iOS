@@ -25,7 +25,7 @@
 #define kGenderKey              @"gender"
 
 @interface EditProfileViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
-    int mnFontSize;
+    NSInteger mnFontSize;
     NSDateFormatter *mDateFormat;
     NSDate *mDateBirthday;
     
@@ -47,7 +47,7 @@
     [super viewDidLoad];
     
     // init parameter
-    mnFontSize = 14;
+    mnFontSize = [PHTextHelper fontSizeNormal];
     
     mDateFormat = [[NSDateFormatter alloc] init];
     [mDateFormat setDateFormat:@"dd / MM / yyyy"];
@@ -206,7 +206,7 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
+    [super textFieldShouldReturn:textField];
     
     return YES;
 }

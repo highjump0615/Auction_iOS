@@ -10,8 +10,20 @@
 
 @interface PHTextHelper : NSObject
 
++ (NSInteger)fontSizeSmall;
++ (NSInteger)fontSizeMedium;
++ (NSInteger)fontSizeNormal;
++ (NSInteger)fontSizeNormalLarge;
++ (NSInteger)fontSizeSemiLarge;
++ (NSInteger)fontSizeLarge;
+
++ (NSInteger)fontNoticeSmall;
++ (NSInteger)fontNoticeMedium;
+
 + (UIFont *)myriadProRegular:(CGFloat)size;
 + (UIFont *)myriadProBold:(CGFloat)size;
++ (UIFont*)myriadProBlack:(CGFloat)size;
++ (UIFont*)myriadProLight:(CGFloat)size;
 + (UIFont*)myriadProSemibold:(CGFloat)size;
 
 // textfield functions

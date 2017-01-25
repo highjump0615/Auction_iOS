@@ -21,7 +21,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    [self.mLblName setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mLblName setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

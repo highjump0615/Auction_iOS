@@ -120,7 +120,7 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
+    [super textFieldShouldReturn:textField];
     [textField setText:@""];
     
     return YES;

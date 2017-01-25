@@ -28,7 +28,7 @@
     [super awakeFromNib];
     
     // init font
-    double dFontSize = 14;
+    double dFontSize = [PHTextHelper fontSizeNormal];
     
     [self.mLblAuction setFont:[PHTextHelper myriadProRegular:dFontSize]];
     [self.mLblAuctionCount setFont:[PHTextHelper myriadProRegular:dFontSize]];

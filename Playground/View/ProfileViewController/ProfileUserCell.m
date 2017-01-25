@@ -28,7 +28,7 @@
     [self.mImgviewUser.layer setBorderColor:[PHColorHelper colorTextGray].CGColor];
     
     // set font
-    [self.mLblUsername setFont:[PHTextHelper myriadProBold:26]];
+    [self.mLblUsername setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeSemiLarge]]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

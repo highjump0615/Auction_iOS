@@ -10,7 +10,7 @@
 #import "InboxCell.h"
 #import "PHTextHelper.h"
 
-@interface InboxViewController ()
+@interface InboxViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *mViewTitle;
@@ -29,10 +29,14 @@
 //    edgeTable.bottom = 50;
     [self.mTableview setContentInset:edgeTable];
     
+    // text & keyboard
+    [self setSearchDelegate:self];
+    [self setGestureRecognizer];
+    
     // nav bar
     [self showSearch:YES showBack:YES];
     
-    [self.mLblTitle setFont:[PHTextHelper myriadProBold:32]];
+    [self.mLblTitle setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeLarge]]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,7 +95,7 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    return 120;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

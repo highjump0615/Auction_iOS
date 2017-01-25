@@ -31,9 +31,9 @@
     [super viewDidLoad];
     
     // label
-    [self.mLblTitle setFont:[PHTextHelper myriadProBold:32]];
-    [self.mLblUsername setFont:[PHTextHelper myriadProBold:26]];
-    [self.mLblItemname setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mLblTitle setFont:[PHTextHelper myriadProBold:[PHTextHelper fontSizeLarge]]];
+    [self.mLblUsername setFont:[PHTextHelper myriadProBold:[PHTextHelper fontSizeSemiLarge]]];
+    [self.mLblItemname setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     // photo
     [PHUiHelper makeRounded:self.mImgviewUser];
@@ -42,7 +42,7 @@
     
     // button
     [PHUiHelper makeRounded:self.mButRate];
-    [self.mButRate.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mButRate.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     // rate view
     mViewRateCore = [PCRateView getView];

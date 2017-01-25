@@ -29,9 +29,9 @@
     [super viewDidLoad];
     
     // font
-    [self.mLblTitle setFont:[PHTextHelper myriadProBold:35]];
+    [self.mLblTitle setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeLarge]]];
     
-    double dFontSize = 14;
+    double dFontSize = [PHTextHelper fontSizeNormal];
     
     [self.mButEditProfile.titleLabel setFont:[PHTextHelper myriadProBold:dFontSize]];
     [self.mButEditSetting.titleLabel setFont:[PHTextHelper myriadProBold:dFontSize]];

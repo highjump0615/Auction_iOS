@@ -30,6 +30,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *mButBid;
 @property (weak, nonatomic) IBOutlet UITextField *mTextBid;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstItemMargin;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstBidMargin;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstItemWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstItemHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstNoticeHeight;
+
 @end
 
 @implementation BidInputViewController
@@ -38,8 +44,8 @@
     [super viewDidLoad];
     
     // font
-    [self.mButBid.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
-    [self.mLblItemname setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mButBid.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
+    [self.mLblItemname setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     [self.mLblUsername setFont:[PHTextHelper myriadProRegular:10]];
     [self.mLblLimit setFont:[PHTextHelper myriadProRegular:10]];
     
@@ -68,6 +74,7 @@
     //
     mViewAuctionCore = [PCNoticePrice getView];
     mViewAuctionCore.frame = self.mViewAuction.bounds;
+    [mViewAuctionCore setTitle:@"Auctioned At"];
     [self.mViewAuction addSubview:mViewAuctionCore];
     
     //
@@ -80,6 +87,20 @@
     [mViewBidCore setBackgroundImage:[PHUiHelper redBackground]];
     
     [self.mViewBid addSubview:mViewBidCore];
+    
+    // margin
+    if ([PHUiHelper deviceType] == PHDevice_iPhone5) {
+        // spacing
+        [self.mCstItemMargin setConstant:10];
+        [self.mCstBidMargin setConstant:10];
+        
+        // item photo size
+        [self.mCstItemWidth setConstant:90];
+        [self.mCstItemHeight setConstant:90];
+        
+        // notice height
+        [self.mCstNoticeHeight setConstant:78];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

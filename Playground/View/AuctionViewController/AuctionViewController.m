@@ -40,6 +40,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *mButContact;
 @property (weak, nonatomic) IBOutlet UIButton *mButDelete;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstTimeHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstPriceHeight;
+
 @end
 
 @implementation AuctionViewController
@@ -56,10 +59,10 @@
     [PHUiHelper makeRounded:self.mImgviewItem];
     
     // font
-    [self.mLblItemname setFont:[PHTextHelper myriadProRegular:14]];
-    [self.mButGiveup.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
-    [self.mButContact.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
-    [self.mButDelete.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mLblItemname setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
+    [self.mButGiveup.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
+    [self.mButContact.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
+    [self.mButDelete.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     //
     // add item view
@@ -82,7 +85,7 @@
     mViewTimeoutCore = [PCNoticeTimeout getView];
     
     // Set the width of the cell to match the width of the container view
-    mViewTimeoutCore.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.mViewTimeout.bounds), CGRectGetHeight(mViewTimeoutCore.bounds));
+    mViewTimeoutCore.frame = self.mViewTimeout.bounds;
     [mViewTimeoutCore setValueText:@"24H 00M"];
     [self.mViewTimeout addSubview:mViewTimeoutCore];
     
@@ -114,6 +117,12 @@
     
     // delete button
     [PHUiHelper makeRounded:self.mButDelete];
+    
+    // margin
+    if ([PHUiHelper deviceType] == PHDevice_iPhone5) {
+        [self.mCstTimeHeight setConstant:99];
+        [self.mCstPriceHeight setConstant:80];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

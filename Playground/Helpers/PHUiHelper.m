@@ -8,7 +8,43 @@
 
 #import "PHUiHelper.h"
 
+
 @implementation PHUiHelper
+
+
+/**
+ determine iphone devices
+ @return <#return value description#>
+ */
++ (PHDeviceType) deviceType {
+    PHDeviceType nResult = PHDevice_iPhoneStandard;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        if ([[UIScreen mainScreen] respondsToSelector: @selector(scale)]) {
+            // get screen size
+            CGSize result = [[UIScreen mainScreen] bounds].size;
+            
+            // get resolution
+//            result = CGSizeMake(result.width * [UIScreen mainScreen].scale, result.height * [UIScreen mainScreen].scale);
+            
+            if (result.height >= 736.0f)
+                nResult = PHDevice_iPhone6Plus;
+            else if (result.height >= 667.0f)
+                nResult = PHDevice_iPhone6;
+            else if (result.height >= 568.0f)
+                nResult = PHDevice_iPhone5;
+        }
+    }
+    else {
+        nResult = PHDevice_Other;
+    }
+    
+    return nResult;
+}
+
++ (CGFloat) marginLeftNormal {
+    return 16.0f;
+}
 
 + (void)makeRounded:(UIView *)view {
     [view.layer setMasksToBounds:YES];

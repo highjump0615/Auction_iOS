@@ -56,7 +56,7 @@
     // make them rounded
     [button.layer setMasksToBounds:YES];
     [button.layer setCornerRadius:7];
-    [button.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
+    [button.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
 }
 
 /**
@@ -66,7 +66,7 @@
     // make them rounded
     [button.layer setMasksToBounds:YES];
     [button.layer setCornerRadius:button.frame.size.height / 2.0];
-    [button.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
+    [button.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
 }
 
 /**
@@ -110,9 +110,19 @@
     [mNavbar showCongrat:show];
 }
 
-
 - (void)setSearchDelegate:(UIViewController<UITextFieldDelegate> *)controller {
     [mNavbar.mTxtSearch setDelegate:controller];
+}
+
+/**
+ for closing soft keyboard
+ */
+- (void)setGestureRecognizer {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard:)];
+    tap.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tap];
 }
 
 /**
@@ -198,5 +208,12 @@
     [self animationView:0];
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 
 @end

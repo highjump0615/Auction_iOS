@@ -30,8 +30,8 @@
     //
     // font
     //
-    [self.mLblTitle setFont:[PHTextHelper myriadProBold:21]];
-    [self.mLblValue setFont:[PHTextHelper myriadProBold:35]];
+    [self.mLblTitle setFont:[PHTextHelper myriadProBold:[PHTextHelper fontNoticeMedium]]];
+    [self.mLblValue setFont:[PHTextHelper myriadProBold:[PHTextHelper fontSizeLarge]]];
 }
 
 + (id)getView {

@@ -6,8 +6,8 @@
 //  Copyright © 2017 fred. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface UploadViewController : UIViewController
+@interface UploadViewController : BaseViewController
 
 @end

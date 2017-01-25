@@ -24,6 +24,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *mLblOr;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstBottomMargin;
+
 @end
 
 @implementation LoginViewController
@@ -46,7 +48,7 @@
     //
     // init appearance of the controls
     //
-    UIFont *fontRegular = [PHTextHelper myriadProRegular:14];
+    UIFont *fontRegular = [PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]];
     
     // textfields
     [self initTextField:self.mTxtUsername];
@@ -69,6 +71,11 @@
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard:)];
     [self.view addGestureRecognizer:tap];
+    
+    // bottom margin
+    if ([PHUiHelper deviceType] == PHDevice_iPhone5) {
+        [self.mCstBottomMargin setConstant:30];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

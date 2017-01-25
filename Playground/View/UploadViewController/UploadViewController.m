@@ -38,15 +38,16 @@
     [super viewDidLoad];
     
     // font
-    [self.mLblTitle setFont:[PHTextHelper myriadProBold:35]];
-    [self.mLblCover setFont:[PHTextHelper myriadProRegular:14]];
-    [self.mLblPreview setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mLblTitle setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeLarge]]];
+    [self.mLblCover setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
+    [self.mLblPreview setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     [self.mLblRequire setFont:[PHTextHelper myriadProRegular:12]];
-    [self.mButNext.titleLabel setFont:[PHTextHelper myriadProRegular:14]];
+    [self.mButNext.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     // add upload cover
     mViewUploadCoverCore = [PCUploadView getView:UPLOAD_VIEW_RIGHT controller:self];
     mViewUploadCoverCore.frame = self.mViewUploadCover.bounds;
+    [mViewUploadCoverCore setBackgroundColor:[UIColor clearColor]];
     [self.mViewUploadCover addSubview:mViewUploadCoverCore];
     
     // add photo upload view
@@ -60,6 +61,7 @@
     for (UIView *view in maryViewUploadPreview) {
         PCUploadView *viewUpload = [PCUploadView getView:UPLOAD_VIEW_BOTTOM controller:self];
         viewUpload.frame = view.bounds;
+        [viewUpload setBackgroundColor:[UIColor clearColor]];
         [view addSubview:viewUpload];
         
         [maryViewUploadPreviewCore addObject:viewUpload];

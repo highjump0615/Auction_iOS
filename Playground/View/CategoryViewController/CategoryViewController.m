@@ -9,6 +9,7 @@
 #import "CategoryViewController.h"
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
+#import "PHUiHelper.h"
 #import "CategoryExploreCell.h"
 #import "ItemCollectionCell.h"
 #import "CommonUtils.h"
@@ -16,7 +17,9 @@
 #import "CategoryDetailViewController.h"
 #import "CategoryData.h"
 
-@interface CategoryViewController () {
+@interface CategoryViewController () <UITextFieldDelegate> {
+    UIRefreshControl *mRefreshControl;
+    
     double dCategoryHeight;
     double dExploreHeight;
     double dExploreWidth;
@@ -37,13 +40,23 @@
     // hide back button
     [self showSearch:YES showBack:NO];
 
+    // table view
     [self initTableView:self.mTableView haveBottombar:YES];
     
+    // Pull to refresh
+    mRefreshControl = [[UIRefreshControl alloc] init];
+    [mRefreshControl addTarget:self action:@selector(loadItem:) forControlEvents:UIControlEventValueChanged];
+    [self.mTableView addSubview:mRefreshControl];
+    
+    // text & keyboard
+    [self setSearchDelegate:self];
+    [self setGestureRecognizer];
+    
     // init parameter
-    dCategoryHeight = 80;
-    dExploreHeight = 85;
-    dExploreWidth = 85;
-    dTitleHeight = 50;
+    dCategoryHeight = 100;
+    dExploreHeight = 100;
+    dExploreWidth = 100;
+    dTitleHeight = 80;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,6 +64,31 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+/**
+ load items from api
+ @param sender <#sender description#>
+ */
+- (void)loadItem:(UIRefreshControl *)sender {
+    
+    if (sender) { // refreshing
+    }
+    
+    // todo: add api
+    [NSTimer scheduledTimerWithTimeInterval:2.0
+                                     target:self
+                                   selector:@selector(waitThread:)
+                                   userInfo:nil
+                                    repeats:NO];
+}
+
+- (void) waitThread:(NSTimer*)theTimer {
+    [self stopRefresh];
+}
+
+- (void)stopRefresh {
+    [mRefreshControl endRefreshing];
+}
 
 #pragma mark - Navigation
 
@@ -122,8 +160,8 @@
    
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, dTitleHeight)];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.frame.size.width, dTitleHeight)];
-    [label setFont:[PHTextHelper myriadProBold:35]];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake([PHUiHelper marginLeftNormal], 0, tableView.frame.size.width, dTitleHeight)];
+    [label setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeLarge]]];
     [label setTextColor:[PHColorHelper colorTextBlack]];
     
     if (section == 0) {
@@ -140,6 +178,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return dTitleHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
