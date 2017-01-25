@@ -33,7 +33,7 @@
     // hide back button
     [self showSearch:YES showBack:NO];
     
-    [self initTableView:self.mTableView haveBottombar:YES];
+    [self initTableView:self.mTableView haveBottombar:NO];
     
     // text & keyboard
     [self setSearchDelegate:self];
@@ -43,6 +43,13 @@
     dTitleHeight = 52;
     dItemWidth = 100;
     dItemHeight = 108;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // show tab bar
+    [self.tabBarController.tabBar setHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning {

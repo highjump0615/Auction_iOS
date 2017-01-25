@@ -10,4 +10,8 @@
 
 @interface BidCommentCell : ChatCell
 
+@property (weak, nonatomic) IBOutlet UIButton *mButReply;
+
+- (void)fillContent;
+
 @end

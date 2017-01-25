@@ -9,6 +9,7 @@
 #import "BaseViewController.h"
 #import "PHTextHelper.h"
 #import "PCNavbarView.h"
+#import "CategoryDetailViewController.h"
 
 @interface BaseViewController () {
     PCNavbarView *mNavbar;
@@ -154,6 +155,12 @@
     return mNavbar.mTxtSearch.text;
 }
 
+/**
+ set search string on nav bar
+ */
+- (void)setSearchString:(NSString *)value {
+    [mNavbar.mTxtSearch setText:value];
+}
 
 /**
  add keyboard show & hide notification
@@ -212,6 +219,29 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    
+    if ([textField isEqual:mNavbar.mTxtSearch]) {
+        // if empty, do not process
+        if (textField.text.length == 0) {
+            return YES;
+        }
+        
+        // if category detail page itself, do not process
+        if ([self isKindOfClass:[CategoryDetailViewController class]]) {
+            return YES;
+        }
+        
+        // search, go to detail page
+        CategoryDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoryDetailViewController"];
+        
+        // set search string on category detail view
+        vc.mstrSearch = [self getSearchString];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        // empty search text again
+        [self setSearchString:@""];
+    }
     
     return YES;
 }

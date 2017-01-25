@@ -40,6 +40,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *mButContact;
 @property (weak, nonatomic) IBOutlet UIButton *mButDelete;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstItemWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstItemHeight;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstMarginTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstMarginBottom;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstTimeHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstPriceHeight;
 
@@ -56,7 +62,6 @@
     // item view
     [self.mImgviewItem.layer setBorderWidth:0.5f];
     [self.mImgviewItem.layer setBorderColor:[PHColorHelper colorTextGray].CGColor];
-    [PHUiHelper makeRounded:self.mImgviewItem];
     
     // font
     [self.mLblItemname setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
@@ -65,7 +70,7 @@
     [self.mButDelete.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     //
-    // add item view
+    // add user view
     //
     mViewItemCore1 = [PCItemView getView];
     mViewItemCore1.frame = self.mViewItem1.bounds;
@@ -118,11 +123,25 @@
     // delete button
     [PHUiHelper makeRounded:self.mButDelete];
     
-    // margin
+    // different dimension on 4 inch
     if ([PHUiHelper deviceType] == PHDevice_iPhone5) {
-        [self.mCstTimeHeight setConstant:99];
-        [self.mCstPriceHeight setConstant:80];
+        // notice height
+        [self.mCstTimeHeight setConstant:95];
+        [self.mCstPriceHeight setConstant:75];
+        
+        // margin
+        [self.mCstMarginTop setConstant:10];
+        [self.mCstMarginBottom setConstant:10];
+        
+        // item size
+        [self.mCstItemWidth setConstant:89];
+        [self.mCstItemHeight setConstant:89];
     }
+}
+
+- (void)viewDidLayoutSubviews {
+    // make item view round after layout is determined
+    [PHUiHelper makeRounded:self.mImgviewItem];
 }
 
 - (void)didReceiveMemoryWarning {

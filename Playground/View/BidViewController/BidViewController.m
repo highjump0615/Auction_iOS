@@ -128,12 +128,14 @@
         }
         else {
             BidCommentCell *cellComment = (BidCommentCell *)[tableView dequeueReusableCellWithIdentifier:@"BidCommentCell"];
+            [cellComment.mButReply addTarget:self action:@selector(onButComment:) forControlEvents:UIControlEventTouchUpInside];
             
             if (index == 1) {
                 [cellComment showTime:YES];
             }
             else {
                 [cellComment showTime:NO];
+                [cellComment fillContent];
             }
             
             cell = cellComment;
@@ -251,6 +253,10 @@
     [super textFieldShouldReturn:textField];
     
     [textField setText:@""];
+    
+    // hide input & show comment again
+    [self.mButComment setHidden:NO];
+    [self showCommentInput:NO];
     
     return YES;
 }
