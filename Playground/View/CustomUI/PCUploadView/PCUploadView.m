@@ -77,6 +77,12 @@
     [self.mImgviewPhoto setBackgroundColor:backgroundColor];
 }
 
+/**
+ get image from imageview
+ */
+- (UIImage *)getImage {
+    return self.mImgviewPhoto.image;
+}
 
 /**
  set image to imageview

@@ -87,6 +87,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    // clear credentials input
+    [self.mTxtUsername setText:@""];
+    [self.mTxtPassword setText:@""];    
+    [self.view endEditing:YES];
+}
+
 /*
 #pragma mark - Navigation
 

@@ -52,6 +52,7 @@
 		63372D7C1E3A9D03002E9DED /* ApiClientCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 63372D7B1E3A9D03002E9DED /* ApiClientCore.m */; };
 		63372D801E3AC6F2002E9DED /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 63372D7F1E3AC6F2002E9DED /* UserData.m */; };
 		63372D831E3AC70C002E9DED /* BaseModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 63372D821E3AC70C002E9DED /* BaseModelData.m */; };
+		63372D861E3AF699002E9DED /* PHDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 63372D851E3AF699002E9DED /* PHDataHelper.m */; };
 		63398D181E28C85800BB3E55 /* navbar_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63398D151E28C85800BB3E55 /* navbar_back@2x.png */; };
 		63398D191E28C85800BB3E55 /* navbar_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 63398D161E28C85800BB3E55 /* navbar_back.png */; };
 		63398D1A1E28C85800BB3E55 /* navbar_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63398D171E28C85800BB3E55 /* navbar_back@3x.png */; };
@@ -279,6 +280,8 @@
 		63372D7F1E3AC6F2002E9DED /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		63372D811E3AC70C002E9DED /* BaseModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModelData.h; sourceTree = "<group>"; };
 		63372D821E3AC70C002E9DED /* BaseModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModelData.m; sourceTree = "<group>"; };
+		63372D841E3AF699002E9DED /* PHDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHDataHelper.h; sourceTree = "<group>"; };
+		63372D851E3AF699002E9DED /* PHDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHDataHelper.m; sourceTree = "<group>"; };
 		63398D151E28C85800BB3E55 /* navbar_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_back@2x.png"; sourceTree = "<group>"; };
 		63398D161E28C85800BB3E55 /* navbar_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_back.png; sourceTree = "<group>"; };
 		63398D171E28C85800BB3E55 /* navbar_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_back@3x.png"; sourceTree = "<group>"; };
@@ -1228,6 +1231,8 @@
 				63398D491E28E7EC00BB3E55 /* PHColorHelper.m */,
 				637679071E2A42E100AB0B31 /* PHUiHelper.h */,
 				637679081E2A42E100AB0B31 /* PHUiHelper.m */,
+				63372D841E3AF699002E9DED /* PHDataHelper.h */,
+				63372D851E3AF699002E9DED /* PHDataHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1676,6 +1681,7 @@
 				63608A491E2B3FBB001D0853 /* ProfileViewController.m in Sources */,
 				63AC93DC1E30275C0060CC5D /* EditSettingViewController.m in Sources */,
 				63AC93C51E2FE9DD0060CC5D /* PlaceholderTextView.m in Sources */,
+				63372D861E3AF699002E9DED /* PHDataHelper.m in Sources */,
 				63F1C8081E2B6E5500F79EA7 /* ProfileStatisticsCell.m in Sources */,
 				C3D6D8C61E26E61800019747 /* BaseViewController.m in Sources */,
 				63F1C8281E2BA9C200F79EA7 /* PCRateView.m in Sources */,

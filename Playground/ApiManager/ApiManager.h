@@ -20,4 +20,14 @@
                        success:(void (^)(id response))sucess
                           fail:(void (^)(NSError *error, id response))fail;
 
+- (void)userSignupwithUsername:(NSString *)username
+                      password:(NSString *)password
+                          name:(NSString *)name
+                         email:(NSString *)email
+                      birthday:(NSString *)birthday
+                        gender:(NSInteger)gender
+                         photo:(NSData *)photo
+                       success:(void (^)(id response))sucess
+                          fail:(void (^)(NSError *error, id response))fail;
+
 @end

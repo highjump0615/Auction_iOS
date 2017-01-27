@@ -12,6 +12,11 @@
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
 #import "PHUiHelper.h"
+#import "ApiManager.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "UserData.h"
+#import "PHDataHelper.h"
+#import "ApiConfig.h"
 
 @interface SignupViewController () {
 }
@@ -74,6 +79,67 @@
         [PHUiHelper showAlertView:self message:@"Input your email address"];
         return;
     }
+    
+    // get photo image
+    UIImage *imgPhoto = [mviewPhotoCore getImage];
+    NSData *dataPhoto;
+    
+    // convert it to data
+    if (imgPhoto) {
+        dataPhoto = UIImageJPEGRepresentation(imgPhoto, 1.0f);
+    }
+    
+    NSString *strBirthday;
+    if (mDateBirthday) {
+        strBirthday = [PHDataHelper dateToString:mDateBirthday format:@"yyyy-MM-dd"];
+    }
+    
+    //
+    // call signup api
+    //
+    [[ApiManager sharedInstance] userSignupwithUsername:self.mTxtUsername.text
+                                               password:self.mTxtPasswd.text
+                                                   name:self.mTxtName.text
+                                                  email:self.mTxtEmail.text
+                                               birthday:strBirthday
+                                                 gender:mnGender
+                                                  photo:dataPhoto
+                                                success:^(id response)
+    {
+        // hide progress view
+        [SVProgressHUD dismiss];
+        
+        // set api token & current user
+        [ApiManager sharedInstance].apiToken = [response valueForKey:@"api_token"];
+        UserData *user = [[UserData alloc] initWidthDic:response];
+        [UserData setCurrentUser:user];
+        
+        [self performSegueWithIdentifier:@"Signup2Main" sender:nil];
+    }
+                                                   fail:^(NSError *error, id response)
+    {
+        // hide progress view
+        [SVProgressHUD dismiss];
+        
+        // close keyboard
+        [self.view endEditing:YES];
+        
+        NSString *strDesc = [error localizedDescription];
+        
+        // sign up failed
+        if ([ApiManager getStatusCode:error] == PH_FAIL_STATE) {
+            if ([response isKindOfClass:[NSDictionary class]]) {
+                NSArray *aryKey = [response allKeys];
+                NSArray *aryValue = [response valueForKey:aryKey[0]];
+                strDesc = aryValue[0];
+            }
+        }
+        
+        [PHUiHelper showAlertView:self title:@"Signup Failed" message:strDesc];
+    }];
+    
+    // show progress view
+    [SVProgressHUD show];
 }
 
 #pragma mark - UITextFieldDelegate

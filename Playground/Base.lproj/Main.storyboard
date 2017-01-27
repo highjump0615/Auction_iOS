@@ -337,7 +337,6 @@
                                                 <state key="normal" title="Sign up" backgroundImage="login_login_bg.png"/>
                                                 <connections>
                                                     <action selector="onButSignup:" destination="R2n-Gj-Chy" eventType="touchUpInside" id="aBS-7P-aEa"/>
-                                                    <segue destination="6if-o3-OVj" kind="show" id="Uuh-Hg-rlV"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -428,6 +427,7 @@
                         <outlet property="mTxtUsername" destination="kY4-7A-1gk" id="VEs-ai-RVH"/>
                         <outlet property="mViewNavbar" destination="KgD-VO-oFv" id="dpg-En-UfN"/>
                         <outlet property="mViewPhoto" destination="BMZ-Y7-gII" id="qXB-pM-8yn"/>
+                        <segue destination="6if-o3-OVj" kind="show" identifier="Signup2Main" id="uMz-Sr-awL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ql-9L-5Zt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3392,7 +3392,7 @@ EENoYXRUYWJsZUNlbGw
         <image name="upload_add.png" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DEy-ST-Z4M"/>
+        <segue reference="uMz-Sr-awL"/>
         <segue reference="SLK-SU-Ipp"/>
     </inferredMetricsTieBreakers>
 </document>

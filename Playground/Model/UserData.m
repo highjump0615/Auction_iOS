@@ -8,6 +8,7 @@
 
 #import "UserData.h"
 #import "CommonUtils.h"
+#import "PHDataHelper.h"
 
 @implementation UserData
 
@@ -24,13 +25,7 @@
         // set date
         NSString *strDate = [data valueForKey:@"birthday"];
         if (strDate) {
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
-            
-            [formatter setTimeZone:timeZone];
-            [formatter setDateFormat : @"yyyy-MM-dd"];
-            
-            self.birthday = [formatter dateFromString:strDate];
+            self.birthday = [PHDataHelper stringToDate:strDate format:@"yyyy-MM-dd"];
         }
         
         self.gender = [[data valueForKey:@"gender"] integerValue];

@@ -27,15 +27,13 @@
 @interface EditProfileViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     NSInteger mnFontSize;
     NSDateFormatter *mDateFormat;
-    NSDate *mDateBirthday;
-    
-    PCUploadView *viewPhotoCore;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *mViewPhoto;
 
 @property (weak, nonatomic) IBOutlet UILabel *mLblBirthCaption;
 @property (weak, nonatomic) IBOutlet UILabel *mLblBirthday;
+
 @property (weak, nonatomic) IBOutlet UILabel *mLblGenderCaption;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *mLblGender;
 
@@ -53,9 +51,9 @@
     [mDateFormat setDateFormat:@"dd / MM / yyyy"];
     
     // add photo upload view
-    viewPhotoCore = [PCUploadView getView:UPLOAD_VIEW_RIGHT controller:self];
-    viewPhotoCore.frame = self.mViewPhoto.bounds;
-    [self.mViewPhoto addSubview:viewPhotoCore];
+    mviewPhotoCore = [PCUploadView getView:UPLOAD_VIEW_RIGHT controller:self];
+    mviewPhotoCore.frame = self.mViewPhoto.bounds;
+    [self.mViewPhoto addSubview:mviewPhotoCore];
     
     // textfields
     [self initTextField:self.mTxtName];
@@ -103,7 +101,7 @@
  update gender label according to the selected gender
  @param gender <#gender description#>
  */
-- (void)updateGenderLabel:(int)gender {
+- (void)updateGenderLabel:(NSInteger)gender {
     NSDictionary *dicAttribSelected = @{NSFontAttributeName:[PHTextHelper myriadProBold:mnFontSize],
                                         NSForegroundColorAttributeName:[PHColorHelper colorTextBlack]};
     NSDictionary *dicAttribNormal = @{NSFontAttributeName:[PHTextHelper myriadProBold:mnFontSize],
@@ -219,8 +217,8 @@
  @param components <#components description#>
  */
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithTransitInformation:(NSDictionary *)components {
-    int nGender = [components[kGenderKey] intValue];
-    [self updateGenderLabel:nGender];
+    mnGender = [components[kGenderKey] integerValue];
+    [self updateGenderLabel:mnGender];
 }
 
 #pragma mark - UIImagePickerDelegate
@@ -232,7 +230,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *imgRes = [info objectForKey:UIImagePickerControllerEditedImage];
-    [viewPhotoCore setImage:imgRes];
+    [mviewPhotoCore setImage:imgRes];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
