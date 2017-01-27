@@ -8,6 +8,7 @@
 
 #import "ApiClientCore.h"
 #import <AFNetworking/AFNetworking.h>
+#import "ApiManager.h"
 
 @implementation ApiClientCore
 
@@ -115,5 +116,49 @@
     
     [uploadTask resume];
 }
+
+/**
+ HTTP get request
+
+ @param serviceApiUrl <#serviceApiUrl description#>
+ @param params <#params description#>
+ @param sucess <#sucess description#>
+ @param fail <#fail description#>
+ */
+- (void)sendToServiceByGet:(NSString *)serviceApiUrl
+                    params:(NSDictionary *)params
+                   success:(void (^)(id response))sucess
+                      fail:(void (^)(NSError *error, id response))fail {
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] initWithDictionary:params];
+    
+    // add api token to its param
+    [dicParam setObject:[ApiManager sharedInstance].apiToken forKey:@"api_token"];
+    
+    // get request
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET"
+                                                                                 URLString:serviceApiUrl
+                                                                                parameters:dicParam
+                                                                                     error:nil];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+            
+            // fail callback
+            fail(error, responseObject);
+        }
+        else {
+            // success callback
+            sucess(responseObject);
+        }
+    }];
+    [dataTask resume];
+}
+
 
 @end

@@ -10,6 +10,7 @@
 #import "ApiClientCore.h"
 #import "ApiConfig.h"
 #import <AFNetworking/AFNetworking.h>
+#import "CommonUtils.h"
 
 @implementation ApiManager
 
@@ -28,6 +29,13 @@
     return response.statusCode;
 }
 
+- (void)setApiToken:(NSString *)value {
+    _apiToken = value;
+    
+    // save to NSUserDefaults
+    [[NSUserDefaults standardUserDefaults] setObject:value forKey:kApiToken];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 - (void)userSigninwithUsername:(NSString *)username
                       password:(NSString *)password
@@ -95,5 +103,15 @@
     }
 }
 
+- (void)getUser:(void (^)(id response))sucess
+           fail:(void (^)(NSError *error, id response))fail {
+    // url
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@", PH_API_BASE_URL, PH_API_GETUSER];
+    
+    [[ApiClientCore sharedInstance] sendToServiceByGet:strUrl
+                                                params:nil
+                                                success:sucess
+                                                   fail:fail];
+}
 
 @end

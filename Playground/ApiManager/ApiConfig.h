@@ -15,6 +15,7 @@
 
 #define     PH_API_LOGIN                @"login"
 #define     PH_API_SIGNUP               @"signup"
+#define     PH_API_GETUSER              @"user"
 
 
 #endif /* ApiConfig_h */

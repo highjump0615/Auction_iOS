@@ -2855,7 +2855,7 @@ EENoYXRUYWJsZUNlbGw
         <!--Main Tabbar Controller-->
         <scene sceneID="3VA-nD-b2z">
             <objects>
-                <tabBarController id="6if-o3-OVj" customClass="MainTabbarController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabbar" id="6if-o3-OVj" customClass="MainTabbarController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="UdM-hJ-zWs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

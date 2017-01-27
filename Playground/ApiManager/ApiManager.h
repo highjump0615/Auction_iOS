@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ApiManager : NSObject
+@interface ApiManager : NSObject {
+    NSString *_apiToken;
+}
 
 @property (nonatomic, retain) NSString *apiToken;
 
 + (ApiManager *)sharedInstance;
 + (NSInteger)getStatusCode:(NSError *)error;
+
+- (void)setApiToken:(NSString *)value;
 
 - (void)userSigninwithUsername:(NSString *)username
                       password:(NSString *)password
@@ -29,5 +33,9 @@
                          photo:(NSData *)photo
                        success:(void (^)(id response))sucess
                           fail:(void (^)(NSError *error, id response))fail;
+
+- (void)getUser:(void (^)(id response))sucess
+           fail:(void (^)(NSError *error, id response))fail;
+
 
 @end

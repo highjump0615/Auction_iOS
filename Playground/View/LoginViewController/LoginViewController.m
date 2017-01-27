@@ -15,6 +15,7 @@
 #import "ApiConfig.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "UserData.h"
+#import "MainTabbarController.h"
 
 @interface LoginViewController ()
 
@@ -79,6 +80,14 @@
     // bottom margin
     if ([PHUiHelper deviceType] == PHDevice_iPhone5) {
         [self.mCstBottomMargin setConstant:30];
+    }
+    
+    // if logged in, go to main page directly
+    UserData *currentUser = [UserData currentUser];
+    if (currentUser) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTabbarController *tbc = (MainTabbarController *)[storyboard instantiateViewControllerWithIdentifier:@"MainTabbar"];
+        [self.navigationController pushViewController:tbc animated:NO];
     }
 }
 

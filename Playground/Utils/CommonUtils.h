@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define kApiToken       @"api_token"
+#define kCurrentUser    @"current_user"
+
 @class UserData;
 
 @interface CommonUtils : NSObject

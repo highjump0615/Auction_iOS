@@ -26,5 +26,9 @@
                     success:(void (^)(id response))sucess
                        fail:(void (^)(NSError *error, id response))fail;
 
+- (void)sendToServiceByGet:(NSString *)serviceApiUrl
+                    params:(NSDictionary *)params
+                   success:(void (^)(id response))sucess
+                      fail:(void (^)(NSError *error, id response))fail;
 
 @end
