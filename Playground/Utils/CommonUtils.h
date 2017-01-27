@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class UserData;
+
 @interface CommonUtils : NSObject
 
 @property (nonatomic, retain) NSMutableArray *maryCategory;
+@property (nonatomic, retain) UserData *mCurrentUser;
 
 + (id)sharedObject;
 

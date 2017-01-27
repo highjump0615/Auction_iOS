@@ -42,6 +42,43 @@
     return nResult;
 }
 
+
+/**
+ show alert view
+ @param viewController <#viewController description#>
+ @param message <#message description#>
+ */
++ (void)showAlertView:(UIViewController *)viewController message:(NSString *)message {
+    
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:message
+                                                                message:@""
+                                                         preferredStyle:UIAlertControllerStyleAlert];
+    
+    // ok button
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleCancel
+                                                     handler:nil];
+    [ac addAction:okAction];
+    
+    [viewController presentViewController:ac animated:YES completion:nil];
+}
+
++ (void)showAlertView:(UIViewController *)viewController title:(NSString *)title message:(NSString *)message {
+    
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:title
+                                                                message:message
+                                                         preferredStyle:UIAlertControllerStyleAlert];
+    
+    // ok button
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleCancel
+                                                     handler:nil];
+    [ac addAction:okAction];
+    
+    [viewController presentViewController:ac animated:YES completion:nil];
+}
+
+
 + (CGFloat) marginLeftNormal {
     return 16.0f;
 }

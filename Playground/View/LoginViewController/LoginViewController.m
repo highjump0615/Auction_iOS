@@ -11,6 +11,10 @@
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
 #import "PHUiHelper.h"
+#import "ApiManager.h"
+#import "ApiConfig.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "UserData.h"
 
 @interface LoginViewController ()
 
@@ -92,6 +96,58 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)onButLogin:(id)sender {
+   
+    // check data validity
+    if (self.mTxtUsername.text.length == 0) {
+        [PHUiHelper showAlertView:self message:@"Input your username"];
+        return;
+    }
+    if (self.mTxtPassword.text.length == 0) {
+        [PHUiHelper showAlertView:self message:@"Input your password"];
+        return;
+    }
+    
+    //
+    // call login api
+    //
+    [[ApiManager sharedInstance] userSigninwithUsername:self.mTxtUsername.text
+                                               password:self.mTxtPassword.text
+                                                success:^(id response)
+    
+    {
+        // hide progress view
+        [SVProgressHUD dismiss];
+        
+        // set api token & current user
+        [ApiManager sharedInstance].apiToken = [response valueForKey:@"api_token"];
+        UserData *user = [[UserData alloc] initWidthDic:response];
+        [UserData setCurrentUser:user];
+        
+        [self performSegueWithIdentifier:@"Login2Main" sender:nil];
+    }
+                                                   fail:^(NSError *error, id response)
+    {
+        // hide progress view
+        [SVProgressHUD dismiss];
+        
+        // close keyboard
+        [self.view endEditing:YES];
+        
+        NSString *strDesc = [error localizedDescription];
+        
+        // log in failed
+        if ([ApiManager getStatusCode:error] == PH_FAIL_STATE) {
+            strDesc = @"Username or password does not match";
+        }
+        
+        [PHUiHelper showAlertView:self title:@"Login Failed" message:strDesc];
+    }];
+    
+    // show progress view
+    [SVProgressHUD show];
+}
 
 #pragma mark - UITextFieldDelegate
 

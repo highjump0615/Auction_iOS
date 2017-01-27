@@ -11,6 +11,7 @@
 #import "PCTextField.h"
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
+#import "PHUiHelper.h"
 
 @interface SignupViewController () {
 }
@@ -50,6 +51,30 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)onButSignup:(id)sender {
+    // check data validity
+    if (self.mTxtName.text.length == 0) {
+        [PHUiHelper showAlertView:self message:@"Input your name"];
+        return;
+    }
+    if (self.mTxtUsername.text.length == 0) {
+        [PHUiHelper showAlertView:self message:@"Input your username"];
+        return;
+    }
+    if (self.mTxtPasswd.text.length == 0) {
+        [PHUiHelper showAlertView:self message:@"Input your password"];
+        return;
+    }
+    if (![self.mTxtPasswd.text isEqualToString:self.mTxtPasswdRetype.text]) {
+        [PHUiHelper showAlertView:self message:@"Password does not match"];
+        return;
+    }
+    if (self.mTxtEmail.text.length == 0) {
+        [PHUiHelper showAlertView:self message:@"Input your email address"];
+        return;
+    }
+}
 
 #pragma mark - UITextFieldDelegate
 

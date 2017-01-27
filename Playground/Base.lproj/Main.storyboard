@@ -58,7 +58,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Log in" backgroundImage="login_login_bg.png"/>
                                 <connections>
-                                    <segue destination="6if-o3-OVj" kind="show" id="yQN-u0-LWF"/>
+                                    <action selector="onButLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F5I-jU-Wdh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNe-Im-wFJ">
@@ -141,6 +141,7 @@
                         <outlet property="mLblOr" destination="UNe-Im-wFJ" id="me7-65-yG7"/>
                         <outlet property="mTxtPassword" destination="UEI-fL-lD6" id="KiS-6q-qlG"/>
                         <outlet property="mTxtUsername" destination="3JO-Hq-8zI" id="g6F-cf-R3R"/>
+                        <segue destination="6if-o3-OVj" kind="show" identifier="Login2Main" id="DEy-ST-Z4M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -335,6 +336,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <state key="normal" title="Sign up" backgroundImage="login_login_bg.png"/>
                                                 <connections>
+                                                    <action selector="onButSignup:" destination="R2n-Gj-Chy" eventType="touchUpInside" id="aBS-7P-aEa"/>
                                                     <segue destination="6if-o3-OVj" kind="show" id="Uuh-Hg-rlV"/>
                                                 </connections>
                                             </button>
@@ -1453,23 +1455,23 @@
                                                     <state key="normal" image="bid_desc_selected.png"/>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdK-hZ-7pe">
-                                                    <rect key="frame" x="93" y="238" width="42" height="50"/>
+                                                    <rect key="frame" x="93" y="238" width="42.5" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y36-D5-e2C">
-                                                    <rect key="frame" x="135" y="238" width="50" height="50"/>
+                                                    <rect key="frame" x="135.5" y="238" width="50" height="50"/>
                                                     <state key="normal" image="bid_photo.png"/>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5U-lZ-pc5">
-                                                    <rect key="frame" x="185" y="238" width="42.5" height="50"/>
+                                                    <rect key="frame" x="185.5" y="238" width="42.5" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQc-0p-bzK">
-                                                    <rect key="frame" x="227.5" y="238" width="50" height="50"/>
+                                                    <rect key="frame" x="228" y="238" width="50" height="50"/>
                                                     <state key="normal" image="bid_comment.png"/>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJu-eW-lgL">
-                                                    <rect key="frame" x="277.5" y="238" width="42.5" height="50"/>
+                                                    <rect key="frame" x="278" y="238" width="42" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -2964,7 +2966,7 @@ EENoYXRUYWJsZUNlbGw
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="8OU-d1-nx7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pDi-f2-sFG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pDi-f2-sFG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3390,7 +3392,7 @@ EENoYXRUYWJsZUNlbGw
         <image name="upload_add.png" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uuh-Hg-rlV"/>
+        <segue reference="DEy-ST-Z4M"/>
         <segue reference="SLK-SU-Ipp"/>
     </inferredMetricsTieBreakers>
 </document>

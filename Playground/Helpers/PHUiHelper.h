@@ -31,6 +31,9 @@ typedef NSUInteger PHDeviceType;
 + (CGFloat) marginLeftNormal;
 
 // ui helper
++ (void)showAlertView:(UIViewController *)viewController message:(NSString *)message;
++ (void)showAlertView:(UIViewController *)viewController title:(NSString *)title message:(NSString *)message;
+
 + (void)makeRounded:(UIView *)view;
 + (void)setPurpleBorder:(UIView *)view cornerRadius:(double)radius;
 + (UIImage *)blueBackground;

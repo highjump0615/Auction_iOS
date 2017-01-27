@@ -6,11 +6,10 @@
 //  Copyright © 2017 fred. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BaseModelData.h"
 
-@interface CategoryData : NSObject
+@interface CategoryData : BaseModelData
 
-@property (nonatomic) NSInteger id;
 @property (nonatomic, retain) NSString *name;
 
 + (NSInteger)getCount;
