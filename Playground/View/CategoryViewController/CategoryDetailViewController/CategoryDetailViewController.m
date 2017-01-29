@@ -76,6 +76,39 @@
 */
 
 /**
+ add items fetched from api
+ @param response <#response description#>
+ */
+- (void)addItems:(NSArray *)response {
+    // hide progress view
+    [self stopRefresh];
+    
+    // clear data
+    [maryItem removeAllObjects];
+    
+    // add item data
+    NSArray *aryItem = (NSArray *)response;
+    
+    // no data, search keyword is existing or category is not selected
+    if (aryItem.count == 0 && ([self getSearchString].length > 0 || !self.mCategory)) {
+        [self.mLblNotice setText:@"Sorry! We couldn't find any results for"];
+        [self.mLblKeyword setText:[NSString stringWithFormat:@"\"%@\"", [self getSearchString]]];
+        [self.mLblKeyword setHidden:NO];
+    }
+    
+    for (NSDictionary *dicItem in aryItem) {
+        ItemData *cData = [[ItemData alloc] initWithDic:dicItem];
+        [maryItem addObject:cData];
+        
+        [self.mTableView setBounces:YES];
+        [self.mLblNotice setHidden:YES];
+    }
+    
+    // reload table
+    [self.mTableView reloadData];
+}
+
+/**
  get items from api
  */
 - (void)getItem {
@@ -83,36 +116,32 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     //
-    // call login api
+    // call get item api
     //
-    [[ApiManager sharedInstance] getCategoryItem:self.mCategory.id
-                                         success:^(id response)
-     {
-         // hide progress view
-         [self stopRefresh];
-         
-         // clear data
-         [maryItem removeAllObjects];
-         
-         // add item data
-         NSArray *aryItem = (NSArray *)response;
-         
-         for (NSDictionary *dicItem in aryItem) {
-             ItemData *cData = [[ItemData alloc] initWithDic:dicItem];
-             [maryItem addObject:cData];
-
-             [self.mTableView setBounces:YES];
-             [self.mLblNotice setHidden:YES];
+    if ([self getSearchString].length > 0) {
+        [[ApiManager sharedInstance] searchItem:[self getSearchString]
+                                        success:^(id response)
+         {
+             [self addItems:response];
          }
-         
-         // reload table
-         [self.mTableView reloadData];
-     }
-                                       fail:^(NSError *error, id response)
-     {
-         // hide progress view
-         [self stopRefresh];
-     }];
+                                           fail:^(NSError *error, id response)
+         {
+             // hide progress view
+             [self stopRefresh];
+         }];
+    }
+    else {
+        [[ApiManager sharedInstance] getCategoryItem:self.mCategory.id
+                                             success:^(id response)
+         {
+             [self addItems:response];
+         }
+                                           fail:^(NSError *error, id response)
+         {
+             // hide progress view
+             [self stopRefresh];
+         }];
+    }
 }
 
 
@@ -219,6 +248,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [super textFieldShouldReturn:textField];
     
+    [self getItem];
     [self.mTableView reloadData];
     
     return YES;

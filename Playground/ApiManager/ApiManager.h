@@ -58,4 +58,8 @@
                 success:(void (^)(id response))sucess
                    fail:(void (^)(NSError *error, id response))fail;
 
+- (void)searchItem:(NSString *)keyword
+           success:(void (^)(id response))sucess
+              fail:(void (^)(NSError *error, id response))fail;
+
 @end

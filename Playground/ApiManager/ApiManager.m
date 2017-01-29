@@ -198,5 +198,17 @@
                                                   fail:fail];
 }
 
+- (void)searchItem:(NSString *)keyword
+           success:(void (^)(id response))sucess
+              fail:(void (^)(NSError *error, id response))fail {
+    // url
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@/%@", PH_API_BASE_URL, PH_API_SEARCH_ITEM, keyword];
+    
+    [[ApiClientCore sharedInstance] sendToServiceByGet:strUrl
+                                                params:nil
+                                               success:sucess
+                                                  fail:fail];
+}
+
 
 @end

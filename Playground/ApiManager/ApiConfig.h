@@ -20,6 +20,7 @@
 #define     PH_API_UPLOAD_ITEM          @"uploaditem"
 #define     PH_API_EXPLORE              @"explore"
 #define     PH_API_GETCATEGORY          @"category"
+#define     PH_API_SEARCH_ITEM          @"search"
 
 
 #endif /* ApiConfig_h */
