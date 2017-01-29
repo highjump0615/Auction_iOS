@@ -10,4 +10,16 @@
 
 @interface ItemData : BaseModelData
 
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSString *desc;
+@property (nonatomic) NSInteger category;
+@property (nonatomic) NSInteger price;
+@property (nonatomic) NSInteger condition;
+@property (nonatomic) NSInteger status;
+
+@property (nonatomic, retain) NSString *coverImage;
+@property (nonatomic, retain) NSArray *imagePreview;
+
+- (id)initWithDic:(NSDictionary *)data;
+
 @end

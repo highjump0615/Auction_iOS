@@ -10,4 +10,6 @@
 
 @interface CategoryExploreCell : UITableViewCell
 
+- (void)fillContent:(NSInteger)count;
+
 @end

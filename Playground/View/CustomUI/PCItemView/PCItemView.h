@@ -13,4 +13,6 @@
 + (id)getView;
 - (void)showTimeLimit:(BOOL)show;
 
+- (void)setItemData:(id)item;
+
 @end

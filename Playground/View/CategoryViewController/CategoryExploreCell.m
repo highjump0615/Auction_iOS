@@ -8,10 +8,12 @@
 
 #import "CategoryExploreCell.h"
 #import "PCItemView.h"
+#import "PHTextHelper.h"
 
 @interface CategoryExploreCell()
 
 @property (weak, nonatomic) IBOutlet UICollectionView *mCollectionView;
+@property (weak, nonatomic) IBOutlet UILabel *mLblNotice;
 
 @end
 
@@ -20,12 +22,26 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 
+    // font
+    [self.mLblNotice setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     
     // Configure the view for the selected state
+}
+
+- (void)fillContent:(NSInteger)count {
+    if (count > 0) {
+        [self.mLblNotice setHidden:YES];
+    }
+    else {
+        [self.mLblNotice setHidden:NO];
+    }
+    
+    // refresh collection view
+    [self.mCollectionView reloadData];
 }
 
 @end

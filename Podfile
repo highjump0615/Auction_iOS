@@ -11,6 +11,7 @@ target 'Playground' do
   pod 'TTTAttributedLabel'
   pod 'SVProgressHUD'
   pod 'AFNetworking', '~> 3.0'
+  pod 'SDWebImage', '~>3.8'
 
   target 'PlaygroundTests' do
     inherit! :search_paths

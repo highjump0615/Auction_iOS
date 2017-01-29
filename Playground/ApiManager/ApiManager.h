@@ -51,5 +51,7 @@
                     success:(void (^)(id response))sucess
                        fail:(void (^)(NSError *error, id response))fail;
 
+- (void)getExplore:(void (^)(id response))sucess
+              fail:(void (^)(NSError *error, id response))fail;
 
 @end

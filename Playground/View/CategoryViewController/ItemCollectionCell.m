@@ -8,6 +8,7 @@
 
 #import "ItemCollectionCell.h"
 #import "PCItemView.h"
+#import "ItemData.h"
 
 @interface ItemCollectionCell() {
     PCItemView *mItemView;
@@ -31,9 +32,12 @@
  show/hide time limit on the bottom
  @param show <#show description#>
  */
-
 - (void)showTimeLimit:(BOOL)show {
     [mItemView showTimeLimit:show];
+}
+
+- (void)fillContent:(id)data {
+    [mItemView setItemData:data];
 }
 
 @end
