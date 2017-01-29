@@ -9,6 +9,7 @@
 #import "UserData.h"
 #import "CommonUtils.h"
 #import "PHDataHelper.h"
+#import "ApiManager.h"
 
 @implementation UserData
 
@@ -80,7 +81,8 @@
         NSData *encodedObject = [defaults objectForKey:kCurrentUser];
         if (encodedObject) {
             data = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
-            [UserData setCurrentUser:data];
+            
+            utils.mCurrentUser = data;
         }
     }
     

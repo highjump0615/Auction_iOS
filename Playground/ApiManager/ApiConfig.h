@@ -11,11 +11,12 @@
 
 #define     PH_FAIL_STATE               400
 
-#define     PH_API_BASE_URL             @"http://192.168.1.119/playground/public/api/v1/"
+#define     PH_API_BASE_URL             @"http://192.168.1.109/playground/public/api/v1/"
 
 #define     PH_API_LOGIN                @"login"
 #define     PH_API_SIGNUP               @"signup"
 #define     PH_API_GETUSER              @"user"
+#define     PH_API_UPLOAD_ITEM          @"uploaditem"
 
 
 #endif /* ApiConfig_h */

@@ -53,6 +53,14 @@
 }
 
 /**
+ get rate value
+ @return 0~100
+ */
+- (NSInteger)getRate {
+    return mnStar * 20;
+}
+
+/**
  init stars according to the rate
  @param rate 0~100
  */

@@ -155,6 +155,7 @@
 		63B36C5A1E283F1F0086DF46 /* upload_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B36C571E283F1F0086DF46 /* upload_add.png */; };
 		63B36C5B1E283F1F0086DF46 /* upload_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B36C581E283F1F0086DF46 /* upload_add@2x.png */; };
 		63B36C5C1E283F1F0086DF46 /* upload_add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B36C591E283F1F0086DF46 /* upload_add@3x.png */; };
+		63BFE8561E3E5DFD00442351 /* ItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BFE8551E3E5DFD00442351 /* ItemData.m */; };
 		63F1C8081E2B6E5500F79EA7 /* ProfileStatisticsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F1C8071E2B6E5500F79EA7 /* ProfileStatisticsCell.m */; };
 		63F1C80C1E2B80E100F79EA7 /* inbox_setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F1C8091E2B80E100F79EA7 /* inbox_setting.png */; };
 		63F1C80D1E2B80E100F79EA7 /* inbox_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F1C80A1E2B80E100F79EA7 /* inbox_setting@2x.png */; };
@@ -419,6 +420,8 @@
 		63B36C571E283F1F0086DF46 /* upload_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload_add.png; sourceTree = "<group>"; };
 		63B36C581E283F1F0086DF46 /* upload_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload_add@2x.png"; sourceTree = "<group>"; };
 		63B36C591E283F1F0086DF46 /* upload_add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload_add@3x.png"; sourceTree = "<group>"; };
+		63BFE8541E3E5DFD00442351 /* ItemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemData.h; sourceTree = "<group>"; };
+		63BFE8551E3E5DFD00442351 /* ItemData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemData.m; sourceTree = "<group>"; };
 		63F1C8061E2B6E5500F79EA7 /* ProfileStatisticsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileStatisticsCell.h; sourceTree = "<group>"; };
 		63F1C8071E2B6E5500F79EA7 /* ProfileStatisticsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileStatisticsCell.m; sourceTree = "<group>"; };
 		63F1C8091E2B80E100F79EA7 /* inbox_setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inbox_setting.png; sourceTree = "<group>"; };
@@ -733,6 +736,8 @@
 				63372D7F1E3AC6F2002E9DED /* UserData.m */,
 				63372D811E3AC70C002E9DED /* BaseModelData.h */,
 				63372D821E3AC70C002E9DED /* BaseModelData.m */,
+				63BFE8541E3E5DFD00442351 /* ItemData.h */,
+				63BFE8551E3E5DFD00442351 /* ItemData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1674,6 +1679,7 @@
 				63398D471E28D93B00BB3E55 /* PCBorderView.m in Sources */,
 				63AC93C91E3001E30060CC5D /* UploadInputViewController.m in Sources */,
 				63608A591E2B44DE001D0853 /* ProfileUserCell.m in Sources */,
+				63BFE8561E3E5DFD00442351 /* ItemData.m in Sources */,
 				63398D3F1E28CF3E00BB3E55 /* PCNavbarView.m in Sources */,
 				C3D6D8B31E26B3E800019747 /* LoginViewController.m in Sources */,
 				637679011E2A371E00AB0B31 /* CategoryDetailCell.m in Sources */,

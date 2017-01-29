@@ -18,6 +18,7 @@
 + (NSInteger)getStatusCode:(NSError *)error;
 
 - (void)setApiToken:(NSString *)value;
+- (void)loadApiToken;
 
 - (void)userSigninwithUsername:(NSString *)username
                       password:(NSString *)password
@@ -36,6 +37,19 @@
 
 - (void)getUser:(void (^)(id response))sucess
            fail:(void (^)(NSError *error, id response))fail;
+
+- (void)uploadItemWithTitle:(NSString *)title
+                description:(NSString *)desc
+                   category:(NSInteger)category
+                      price:(NSString *)price
+                  condition:(NSInteger)condition
+                     period:(NSInteger)period
+                     image0:(NSData *)image0
+                     image1:(NSData *)image1
+                     image2:(NSData *)image2
+                     image3:(NSData *)image3
+                    success:(void (^)(id response))sucess
+                       fail:(void (^)(NSError *error, id response))fail;
 
 
 @end

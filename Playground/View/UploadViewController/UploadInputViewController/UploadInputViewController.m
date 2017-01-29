@@ -15,6 +15,8 @@
 #import "CategoryData.h"
 #import "UploadCategoryViewController.h"
 #import "ActionSheetStringPicker.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "ApiManager.h"
 
 @interface UploadInputViewController () {
     PCRateView *mViewRateCore;
@@ -113,6 +115,82 @@
     }
     
     return strDay;
+}
+
+- (IBAction)onButAuction:(id)sender {
+    // check data validity
+    if (self.mTxtTitle.text.length == 0) {
+        [PHUiHelper showAlertView:self message:@"Input the title"];
+        return;
+    }
+    if (self.mTxtDescription.text.length == 0) {
+        [PHUiHelper showAlertView:self message:@"Input descritption"];
+        return;
+    }
+    if (!self.mCategory) {
+        [PHUiHelper showAlertView:self message:@"Select category"];
+    }
+    if (self.mTxtPrice.text.length == 0) {
+        [PHUiHelper showAlertView:self message:@"Input price"];
+        return;
+    }
+    if (mnPeriod == 0) {
+        [PHUiHelper showAlertView:self message:@"Select period"];
+        return;
+    }
+    
+    // get images
+    NSData *dataImage0, *dataImage1, *dataImage2, *dataImage3;
+    if (self.mImgCover) {
+        dataImage0 = UIImageJPEGRepresentation(self.mImgCover, 1.0f);
+    }
+    if (self.mImgPreview1) {
+        dataImage1 = UIImageJPEGRepresentation(self.mImgPreview1, 1.0f);
+    }
+    if (self.mImgCover) {
+        dataImage2 = UIImageJPEGRepresentation(self.mImgPreview2, 1.0f);
+    }
+    if (self.mImgCover) {
+        dataImage3 = UIImageJPEGRepresentation(self.mImgPreview3, 1.0f);
+    }
+        
+    //
+    // call upload item api
+    //
+    [[ApiManager sharedInstance] uploadItemWithTitle:self.mTxtTitle.text
+                                         description:self.mTxtDescription.text
+                                            category:self.mCategory.id
+                                               price:self.mTxtPrice.text
+                                           condition:[mViewRateCore getRate]
+                                              period:mnPeriod
+                                              image0:dataImage0
+                                              image1:dataImage1
+                                              image2:dataImage2
+                                              image3:dataImage3
+                                             success:^(id response)
+     {
+         // hide progress view
+         [SVProgressHUD dismiss];
+
+         // back to previous page
+         NSArray *array = [self.navigationController viewControllers];
+         [self.navigationController popToViewController:array[array.count-3 ] animated:YES];
+     }
+                                                fail:^(NSError *error, id response)
+     {
+         // hide progress view
+         [SVProgressHUD dismiss];
+         
+         // close keyboard
+         [self.view endEditing:YES];
+         
+         NSString *strDesc = [error localizedDescription];
+         
+         [PHUiHelper showAlertView:self title:@"Upload failed" message:strDesc];
+     }];
+    
+    // show progress view
+    [SVProgressHUD show];
 }
 
 #pragma mark - Navigation

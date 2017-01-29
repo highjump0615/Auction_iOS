@@ -451,7 +451,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileUserCell" rowHeight="225" id="ou3-iZ-SvU" customClass="ProfileUserCell">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="225"/>
+                                        <rect key="frame" x="0.0" y="56" width="320" height="225"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ou3-iZ-SvU" id="SxP-tQ-pfS">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
@@ -509,7 +509,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileItemCell" rowHeight="85" id="AGK-PG-ejk" customClass="CategoryExploreCell">
-                                        <rect key="frame" x="0.0" y="280.5" width="320" height="85"/>
+                                        <rect key="frame" x="0.0" y="281" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AGK-PG-ejk" id="CBp-lt-brt">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
@@ -553,7 +553,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileStatisticsCell" rowHeight="148" id="6Kc-xi-3f6" customClass="ProfileStatisticsCell">
-                                        <rect key="frame" x="0.0" y="365.5" width="320" height="148"/>
+                                        <rect key="frame" x="0.0" y="366" width="320" height="148"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Kc-xi-3f6" id="baq-Pl-Avj">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
@@ -1455,23 +1455,23 @@
                                                     <state key="normal" image="bid_desc_selected.png"/>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdK-hZ-7pe">
-                                                    <rect key="frame" x="93" y="238" width="42.5" height="50"/>
+                                                    <rect key="frame" x="93" y="238" width="42" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y36-D5-e2C">
-                                                    <rect key="frame" x="135.5" y="238" width="50" height="50"/>
+                                                    <rect key="frame" x="135" y="238" width="50" height="50"/>
                                                     <state key="normal" image="bid_photo.png"/>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5U-lZ-pc5">
-                                                    <rect key="frame" x="185.5" y="238" width="42.5" height="50"/>
+                                                    <rect key="frame" x="185" y="238" width="42.5" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQc-0p-bzK">
-                                                    <rect key="frame" x="228" y="238" width="50" height="50"/>
+                                                    <rect key="frame" x="227.5" y="238" width="50" height="50"/>
                                                     <state key="normal" image="bid_comment.png"/>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJu-eW-lgL">
-                                                    <rect key="frame" x="278" y="238" width="42" height="50"/>
+                                                    <rect key="frame" x="277.5" y="238" width="42.5" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -2213,7 +2213,7 @@ EENoYXRUYWJsZUNlbGw
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="44" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CateCateCell" rowHeight="81" id="MW0-gV-hnu" customClass="CategoryCell">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="81"/>
+                                        <rect key="frame" x="0.0" y="56" width="320" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MW0-gV-hnu" id="2Cf-Kl-yOH">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
@@ -2244,7 +2244,7 @@ EENoYXRUYWJsZUNlbGw
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CateExplrCell" rowHeight="85" id="Qro-fw-i8V" customClass="CategoryExploreCell">
-                                        <rect key="frame" x="0.0" y="136.5" width="320" height="85"/>
+                                        <rect key="frame" x="0.0" y="137" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qro-fw-i8V" id="kAW-pU-9W1">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
@@ -2339,7 +2339,7 @@ EENoYXRUYWJsZUNlbGw
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CateDetailCell" rowHeight="100" id="PAD-Hk-ZC0" customClass="CategoryDetailCell">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="56" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PAD-Hk-ZC0" id="npc-BH-KlB">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
@@ -2495,7 +2495,7 @@ EENoYXRUYWJsZUNlbGw
                                 <state key="normal" title="Next" backgroundImage="login_login_bg.png"/>
                                 <connections>
                                     <action selector="onButDelete:" destination="vVf-ce-7l0" eventType="touchUpInside" id="Xof-eL-ttL"/>
-                                    <segue destination="RGP-Bx-OLD" kind="show" id="WOB-JS-VLR"/>
+                                    <action selector="onButNext:" destination="2lg-Bd-lAK" eventType="touchUpInside" id="f2d-lc-9Zp"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SCT-Vh-TeU" customClass="PCNavbarView">
@@ -2549,6 +2549,7 @@ EENoYXRUYWJsZUNlbGw
                         <outlet property="mViewUploadPreview1" destination="BQP-eL-NdP" id="8NF-er-ff9"/>
                         <outlet property="mViewUploadPreview2" destination="c0A-UP-Xad" id="YQX-ze-JWg"/>
                         <outlet property="mViewUploadPreview3" destination="yxs-zM-sgq" id="urP-Bg-FVo"/>
+                        <segue destination="RGP-Bx-OLD" kind="show" identifier="Upload2UploadInput" id="SSZ-we-yE0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mls-5s-vtp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2558,7 +2559,7 @@ EENoYXRUYWJsZUNlbGw
         <!--Upload Input View Controller-->
         <scene sceneID="Mgt-9j-WNU">
             <objects>
-                <viewController id="RGP-Bx-OLD" customClass="UploadInputViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UploadInputViewController" id="RGP-Bx-OLD" customClass="UploadInputViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tff-i0-bmm"/>
                         <viewControllerLayoutGuide type="bottom" id="M3i-5X-8q8"/>
@@ -2795,7 +2796,7 @@ EENoYXRUYWJsZUNlbGw
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="Auction" backgroundImage="login_login_bg.png"/>
                                             <connections>
-                                                <action selector="onButDelete:" destination="vVf-ce-7l0" eventType="touchUpInside" id="FCe-Kf-Iun"/>
+                                                <action selector="onButAuction:" destination="RGP-Bx-OLD" eventType="touchUpInside" id="D1W-uL-zqd"/>
                                             </connections>
                                         </button>
                                     </subviews>

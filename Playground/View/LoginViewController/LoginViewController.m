@@ -88,6 +88,9 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         MainTabbarController *tbc = (MainTabbarController *)[storyboard instantiateViewControllerWithIdentifier:@"MainTabbar"];
         [self.navigationController pushViewController:tbc animated:NO];
+        
+        // load api token
+        [[ApiManager sharedInstance] loadApiToken];
     }
 }
 

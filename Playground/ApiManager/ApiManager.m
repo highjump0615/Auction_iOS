@@ -29,12 +29,24 @@
     return response.statusCode;
 }
 
+/**
+ save api token to local storage
+ @param value <#value description#>
+ */
 - (void)setApiToken:(NSString *)value {
     _apiToken = value;
     
     // save to NSUserDefaults
     [[NSUserDefaults standardUserDefaults] setObject:value forKey:kApiToken];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+/**
+ load api token from local storage
+ */
+- (void)loadApiToken {
+    // load from NSUserDefaults
+    _apiToken = [[NSUserDefaults standardUserDefaults] objectForKey:kApiToken];
 }
 
 - (void)userSigninwithUsername:(NSString *)username
@@ -110,6 +122,55 @@
     
     [[ApiClientCore sharedInstance] sendToServiceByGet:strUrl
                                                 params:nil
+                                                success:sucess
+                                                   fail:fail];
+}
+
+- (void)uploadItemWithTitle:(NSString *)title
+                description:(NSString *)desc
+                   category:(NSInteger)category
+                      price:(NSString *)price
+                  condition:(NSInteger)condition
+                     period:(NSInteger)period
+                     image0:(NSData *)image0
+                     image1:(NSData *)image1
+                     image2:(NSData *)image2
+                     image3:(NSData *)image3
+                    success:(void (^)(id response))sucess
+                       fail:(void (^)(NSError *error, id response))fail {
+    
+    // url
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@", PH_API_BASE_URL, PH_API_UPLOAD_ITEM];
+    
+    // param
+    NSMutableDictionary *dictParam = [NSMutableDictionary dictionary];
+    
+    [dictParam setObject:title forKey:@"title"];
+    [dictParam setObject:desc forKey:@"desc"];
+    [dictParam setObject:[NSNumber numberWithInteger:category] forKey:@"category"];
+    [dictParam setObject:price forKey:@"price"];
+    [dictParam setObject:[NSNumber numberWithInteger:condition] forKey:@"condition"];
+    [dictParam setObject:[NSNumber numberWithInteger:condition] forKey:@"period"];
+    
+    // media param
+    NSMutableArray *aryMedia = [[NSMutableArray alloc] init];
+    if (image0) {
+        [aryMedia addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"image0", MEDIA_NAME_KEY, image0, MEDIA_DATA_KEY, nil]];
+    }
+    if (image1) {
+        [aryMedia addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"image1", MEDIA_NAME_KEY, image1, MEDIA_DATA_KEY, nil]];
+    }
+    if (image2) {
+        [aryMedia addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"image2", MEDIA_NAME_KEY, image2, MEDIA_DATA_KEY, nil]];
+    }
+    if (image3) {
+        [aryMedia addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"image3", MEDIA_NAME_KEY, image3, MEDIA_DATA_KEY, nil]];
+    }
+    
+    // call web service
+    [[ApiClientCore sharedInstance] sendToServiceByPost:strUrl
+                                                 params:dictParam
+                                                  media:aryMedia
                                                 success:sucess
                                                    fail:fail];
 }

@@ -88,7 +88,13 @@
     }
                                                                                                   error:nil];
 
+    // set json as accept
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    // set authorization bearer
+    if ([ApiManager sharedInstance].apiToken) {
+        [request addValue:[NSString stringWithFormat:@"Bearer %@", [ApiManager sharedInstance].apiToken] forHTTPHeaderField:@"Authorization"];
+    }
     
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSURLSessionUploadTask *uploadTask;
