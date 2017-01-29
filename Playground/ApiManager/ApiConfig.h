@@ -19,6 +19,7 @@
 #define     PH_API_GETUSER              @"user"
 #define     PH_API_UPLOAD_ITEM          @"uploaditem"
 #define     PH_API_EXPLORE              @"explore"
+#define     PH_API_GETCATEGORY          @"category"
 
 
 #endif /* ApiConfig_h */

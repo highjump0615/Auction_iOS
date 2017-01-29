@@ -11,6 +11,7 @@
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
 #import "PHUiHelper.h"
+#import "ItemData.h"
 
 @interface CategoryDetailCell()
 
@@ -41,5 +42,14 @@
     // price label
     [PHUiHelper makeRounded:self.mLblPrice];
 }
+
+- (void)fillContent:(id)data {
+    [super fillContent:data];
+    
+    // set price
+    ItemData *item = (ItemData *)data;
+    [self.mLblPrice setText:[NSString stringWithFormat:@"$%ld", (long)item.price]];
+}
+
 
 @end

@@ -10,4 +10,6 @@
 
 @interface ItemBaseCell : UITableViewCell
 
+- (void)fillContent:(id)data;
+
 @end

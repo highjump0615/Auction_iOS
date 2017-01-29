@@ -12,14 +12,20 @@
 #import "PHColorHelper.h"
 #import "PHUiHelper.h"
 #import "CategoryData.h"
+#import "ApiManager.h"
+#import "ItemData.h"
 
 @interface CategoryDetailViewController () <UITextFieldDelegate>  {
     double mdCellHeight;
     double mdTitleHeight;
     double mdSearchHeight;
+    
+    NSMutableArray *maryItem;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
+@property (weak, nonatomic) IBOutlet UILabel *mLblNotice;
+@property (weak, nonatomic) IBOutlet UILabel *mLblKeyword;
 
 @end
 
@@ -39,10 +45,19 @@
     [self setSearchDelegate:self];
     [self setGestureRecognizer];
     
+    // font
+    [self.mLblNotice setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
+    [self.mLblKeyword setFont:[PHTextHelper myriadProSemibold:[PHTextHelper fontSizeNormal]]];
+    
     // init param
     mdCellHeight = 120;
     mdTitleHeight = 70;
     mdSearchHeight = 55;
+    
+    maryItem = [[NSMutableArray alloc] init];
+    
+    // load item
+    [self getItem];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,6 +75,47 @@
 }
 */
 
+/**
+ get items from api
+ */
+- (void)getItem {
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    //
+    // call login api
+    //
+    [[ApiManager sharedInstance] getCategoryItem:self.mCategory.id
+                                         success:^(id response)
+     {
+         // hide progress view
+         [self stopRefresh];
+         
+         // clear data
+         [maryItem removeAllObjects];
+         
+         // add item data
+         NSArray *aryItem = (NSArray *)response;
+         
+         for (NSDictionary *dicItem in aryItem) {
+             ItemData *cData = [[ItemData alloc] initWithDic:dicItem];
+             [maryItem addObject:cData];
+
+             [self.mTableView setBounces:YES];
+             [self.mLblNotice setHidden:YES];
+         }
+         
+         // reload table
+         [self.mTableView reloadData];
+     }
+                                       fail:^(NSError *error, id response)
+     {
+         // hide progress view
+         [self stopRefresh];
+     }];
+}
+
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -67,12 +123,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return maryItem.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     CategoryDetailCell *cellDetail = (CategoryDetailCell *)[tableView dequeueReusableCellWithIdentifier:@"CateDetailCell"];
+    [cellDetail fillContent:[maryItem objectAtIndex:indexPath.row]];
     
     return cellDetail;
 }

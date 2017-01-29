@@ -34,6 +34,9 @@
                 [aryImage addObject:strImage];
             }
         }
+        
+        // set other fields
+        self.username = [data valueForKey:@"username"];
     }
     
     return self;

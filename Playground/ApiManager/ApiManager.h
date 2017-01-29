@@ -54,4 +54,8 @@
 - (void)getExplore:(void (^)(id response))sucess
               fail:(void (^)(NSError *error, id response))fail;
 
+- (void)getCategoryItem:(NSInteger)category
+                success:(void (^)(id response))sucess
+                   fail:(void (^)(NSError *error, id response))fail;
+
 @end

@@ -2343,7 +2343,7 @@ EENoYXRUYWJsZUNlbGw
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="RSS-2M-W6y">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="RSS-2M-W6y">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -2417,19 +2417,37 @@ EENoYXRUYWJsZUNlbGw
                                     <constraint firstAttribute="height" constant="64" id="Rx4-v7-U54"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No listings available. Upload yours now!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f66-Nm-JKp">
+                                <rect key="frame" x="24.5" y="274.5" width="271" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Table&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oe1-Is-Dj1">
+                                <rect key="frame" x="132.5" y="292.5" width="55.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9kv-GN-WmE" firstAttribute="leading" secondItem="A5V-qN-RQS" secondAttribute="leading" id="15h-oY-58E"/>
+                            <constraint firstItem="oe1-Is-Dj1" firstAttribute="top" secondItem="f66-Nm-JKp" secondAttribute="bottom" id="3Ar-Ao-cNb"/>
                             <constraint firstAttribute="bottom" secondItem="RSS-2M-W6y" secondAttribute="bottom" id="5Sw-4t-NiE"/>
+                            <constraint firstItem="oe1-Is-Dj1" firstAttribute="centerX" secondItem="A5V-qN-RQS" secondAttribute="centerX" id="5u9-Hh-w03"/>
+                            <constraint firstItem="f66-Nm-JKp" firstAttribute="centerX" secondItem="A5V-qN-RQS" secondAttribute="centerX" id="AHP-9A-PAr"/>
                             <constraint firstAttribute="trailing" secondItem="9kv-GN-WmE" secondAttribute="trailing" id="Exj-f9-rlB"/>
                             <constraint firstItem="RSS-2M-W6y" firstAttribute="top" secondItem="A5V-qN-RQS" secondAttribute="top" id="SrI-MZ-S5r"/>
                             <constraint firstItem="9kv-GN-WmE" firstAttribute="top" secondItem="A5V-qN-RQS" secondAttribute="top" id="VSh-6z-ypJ"/>
+                            <constraint firstItem="f66-Nm-JKp" firstAttribute="centerY" secondItem="A5V-qN-RQS" secondAttribute="centerY" id="XCe-DF-PcE"/>
                             <constraint firstAttribute="trailing" secondItem="RSS-2M-W6y" secondAttribute="trailing" id="jyt-EJ-G8n"/>
                             <constraint firstItem="RSS-2M-W6y" firstAttribute="leading" secondItem="A5V-qN-RQS" secondAttribute="leading" id="q8p-eN-bHJ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mLblKeyword" destination="oe1-Is-Dj1" id="ajf-Hr-jTG"/>
+                        <outlet property="mLblNotice" destination="f66-Nm-JKp" id="G3S-3B-z0s"/>
                         <outlet property="mTableView" destination="RSS-2M-W6y" id="m9W-6S-ShX"/>
                         <outlet property="mViewNavbar" destination="9kv-GN-WmE" id="QMG-vZ-8EN"/>
                         <segue destination="VbF-hZ-Ni3" kind="show" identifier="CategoryDetail2Bid" id="SLK-SU-Ipp"/>
@@ -3403,6 +3421,6 @@ EENoYXRUYWJsZUNlbGw
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uMz-Sr-awL"/>
-        <segue reference="co5-hl-50H"/>
+        <segue reference="SLK-SU-Ipp"/>
     </inferredMetricsTieBreakers>
 </document>

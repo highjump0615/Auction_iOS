@@ -20,6 +20,9 @@
 @property (nonatomic, retain) NSString *coverImage;
 @property (nonatomic, retain) NSArray *imagePreview;
 
+// other fields
+@property (nonatomic, retain) NSString *username;
+
 - (id)initWithDic:(NSDictionary *)data;
 
 @end

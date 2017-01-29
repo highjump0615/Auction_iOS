@@ -20,6 +20,8 @@
 
 - (void)setGestureRecognizer;
 
+- (void)stopRefresh;
+
 // controls
 - (void)initLoginButton:(UIButton *)button;
 - (void)initRoundButton:(UIButton *)button;

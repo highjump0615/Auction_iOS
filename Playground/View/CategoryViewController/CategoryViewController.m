@@ -111,7 +111,7 @@
 }
 
 - (void)stopRefresh {
-    [mRefreshControl endRefreshing];
+    [super stopRefresh];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
