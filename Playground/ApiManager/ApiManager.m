@@ -210,5 +210,37 @@
                                                   fail:fail];
 }
 
+- (void)placeBidWithPrice:(NSInteger)price
+                     item:(NSInteger)itemId
+                  success:(void (^)(id response))sucess
+                     fail:(void (^)(NSError *error, id response))fail {
+    // url
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@", PH_API_BASE_URL, PH_API_BID_ITEM];
+    
+    // param
+    NSMutableDictionary *dictParam = [NSMutableDictionary dictionary];
+    
+    [dictParam setObject:[NSNumber numberWithInteger:price] forKey:@"price"];
+    [dictParam setObject:[NSNumber numberWithInteger:itemId] forKey:@"itemId"];
+
+    // call web service
+    [[ApiClientCore sharedInstance] sendToServiceByPost:strUrl
+                                                 params:dictParam
+                                                success:sucess
+                                                   fail:fail];
+}
+
+- (void)getMaxBidOnItem:(NSInteger)itemId
+                success:(void (^)(id response))sucess
+                   fail:(void (^)(NSError *error, id response))fail {
+    // url
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@/%ld", PH_API_BASE_URL, PH_API_GETMAXBID, (long)itemId];
+    
+    [[ApiClientCore sharedInstance] sendToServiceByGet:strUrl
+                                                params:nil
+                                               success:sucess
+                                                  fail:fail];
+}
+
 
 @end

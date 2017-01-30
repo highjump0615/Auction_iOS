@@ -21,6 +21,8 @@
 #define     PH_API_EXPLORE              @"explore"
 #define     PH_API_GETCATEGORY          @"category"
 #define     PH_API_SEARCH_ITEM          @"search"
+#define     PH_API_BID_ITEM             @"bid"
+#define     PH_API_GETMAXBID            @"maxbid"
 
 
 #endif /* ApiConfig_h */

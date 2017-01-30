@@ -16,6 +16,8 @@
 #import "PHTextHelper.h"
 #import "PHUiHelper.h"
 #import "ItemData.h"
+#import "BidInputViewController.h"
+#import "ApiManager.h"
 
 #define BID_TAB_DESCRIPTION     0
 #define BID_TAB_PHOTO           1
@@ -60,6 +62,19 @@
     
     // input text field
     [PHTextHelper initTextRegular:self.mTextInput];
+    
+    //
+    // call get max bid api
+    //
+    [[ApiManager sharedInstance] getMaxBidOnItem:((ItemData *)self.mItemData).id
+                                    success:^(id response)
+     {
+         ((ItemData *)self.mItemData).maxBid = [[response objectForKey:@"value"] integerValue];
+         
+         // refresh table
+         [self.mTableview reloadData];
+     }
+                                       fail:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,16 +82,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+- (void)viewDidAppear:(BOOL)animated {
+    // refresh table for update
+    [self.mTableview reloadData];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"Bid2BidInput"]) {
+        BidInputViewController *vc = [segue destinationViewController];
+        [vc setItemData:self.mItemData];
+    }
 }
-*/
-
 
 /**
  set selected tab index in item cell

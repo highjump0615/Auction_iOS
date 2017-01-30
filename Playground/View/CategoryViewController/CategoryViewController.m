@@ -81,8 +81,6 @@
  */
 - (void)exploreItem:(UIRefreshControl *)sender {
 
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
     //
     // call login api
     //
@@ -113,7 +111,6 @@
 }
 
 - (void)stopRefresh {
-    [super stopRefresh];
     [mRefreshControl endRefreshing];
 }
 

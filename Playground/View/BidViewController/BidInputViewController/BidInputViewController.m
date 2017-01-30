@@ -12,11 +12,16 @@
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
 #import "PCNoticePrice.h"
+#import "ItemData.h"
+#import "ApiManager.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface BidInputViewController () {
     PCItemView *mViewItemCore;
     PCNoticePrice *mViewAuctionCore;
     PCNoticePrice *mViewBidCore;
+    
+    ItemData *mItem;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *mViewItem;
@@ -83,7 +88,6 @@
     mViewBidCore = [PCNoticePrice getView];
     mViewBidCore.frame = self.mViewBid.bounds;
     [mViewBidCore setTitle:@"Current Bid"];
-    [mViewBidCore setValueText:@"$220"];
     [mViewBidCore setBackgroundImage:[PHUiHelper redBackground]];
     
     [self.mViewBid addSubview:mViewBidCore];
@@ -101,6 +105,26 @@
         // notice height
         [self.mCstNoticeHeight setConstant:78];
     }
+    
+    //
+    // fill contents
+    //
+    
+    // image
+    [mViewItemCore setItemData:mItem];
+    
+    // title
+    [self.mLblItemname setText:mItem.title];
+    [self.mLblUsername setText:mItem.username];
+    
+    // price
+    [mViewAuctionCore setValueText:[NSString stringWithFormat:@"$%ld", mItem.price]];
+    
+    // bid price
+    [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", mItem.maxBid]];
+    
+    // label limit
+    [self.mLblLimit setText:[NSString stringWithFormat:@"Your bid must be higher than $%ld", mItem.maxBid]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -112,6 +136,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setItemData:(id)item {
+    mItem = item;
+}
+
 /*
 #pragma mark - Navigation
 
@@ -121,5 +149,48 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)onButBid:(id)sender {
+    // check validity
+    if (self.mTextBid.text.length == 0) {
+        [PHUiHelper showAlertView:self message:@"Input your price"];
+    }
+    
+    NSInteger nPrice = [self.mTextBid.text integerValue];
+    if (nPrice < mItem.maxBid) {
+        [PHUiHelper showAlertView:self message:@"Your price is not enough"];
+        return;
+    }
+    
+    //
+    // call signup api
+    //
+    [[ApiManager sharedInstance] placeBidWithPrice:nPrice
+                                              item:mItem.id
+                                           success:^(id response)
+     {
+         // hide progress view
+         [SVProgressHUD dismiss];
+         
+         // update max bid price
+         mItem.maxBid = nPrice;
+
+         // back to prev page
+         [self.navigationController popViewControllerAnimated:YES];
+     }
+                                                   fail:^(NSError *error, id response)
+     {
+         // hide progress view
+         [SVProgressHUD dismiss];
+         
+         NSString *strDesc = [error localizedDescription];
+         
+         [PHUiHelper showAlertView:self title:@"Bid failed" message:strDesc];
+     }];
+    
+    // show progress view
+    [SVProgressHUD show];
+}
+
 
 @end

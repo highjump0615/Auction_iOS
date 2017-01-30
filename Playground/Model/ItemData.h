@@ -23,6 +23,7 @@
 // other fields
 @property (nonatomic, retain) NSString *username;
 @property (nonatomic) NSInteger minuteRemain;
+@property (nonatomic) NSInteger maxBid;
 
 - (id)initWithDic:(NSDictionary *)data;
 - (NSString *)remainTime;

@@ -62,4 +62,13 @@
            success:(void (^)(id response))sucess
               fail:(void (^)(NSError *error, id response))fail;
 
+- (void)placeBidWithPrice:(NSInteger)price
+                     item:(NSInteger)itemId
+                  success:(void (^)(id response))sucess
+                     fail:(void (^)(NSError *error, id response))fail;
+
+- (void)getMaxBidOnItem:(NSInteger)itemId
+                success:(void (^)(id response))sucess
+                   fail:(void (^)(NSError *error, id response))fail;
+
 @end

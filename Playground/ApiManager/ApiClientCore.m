@@ -21,6 +21,11 @@
     return apiClient;
 }
 
+- (void)showLoading:(BOOL)show
+{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = show;
+}
+
 /**
  http post communication
 
@@ -44,7 +49,18 @@
                                                                                      error:nil];
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
+    // set authorization bearer
+    if ([ApiManager sharedInstance].apiToken) {
+        [request addValue:[NSString stringWithFormat:@"Bearer %@", [ApiManager sharedInstance].apiToken] forHTTPHeaderField:@"Authorization"];
+    }
+    
+    // show loading mark
+    [self showLoading:YES];
+    
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        // hide loading mark
+        [self showLoading:NO];
+        
         if (error) {
             NSLog(@"Error: %@", error);
             
@@ -86,6 +102,7 @@
                                     mimeType:@"image/jpeg"];
         }
     }
+    
                                                                                                   error:nil];
 
     // set json as accept
@@ -98,6 +115,10 @@
     
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSURLSessionUploadTask *uploadTask;
+    
+    // show loading mark
+    [self showLoading:YES];
+    
     uploadTask = [manager
                   uploadTaskWithStreamedRequest:request
                   progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -108,6 +129,9 @@
 //                      });
                   }
                   completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+                      // hide loading mark
+                      [self showLoading:NO];
+                      
                       if (error) {
                           NSLog(@"Error: %@", error);
                           
@@ -151,7 +175,13 @@
                                                                                      error:nil];
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
+    // show loading mark
+    [self showLoading:YES];
+    
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        // hide loading mark
+        [self showLoading:NO];
+        
         if (error) {
             NSLog(@"Error: %@", error);
             

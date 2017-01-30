@@ -10,4 +10,6 @@
 
 @interface BidInputViewController : BaseViewController
 
+- (void)setItemData:(id)item;
+
 @end

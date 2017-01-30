@@ -86,8 +86,6 @@
  @param response <#response description#>
  */
 - (void)addItems:(NSArray *)response {
-    // hide progress view
-    [self stopRefresh];
     
     // clear data
     [maryItem removeAllObjects];
@@ -119,8 +117,6 @@
  */
 - (void)getItem {
     
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
     //
     // call get item api
     //
@@ -132,8 +128,6 @@
          }
                                            fail:^(NSError *error, id response)
          {
-             // hide progress view
-             [self stopRefresh];
          }];
     }
     else {
@@ -144,8 +138,6 @@
          }
                                            fail:^(NSError *error, id response)
          {
-             // hide progress view
-             [self stopRefresh];
          }];
     }
 }

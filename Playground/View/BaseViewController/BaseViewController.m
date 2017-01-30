@@ -179,13 +179,6 @@
 }
 
 /**
- remove indicator from status bar
- */
-- (void)stopRefresh {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-}
-
-/**
  shrink the screen
  @param yPos size
  */
