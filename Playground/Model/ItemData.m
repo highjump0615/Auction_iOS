@@ -27,19 +27,25 @@
         
         // set preview images
         NSMutableArray *aryImage = [[NSMutableArray alloc] init];
-        
         for (int i = 1; i <= 3; i++) {
             NSString *strImage = [data valueForKey:[NSString stringWithFormat:@"image%d", i]];
-            if (strImage) {
+            if (![strImage isKindOfClass:[NSNull class]]) {
                 [aryImage addObject:strImage];
             }
         }
+        self.imagePreview = aryImage;
         
         // set other fields
         self.username = [data valueForKey:@"username"];
+        self.minuteRemain = [[data valueForKey:@"minute_remain"] integerValue];
     }
     
     return self;
+}
+
+- (NSString *)remainTime {
+    NSString *strTime = [NSString stringWithFormat:@"%ld:%02ld", self.minuteRemain / 60, self.minuteRemain % 60];
+    return strTime;
 }
 
 

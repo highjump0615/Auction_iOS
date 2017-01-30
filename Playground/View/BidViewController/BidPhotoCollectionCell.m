@@ -8,6 +8,15 @@
 
 #import "BidPhotoCollectionCell.h"
 #import "PHColorHelper.h"
+#import "UserData.h"
+#import "ApiConfig.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
+@interface BidPhotoCollectionCell()
+
+@property (weak, nonatomic) IBOutlet UIImageView *mImgView;
+
+@end
 
 @implementation BidPhotoCollectionCell
 
@@ -19,5 +28,9 @@
     [self.contentView.layer setBorderColor:[PHColorHelper colorTextGray].CGColor];
 }
 
+- (void)fillContent:(NSString *)path {
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@", PH_API_BASE_ITEM_FILE_URL, path];
+    [self.mImgView sd_setImageWithURL:[NSURL URLWithString:strUrl]];
+}
 
 @end

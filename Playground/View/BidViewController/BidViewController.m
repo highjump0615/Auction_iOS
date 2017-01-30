@@ -15,6 +15,7 @@
 #import "BidPhotoCollectionCell.h"
 #import "PHTextHelper.h"
 #import "PHUiHelper.h"
+#import "ItemData.h"
 
 #define BID_TAB_DESCRIPTION     0
 #define BID_TAB_PHOTO           1
@@ -112,6 +113,8 @@
     // item cell is the first
     if (index == 0) {
         BidItemCell *cellItem = (BidItemCell *)[tableView dequeueReusableCellWithIdentifier:@"BidItemCell"];
+        [cellItem fillContent:self.mItemData];
+        
         cellItem.delegate = self;
         
         cell = cellItem;
@@ -120,6 +123,8 @@
         // other cells are determined by the selected tab
         if (mnSelectedTab == BID_TAB_DESCRIPTION) {
             BidDescCell *cellDesc = (BidDescCell *)[tableView dequeueReusableCellWithIdentifier:@"BidDescCell"];
+            [cellDesc fillContent:self.mItemData];
+            
             cell = cellDesc;
         }
         else if (mnSelectedTab == BID_TAB_PHOTO) {
@@ -234,11 +239,13 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
+    ItemData *item = (ItemData *)self.mItemData;
+    return item.imagePreview.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     BidPhotoCollectionCell *cell = (BidPhotoCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"BidPhotoCollectionCell" forIndexPath:indexPath];
+    [cell fillContent:[((ItemData *)(self.mItemData)).imagePreview objectAtIndex:indexPath.row]];
     
     return cell;
 }

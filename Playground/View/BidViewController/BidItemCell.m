@@ -11,6 +11,7 @@
 #import "BidViewController.h"
 #import "PHTextHelper.h"
 #import "PHUiHelper.h"
+#import "ItemData.h"
 
 @interface BidItemCell() {
     NSMutableArray *maryButTab;
@@ -82,7 +83,6 @@
     // Configure the view for the selected state
 }
 
-
 /**
  event handler for tab buttons
  @param sender tab button
@@ -106,6 +106,17 @@
     // set selected button icon
     UIButton *button = maryButTab[nTab];
     [button setImage:[UIImage imageNamed:maryImgSelected[nTab]] forState:UIControlStateNormal];
+}
+
+- (void)fillContent:(id)data {
+    ItemData *item = (ItemData *)data;
+    
+    // photo
+    [mViewItemCore setItemData:data];
+    
+    // label data
+    [self.mLblItemname setText:item.title];
+    [self.mLblUsername setText:item.username];
 }
 
 

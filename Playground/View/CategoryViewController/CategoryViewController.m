@@ -15,6 +15,7 @@
 #import "CommonUtils.h"
 #import "CategoryCell.h"
 #import "CategoryDetailViewController.h"
+#import "BidViewController.h"
 #import "CategoryData.h"
 #import "ApiManager.h"
 #import "ItemData.h"
@@ -29,6 +30,7 @@
     
     CategoryData *mCategorySelected;
     NSMutableArray *maryItem;
+    NSInteger mnSelectedIndex;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
@@ -112,7 +114,7 @@
 
 - (void)stopRefresh {
     [super stopRefresh];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [mRefreshControl endRefreshing];
 }
 
 #pragma mark - Navigation
@@ -125,6 +127,10 @@
     if ([[segue identifier] isEqualToString:@"Category2Detail"]) {
         CategoryDetailViewController *view = (CategoryDetailViewController *)[segue destinationViewController];
         view.mCategory = mCategorySelected;
+    }
+    else if ([[segue identifier] isEqualToString:@"Category2Bid"]) {
+        BidViewController *view = (BidViewController *)[segue destinationViewController];
+        view.mItemData = [maryItem objectAtIndex:mnSelectedIndex];
     }
 }
 
@@ -251,7 +257,9 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    // go to auction page
+    mnSelectedIndex = indexPath.row;
+    
+    // go to bid page
     [self performSegueWithIdentifier:@"Category2Bid" sender:nil];
 }
 

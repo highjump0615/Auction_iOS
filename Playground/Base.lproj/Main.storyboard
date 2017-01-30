@@ -1677,7 +1677,21 @@
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                 <rect key="frame" x="0.0" y="0.0" width="145" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="inZ-ds-uoS">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="200"/>
+                                                                    </imageView>
+                                                                </subviews>
                                                             </view>
+                                                            <constraints>
+                                                                <constraint firstItem="inZ-ds-uoS" firstAttribute="leading" secondItem="o4G-AU-F2Q" secondAttribute="leading" id="4et-xr-kGn"/>
+                                                                <constraint firstAttribute="trailing" secondItem="inZ-ds-uoS" secondAttribute="trailing" id="LE2-YR-gni"/>
+                                                                <constraint firstItem="inZ-ds-uoS" firstAttribute="top" secondItem="o4G-AU-F2Q" secondAttribute="top" id="eUE-QL-gRH"/>
+                                                                <constraint firstAttribute="bottom" secondItem="inZ-ds-uoS" secondAttribute="bottom" id="gVo-oQ-xHJ"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="mImgView" destination="inZ-ds-uoS" id="Qcq-qX-tZP"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
@@ -1771,6 +1785,26 @@
                                             <outlet property="mLblUsername" destination="dNg-qi-DyK" id="N54-HR-chR"/>
                                             <outlet property="mViewBubble" destination="9pp-rX-dZy" id="9yc-MW-Hil"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BidNoCommentCell" rowHeight="100" id="GbV-Ej-CBf">
+                                        <rect key="frame" x="0.0" y="1132" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GbV-Ej-CBf" id="xTP-pI-cz4">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No comments available." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WD3-Su-D3Y">
+                                                    <rect key="frame" x="78.5" y="40.5" width="163.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WD3-Su-D3Y" firstAttribute="centerX" secondItem="xTP-pI-cz4" secondAttribute="centerX" id="TNF-Ot-s6y"/>
+                                                <constraint firstItem="WD3-Su-D3Y" firstAttribute="centerY" secondItem="xTP-pI-cz4" secondAttribute="centerY" id="ern-D0-ew9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

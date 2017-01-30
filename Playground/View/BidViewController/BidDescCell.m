@@ -13,6 +13,7 @@
 #import "PCNoticePrice.h"
 #import "PHColorHelper.h"
 #import "PHUiHelper.h"
+#import "ItemData.h"
 
 @interface BidDescCell() {
     PCNoticeTimeout *mViewTimeoutCore;
@@ -109,5 +110,20 @@
     self.mLblContent.preferredMaxLayoutWidth = CGRectGetWidth(self.mLblContent.frame);
 }
 
+- (void)fillContent:(id)data {
+    ItemData *item = (ItemData *)data;
+    
+    // description
+    [self.mLblContent setText:item.desc];
+    
+    // condition
+    [mViewRateCore setRate:item.condition];
+    
+    // time remaining
+    [mViewTimeoutCore.mLblValue setText:[item remainTime]];
+    
+    // price
+    [mViewAuctionCore.mLblValue setText:[NSString stringWithFormat:@"$%ld", item.price]];
+}
 
 @end
