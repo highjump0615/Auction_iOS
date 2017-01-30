@@ -11,8 +11,8 @@
 
 #define     PH_FAIL_STATE               400
 
-#define     PH_API_BASE_URL             @"http://192.168.1.109/playground/public/api/v1/"
-#define     PH_API_BASE_ITEM_FILE_URL   @"http://192.168.1.109/playground/public/uploads/item/"
+#define     PH_API_BASE_URL             @"http://192.168.1.100/playground/public/api/v1/"
+#define     PH_API_BASE_ITEM_FILE_URL   @"http://192.168.1.100/playground/public/uploads/item/"
 
 #define     PH_API_LOGIN                @"login"
 #define     PH_API_SIGNUP               @"signup"
@@ -23,6 +23,8 @@
 #define     PH_API_SEARCH_ITEM          @"search"
 #define     PH_API_BID_ITEM             @"bid"
 #define     PH_API_GETMAXBID            @"maxbid"
+#define     PH_API_GETCOMMENT           @"comment"
+#define     PH_API_ADDCOMMENT           @"addcomment"
 
 
 #endif /* ApiConfig_h */

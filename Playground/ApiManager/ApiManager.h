@@ -71,4 +71,14 @@
                 success:(void (^)(id response))sucess
                    fail:(void (^)(NSError *error, id response))fail;
 
+- (void)getComment:(NSInteger)itemId
+           success:(void (^)(id response))sucess
+              fail:(void (^)(NSError *error, id response))fail;
+
+- (void)addComment:(NSString *)comment
+            parent:(NSInteger)parentId
+              item:(NSInteger)itemId
+           success:(void (^)(id response))sucess
+              fail:(void (^)(NSError *error, id response))fail;
+
 @end

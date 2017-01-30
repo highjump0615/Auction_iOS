@@ -163,7 +163,7 @@
     }
     
     //
-    // call signup api
+    // call bid api
     //
     [[ApiManager sharedInstance] placeBidWithPrice:nPrice
                                               item:mItem.id

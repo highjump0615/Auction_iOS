@@ -185,8 +185,10 @@
         if (error) {
             NSLog(@"Error: %@", error);
             
-            // fail callback
-            fail(error, responseObject);
+            if (fail) {
+                // fail callback
+                fail(error, responseObject);
+            }
         }
         else {
             // success callback

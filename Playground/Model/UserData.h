@@ -20,6 +20,6 @@
 + (UserData *)currentUser;
 + (void)setCurrentUser:(UserData *)user;
 
-- (id)initWidthDic:(NSDictionary *)data;
+- (id)initWithDic:(NSDictionary *)data;
 
 @end

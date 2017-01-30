@@ -1736,7 +1736,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9pp-rX-dZy">
                                                     <rect key="frame" x="15" y="40" width="260" height="35"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert text here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyr-VX-nkj">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert text here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyr-VX-nkj">
                                                             <rect key="frame" x="10" y="10" width="240" height="15"/>
                                                             <rect key="contentStretch" x="1" y="0.0" width="0.0" height="1"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1755,7 +1755,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVG-oA-3n4">
                                                     <rect key="frame" x="277" y="40" width="35" height="35"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="iVG-oA-3n4" secondAttribute="height" multiplier="1:1" id="Y90-W8-YQx"/>
+                                                        <constraint firstAttribute="width" constant="35" id="8Pu-X1-e3v"/>
                                                     </constraints>
                                                     <state key="normal" image="bid_reply.png"/>
                                                 </button>
@@ -1786,7 +1786,7 @@
                                             <outlet property="mViewBubble" destination="9pp-rX-dZy" id="9yc-MW-Hil"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BidNoCommentCell" rowHeight="100" id="GbV-Ej-CBf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BidNoCommentCell" rowHeight="100" id="GbV-Ej-CBf" customClass="BidNoCommentCell">
                                         <rect key="frame" x="0.0" y="1132" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GbV-Ej-CBf" id="xTP-pI-cz4">
@@ -1805,6 +1805,9 @@
                                                 <constraint firstItem="WD3-Su-D3Y" firstAttribute="centerY" secondItem="xTP-pI-cz4" secondAttribute="centerY" id="ern-D0-ew9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="mLblNotice" destination="WD3-Su-D3Y" id="RN5-eq-XaQ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -2038,7 +2041,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jEc-Vm-6Tk" id="3aM-pO-6Eh">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Him" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dru-Ws-Lfu">
@@ -2385,7 +2388,7 @@ EENoYXRUYWJsZUNlbGw
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CateDetailCell" rowHeight="100" id="PAD-Hk-ZC0" customClass="CategoryDetailCell">
-                                        <rect key="frame" x="0.0" y="56" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PAD-Hk-ZC0" id="npc-BH-KlB">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
@@ -3031,7 +3034,7 @@ EENoYXRUYWJsZUNlbGw
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="8OU-d1-nx7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pDi-f2-sFG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pDi-f2-sFG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3401,7 +3404,7 @@ EENoYXRUYWJsZUNlbGw
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kt7-VT-3e6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kt7-VT-3e6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3422,7 +3425,7 @@ EENoYXRUYWJsZUNlbGw
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3SY-4z-NJA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3SY-4z-NJA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -156,6 +156,8 @@
 		63B36C5B1E283F1F0086DF46 /* upload_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B36C581E283F1F0086DF46 /* upload_add@2x.png */; };
 		63B36C5C1E283F1F0086DF46 /* upload_add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B36C591E283F1F0086DF46 /* upload_add@3x.png */; };
 		63BFE8561E3E5DFD00442351 /* ItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BFE8551E3E5DFD00442351 /* ItemData.m */; };
+		63BFE8591E3F0BA500442351 /* CommentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BFE8581E3F0BA500442351 /* CommentData.m */; };
+		63BFE85F1E3F7BA900442351 /* BidNoCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BFE85E1E3F7BA900442351 /* BidNoCommentCell.m */; };
 		63F1C8081E2B6E5500F79EA7 /* ProfileStatisticsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F1C8071E2B6E5500F79EA7 /* ProfileStatisticsCell.m */; };
 		63F1C80C1E2B80E100F79EA7 /* inbox_setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F1C8091E2B80E100F79EA7 /* inbox_setting.png */; };
 		63F1C80D1E2B80E100F79EA7 /* inbox_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F1C80A1E2B80E100F79EA7 /* inbox_setting@2x.png */; };
@@ -422,6 +424,10 @@
 		63B36C591E283F1F0086DF46 /* upload_add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload_add@3x.png"; sourceTree = "<group>"; };
 		63BFE8541E3E5DFD00442351 /* ItemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemData.h; sourceTree = "<group>"; };
 		63BFE8551E3E5DFD00442351 /* ItemData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemData.m; sourceTree = "<group>"; };
+		63BFE8571E3F0BA500442351 /* CommentData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentData.h; sourceTree = "<group>"; };
+		63BFE8581E3F0BA500442351 /* CommentData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentData.m; sourceTree = "<group>"; };
+		63BFE85D1E3F7BA900442351 /* BidNoCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidNoCommentCell.h; sourceTree = "<group>"; };
+		63BFE85E1E3F7BA900442351 /* BidNoCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidNoCommentCell.m; sourceTree = "<group>"; };
 		63F1C8061E2B6E5500F79EA7 /* ProfileStatisticsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileStatisticsCell.h; sourceTree = "<group>"; };
 		63F1C8071E2B6E5500F79EA7 /* ProfileStatisticsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileStatisticsCell.m; sourceTree = "<group>"; };
 		63F1C8091E2B80E100F79EA7 /* inbox_setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inbox_setting.png; sourceTree = "<group>"; };
@@ -573,6 +579,8 @@
 				63AC619D1E2D445F00F0E79D /* BidPhotoCollectionCell.m */,
 				63AC619F1E2D471400F0E79D /* BidCommentCell.h */,
 				63AC61A01E2D471400F0E79D /* BidCommentCell.m */,
+				63BFE85D1E3F7BA900442351 /* BidNoCommentCell.h */,
+				63BFE85E1E3F7BA900442351 /* BidNoCommentCell.m */,
 			);
 			path = BidViewController;
 			sourceTree = "<group>";
@@ -738,6 +746,8 @@
 				63372D821E3AC70C002E9DED /* BaseModelData.m */,
 				63BFE8541E3E5DFD00442351 /* ItemData.h */,
 				63BFE8551E3E5DFD00442351 /* ItemData.m */,
+				63BFE8571E3F0BA500442351 /* CommentData.h */,
+				63BFE8581E3F0BA500442351 /* CommentData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1690,6 +1700,7 @@
 				63372D861E3AF699002E9DED /* PHDataHelper.m in Sources */,
 				63F1C8081E2B6E5500F79EA7 /* ProfileStatisticsCell.m in Sources */,
 				C3D6D8C61E26E61800019747 /* BaseViewController.m in Sources */,
+				63BFE8591E3F0BA500442351 /* CommentData.m in Sources */,
 				63F1C8281E2BA9C200F79EA7 /* PCRateView.m in Sources */,
 				63AC619E1E2D445F00F0E79D /* BidPhotoCollectionCell.m in Sources */,
 				63398D4A1E28E7EC00BB3E55 /* PHColorHelper.m in Sources */,
@@ -1706,6 +1717,7 @@
 				630731CC1E2CBEA200A15A20 /* BidItemCell.m in Sources */,
 				6316B8951E2D7F7500DFFA07 /* PCNoticeTimeout.m in Sources */,
 				63890D731E29726B002A3C16 /* PCItemView.m in Sources */,
+				63BFE85F1E3F7BA900442351 /* BidNoCommentCell.m in Sources */,
 				C3D6D8CE1E27096200019747 /* PHTextHelper.m in Sources */,
 				C3033FFA1E2052BE00782925 /* AppDelegate.m in Sources */,
 				63F1C83A1E2BB86200F79EA7 /* RateViewController.m in Sources */,

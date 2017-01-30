@@ -40,7 +40,7 @@
     return self;
 }
 
-- (id)initWidthDic:(NSDictionary *)data {
+- (id)initWithDic:(NSDictionary *)data {
     self = [super init];
     
     if (self) {

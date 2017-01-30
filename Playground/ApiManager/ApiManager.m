@@ -221,7 +221,7 @@
     NSMutableDictionary *dictParam = [NSMutableDictionary dictionary];
     
     [dictParam setObject:[NSNumber numberWithInteger:price] forKey:@"price"];
-    [dictParam setObject:[NSNumber numberWithInteger:itemId] forKey:@"itemId"];
+    [dictParam setObject:[NSNumber numberWithInteger:itemId] forKey:@"item"];
 
     // call web service
     [[ApiClientCore sharedInstance] sendToServiceByPost:strUrl
@@ -240,6 +240,45 @@
                                                 params:nil
                                                success:sucess
                                                   fail:fail];
+}
+
+- (void)getComment:(NSInteger)itemId
+           success:(void (^)(id response))sucess
+              fail:(void (^)(NSError *error, id response))fail {
+    // url
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@", PH_API_BASE_URL, PH_API_GETCOMMENT];
+    
+    // param
+    NSMutableDictionary *dictParam = [NSMutableDictionary dictionary];
+    [dictParam setObject:[NSNumber numberWithInteger:itemId] forKey:@"item"];
+    
+    [[ApiClientCore sharedInstance] sendToServiceByGet:strUrl
+                                                params:dictParam
+                                               success:sucess
+                                                  fail:fail];
+}
+
+- (void)addComment:(NSString *)comment
+            parent:(NSInteger)parentId
+              item:(NSInteger)itemId
+           success:(void (^)(id response))sucess
+              fail:(void (^)(NSError *error, id response))fail {
+
+    // url
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@", PH_API_BASE_URL, PH_API_ADDCOMMENT];
+    
+    // param
+    NSMutableDictionary *dictParam = [NSMutableDictionary dictionary];
+    
+    [dictParam setObject:comment forKey:@"comment"];
+    [dictParam setObject:[NSNumber numberWithInteger:parentId] forKey:@"parent"];
+    [dictParam setObject:[NSNumber numberWithInteger:itemId] forKey:@"item"];
+    
+    // call web service
+    [[ApiClientCore sharedInstance] sendToServiceByPost:strUrl
+                                                 params:dictParam
+                                                success:sucess
+                                                   fail:fail];
 }
 
 

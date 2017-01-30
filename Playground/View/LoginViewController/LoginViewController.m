@@ -143,7 +143,7 @@
         
         // set api token & current user
         [ApiManager sharedInstance].apiToken = [response valueForKey:@"api_token"];
-        UserData *user = [[UserData alloc] initWidthDic:response];
+        UserData *user = [[UserData alloc] initWithDic:response];
         [UserData setCurrentUser:user];
         
         [self performSegueWithIdentifier:@"Login2Main" sender:nil];

@@ -12,6 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *mButReply;
 
-- (void)fillContent;
+- (void)fillContent:(id)data;
 
 @end
