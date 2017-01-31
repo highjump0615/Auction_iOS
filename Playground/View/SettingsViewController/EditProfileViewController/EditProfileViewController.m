@@ -310,7 +310,7 @@
              }
          }
          
-         [PHUiHelper showAlertView:self title:@"Signup Failed" message:strDesc];
+         [PHUiHelper showAlertView:self title:@"Update Failed" message:strDesc];
      }];
     
     // show progress view

@@ -8,6 +8,10 @@
 
 #import "EditSettingViewController.h"
 #import "PHTextHelper.h"
+#import "UserData.h"
+#import "PHUiHelper.h"
+#import "ApiManager.h"
+#import "ApiConfig.h"
 
 @interface EditSettingViewController ()
 
@@ -37,6 +41,10 @@
     [self.mLblSocial setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     [self.mLblFacebook setFont:[PHTextHelper myriadProBold:[PHTextHelper fontSizeNormal]]];
     [self.mLblTwitter setFont:[PHTextHelper myriadProBold:[PHTextHelper fontSizeNormal]]];
+    
+    // set content
+    UserData *user = [UserData currentUser];
+    [self.mTxtEmail setText:user.email];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +61,49 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+/**
+ back to prev page
+ @param sender sender description
+ */
+- (void)onButBack:(id)sender {
+    
+    UserData *user = [UserData currentUser];
+    
+    // ------ Edit setting, save
+    
+    // check data validity
+    if (self.mTxtEmail.text.length == 0) {
+        [PHUiHelper showAlertView:self message:@"Input your email"];
+        return;
+    }
+    if (self.mTxtPswdNew.text.length > 0 && ![self.mTxtPswdNew.text isEqualToString:self.mTxtPswdRetype.text]) {
+        [PHUiHelper showAlertView:self message:@"Password does not match"];
+        return;
+    }
+    
+    // save profile
+    [[ApiManager sharedInstance] saveSettingwithEmail:self.mTxtEmail.text
+                                             password:self.mTxtPswdNew.text
+                                          oldpassword:self.mTxtPswdOld.text
+                                              success:^(id response)
+     {
+         [user updateProfile:response];
+         [UserData setCurrentUser:user];
+         
+         // go to prev page
+         [super onButBack:sender];
+
+     }
+                                                 fail:^(NSError *error, id response)
+     {
+         // close keyboard
+         [self.view endEditing:YES];
+         
+         [PHUiHelper showAlertView:self title:@"Update Failed" message:[ApiManager getErrorDescription:error response:response]];
+     }];
+}
+
 
 #pragma mark - UITextFieldDelegate
 

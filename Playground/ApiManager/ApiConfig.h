@@ -21,6 +21,7 @@
 #define     PH_API_GETUSER              @"user"
 #define     PH_API_GETUSERINFO          @"userinfo"
 #define     PH_API_SAVEPROFILE          @"saveprofile"
+#define     PH_API_SAVESETTING          @"savesetting"
 
 // item api
 #define     PH_API_UPLOAD_ITEM          @"uploaditem"

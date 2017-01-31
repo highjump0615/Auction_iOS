@@ -16,6 +16,7 @@
 
 + (ApiManager *)sharedInstance;
 + (NSInteger)getStatusCode:(NSError *)error;
++ (NSString *)getErrorDescription:(NSError *)error response:(id)response;
 
 - (void)setApiToken:(NSString *)value;
 - (void)loadApiToken;
@@ -91,5 +92,11 @@
                           photo:(NSData *)photo
                         success:(void (^)(id response))sucess
                            fail:(void (^)(NSError *error, id response))fail;
+
+- (void)saveSettingwithEmail:(NSString *)email
+                    password:(NSString *)password
+                 oldpassword:(NSString *)passwordOld
+                     success:(void (^)(id response))sucess
+                        fail:(void (^)(NSError *error, id response))fail;
 
 @end

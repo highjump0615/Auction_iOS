@@ -141,6 +141,9 @@
         // hide progress view
         [SVProgressHUD dismiss];
         
+        // close keyboard
+        [self.view endEditing:YES];
+        
         // set api token & current user
         [ApiManager sharedInstance].apiToken = [response valueForKey:@"api_token"];
         UserData *user = [[UserData alloc] initWithDic:response];

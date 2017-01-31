@@ -27,6 +27,7 @@
 
 - (id)initWithDic:(NSDictionary *)data;
 - (void)updateProfile:(NSDictionary *)data;
+- (void)updateEmail:(NSDictionary *)data;
 
 - (NSString *)photoUrl;
 

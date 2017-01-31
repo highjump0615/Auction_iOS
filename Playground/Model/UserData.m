@@ -50,8 +50,8 @@
     
     if (self) {
         self.id = [[data valueForKey:@"id"] integerValue];
-        self.email = [data valueForKey:@"email"];
-        
+
+        [self updateEmail:data];
         [self updateProfile:data];
         
         self.auctionItems = [[NSMutableArray alloc] init];
@@ -73,6 +73,10 @@
     }
     
     self.gender = [[data valueForKey:@"gender"] integerValue];
+}
+
+- (void)updateEmail:(NSDictionary *)data {
+    self.email = [data valueForKey:@"email"];
 }
 
 + (void)setCurrentUser:(UserData *)user {

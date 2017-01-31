@@ -29,6 +29,26 @@
     return response.statusCode;
 }
 
++ (NSString *)getErrorDescription:(NSError *)error response:(id)response {
+    NSString *strDesc = [error localizedDescription];
+    
+    if ([ApiManager getStatusCode:error] == PH_FAIL_STATE) {
+        if ([response isKindOfClass:[NSDictionary class]]) {
+            NSArray *aryKey = [response allKeys];
+            id value = [response valueForKey:aryKey[0]];
+            
+            if ([value isKindOfClass:[NSArray class]]) {
+                strDesc = ((NSArray *)value)[0];
+            }
+            else if ([value isKindOfClass:[NSString class]]) {
+                strDesc = value;
+            }
+        }
+    }
+    
+    return strDesc;
+}
+
 /**
  save api token to local storage
  @param value <#value description#>
@@ -332,6 +352,31 @@
                                                     success:sucess
                                                        fail:fail];
     }
+}
+
+- (void)saveSettingwithEmail:(NSString *)email
+                    password:(NSString *)password
+                 oldpassword:(NSString *)passwordOld
+                     success:(void (^)(id response))sucess
+                        fail:(void (^)(NSError *error, id response))fail {
+    // url
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@", PH_API_BASE_URL, PH_API_SAVESETTING];
+    
+    // param
+    NSMutableDictionary *dictParam = [NSMutableDictionary dictionary];
+    
+    [dictParam setObject:email forKey:@"email"];
+    
+    if (password.length > 0) {
+        [dictParam setObject:password forKey:@"password"];
+        [dictParam setObject:passwordOld forKey:@"oldpassword"];
+    }
+    
+    // call web service
+    [[ApiClientCore sharedInstance] sendToServiceByPost:strUrl
+                                                 params:dictParam
+                                                success:sucess
+                                                   fail:fail];
 }
 
 
