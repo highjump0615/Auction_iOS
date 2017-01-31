@@ -15,6 +15,7 @@
 #import "ItemData.h"
 #import "ApiManager.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "UserData.h"
 
 @interface BidInputViewController () {
     PCItemView *mViewItemCore;
@@ -174,6 +175,10 @@
          
          // update max bid price
          mItem.maxBid = nPrice;
+         
+         // add item to user's bid items
+         UserData *user = [UserData currentUser];
+         [user.bidItems addObject:mItem];
 
          // back to prev page
          [self.navigationController popViewControllerAnimated:YES];

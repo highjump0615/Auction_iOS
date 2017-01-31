@@ -29,7 +29,8 @@
         NSMutableArray *aryImage = [[NSMutableArray alloc] init];
         for (int i = 1; i <= 3; i++) {
             NSString *strImage = [data valueForKey:[NSString stringWithFormat:@"image%d", i]];
-            if (![strImage isKindOfClass:[NSNull class]]) {
+            // nil or NSNull
+            if (strImage && ![strImage isKindOfClass:[NSNull class]]) {
                 [aryImage addObject:strImage];
             }
         }

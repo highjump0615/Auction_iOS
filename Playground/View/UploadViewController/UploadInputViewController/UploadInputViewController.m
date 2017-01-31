@@ -17,6 +17,8 @@
 #import "ActionSheetStringPicker.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "ApiManager.h"
+#import "UserData.h"
+#import "ItemData.h"
 
 @interface UploadInputViewController () {
     PCRateView *mViewRateCore;
@@ -171,6 +173,12 @@
      {
          // hide progress view
          [SVProgressHUD dismiss];
+         
+         ItemData *itemNew = [[ItemData alloc] initWithDic:response];
+         
+         // add to current user item list
+         UserData *user = [UserData currentUser];
+         [user.auctionItems addObject:itemNew];
 
          // back to previous page
          NSArray *array = [self.navigationController viewControllers];
