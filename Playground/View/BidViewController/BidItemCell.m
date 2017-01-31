@@ -12,6 +12,7 @@
 #import "PHTextHelper.h"
 #import "PHUiHelper.h"
 #import "ItemData.h"
+#import "UserData.h"
 
 @interface BidItemCell() {
     NSMutableArray *maryButTab;
@@ -117,6 +118,13 @@
     // label data
     [self.mLblItemname setText:item.title];
     [self.mLblUsername setText:item.username];
+    
+    // disable bid button if it is his own
+    UserData *user = [UserData currentUser];
+    if ([item.username isEqualToString:user.username]) {
+        [self.mButBid setEnabled:NO];
+    }
+
 }
 
 
