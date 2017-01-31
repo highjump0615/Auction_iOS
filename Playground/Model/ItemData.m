@@ -45,12 +45,15 @@
 }
 
 - (NSString *)remainTime {
-    NSString *strTime = [NSString stringWithFormat:@"%ld:%02ld", self.minuteRemain / 60, self.minuteRemain % 60];
+    NSString *strTime = [NSString stringWithFormat:@"%ld:%02ld", (long)self.minuteRemain / 60, (long)self.minuteRemain % 60];
     return strTime;
 }
 
 - (NSString *)remainTimeLong {
-    NSString *strTime = [NSString stringWithFormat:@"%ldD %02ldH %ldM", self.minuteRemain / 60 / 24, self.minuteRemain / 60 % 24, self.minuteRemain % 60];
+    NSString *strTime = [NSString stringWithFormat:@"%ldD %02ldH %ldM",
+                         (long)self.minuteRemain / 60 / 24,
+                         (long)self.minuteRemain / 60 % 24,
+                         (long)self.minuteRemain % 60];
     return strTime;
 }
 

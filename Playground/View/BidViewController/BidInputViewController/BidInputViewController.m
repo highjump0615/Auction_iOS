@@ -119,13 +119,13 @@
     [self.mLblUsername setText:mItem.username];
     
     // price
-    [mViewAuctionCore setValueText:[NSString stringWithFormat:@"$%ld", mItem.price]];
+    [mViewAuctionCore setValueText:[NSString stringWithFormat:@"$%ld", (long)mItem.price]];
     
     // bid price
-    [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", mItem.maxBid]];
+    [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", (long)mItem.maxBid]];
     
     // label limit
-    [self.mLblLimit setText:[NSString stringWithFormat:@"Your bid must be higher than $%ld", mItem.maxBid]];
+    [self.mLblLimit setText:[NSString stringWithFormat:@"Your bid must be higher than $%ld", (long)mItem.maxBid]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

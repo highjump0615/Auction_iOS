@@ -123,10 +123,10 @@
     [mViewTimeoutCore setValueText:[item remainTimeLong]];
     
     // price
-    [mViewAuctionCore setValueText:[NSString stringWithFormat:@"$%ld", item.price]];
+    [mViewAuctionCore setValueText:[NSString stringWithFormat:@"$%ld", (long)item.price]];
     
     // bid price
-    [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", item.maxBid]];
+    [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", (long)item.maxBid]];
 }
 
 @end

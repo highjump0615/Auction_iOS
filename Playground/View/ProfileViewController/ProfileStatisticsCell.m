@@ -51,10 +51,10 @@
     UserData *user = (UserData *)data;
     
     // aunction count
-    [self.mLblAuctionCount setText:[NSString stringWithFormat:@"%ld", user.auctionItems.count]];
+    [self.mLblAuctionCount setText:[NSString stringWithFormat:@"%ld", (long)user.auctionItems.count]];
     
     // bid count
-    [self.mLblBidCount setText:[NSString stringWithFormat:@"%ld", user.bidItems.count]];
+    [self.mLblBidCount setText:[NSString stringWithFormat:@"%ld", (long)user.bidItems.count]];
 }
 
 @end

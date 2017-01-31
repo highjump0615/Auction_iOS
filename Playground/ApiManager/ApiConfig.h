@@ -11,9 +11,9 @@
 
 #define     PH_FAIL_STATE               400
 
-#define     PH_API_BASE_URL             @"http://192.168.1.100/playground/public/api/v1/"
-#define     PH_API_BASE_ITEM_FILE_URL   @"http://192.168.1.100/playground/public/uploads/item/"
-#define     PH_API_BASE_USER_FILE_URL   @"http://192.168.1.100/playground/public/uploads/user/"
+#define     PH_API_BASE_URL             @"http://tnb.vij.mybluehost.me/playground/public/api/v1/"
+#define     PH_API_BASE_ITEM_FILE_URL   @"http://tnb.vij.mybluehost.me/playground/public/uploads/item/"
+#define     PH_API_BASE_USER_FILE_URL   @"http://tnb.vij.mybluehost.me/playground/public/uploads/user/"
 
 // user api
 #define     PH_API_LOGIN                @"login"
