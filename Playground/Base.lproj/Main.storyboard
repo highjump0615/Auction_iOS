@@ -1051,6 +1051,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No chats available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4QB-T4-VM9">
+                                <rect key="frame" x="98" y="274.5" width="124.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9d9-he-fqj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1167,6 +1173,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="UzG-bC-4BI" secondAttribute="trailing" id="16C-kb-Klu"/>
                             <constraint firstItem="9d9-he-fqj" firstAttribute="leading" secondItem="bav-2D-ZRD" secondAttribute="leading" id="GFj-8t-SRO"/>
+                            <constraint firstItem="4QB-T4-VM9" firstAttribute="centerX" secondItem="bav-2D-ZRD" secondAttribute="centerX" id="LGI-Na-gS6"/>
                             <constraint firstItem="9d9-he-fqj" firstAttribute="top" secondItem="bav-2D-ZRD" secondAttribute="top" id="S6k-Ix-jik"/>
                             <constraint firstItem="UzG-bC-4BI" firstAttribute="top" secondItem="bav-2D-ZRD" secondAttribute="top" id="WCR-7V-qWl"/>
                             <constraint firstAttribute="bottom" secondItem="9d9-he-fqj" secondAttribute="bottom" id="hTo-2i-Kkh"/>
@@ -1174,10 +1181,12 @@
                             <constraint firstAttribute="trailing" secondItem="GeX-MR-6Pq" secondAttribute="trailing" id="jik-pD-uDu"/>
                             <constraint firstItem="UzG-bC-4BI" firstAttribute="leading" secondItem="bav-2D-ZRD" secondAttribute="leading" id="mpC-OW-Tl7"/>
                             <constraint firstAttribute="trailing" secondItem="9d9-he-fqj" secondAttribute="trailing" id="oKM-vr-jcm"/>
+                            <constraint firstItem="4QB-T4-VM9" firstAttribute="centerY" secondItem="bav-2D-ZRD" secondAttribute="centerY" id="rIp-IL-MSE"/>
                             <constraint firstItem="GeX-MR-6Pq" firstAttribute="leading" secondItem="bav-2D-ZRD" secondAttribute="leading" id="z2Q-xJ-ZPB"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mLblNotice" destination="4QB-T4-VM9" id="e00-D3-xu9"/>
                         <outlet property="mLblTitle" destination="RSR-by-VIc" id="Fp9-W8-0UV"/>
                         <outlet property="mTableview" destination="9d9-he-fqj" id="HOa-wH-WzN"/>
                         <outlet property="mViewNavbar" destination="UzG-bC-4BI" id="Pf5-7j-JYb"/>
@@ -2051,7 +2060,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jEc-Vm-6Tk" id="3aM-pO-6Eh">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Him" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dru-Ws-Lfu">
@@ -2398,7 +2407,7 @@ EENoYXRUYWJsZUNlbGw
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CateDetailCell" rowHeight="100" id="PAD-Hk-ZC0" customClass="CategoryDetailCell">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="56" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PAD-Hk-ZC0" id="npc-BH-KlB">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
@@ -3044,7 +3053,7 @@ EENoYXRUYWJsZUNlbGw
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="8OU-d1-nx7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pDi-f2-sFG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pDi-f2-sFG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3435,7 +3444,7 @@ EENoYXRUYWJsZUNlbGw
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3SY-4z-NJA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3SY-4z-NJA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
