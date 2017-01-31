@@ -9,12 +9,18 @@
 #import "BaseViewController.h"
 
 @class PCTextField;
+@class PCUploadView;
 
-@interface EditProfileViewController : BaseViewController
+@interface EditProfileViewController : BaseViewController {
+    PCUploadView *mviewPhotoCore;
+    NSInteger mnGender;
+    NSDate *mDateBirthday;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *mTxtName;
 @property (weak, nonatomic) IBOutlet UITextField *mTxtUsername;
 
 - (void)initTextField:(UITextField *)textfield;
+- (NSData *)getImageData;
 
 @end

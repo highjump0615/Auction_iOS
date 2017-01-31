@@ -10,6 +10,8 @@
 #import "PHUiHelper.h"
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UserData.h"
 
 @interface ProfileUserCell()
 
@@ -42,6 +44,14 @@
     
     // init UI
     [PHUiHelper makeRounded:self.mImgviewUser];
+}
+
+- (void)fillContent:(id)data {
+    // set content
+    UserData *user = (UserData *)data;
+    
+    [self.mImgviewUser sd_setImageWithURL:[NSURL URLWithString:[user photoUrl]]];
+    [self.mLblUsername setText:user.name];
 }
 
 @end

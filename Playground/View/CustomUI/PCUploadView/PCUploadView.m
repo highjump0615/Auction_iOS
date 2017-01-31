@@ -10,6 +10,7 @@
 #import "PHColorHelper.h"
 
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface PCUploadView() {
     int mnMode;
@@ -77,13 +78,24 @@
     [self.mImgviewPhoto setBackgroundColor:backgroundColor];
 }
 
+/**
+ get image from imageview
+ */
+- (UIImage *)getImage {
+    return self.mImgviewPhoto.image;
+}
 
 /**
  set image to imageview
  @param image <#image description#>
  */
-- (void)setImage:(UIImage *)image {
-    [self.mImgviewPhoto setImage:image];
+- (void)setImage:(UIImage *)image fromUrl:(NSString *)path {
+    if (image) {
+        [self.mImgviewPhoto setImage:image];
+    }
+    else if (path) {
+        [self.mImgviewPhoto sd_setImageWithURL:[NSURL URLWithString:path]];
+    }
 }
 
 - (void)setViewMode:(int)mode {

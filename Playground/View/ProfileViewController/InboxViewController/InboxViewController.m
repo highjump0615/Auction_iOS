@@ -13,6 +13,7 @@
 @interface InboxViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
+@property (weak, nonatomic) IBOutlet UILabel *mLblNotice;
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *mViewTitle;
 @property (weak, nonatomic) IBOutlet UITableView *mTableview;
 
@@ -37,6 +38,7 @@
     [self showSearch:YES showBack:YES];
     
     [self.mLblTitle setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeLarge]]];
+    [self.mLblNotice setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,7 +73,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

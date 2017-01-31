@@ -15,7 +15,10 @@
 #import "CommonUtils.h"
 #import "CategoryCell.h"
 #import "CategoryDetailViewController.h"
+#import "BidViewController.h"
 #import "CategoryData.h"
+#import "ApiManager.h"
+#import "ItemData.h"
 
 @interface CategoryViewController () <UITextFieldDelegate> {
     UIRefreshControl *mRefreshControl;
@@ -26,6 +29,8 @@
     double dTitleHeight;
     
     CategoryData *mCategorySelected;
+    NSMutableArray *maryItem;
+    NSInteger mnSelectedIndex;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
@@ -45,7 +50,7 @@
     
     // Pull to refresh
     mRefreshControl = [[UIRefreshControl alloc] init];
-    [mRefreshControl addTarget:self action:@selector(loadItem:) forControlEvents:UIControlEventValueChanged];
+    [mRefreshControl addTarget:self action:@selector(exploreItem:) forControlEvents:UIControlEventValueChanged];
     [self.mTableView addSubview:mRefreshControl];
     
     // text & keyboard
@@ -57,6 +62,12 @@
     dExploreHeight = 100;
     dExploreWidth = 100;
     dTitleHeight = 80;
+    
+    // init data
+    maryItem = [[NSMutableArray alloc] init];
+    
+    // load data
+    [self exploreItem:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,26 +75,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 /**
- load items from api
+ explore items from api
  @param sender <#sender description#>
  */
-- (void)loadItem:(UIRefreshControl *)sender {
-    
-    if (sender) { // refreshing
-    }
-    
-    // todo: add api
-    [NSTimer scheduledTimerWithTimeInterval:2.0
-                                     target:self
-                                   selector:@selector(waitThread:)
-                                   userInfo:nil
-                                    repeats:NO];
-}
+- (void)exploreItem:(UIRefreshControl *)sender {
 
-- (void) waitThread:(NSTimer*)theTimer {
-    [self stopRefresh];
+    //
+    // call login api
+    //
+    [[ApiManager sharedInstance] getExplore:^(id response)
+     {
+         // hide progress view
+         [self stopRefresh];
+         
+         // clear data
+         [maryItem removeAllObjects];
+         
+         // add item data
+         NSArray *aryItem = (NSArray *)response;
+         
+         for (NSDictionary *dicItem in aryItem) {
+             ItemData *cData = [[ItemData alloc] initWithDic:dicItem];
+             [maryItem addObject:cData];
+         }
+         
+         // reload table
+         [self.mTableView reloadData];
+     }
+                                       fail:^(NSError *error, id response)
+     {
+         // hide progress view
+         [self stopRefresh];
+     }];
 }
 
 - (void)stopRefresh {
@@ -100,6 +124,10 @@
     if ([[segue identifier] isEqualToString:@"Category2Detail"]) {
         CategoryDetailViewController *view = (CategoryDetailViewController *)[segue destinationViewController];
         view.mCategory = mCategorySelected;
+    }
+    else if ([[segue identifier] isEqualToString:@"Category2Bid"]) {
+        BidViewController *view = (BidViewController *)[segue destinationViewController];
+        view.mItemData = [maryItem objectAtIndex:mnSelectedIndex];
     }
 }
 
@@ -131,6 +159,8 @@
     // Explore
     if (indexPath.section == 0) {
         CategoryExploreCell *cellExplore = (CategoryExploreCell *)[tableView dequeueReusableCellWithIdentifier:@"CateExplrCell"];
+        [cellExplore fillContent:maryItem.count];
+        
         cell = cellExplore;
     }
     // Categories
@@ -209,11 +239,12 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return [maryItem count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ItemCollectionCell *cell = (ItemCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CateItemCell" forIndexPath:indexPath];
+    [cell fillContent:[maryItem objectAtIndex:indexPath.row]];
 
     return cell;
 }
@@ -223,7 +254,9 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    // go to auction page
+    mnSelectedIndex = indexPath.row;
+    
+    // go to bid page
     [self performSegueWithIdentifier:@"Category2Bid" sender:nil];
 }
 

@@ -9,6 +9,8 @@
 #import "SettingsViewController.h"
 #import "PHTextHelper.h"
 #import "PCAlertDialog.h"
+#import "CommonUtils.h"
+#import "UserData.h"
 
 @interface SettingsViewController ()
 
@@ -78,6 +80,13 @@
     
     // back to login page
     [self.tabBarController.navigationController popViewControllerAnimated:YES];
+    
+    // clear current user
+    [UserData setCurrentUser:nil];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];    
+    [defaults setObject:nil forKey:kCurrentUser];
+    [defaults synchronize];
 }
 
 @end

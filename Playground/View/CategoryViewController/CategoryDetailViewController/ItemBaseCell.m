@@ -9,6 +9,7 @@
 #import "ItemBaseCell.h"
 #import "PCItemView.h"
 #import "PHTextHelper.h"
+#import "ItemData.h"
 
 @interface ItemBaseCell() {
     PCItemView *mItemView;
@@ -41,5 +42,14 @@
 
     // Configure the view for the selected state
 }
+
+- (void)fillContent:(id)data {
+    ItemData *item = (ItemData *)data;
+    
+    [mItemView setItemData:item];
+    [self.mLblTitle setText:item.title];
+    [self.mLblUsername setText:item.username];
+}
+
 
 @end

@@ -11,5 +11,6 @@
 @interface ItemCollectionCell : UICollectionViewCell
 
 - (void)showTimeLimit:(BOOL)show;
+- (void)fillContent:(id)data;
 
 @end

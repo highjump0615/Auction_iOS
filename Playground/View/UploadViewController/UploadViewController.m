@@ -7,6 +7,7 @@
 //
 
 #import "UploadViewController.h"
+#import "UploadInputViewController.h"
 #import "PHTextHelper.h"
 #import "PCUploadView.h"
 #import "PHUiHelper.h"
@@ -86,6 +87,49 @@
 }
 */
 
+- (IBAction)onButNext:(id)sender {
+    // check data validitiy
+    UIImage *imgCover = [mViewUploadCoverCore getImage];
+    if (!imgCover) {
+        [PHUiHelper showAlertView:self message:@"Cover photo is required"];
+        return;
+    }
+    
+    // set preview
+    int nCount = 0;
+    UploadInputViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"UploadInputViewController"];
+    
+    UIImage *imgPreview = [maryViewUploadPreviewCore[0] getImage];
+    if (imgPreview) {
+        vc.mImgPreview1 = imgPreview;
+        nCount++;
+    }
+    
+    imgPreview = [maryViewUploadPreviewCore[1] getImage];
+    if (imgPreview) {
+        vc.mImgPreview2 = imgPreview;
+        nCount++;
+    }
+    
+    imgPreview = [maryViewUploadPreviewCore[2] getImage];
+    if (imgPreview) {
+        vc.mImgPreview3 = imgPreview;
+        nCount++;
+    }
+    
+    // if no preview image selected, abort
+    if (nCount == 0) {
+        [PHUiHelper showAlertView:self message:@"At least 1 preview photo is required"];
+        return;
+    }
+
+    // set cover photo
+    vc.mImgCover = imgCover;
+    
+    // go to next page
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark - UIImagePickerDelegate
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -98,12 +142,12 @@
     UIImage *imgRes = [info objectForKey:UIImagePickerControllerEditedImage];
     
     if ([mViewUploadCoverCore getImagePicker] == picker) {
-        [mViewUploadCoverCore setImage:imgRes];
+        [mViewUploadCoverCore setImage:imgRes fromUrl:nil];
     }
     
     for (PCUploadView *viewUpload in maryViewUploadPreviewCore) {
         if ([viewUpload getImagePicker] == picker) {
-            [viewUpload setImage:imgRes];
+            [viewUpload setImage:imgRes fromUrl:nil];
         }
     }
     

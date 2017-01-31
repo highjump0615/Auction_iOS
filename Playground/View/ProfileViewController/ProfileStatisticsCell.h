@@ -10,4 +10,6 @@
 
 @interface ProfileStatisticsCell : UITableViewCell
 
+- (void)fillContent:(id)data;
+
 @end

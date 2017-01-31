@@ -10,6 +10,8 @@
 
 @interface BidViewController : BaseViewController
 
+@property (weak, nonatomic) id mItemData;
+
 - (void)setSelectedTab:(int)value;
 
 @end

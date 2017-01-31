@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "CategoryData.h"
 #import "CommonUtils.h"
+#import "ApiManager.h"
+#import "UserData.h"
+#import "MainTabbarController.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +19,10 @@
 
 @implementation AppDelegate
 
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    return YES;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -30,7 +37,7 @@
         CategoryData *category = [[CategoryData alloc] initWithDictionary:dict];
         [utils.maryCategory addObject:category];
     }
-    
+        
     return YES;
 }
 

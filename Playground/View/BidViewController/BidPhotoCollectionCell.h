@@ -10,4 +10,6 @@
 
 @interface BidPhotoCollectionCell : UICollectionViewCell
 
+- (void)fillContent:(NSString *)path;
+
 @end

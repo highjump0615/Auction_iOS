@@ -12,4 +12,6 @@
 
 @property (weak, nonatomic) id delegate;
 
+- (void)fillContent:(id)data;
+
 @end

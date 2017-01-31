@@ -12,6 +12,11 @@
 
 @interface UploadInputViewController : BaseViewController
 
+@property (nonatomic, strong) UIImage *mImgCover;
+@property (nonatomic, strong) UIImage *mImgPreview1;
+@property (nonatomic, strong) UIImage *mImgPreview2;
+@property (nonatomic, strong) UIImage *mImgPreview3;
+
 @property (nonatomic, strong) CategoryData *mCategory;
 
 @end

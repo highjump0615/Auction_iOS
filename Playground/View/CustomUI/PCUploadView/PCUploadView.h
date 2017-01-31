@@ -16,7 +16,8 @@
 + (id)getView:(int)mode controller:(UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate> *)controller;
 
 - (void)setFrame:(CGRect)frame;
-- (void)setImage:(UIImage *)image;
+- (UIImage *)getImage;
+- (void)setImage:(UIImage *)image fromUrl:(NSString *)path;
 - (UIImagePickerController *)getImagePicker;
 
 @end

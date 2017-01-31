@@ -32,4 +32,6 @@
 // delegations
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 
+- (void)onButBack:(id)sender;
+
 @end

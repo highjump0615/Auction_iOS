@@ -12,14 +12,22 @@
 #import "PHColorHelper.h"
 #import "PHUiHelper.h"
 #import "CategoryData.h"
+#import "ApiManager.h"
+#import "ItemData.h"
+#import "BidViewController.h"
 
 @interface CategoryDetailViewController () <UITextFieldDelegate>  {
     double mdCellHeight;
     double mdTitleHeight;
     double mdSearchHeight;
+    
+    NSMutableArray *maryItem;
+    NSInteger mnSelectedIndex;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
+@property (weak, nonatomic) IBOutlet UILabel *mLblNotice;
+@property (weak, nonatomic) IBOutlet UILabel *mLblKeyword;
 
 @end
 
@@ -39,10 +47,19 @@
     [self setSearchDelegate:self];
     [self setGestureRecognizer];
     
+    // font
+    [self.mLblNotice setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
+    [self.mLblKeyword setFont:[PHTextHelper myriadProSemibold:[PHTextHelper fontSizeNormal]]];
+    
     // init param
     mdCellHeight = 120;
     mdTitleHeight = 70;
     mdSearchHeight = 55;
+    
+    maryItem = [[NSMutableArray alloc] init];
+    
+    // load item
+    [self getItem];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,15 +67,81 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"CategoryDetail2Bid"]) {
+        BidViewController *vc = [segue destinationViewController];
+        vc.mItemData = [maryItem objectAtIndex:mnSelectedIndex];
+    }
 }
-*/
+
+
+/**
+ add items fetched from api
+ @param response <#response description#>
+ */
+- (void)addItems:(NSArray *)response {
+    
+    // clear data
+    [maryItem removeAllObjects];
+    
+    // add item data
+    NSArray *aryItem = (NSArray *)response;
+    
+    // no data, search keyword is existing or category is not selected
+    if (aryItem.count == 0 && ([self getSearchString].length > 0 || !self.mCategory)) {
+        [self.mLblNotice setText:@"Sorry! We couldn't find any results for"];
+        [self.mLblKeyword setText:[NSString stringWithFormat:@"\"%@\"", [self getSearchString]]];
+        [self.mLblKeyword setHidden:NO];
+    }
+    
+    for (NSDictionary *dicItem in aryItem) {
+        ItemData *cData = [[ItemData alloc] initWithDic:dicItem];
+        [maryItem addObject:cData];
+        
+        [self.mTableView setBounces:YES];
+        [self.mLblNotice setHidden:YES];
+    }
+    
+    // reload table
+    [self.mTableView reloadData];
+}
+
+/**
+ get items from api
+ */
+- (void)getItem {
+    
+    //
+    // call get item api
+    //
+    if ([self getSearchString].length > 0) {
+        [[ApiManager sharedInstance] searchItem:[self getSearchString]
+                                        success:^(id response)
+         {
+             [self addItems:response];
+         }
+                                           fail:^(NSError *error, id response)
+         {
+         }];
+    }
+    else {
+        [[ApiManager sharedInstance] getCategoryItem:self.mCategory.id
+                                             success:^(id response)
+         {
+             [self addItems:response];
+         }
+                                           fail:^(NSError *error, id response)
+         {
+         }];
+    }
+}
+
 
 #pragma mark - UITableViewDataSource
 
@@ -67,12 +150,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return maryItem.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     CategoryDetailCell *cellDetail = (CategoryDetailCell *)[tableView dequeueReusableCellWithIdentifier:@"CateDetailCell"];
+    [cellDetail fillContent:[maryItem objectAtIndex:indexPath.row]];
     
     return cellDetail;
 }
@@ -151,6 +235,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    mnSelectedIndex = indexPath.row;
 
     // go to detail page
     [self performSegueWithIdentifier:@"CategoryDetail2Bid" sender:nil];
@@ -162,6 +248,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [super textFieldShouldReturn:textField];
     
+    [self getItem];
     [self.mTableView reloadData];
     
     return YES;

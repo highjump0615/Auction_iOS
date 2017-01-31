@@ -9,8 +9,13 @@
 #import "PCItemView.h"
 #import "PHUiHelper.h"
 #import "PHTextHelper.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "ItemData.h"
+#import "ApiConfig.h"
 
-@interface PCItemView()
+@interface PCItemView() {
+    ItemData *mItem;
+}
 
 @property (weak, nonatomic) IBOutlet UIImageView *mImgViewBg;
 @property (weak, nonatomic) IBOutlet UIImageView *mImgviewPhoto;
@@ -70,6 +75,13 @@
  */
 - (void)showTimeLimit:(BOOL)show {
     [self.mButTime setHidden:!show];
+}
+
+- (void)setItemData:(id)item {
+    mItem = (ItemData *)item;
+    
+    [self.mImgviewPhoto sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", PH_API_BASE_ITEM_FILE_URL, mItem.coverImage]]];
+    [self.mButTime setTitle:[mItem remainTime] forState:UIControlStateNormal];
 }
 
 @end

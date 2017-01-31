@@ -12,9 +12,14 @@
 #import "BidDescCell.h"
 #import "BidPhotoCell.h"
 #import "BidCommentCell.h"
+#import "BidNoCommentCell.h"
 #import "BidPhotoCollectionCell.h"
 #import "PHTextHelper.h"
 #import "PHUiHelper.h"
+#import "ItemData.h"
+#import "BidInputViewController.h"
+#import "ApiManager.h"
+#import "CommentData.h"
 
 #define BID_TAB_DESCRIPTION     0
 #define BID_TAB_PHOTO           1
@@ -22,6 +27,9 @@
 
 @interface BidViewController () <UITextFieldDelegate> {
     int mnSelectedTab;
+    NSInteger mnSelectedComment;
+    
+    NSMutableArray *maryComment;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableview;
@@ -38,6 +46,7 @@
     
     // init param
     mnSelectedTab = BID_TAB_DESCRIPTION;
+    maryComment = [[NSMutableArray alloc] init];
     
     // hide back button
     [self showSearch:YES showBack:YES];
@@ -59,6 +68,50 @@
     
     // input text field
     [PHTextHelper initTextRegular:self.mTextInput];
+    
+    //
+    // call get max bid api
+    //
+    [[ApiManager sharedInstance] getMaxBidOnItem:((ItemData *)self.mItemData).id
+                                    success:^(id response)
+     {
+         ((ItemData *)self.mItemData).maxBid = [[response objectForKey:@"value"] integerValue];
+         
+         // refresh table
+         [self.mTableview reloadData];
+     }
+                                       fail:nil];
+    
+    //
+    // call get comment api
+    //
+    [[ApiManager sharedInstance] getComment:((ItemData *)self.mItemData).id
+                                    success:^(id response)
+     {
+         // clear data
+         [maryComment removeAllObjects];
+         
+         // add item data
+         NSArray *aryComment = (NSArray *)response;
+         
+         for (NSDictionary *dicItem in aryComment) {
+             CommentData *cData = [[CommentData alloc] initWithDic:dicItem];
+             
+             // set parent
+             NSInteger nParent = [[dicItem valueForKey:@"parent_id"] integerValue];
+             for (CommentData *cmData in maryComment) {
+                 if (cmData.id == nParent) {
+                     cData.parent = cmData;
+                 }
+             }
+             
+             [maryComment addObject:cData];
+         }
+         
+         // reload table
+         [self.mTableview reloadData];
+     }
+                                       fail:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,16 +119,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+- (void)viewDidAppear:(BOOL)animated {
+    // refresh table for update
+    [self.mTableview reloadData];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"Bid2BidInput"]) {
+        BidInputViewController *vc = [segue destinationViewController];
+        [vc setItemData:self.mItemData];
+    }
 }
-*/
-
 
 /**
  set selected tab index in item cell
@@ -112,6 +171,8 @@
     // item cell is the first
     if (index == 0) {
         BidItemCell *cellItem = (BidItemCell *)[tableView dequeueReusableCellWithIdentifier:@"BidItemCell"];
+        [cellItem fillContent:self.mItemData];
+        
         cellItem.delegate = self;
         
         cell = cellItem;
@@ -120,6 +181,8 @@
         // other cells are determined by the selected tab
         if (mnSelectedTab == BID_TAB_DESCRIPTION) {
             BidDescCell *cellDesc = (BidDescCell *)[tableView dequeueReusableCellWithIdentifier:@"BidDescCell"];
+            [cellDesc fillContent:self.mItemData];
+            
             cell = cellDesc;
         }
         else if (mnSelectedTab == BID_TAB_PHOTO) {
@@ -127,18 +190,28 @@
             cell = cellPhoto;
         }
         else {
-            BidCommentCell *cellComment = (BidCommentCell *)[tableView dequeueReusableCellWithIdentifier:@"BidCommentCell"];
-            [cellComment.mButReply addTarget:self action:@selector(onButComment:) forControlEvents:UIControlEventTouchUpInside];
-            
-            if (index == 1) {
-                [cellComment showTime:YES];
+            if (maryComment.count == 0) {
+                // no comment notice
+                cell = [tableView dequeueReusableCellWithIdentifier:@"BidNoCommentCell"];
             }
             else {
-                [cellComment showTime:NO];
-                [cellComment fillContent];
+                // comment bubbles
+                BidCommentCell *cellComment = (BidCommentCell *)[tableView dequeueReusableCellWithIdentifier:@"BidCommentCell"];
+                [cellComment fillContent:[maryComment objectAtIndex:index - 1]];
+                
+                // set reply button
+                [cellComment.mButReply setTag:index - 1];
+                [cellComment.mButReply addTarget:self action:@selector(onButComment:) forControlEvents:UIControlEventTouchUpInside];
+                
+                if (index == 1) {
+                    [cellComment showTime:YES];
+                }
+                else {
+                    [cellComment showTime:NO];
+                }
+                
+                cell = cellComment;
             }
-            
-            cell = cellComment;
         }
     }
     
@@ -170,6 +243,21 @@
 }
 
 - (IBAction)onButComment:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    
+    if (button.currentTitle.length > 0) {
+        // comment button
+        [self.mTextInput setPlaceholder:@"Add Comment..."];
+        mnSelectedComment = -1;
+    }
+    else {
+        // reply button
+        mnSelectedComment = button.tag;
+        CommentData * cData = [maryComment objectAtIndex:mnSelectedComment];
+        
+        [self.mTextInput setPlaceholder:[NSString stringWithFormat:@"Reply to %@...", cData.username]];
+    }
+    
     [self showCommentInput:YES];
     [self.mButComment setHidden:YES];
 }
@@ -178,11 +266,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // item and related data, in normal case
-    int nCount = 2;
+    NSInteger nCount = 2;
     
     // different for comment list
     if (mnSelectedTab == BID_TAB_COMMENT) {
-        nCount = 1 + 2;
+        // no comment notice cell is needed, even no comment exists
+        nCount = 1 + MAX(maryComment.count, 1);
     }
     
     return nCount;
@@ -216,13 +305,18 @@
     }
     else {
         // other cells are determined by the selected tab
-        if (mnSelectedTab == BID_TAB_DESCRIPTION || mnSelectedTab == BID_TAB_COMMENT) {
+        if (mnSelectedTab == BID_TAB_DESCRIPTION ||
+            (mnSelectedTab == BID_TAB_COMMENT && maryComment.count > 0)) {
             UITableViewCell *cell = [self configureCell:tableView index:indexPath.row];
             
             // reset layout
             [cell layoutIfNeeded];
             
             dHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+        }
+        else if (mnSelectedTab == BID_TAB_COMMENT && maryComment.count == 0) {
+            // no comment notice
+            dHeight = 100;
         }
         else {
             dHeight = 218 + 8 + 8;
@@ -234,11 +328,13 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
+    ItemData *item = (ItemData *)self.mItemData;
+    return item.imagePreview.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     BidPhotoCollectionCell *cell = (BidPhotoCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"BidPhotoCollectionCell" forIndexPath:indexPath];
+    [cell fillContent:[((ItemData *)(self.mItemData)).imagePreview objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -249,14 +345,66 @@
 
 #pragma mark - UITextFieldDelegate
 
+- (void)addCommentData:(NSString *)comment
+                parent:(CommentData *)parentData {
+    // create new data
+    CommentData *cData = [[CommentData alloc] initWithText:comment parent:parentData];
+    
+    if (parentData) {
+        //
+        // if replying, need to insert in its position
+        //
+        for (int i = 0; i < maryComment.count; i++) {
+            CommentData *cmt = maryComment[i];
+            if (cmt.id == parentData.id) {
+                [maryComment insertObject:cData atIndex:i+1];
+                break;
+            }
+        }
+    }
+    else {
+        [maryComment addObject:cData];
+    }
+    
+    // refresh table
+    [self.mTableview reloadData];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [super textFieldShouldReturn:textField];
-    
-    [textField setText:@""];
-    
+
     // hide input & show comment again
     [self.mButComment setHidden:NO];
     [self showCommentInput:NO];
+
+    // check if it is empty
+    if (textField.text.length > 0) {
+        // get parent comment
+        NSInteger nParent = 0;
+        CommentData *cdp;
+        
+        if (mnSelectedComment >= 0) {
+            cdp = [maryComment objectAtIndex:mnSelectedComment];
+            nParent = cdp.id;
+        }
+        
+        //
+        // call add comment api
+        //
+        [[ApiManager sharedInstance] addComment:textField.text
+                                         parent:nParent
+                                           item:((ItemData *)self.mItemData).id
+                                        success:^(id response)
+         {
+         }
+                                           fail:^(NSError *error, id response)
+         {
+         }];
+        
+        [self addCommentData:textField.text parent:cdp];
+        
+        [textField setText:@""];
+    }
     
     return YES;
 }

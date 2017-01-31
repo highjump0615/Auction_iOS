@@ -10,4 +10,6 @@
 
 @interface BidDescCell : UITableViewCell
 
+- (void)fillContent:(id)data;
+
 @end

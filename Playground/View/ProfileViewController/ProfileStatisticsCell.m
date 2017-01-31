@@ -8,6 +8,7 @@
 
 #import "ProfileStatisticsCell.h"
 #import "PHTextHelper.h"
+#import "UserData.h"
 
 @interface ProfileStatisticsCell()
 
@@ -44,6 +45,16 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)fillContent:(id)data {
+    UserData *user = (UserData *)data;
+    
+    // aunction count
+    [self.mLblAuctionCount setText:[NSString stringWithFormat:@"%ld", (long)user.auctionItems.count]];
+    
+    // bid count
+    [self.mLblBidCount setText:[NSString stringWithFormat:@"%ld", (long)user.bidItems.count]];
 }
 
 @end

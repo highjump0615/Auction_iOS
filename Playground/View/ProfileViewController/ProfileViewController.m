@@ -13,12 +13,21 @@
 #import "PHColorHelper.h"
 #import "PHUiHelper.h"
 #import "ItemCollectionCell.h"
-
+#import "ApiManager.h"
+#import "UserData.h"
+#import "CategoryExploreCell.h"
+#import "ItemData.h"
+#import "BidViewController.h"
 
 @interface ProfileViewController () <UITextFieldDelegate> {
     double dTitleHeight;
     double dItemHeight;
     double dItemWidth;
+    
+    UICollectionView *mCVauction;
+    UICollectionView *mCVbid;
+    
+    ItemData *mItemSelected;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
@@ -43,6 +52,9 @@
     dTitleHeight = 52;
     dItemWidth = 100;
     dItemHeight = 108;
+    
+    // load data
+    [self getUserInfo];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -50,6 +62,9 @@
     
     // show tab bar
     [self.tabBarController.tabBar setHidden:NO];
+    
+    // refresh table
+    [self.mTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,15 +72,38 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"Profile2Bid"]) {
+        BidViewController *vc = [segue destinationViewController];
+        vc.mItemData = mItemSelected;
+    }
 }
-*/
+
+
+- (void)getUserInfo {
+    //
+    // call login api
+    //
+    [[ApiManager sharedInstance] getUserInfo:^(id response)
+     {
+         // set data of the user
+         UserData *user = [UserData currentUser];
+         [user fetchAuctionItems:[response objectForKey:@"auctions"]];
+         [user fetchBidItems:[response objectForKey:@"bids"]];
+         
+         // reload table
+         [self.mTableView reloadData];
+     }
+                                       fail:^(NSError *error, id response)
+     {
+     }];
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -86,16 +124,37 @@
     // User
     if (indexPath.section == 0) {
         ProfileUserCell *cellUser = (ProfileUserCell *)[tableView dequeueReusableCellWithIdentifier:@"ProfileUserCell"];
+        [cellUser fillContent:[UserData currentUser]];
+        
         cell = cellUser;
     }
     // Statistics
     else if (indexPath.section == 3) {
         ProfileStatisticsCell *cellUser = (ProfileStatisticsCell *)[tableView dequeueReusableCellWithIdentifier:@"ProfileStatisticsCell"];
+        [cellUser fillContent:[UserData currentUser]];
+        
         cell = cellUser;
     }
     // Auction & Bid
     else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileItemCell"];
+        CategoryExploreCell *cellItem = (CategoryExploreCell *)[tableView dequeueReusableCellWithIdentifier:@"ProfileItemCell"];
+        
+        UserData *user = [UserData currentUser];
+        
+        // auction
+        if (indexPath.section == 1) {
+            [cellItem fillContent:user.auctionItems.count];
+            [cellItem setNoticeText:@"No auction items available."];
+            mCVauction = cellItem.mCollectionView;
+        }
+        // bid
+        else if (indexPath.section == 2) {
+            [cellItem fillContent:user.bidItems.count];
+            [cellItem setNoticeText:@"No bid items available."];
+            mCVbid = cellItem.mCollectionView;
+        }
+        
+        cell = cellItem;
     }
     
     return cell;
@@ -168,11 +227,29 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    UserData *user = [UserData currentUser];
+    NSInteger nCount;
+    
+    if ([collectionView isEqual:mCVauction]) {
+        nCount = user.auctionItems.count;
+    }
+    else {
+        nCount = user.bidItems.count;
+    }
+    
+    return nCount;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ItemCollectionCell *cell = (ItemCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CateItemCell" forIndexPath:indexPath];
+    
+    UserData *user = [UserData currentUser];
+    if ([collectionView isEqual:mCVauction]) {
+        [cell fillContent:[user.auctionItems objectAtIndex:indexPath.row]];
+    }
+    else {
+        [cell fillContent:[user.bidItems objectAtIndex:indexPath.row]];
+    }
     [cell showTimeLimit:YES];
     
     return cell;
@@ -183,8 +260,18 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    UserData *user = [UserData currentUser];
+    
+    if ([collectionView isEqual:mCVauction]) {
+        mItemSelected = [user.auctionItems objectAtIndex:indexPath.row];
+    }
+    else {
+        mItemSelected = [user.bidItems objectAtIndex:indexPath.row];
+    }
+    
     // go to auction page
-    [self performSegueWithIdentifier:@"Profile2Auction" sender:nil];
+    [self performSegueWithIdentifier:@"Profile2Bid" sender:nil];
+//    [self performSegueWithIdentifier:@"Profile2Auction" sender:nil];
 }
 
 @end

@@ -11,6 +11,7 @@
 @interface PCRateView : PCBaseView
 
 + (id)getView;
+- (NSInteger)getRate;
 - (void)setRate:(NSInteger)rate;
 
 @end

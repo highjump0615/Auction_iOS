@@ -10,6 +10,10 @@
 
 @interface ChatCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *mLblTime;
+@property (weak, nonatomic) IBOutlet UILabel *mLblUsername;
+@property (weak, nonatomic) IBOutlet UILabel *mLblBubble;
+
 - (void)showTime:(BOOL)show;
 - (void)showUsername:(BOOL)show;
 
