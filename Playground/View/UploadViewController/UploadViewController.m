@@ -142,12 +142,12 @@
     UIImage *imgRes = [info objectForKey:UIImagePickerControllerEditedImage];
     
     if ([mViewUploadCoverCore getImagePicker] == picker) {
-        [mViewUploadCoverCore setImage:imgRes];
+        [mViewUploadCoverCore setImage:imgRes fromUrl:nil];
     }
     
     for (PCUploadView *viewUpload in maryViewUploadPreviewCore) {
         if ([viewUpload getImagePicker] == picker) {
-            [viewUpload setImage:imgRes];
+            [viewUpload setImage:imgRes fromUrl:nil];
         }
     }
     

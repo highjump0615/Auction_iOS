@@ -20,6 +20,7 @@
 #define     PH_API_SIGNUP               @"signup"
 #define     PH_API_GETUSER              @"user"
 #define     PH_API_GETUSERINFO          @"userinfo"
+#define     PH_API_SAVEPROFILE          @"saveprofile"
 
 // item api
 #define     PH_API_UPLOAD_ITEM          @"uploaditem"

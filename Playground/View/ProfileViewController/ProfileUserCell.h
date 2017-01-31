@@ -10,4 +10,6 @@
 
 @interface ProfileUserCell : UITableViewCell
 
+- (void)fillContent:(id)data;
+
 @end

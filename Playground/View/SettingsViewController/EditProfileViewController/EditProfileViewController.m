@@ -13,6 +13,12 @@
 #import "PHColorHelper.h"
 #import "ActionSheetDatePicker.h"
 #import "TTTAttributedLabel.h"
+#import "UserData.h"
+#import "PHDataHelper.h"
+#import "ApiManager.h"
+#import "ApiConfig.h"
+#import "PHUiHelper.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #define GENDER_UNKNOWN          1
 #define GENDER_FEMALE           2
@@ -90,6 +96,32 @@
     dicGender = @{kGenderKey : [NSNumber numberWithInt:GENDER_UNKNOWN]};
     range = [strText rangeOfString:STR_GENDER_UNKNOWN];
     [self.mLblGender addLinkToTransitInformation:dicGender withRange:range];
+    
+    //
+    // set content
+    //
+    UserData *user = [UserData currentUser];
+    
+    if (user) {
+        // photo
+        [mviewPhotoCore setImage:nil fromUrl:[user photoUrl]];
+        
+        // name
+        [self.mTxtName setText:user.name];
+        
+        // username
+        [self.mTxtUsername setText:user.username];
+        
+        // birthday
+        if (user.birthday) {
+            mDateBirthday = user.birthday;
+            [self.mLblBirthday setText:[PHDataHelper dateToString:user.birthday format:@"dd / MM / yyyy"]];
+        }
+        
+        // gender
+        mnGender = user.gender;
+        [self updateGenderLabel:user.gender];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -184,7 +216,6 @@
     [actionSheetPicker showActionSheetPicker];
 }
 
-
 /**
  called when date is selected from the picker
  @param selectedDate <#selectedDate description#>
@@ -199,6 +230,91 @@
     
     // change color
     [self.mLblBirthday setTextColor:[PHColorHelper colorTextBlack]];
+}
+
+/**
+ get image data from photo
+ @return <#return value description#>
+ */
+- (NSData *)getImageData {
+    // get photo image
+    UIImage *imgPhoto = [mviewPhotoCore getImage];
+    NSData *dataPhoto;
+    
+    // convert it to data
+    if (imgPhoto) {
+        dataPhoto = UIImageJPEGRepresentation(imgPhoto, 1.0f);
+    }
+    
+    return dataPhoto;
+}
+
+/**
+ back to prev page
+ @param sender sender description
+ */
+- (void)onButBack:(id)sender {
+    
+    UserData *user = [UserData currentUser];
+    
+    // sign up page, go back
+    if (!user) {
+        [super onButBack:sender];
+        return;
+    }
+    
+    // ------ Edit profile, save
+    
+    // check data validity
+    if (self.mTxtName.text.length == 0) {
+        [PHUiHelper showAlertView:self message:@"Input your name"];
+        return;
+    }
+    if (self.mTxtUsername.text.length == 0) {
+        [PHUiHelper showAlertView:self message:@"Input your username"];
+        return;
+    }
+    
+    // save profile
+    [[ApiManager sharedInstance] saveProfilewithUsername:self.mTxtUsername.text
+                                                    name:self.mTxtName.text
+                                                birthday:[PHDataHelper dateToString:mDateBirthday format:@"yyyy-MM-dd"]
+                                                  gender:mnGender
+                                                   photo:[self getImageData]
+                                                 success:^(id response)
+     {
+         // hide progress view
+         [SVProgressHUD dismiss];
+         
+         [user updateProfile:response];
+         [UserData setCurrentUser:user];
+         
+         [super onButBack:sender];
+     }
+                                                    fail:^(NSError *error, id response)
+     {
+         // hide progress view
+         [SVProgressHUD dismiss];
+         
+         // close keyboard
+         [self.view endEditing:YES];
+         
+         NSString *strDesc = [error localizedDescription];
+         
+         // sign up failed
+         if ([ApiManager getStatusCode:error] == PH_FAIL_STATE) {
+             if ([response isKindOfClass:[NSDictionary class]]) {
+                 NSArray *aryKey = [response allKeys];
+                 NSArray *aryValue = [response valueForKey:aryKey[0]];
+                 strDesc = aryValue[0];
+             }
+         }
+         
+         [PHUiHelper showAlertView:self title:@"Signup Failed" message:strDesc];
+     }];
+    
+    // show progress view
+    [SVProgressHUD show];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -230,7 +346,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *imgRes = [info objectForKey:UIImagePickerControllerEditedImage];
-    [mviewPhotoCore setImage:imgRes];
+    [mviewPhotoCore setImage:imgRes fromUrl:nil];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

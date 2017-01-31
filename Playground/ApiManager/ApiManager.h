@@ -84,4 +84,12 @@
            success:(void (^)(id response))sucess
               fail:(void (^)(NSError *error, id response))fail;
 
+- (void)saveProfilewithUsername:(NSString *)username
+                           name:(NSString *)name
+                       birthday:(NSString *)birthday
+                         gender:(NSInteger)gender
+                          photo:(NSData *)photo
+                        success:(void (^)(id response))sucess
+                           fail:(void (^)(NSError *error, id response))fail;
+
 @end

@@ -31,11 +31,6 @@
     
     // set font
     [self.mLblUsername setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeSemiLarge]]];
-    
-    // set content
-    UserData *currentUser = [UserData currentUser];
-    [self.mImgviewUser sd_setImageWithURL:[NSURL URLWithString:[currentUser photoUrl]]];
-    [self.mLblUsername setText:currentUser.name];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -49,6 +44,14 @@
     
     // init UI
     [PHUiHelper makeRounded:self.mImgviewUser];
+}
+
+- (void)fillContent:(id)data {
+    // set content
+    UserData *user = (UserData *)data;
+    
+    [self.mImgviewUser sd_setImageWithURL:[NSURL URLWithString:[user photoUrl]]];
+    [self.mLblUsername setText:user.name];
 }
 
 @end

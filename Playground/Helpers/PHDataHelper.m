@@ -37,6 +37,9 @@
  @return <#return value description#>
  */
 + (NSString *)dateToString:(NSDate *)value format:(NSString *)format {
+    if (!value) {
+        return nil;
+    }
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"GMT"];

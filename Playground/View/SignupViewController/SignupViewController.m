@@ -80,20 +80,6 @@
         return;
     }
     
-    // get photo image
-    UIImage *imgPhoto = [mviewPhotoCore getImage];
-    NSData *dataPhoto;
-    
-    // convert it to data
-    if (imgPhoto) {
-        dataPhoto = UIImageJPEGRepresentation(imgPhoto, 1.0f);
-    }
-    
-    NSString *strBirthday;
-    if (mDateBirthday) {
-        strBirthday = [PHDataHelper dateToString:mDateBirthday format:@"yyyy-MM-dd"];
-    }
-    
     //
     // call signup api
     //
@@ -101,9 +87,9 @@
                                                password:self.mTxtPasswd.text
                                                    name:self.mTxtName.text
                                                   email:self.mTxtEmail.text
-                                               birthday:strBirthday
+                                               birthday:[PHDataHelper dateToString:mDateBirthday format:@"yyyy-MM-dd"]
                                                  gender:mnGender
-                                                  photo:dataPhoto
+                                                  photo:[self getImageData]
                                                 success:^(id response)
     {
         // hide progress view

@@ -17,7 +17,7 @@
 
 - (void)setFrame:(CGRect)frame;
 - (UIImage *)getImage;
-- (void)setImage:(UIImage *)image;
+- (void)setImage:(UIImage *)image fromUrl:(NSString *)path;
 - (UIImagePickerController *)getImagePicker;
 
 @end

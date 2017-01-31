@@ -717,6 +717,7 @@
                         <outlet property="mTableView" destination="YHz-EN-TMK" id="fMF-7R-bvq"/>
                         <outlet property="mViewNavbar" destination="XrV-gx-1B3" id="RI7-G8-icB"/>
                         <segue destination="vVf-ce-7l0" kind="show" identifier="Profile2Auction" id="zlq-bU-10O"/>
+                        <segue destination="VbF-hZ-Ni3" kind="show" identifier="Profile2Bid" id="mc9-n2-j0y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIX-me-Lfu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3470,6 +3471,6 @@ EENoYXRUYWJsZUNlbGw
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uMz-Sr-awL"/>
-        <segue reference="co5-hl-50H"/>
+        <segue reference="mc9-n2-j0y"/>
     </inferredMetricsTieBreakers>
 </document>

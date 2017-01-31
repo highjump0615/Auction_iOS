@@ -21,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *mTxtUsername;
 
 - (void)initTextField:(UITextField *)textfield;
+- (NSData *)getImageData;
 
 @end

@@ -31,6 +31,10 @@
     // Configure the view for the selected state
 }
 
+- (void)setNoticeText:(NSString *)value {
+    [self.mLblNotice setText:value];
+}
+
 - (void)fillContent:(NSInteger)count {
     if (count > 0) {
         [self.mLblNotice setHidden:YES];

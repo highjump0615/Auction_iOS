@@ -26,6 +26,7 @@
 + (void)setCurrentUser:(UserData *)user;
 
 - (id)initWithDic:(NSDictionary *)data;
+- (void)updateProfile:(NSDictionary *)data;
 
 - (NSString *)photoUrl;
 

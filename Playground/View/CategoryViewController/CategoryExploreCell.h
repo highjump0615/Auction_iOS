@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *mCollectionView;
 
 - (void)fillContent:(NSInteger)count;
+- (void)setNoticeText:(NSString *)value;
 
 @end

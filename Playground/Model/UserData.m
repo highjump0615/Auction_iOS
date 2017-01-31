@@ -50,29 +50,39 @@
     
     if (self) {
         self.id = [[data valueForKey:@"id"] integerValue];
-        self.name = [data valueForKey:@"name"];
-        self.username = [data valueForKey:@"username"];
         self.email = [data valueForKey:@"email"];
-        self.photo = [data valueForKey:@"photo"];
         
-        // set date
-        NSString *strDate = [data valueForKey:@"birthday"];
-        if (strDate) {
-            self.birthday = [PHDataHelper stringToDate:strDate format:@"yyyy-MM-dd"];
-        }
+        [self updateProfile:data];
         
-        self.gender = [[data valueForKey:@"gender"] integerValue];
+        self.auctionItems = [[NSMutableArray alloc] init];
+        self.bidItems = [[NSMutableArray alloc] init];
     }
     
     return self;
+}
+
+- (void)updateProfile:(NSDictionary *)data {
+    self.name = [data valueForKey:@"name"];
+    self.username = [data valueForKey:@"username"];
+    self.photo = [data valueForKey:@"photo"];
+    
+    // set date
+    NSString *strDate = [data valueForKey:@"birthday"];
+    if (strDate) {
+        self.birthday = [PHDataHelper stringToDate:strDate format:@"yyyy-MM-dd"];
+    }
+    
+    self.gender = [[data valueForKey:@"gender"] integerValue];
 }
 
 + (void)setCurrentUser:(UserData *)user {
     CommonUtils *utils = [CommonUtils sharedObject];
     utils.mCurrentUser = user;
     
-    // save to NSUserDefault
-    [user saveToUserDefault];
+    if (user) {
+        // save to NSUserDefault
+        [user saveToUserDefault];
+    }
 }
 
 + (UserData *)currentUser {
