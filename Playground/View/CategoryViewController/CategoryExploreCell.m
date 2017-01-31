@@ -12,7 +12,6 @@
 
 @interface CategoryExploreCell()
 
-@property (weak, nonatomic) IBOutlet UICollectionView *mCollectionView;
 @property (weak, nonatomic) IBOutlet UILabel *mLblNotice;
 
 @end

@@ -10,6 +10,8 @@
 
 @interface CategoryExploreCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UICollectionView *mCollectionView;
+
 - (void)fillContent:(NSInteger)count;
 
 @end

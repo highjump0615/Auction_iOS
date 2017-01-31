@@ -10,6 +10,8 @@
 #import "PHUiHelper.h"
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UserData.h"
 
 @interface ProfileUserCell()
 
@@ -29,6 +31,11 @@
     
     // set font
     [self.mLblUsername setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeSemiLarge]]];
+    
+    // set content
+    UserData *currentUser = [UserData currentUser];
+    [self.mImgviewUser sd_setImageWithURL:[NSURL URLWithString:[currentUser photoUrl]]];
+    [self.mLblUsername setText:currentUser.name];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

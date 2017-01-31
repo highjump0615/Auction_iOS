@@ -38,6 +38,9 @@
 - (void)getUser:(void (^)(id response))sucess
            fail:(void (^)(NSError *error, id response))fail;
 
+- (void)getUserInfo:(void (^)(id response))sucess
+               fail:(void (^)(NSError *error, id response))fail;
+
 - (void)uploadItemWithTitle:(NSString *)title
                 description:(NSString *)desc
                    category:(NSInteger)category

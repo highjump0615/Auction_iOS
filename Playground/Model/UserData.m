@@ -10,6 +10,8 @@
 #import "CommonUtils.h"
 #import "PHDataHelper.h"
 #import "ApiManager.h"
+#import "ApiConfig.h"
+#import "ItemData.h"
 
 @implementation UserData
 
@@ -35,6 +37,9 @@
         self.photo = [decoder decodeObjectForKey:@"photo"];
         self.birthday = [decoder decodeObjectForKey:@"birthday"];
         self.gender = [[decoder decodeObjectForKey:@"gender"] integerValue];
+        
+        self.auctionItems = [[NSMutableArray alloc] init];
+        self.bidItems = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -96,6 +101,30 @@
     
     [defaults setObject:encodedObject forKey:kCurrentUser];
     [defaults synchronize];
+}
+
+- (NSString *)photoUrl {
+    return [NSString stringWithFormat:@"%@%@", PH_API_BASE_USER_FILE_URL, self.photo];
+}
+
+- (void)fetchAuctionItems:(NSArray *)aryDic {
+    // clear data
+    [self.auctionItems removeAllObjects];
+    
+    for (NSDictionary *dicItem in aryDic) {
+        ItemData *iData = [[ItemData alloc] initWithDic:dicItem];
+        [self.auctionItems addObject:iData];
+    }
+}
+
+- (void)fetchBidItems:(NSArray *)aryDic {
+    // clear data
+    [self.bidItems removeAllObjects];
+    
+    for (NSDictionary *dicItem in aryDic) {
+        ItemData *iData = [[ItemData alloc] initWithDic:dicItem];
+        [self.bidItems addObject:iData];
+    }
 }
 
 @end

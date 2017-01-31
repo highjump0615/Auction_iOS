@@ -27,5 +27,6 @@
 
 - (id)initWithDic:(NSDictionary *)data;
 - (NSString *)remainTime;
+- (NSString *)remainTimeLong;
 
 @end

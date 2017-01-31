@@ -17,9 +17,19 @@
 @property (nonatomic, retain) NSDate *birthday;
 @property (nonatomic) NSInteger gender;
 
+// other fields
+@property (nonatomic, retain) NSMutableArray *auctionItems;
+@property (nonatomic, retain) NSMutableArray *bidItems;
+
+
 + (UserData *)currentUser;
 + (void)setCurrentUser:(UserData *)user;
 
 - (id)initWithDic:(NSDictionary *)data;
+
+- (NSString *)photoUrl;
+
+- (void)fetchAuctionItems:(NSArray *)aryDic;
+- (void)fetchBidItems:(NSArray *)aryDic;
 
 @end

@@ -48,5 +48,11 @@
     return strTime;
 }
 
+- (NSString *)remainTimeLong {
+    NSString *strTime = [NSString stringWithFormat:@"%ldD %02ldH %ldM", self.minuteRemain / 60 / 24, self.minuteRemain / 60 % 24, self.minuteRemain % 60];
+    return strTime;
+}
+
+
 
 @end

@@ -81,6 +81,7 @@
     mItem = (ItemData *)item;
     
     [self.mImgviewPhoto sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", PH_API_BASE_ITEM_FILE_URL, mItem.coverImage]]];
+    [self.mButTime setTitle:[mItem remainTime] forState:UIControlStateNormal];
 }
 
 @end

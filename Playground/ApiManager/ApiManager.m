@@ -126,6 +126,17 @@
                                                    fail:fail];
 }
 
+- (void)getUserInfo:(void (^)(id response))sucess
+               fail:(void (^)(NSError *error, id response))fail {
+    // url
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@", PH_API_BASE_URL, PH_API_GETUSERINFO];
+    
+    [[ApiClientCore sharedInstance] sendToServiceByGet:strUrl
+                                                params:nil
+                                               success:sucess
+                                                  fail:fail];
+}
+
 - (void)uploadItemWithTitle:(NSString *)title
                 description:(NSString *)desc
                    category:(NSInteger)category

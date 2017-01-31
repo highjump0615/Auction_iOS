@@ -120,7 +120,7 @@
     [mViewRateCore setRate:item.condition];
     
     // time remaining
-    [mViewTimeoutCore setValueText:[item remainTime]];
+    [mViewTimeoutCore setValueText:[item remainTimeLong]];
     
     // price
     [mViewAuctionCore setValueText:[NSString stringWithFormat:@"$%ld", item.price]];
