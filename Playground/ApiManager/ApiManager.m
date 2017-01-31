@@ -181,7 +181,7 @@
     [dictParam setObject:[NSNumber numberWithInteger:category] forKey:@"category"];
     [dictParam setObject:price forKey:@"price"];
     [dictParam setObject:[NSNumber numberWithInteger:condition] forKey:@"condition"];
-    [dictParam setObject:[NSNumber numberWithInteger:condition] forKey:@"period"];
+    [dictParam setObject:[NSNumber numberWithInteger:period] forKey:@"period"];
     
     // media param
     NSMutableArray *aryMedia = [[NSMutableArray alloc] init];
