@@ -155,6 +155,7 @@
     // check validity
     if (self.mTextBid.text.length == 0) {
         [PHUiHelper showAlertView:self message:@"Input your price"];
+        return;
     }
     
     NSInteger nPrice = [self.mTextBid.text integerValue];
@@ -170,14 +171,16 @@
                                               item:mItem.id
                                            success:^(id response)
      {
+         UserData *user = [UserData currentUser];
+         
          // hide progress view
          [SVProgressHUD dismiss];
          
          // update max bid price
          mItem.maxBid = nPrice;
+         mItem.maxBidUser = user.id;
          
          // add item to user's bid items
-         UserData *user = [UserData currentUser];
          [user.bidItems addObject:mItem];
 
          // back to prev page

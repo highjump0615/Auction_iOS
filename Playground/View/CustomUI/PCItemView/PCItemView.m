@@ -94,7 +94,7 @@
         [self.mImgViewBg setImage:[UIImage imageNamed:@"yellow_bg"]];
     }
     // 2. purple if bid is over
-    else if (mItem.minuteRemain <= 0) {
+    else if ([mItem getRemainMinutes] <= 0) {
         [self.mImgViewBg setImage:[UIImage imageNamed:@"purple_bg"]];
     }
     // 3. blue if current user is in highest bid

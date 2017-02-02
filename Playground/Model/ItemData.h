@@ -19,6 +19,7 @@
 
 @property (nonatomic, retain) NSString *coverImage;
 @property (nonatomic, retain) NSArray *imagePreview;
+@property (nonatomic, retain) NSDate *dateEnd;
 
 // other fields
 @property (nonatomic, retain) NSString *username;
@@ -29,5 +30,7 @@
 - (id)initWithDic:(NSDictionary *)data;
 - (NSString *)remainTime;
 - (NSString *)remainTimeLong;
+
+- (NSInteger)getRemainMinutes;
 
 @end

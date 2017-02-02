@@ -30,6 +30,7 @@
     NSInteger mnSelectedComment;
     
     NSMutableArray *maryComment;
+    NSTimer *mTimerItem;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableview;
@@ -122,6 +123,26 @@
 - (void)viewDidAppear:(BOOL)animated {
     // refresh table for update
     [self.mTableview reloadData];
+    
+    //
+    // timer for updating timeout
+    //
+    mTimerItem = [NSTimer scheduledTimerWithTimeInterval:30
+                                                  target:self
+                                                selector:@selector(updateItem:)
+                                                userInfo:nil
+                                                 repeats:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    // stop timer
+    [mTimerItem invalidate];
+}
+
+- (void)updateItem:(id)sender {
+    [self.mTableview reloadData];
+    
+    NSLog(@"updating item in bid view");
 }
 
 #pragma mark - Navigation

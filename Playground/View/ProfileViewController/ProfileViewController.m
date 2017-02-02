@@ -28,6 +28,7 @@
     UICollectionView *mCVbid;
     
     ItemData *mItemSelected;
+    NSTimer *mTimerItem;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
@@ -65,7 +66,28 @@
     
     // refresh table
     [self.mTableView reloadData];
+    
+    //
+    // timer for updating timeout
+    //
+    mTimerItem = [NSTimer scheduledTimerWithTimeInterval:30
+                                                  target:self
+                                                selector:@selector(updateItem:)
+                                                userInfo:nil
+                                                 repeats:YES];
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    // stop timer
+    [mTimerItem invalidate];
+}
+
+- (void)updateItem:(id)sender {
+    [self.mTableView reloadData];
+    
+    NSLog(@"updating item in profile view");
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -9,6 +9,12 @@
 #import "ItemData.h"
 #import "PHDataHelper.h"
 
+@interface ItemData() {
+    NSInteger mnMinOffset;
+}
+
+@end
+
 @implementation ItemData
 
 - (id)initWithDic:(NSDictionary *)data {
@@ -37,9 +43,15 @@
         }
         self.imagePreview = aryImage;
         
+        // end date
+        self.dateEnd = [PHDataHelper stringToDate:[data valueForKey:@"end_at"] format:@"yyyy-MM-dd HH:mm:ss"];
+        
         // set other fields
         self.username = [data valueForKey:@"username"];
         self.minuteRemain = [[data valueForKey:@"minute_remain"] integerValue];
+        
+        // save minute offset, local time is not correct
+        mnMinOffset = [self getRemainMinutes] - self.minuteRemain;
         
         // max bid
         NSDictionary *dicMaxBid = [data valueForKey:@"maxbid"];
@@ -52,16 +64,29 @@
     return self;
 }
 
+- (NSInteger)getRemainMinutes {
+    // get current date
+    NSDate *dateToday = [NSDate date];
+    NSTimeInterval diff = [self.dateEnd timeIntervalSinceDate:dateToday];
+    
+    return floor(diff / 60) - mnMinOffset;
+}
+
 - (NSString *)remainTime {
-    NSString *strTime = [NSString stringWithFormat:@"%ld:%02ld", (long)self.minuteRemain / 60, (long)self.minuteRemain % 60];
+
+    NSInteger nMinDiff = MAX([self getRemainMinutes], 0);
+    NSString *strTime = [NSString stringWithFormat:@"%02ld:%02ld", (long)nMinDiff / 60, (long)nMinDiff % 60];
+    
     return strTime;
 }
 
 - (NSString *)remainTimeLong {
-    NSString *strTime = [NSString stringWithFormat:@"%ldD %02ldH %ldM",
-                         (long)self.minuteRemain / 60 / 24,
-                         (long)self.minuteRemain / 60 % 24,
-                         (long)self.minuteRemain % 60];
+    NSInteger nMinDiff = MAX([self getRemainMinutes], 0);
+    
+    NSString *strTime = [NSString stringWithFormat:@"%ldD %02ldH %02ldM",
+                         (long)nMinDiff / 60 / 24,
+                         (long)nMinDiff / 60 % 24,
+                         (long)nMinDiff % 60];
     return strTime;
 }
 
