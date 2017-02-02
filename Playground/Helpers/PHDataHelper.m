@@ -50,5 +50,9 @@
     return [formatter stringFromDate:value];
 }
 
++ (BOOL)isObjectNull:(NSObject *)object {
+    return !object || [object isKindOfClass:[NSNull class]];
+}
+
 
 @end

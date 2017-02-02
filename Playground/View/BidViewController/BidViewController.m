@@ -69,18 +69,18 @@
     // input text field
     [PHTextHelper initTextRegular:self.mTextInput];
     
-    //
-    // call get max bid api
-    //
-    [[ApiManager sharedInstance] getMaxBidOnItem:((ItemData *)self.mItemData).id
-                                    success:^(id response)
-     {
-         ((ItemData *)self.mItemData).maxBid = [[response objectForKey:@"value"] integerValue];
-         
-         // refresh table
-         [self.mTableview reloadData];
-     }
-                                       fail:nil];
+//    //
+//    // call get max bid api
+//    //
+//    [[ApiManager sharedInstance] getMaxBidOnItem:((ItemData *)self.mItemData).id
+//                                    success:^(id response)
+//     {
+//         ((ItemData *)self.mItemData).maxBid = [[response objectForKey:@"value"] integerValue];
+//         
+//         // refresh table
+//         [self.mTableview reloadData];
+//     }
+//                                       fail:nil];
     
     //
     // call get comment api

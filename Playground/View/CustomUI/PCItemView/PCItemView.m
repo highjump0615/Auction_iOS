@@ -12,6 +12,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ItemData.h"
 #import "ApiConfig.h"
+#import "UserData.h"
 
 @interface PCItemView() {
     ItemData *mItem;
@@ -82,6 +83,28 @@
     
     [self.mImgviewPhoto sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", PH_API_BASE_ITEM_FILE_URL, mItem.coverImage]]];
     [self.mButTime setTitle:[mItem remainTime] forState:UIControlStateNormal];
+    
+    //
+    // set border color
+    //
+    UserData *user = [UserData currentUser];
+    
+    // 1. yellow if its current user's
+    if ([mItem.username isEqualToString:user.username]) {
+        [self.mImgViewBg setImage:[UIImage imageNamed:@"yellow_bg"]];
+    }
+    // 2. purple if bid is over
+    else if (mItem.minuteRemain <= 0) {
+        [self.mImgViewBg setImage:[UIImage imageNamed:@"purple_bg"]];
+    }
+    // 3. blue if current user is in highest bid
+    else if (mItem.maxBidUser == user.id) {
+        [self.mImgViewBg setImage:[UIImage imageNamed:@"blue_bg"]];
+    }
+    // 4. red in other cases
+    else {
+        [self.mImgViewBg setImage:[UIImage imageNamed:@"red_bg"]];
+    }
 }
 
 @end

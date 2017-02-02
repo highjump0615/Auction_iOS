@@ -7,6 +7,7 @@
 //
 
 #import "ItemData.h"
+#import "PHDataHelper.h"
 
 @implementation ItemData
 
@@ -29,8 +30,8 @@
         NSMutableArray *aryImage = [[NSMutableArray alloc] init];
         for (int i = 1; i <= 3; i++) {
             NSString *strImage = [data valueForKey:[NSString stringWithFormat:@"image%d", i]];
-            // nil or NSNull
-            if (strImage && ![strImage isKindOfClass:[NSNull class]]) {
+
+            if (![PHDataHelper isObjectNull:strImage]) {
                 [aryImage addObject:strImage];
             }
         }
@@ -39,6 +40,13 @@
         // set other fields
         self.username = [data valueForKey:@"username"];
         self.minuteRemain = [[data valueForKey:@"minute_remain"] integerValue];
+        
+        // max bid
+        NSDictionary *dicMaxBid = [data valueForKey:@"maxbid"];
+        if (![PHDataHelper isObjectNull:dicMaxBid]) {
+            self.maxBid = [[dicMaxBid valueForKey:@"price"] integerValue];
+            self.maxBidUser = [[dicMaxBid valueForKey:@"user_id"] integerValue];
+        }
     }
     
     return self;

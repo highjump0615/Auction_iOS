@@ -261,17 +261,17 @@
                                                    fail:fail];
 }
 
-- (void)getMaxBidOnItem:(NSInteger)itemId
-                success:(void (^)(id response))sucess
-                   fail:(void (^)(NSError *error, id response))fail {
-    // url
-    NSString *strUrl = [NSString stringWithFormat:@"%@%@/%ld", PH_API_BASE_URL, PH_API_GETMAXBID, (long)itemId];
-    
-    [[ApiClientCore sharedInstance] sendToServiceByGet:strUrl
-                                                params:nil
-                                               success:sucess
-                                                  fail:fail];
-}
+//- (void)getMaxBidOnItem:(NSInteger)itemId
+//                success:(void (^)(id response))sucess
+//                   fail:(void (^)(NSError *error, id response))fail {
+//    // url
+//    NSString *strUrl = [NSString stringWithFormat:@"%@%@/%ld", PH_API_BASE_URL, PH_API_GETMAXBID, (long)itemId];
+//    
+//    [[ApiClientCore sharedInstance] sendToServiceByGet:strUrl
+//                                                params:nil
+//                                               success:sucess
+//                                                  fail:fail];
+//}
 
 - (void)getComment:(NSInteger)itemId
            success:(void (^)(id response))sucess
