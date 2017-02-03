@@ -48,10 +48,7 @@
     // font
     [self.mLblItemname setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     [self.mLblUsername setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeSmall]]];
-    
-    // bid button
     [self.mButBid.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeMedium]]];
-    [PHUiHelper makeRounded:self.mButBid];
     
     //
     // tab buttons
@@ -125,6 +122,13 @@
         [self.mButBid setEnabled:NO];
     }
 
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    // bid button    
+    [PHUiHelper makeRounded:self.mButBid];
 }
 
 

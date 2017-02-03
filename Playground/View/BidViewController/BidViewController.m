@@ -62,7 +62,6 @@
     
     // font
     [self.mButComment.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
-    [PHUiHelper makeRounded:self.mButComment];
     
     // keyboard event
     [self enableKeyboardNotification];
@@ -113,6 +112,12 @@
          [self.mTableview reloadData];
      }
                                        fail:nil];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    [PHUiHelper makeRounded:self.mButComment];
 }
 
 - (void)didReceiveMemoryWarning {

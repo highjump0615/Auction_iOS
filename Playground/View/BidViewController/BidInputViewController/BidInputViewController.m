@@ -56,9 +56,6 @@
     [self.mLblUsername setFont:[PHTextHelper myriadProRegular:10]];
     [self.mLblLimit setFont:[PHTextHelper myriadProRegular:10]];
     
-    // bid button
-    [PHUiHelper makeRounded:self.mButBid];
-    
     // keyboard event
     [self enableKeyboardNotification];
     
@@ -69,7 +66,6 @@
     
     [self.mTextBid.layer setBorderColor:[PHColorHelper colorTextBlack].CGColor];
     [self.mTextBid.layer setBorderWidth:1.0];
-    [PHUiHelper makeRounded:self.mTextBid];
     
     // add item view
     mViewItemCore = [PCItemView getView];
@@ -129,6 +125,12 @@
     [self.mLblLimit setText:[NSString stringWithFormat:@"Your bid must be higher than $%ld", (long)[mItem getMaxBidPrice]]];
 }
 
+- (void)viewDidLayoutSubviews {
+    // bid button
+    [PHUiHelper makeRounded:self.mButBid];
+    [PHUiHelper makeRounded:self.mTextBid];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [self.mTextBid becomeFirstResponder];
 }
@@ -181,6 +183,9 @@
          BidData *newBid = [[BidData alloc] init];
          newBid.price = nPrice;
          newBid.userId = user.id;
+         
+         // insert bid object to the first position
+         [mItem.bids insertObject:newBid atIndex:0];
          
          // add item to user's bid items
          [user.bidItems addObject:mItem];
