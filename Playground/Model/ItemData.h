@@ -31,8 +31,12 @@
 - (NSString *)remainTimeLong;
 
 - (NSInteger)getRemainMinutes;
+- (NSString *)getCoverImageUrl;
 
 - (NSInteger)getMaxBidUser;
 - (NSInteger)getMaxBidPrice;
+
+- (BOOL)availableToBid;
+- (NSInteger)getUserRank:(id)userInfo;
 
 @end

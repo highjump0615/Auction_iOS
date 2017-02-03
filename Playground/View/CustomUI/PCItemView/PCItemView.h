@@ -14,5 +14,6 @@
 - (void)showTimeLimit:(BOOL)show;
 
 - (void)setItemData:(id)item;
+- (void)setUserData:(id)user item:(id)item;
 
 @end

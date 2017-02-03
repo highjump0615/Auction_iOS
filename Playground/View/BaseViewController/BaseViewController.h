@@ -12,7 +12,10 @@
 
 // navbar
 - (void)showSearch:(BOOL)showSearch showBack:(BOOL)showBack;
+
 - (void)showTitle:(BOOL)show;
+- (void)setTitle:(NSString *)value;
+
 - (void)setSearchDelegate:(UIViewController<UITextFieldDelegate> *)controller;
 - (NSString *)getSearchString;
 - (void)setSearchString:(NSString *)value;

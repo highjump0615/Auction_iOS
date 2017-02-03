@@ -10,4 +10,6 @@
 
 @interface AuctionViewController : BaseViewController
 
+@property (weak, nonatomic) id mItemData;
+
 @end

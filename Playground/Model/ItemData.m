@@ -9,6 +9,8 @@
 #import "ItemData.h"
 #import "PHDataHelper.h"
 #import "BidData.h"
+#import "UserData.h"
+#import "ApiConfig.h"
 
 @interface ItemData() {
     NSInteger mnMinOffset;
@@ -122,6 +124,37 @@
     return nPrice;
 }
 
+- (BOOL)availableToBid {
+    return [self getRemainMinutes] > 0;
+}
 
+/**
+ get user bid rank
+ @param userInfo UserData
+ @return -1: not in top 3, 0~2: rank
+ */
+- (NSInteger)getUserRank:(id)userInfo {
+    NSInteger nRank = -1;
+    UserData *user = (UserData *)userInfo;
+    
+    for (NSInteger i = 0; i < self.bids.count; i++) {
+        BidData *bData = [self.bids objectAtIndex:i];
+        
+        if (bData.userId == user.id) {
+            nRank = i;
+            break;
+        }
+    }
+    
+    return nRank;
+}
+
+/**
+ get url of cover image
+ @return <#return value description#>
+ */
+- (NSString *)getCoverImageUrl {
+    return [NSString stringWithFormat:@"%@%@", PH_API_BASE_ITEM_FILE_URL, self.coverImage];
+}
 
 @end

@@ -81,7 +81,7 @@
 - (void)setItemData:(id)item {
     mItem = (ItemData *)item;
     
-    [self.mImgviewPhoto sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", PH_API_BASE_ITEM_FILE_URL, mItem.coverImage]]];
+    [self.mImgviewPhoto sd_setImageWithURL:[NSURL URLWithString:[mItem getCoverImageUrl]]];
     [self.mButTime setTitle:[mItem remainTime] forState:UIControlStateNormal];
     
     //
@@ -106,5 +106,26 @@
         [self.mImgViewBg setImage:[UIImage imageNamed:@"red_bg"]];
     }
 }
+
+- (void)setUserData:(id)user item:(id)item {
+    UserData *uData = (UserData *)user;
+    ItemData *iData = (ItemData *)item;
+    
+    [self.mImgviewPhoto sd_setImageWithURL:[NSURL URLWithString:[uData photoUrl]]];
+    
+    //
+    // set border color
+    //
+    
+    // 1. blue if current user is in highest bid
+    if ([iData getMaxBidUser] == uData.id) {
+        [self.mImgViewBg setImage:[UIImage imageNamed:@"blue_bg"]];
+    }
+    // 2. red in other cases
+    else {
+        [self.mImgViewBg setImage:[UIImage imageNamed:@"red_bg"]];
+    }
+}
+
 
 @end

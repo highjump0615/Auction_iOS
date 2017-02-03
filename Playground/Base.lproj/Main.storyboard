@@ -713,15 +713,27 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQZ-zy-3TG">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="250" id="xFH-qH-Nlc"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NCq-us-UDC" userLabel="GapView">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="250" id="zaf-dG-quS"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s9P-zs-UZt">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="250" id="qcw-Nv-W9O"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOP-aQ-vzM" userLabel="GapView">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="250" id="KH7-rC-SyB"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8SH-O3-dib">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -782,9 +794,9 @@
                             <constraint firstItem="pAd-CW-tZR" firstAttribute="top" secondItem="sVA-0o-vWI" secondAttribute="bottom" constant="20" id="HpO-pk-pqP"/>
                             <constraint firstItem="8SH-O3-dib" firstAttribute="leading" secondItem="5c1-4f-LAa" secondAttribute="leading" constant="15" id="JW1-Mb-DiK"/>
                             <constraint firstItem="s9P-zs-UZt" firstAttribute="centerY" secondItem="pAd-CW-tZR" secondAttribute="centerY" id="JgO-YK-vd3"/>
-                            <constraint firstItem="NCq-us-UDC" firstAttribute="width" secondItem="4Ys-nJ-mc5" secondAttribute="width" id="Jr0-Ff-7LN"/>
+                            <constraint firstItem="NCq-us-UDC" firstAttribute="width" secondItem="4Ys-nJ-mc5" secondAttribute="width" priority="750" id="Jr0-Ff-7LN"/>
                             <constraint firstItem="29X-OA-RPz" firstAttribute="height" secondItem="3Wg-Ve-gBJ" secondAttribute="height" id="LTn-ST-96A"/>
-                            <constraint firstItem="AQZ-zy-3TG" firstAttribute="width" secondItem="pAd-CW-tZR" secondAttribute="width" id="M6u-Xw-bvF"/>
+                            <constraint firstItem="AQZ-zy-3TG" firstAttribute="width" secondItem="pAd-CW-tZR" secondAttribute="width" priority="750" id="M6u-Xw-bvF"/>
                             <constraint firstItem="s9P-zs-UZt" firstAttribute="height" secondItem="pAd-CW-tZR" secondAttribute="height" id="MMS-M3-d0h"/>
                             <constraint firstItem="3Wg-Ve-gBJ" firstAttribute="leading" secondItem="5c1-4f-LAa" secondAttribute="leading" constant="16" id="Mn8-Rc-IQY"/>
                             <constraint firstItem="wOP-aQ-vzM" firstAttribute="centerY" secondItem="4Ys-nJ-mc5" secondAttribute="centerY" id="NkU-DI-9Jn"/>
@@ -832,7 +844,12 @@
                         <outlet property="mCstMarginBottom" destination="p62-lA-AXI" id="QL9-zm-TQl"/>
                         <outlet property="mCstMarginTop" destination="HpO-pk-pqP" id="dMF-gA-Y5u"/>
                         <outlet property="mCstPriceHeight" destination="qKP-mA-VUe" id="3YE-je-Rej"/>
+                        <outlet property="mCstSpacing1" destination="zaf-dG-quS" id="VvJ-Lr-a1g"/>
+                        <outlet property="mCstSpacing2" destination="KH7-rC-SyB" id="pPo-5E-wcw"/>
                         <outlet property="mCstTimeHeight" destination="sl0-eA-wxm" id="VEG-lT-W27"/>
+                        <outlet property="mCstUserHeight" destination="QSg-dt-Jel" id="Cq1-bv-Yam"/>
+                        <outlet property="mCstWidth1" destination="xFH-qH-Nlc" id="Axl-HY-ayS"/>
+                        <outlet property="mCstWidth2" destination="qcw-Nv-W9O" id="Bvt-65-sCm"/>
                         <outlet property="mImgviewItem" destination="qMm-41-ne8" id="gAN-mM-4lF"/>
                         <outlet property="mLblItemname" destination="sVA-0o-vWI" id="Qxp-JQ-rl5"/>
                         <outlet property="mViewAuction" destination="T6n-r7-nB4" id="rNW-HZ-fVZ"/>
@@ -1897,7 +1914,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jEc-Vm-6Tk" id="3aM-pO-6Eh">
-                                            <frame key="frameInset" width="320" height="44"/>
+                                            <frame key="frameInset" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Him" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dru-Ws-Lfu">
@@ -2825,7 +2842,7 @@ EENoYXRUYWJsZUNlbGw
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="8OU-d1-nx7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pDi-f2-sFG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pDi-f2-sFG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3165,7 +3182,7 @@ EENoYXRUYWJsZUNlbGw
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kt7-VT-3e6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kt7-VT-3e6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3186,7 +3203,7 @@ EENoYXRUYWJsZUNlbGw
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3SY-4z-NJA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3SY-4z-NJA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -15,10 +15,14 @@
 #import "PHUiHelper.h"
 #import "PCAlertDialog.h"
 
+#import <SDWebImage/UIImageView+WebCache.h>
+
+#import "UserData.h"
+#import "ItemData.h"
+
+
 @interface AuctionViewController () {
-    PCItemView *mViewItemCore1;
-    PCItemView *mViewItemCore2;
-    PCItemView *mViewItemCore3;
+    NSMutableArray *maryViewItemCore;
     
     PCNoticeTimeout *mViewTimeoutCore;
     PCNoticePrice *mViewAuctionCore;
@@ -49,15 +53,19 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstTimeHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstPriceHeight;
 
+// constraint for showing 1, 2 or 3 users
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstUserHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstWidth1;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstSpacing1;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstWidth2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCstSpacing2;
+
 @end
 
 @implementation AuctionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // nav bar
-    [self showNavbarCongrat:YES];
     
     // item view
     [self.mImgviewItem.layer setBorderWidth:0.5f];
@@ -72,17 +80,22 @@
     //
     // add user view
     //
-    mViewItemCore1 = [PCItemView getView];
-    mViewItemCore1.frame = self.mViewItem1.bounds;
-    [self.mViewItem1 addSubview:mViewItemCore1];
+    maryViewItemCore = [[NSMutableArray alloc] init];
     
-    mViewItemCore2 = [PCItemView getView];
-    mViewItemCore2.frame = self.mViewItem2.bounds;
-    [self.mViewItem2 addSubview:mViewItemCore2];
+    PCItemView *viewItemCore = [PCItemView getView];
+    viewItemCore.frame = self.mViewItem1.bounds;
+    [self.mViewItem1 addSubview:viewItemCore];
+    [maryViewItemCore addObject:viewItemCore];
     
-    mViewItemCore3 = [PCItemView getView];
-    mViewItemCore3.frame = self.mViewItem3.bounds;
-    [self.mViewItem3 addSubview:mViewItemCore3];
+    viewItemCore = [PCItemView getView];
+    viewItemCore.frame = self.mViewItem2.bounds;
+    [self.mViewItem2 addSubview:viewItemCore];
+    [maryViewItemCore addObject:viewItemCore];
+    
+    viewItemCore = [PCItemView getView];
+    viewItemCore.frame = self.mViewItem3.bounds;
+    [self.mViewItem3 addSubview:viewItemCore];
+    [maryViewItemCore addObject:viewItemCore];
     
     //
     // add timeout view
@@ -115,13 +128,6 @@
     // give up button
     [self.mButGiveup.layer setBorderWidth:1.0];
     [self.mButGiveup.layer setBorderColor:[PHColorHelper colorTextBlack].CGColor];
-    [PHUiHelper makeRounded:self.mButGiveup];
-    
-    // contact button
-    [PHUiHelper makeRounded:self.mButContact];
-    
-    // delete button
-    [PHUiHelper makeRounded:self.mButDelete];
     
     // different dimension on 4 inch
     if ([PHUiHelper deviceType] == PHDevice_iPhone5) {
@@ -137,11 +143,80 @@
         [self.mCstItemWidth setConstant:89];
         [self.mCstItemHeight setConstant:89];
     }
+    
+    //
+    // set contents
+    //
+    UserData *user = [UserData currentUser];
+    ItemData *item = (ItemData *)self.mItemData;
+    
+    // nav bar
+    if ([item getUserRank:user] >= 0) {
+        // top 3, congratulations
+        [self showNavbarCongrat:YES];
+    }
+    else {
+        // auction closed
+        [self setTitle:@"Auction Closed"];
+        [self showTitle:YES];
+    }
+    
+    // item data
+    [self.mImgviewItem sd_setImageWithURL:[NSURL URLWithString:[item getCoverImageUrl]]];
+    [self.mLblItemname setText:item.title];
+    
+    // top bid users
+    for (int i = 0; i < item.bids.count; i++) {
+        PCItemView *userView = [maryViewItemCore objectAtIndex:i];
+        [userView setUserData:user item:item];
+    }
+    
+    // hide users if bidders are less than 3
+    if (item.bids.count < 3) {
+        [self.mCstWidth2 setPriority:UILayoutPriorityRequired];
+        [self.mCstSpacing2 setPriority:UILayoutPriorityRequired];
+        [maryViewItemCore[2] setHidden:YES];
+    }
+    if (item.bids.count < 2) {
+        [self.mCstWidth1 setPriority:UILayoutPriorityRequired];
+        [self.mCstSpacing1 setPriority:UILayoutPriorityRequired];
+        [maryViewItemCore[1] setHidden:YES];
+    }
+    if (item.bids.count < 1) {
+        [self.mCstUserHeight setConstant:0];
+        [maryViewItemCore[0] setHidden:YES];
+    }
+    
+    // timeout & price
+    if ([item getUserRank:user] < 0) {
+        // not in top 3, hide timeout view
+        [self.mCstTimeHeight setConstant:0];
+        [self.mViewTimeout setHidden:YES];
+    }
+
+    [mViewAuctionCore setValueText:[NSString stringWithFormat:@"$%ld", (long)item.price]];
+    [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", (long)[item getMaxBidPrice]]];
+    
+    // buttons
+    if ([item getUserRank:user] != 0) {
+        // not top 1, delete only
+        [self.mButDelete setHidden:NO];
+        [self.mButGiveup setHidden:YES];
+        [self.mButContact setHidden:YES];
+    }
 }
 
 - (void)viewDidLayoutSubviews {
     // make item view round after layout is determined
     [PHUiHelper makeRounded:self.mImgviewItem];
+    
+    [PHUiHelper makeRounded:self.mButGiveup];
+    
+    // contact button
+    [PHUiHelper makeRounded:self.mButContact];
+    
+    // delete button
+    [PHUiHelper makeRounded:self.mButDelete];
 }
 
 - (void)didReceiveMemoryWarning {
