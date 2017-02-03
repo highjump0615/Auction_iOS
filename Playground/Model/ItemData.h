@@ -24,13 +24,15 @@
 // other fields
 @property (nonatomic, retain) NSString *username;
 @property (nonatomic) NSInteger minuteRemain;
-@property (nonatomic) NSInteger maxBid;
-@property (nonatomic) NSInteger maxBidUser;
+@property (nonatomic, retain) NSMutableArray *bids;
 
 - (id)initWithDic:(NSDictionary *)data;
 - (NSString *)remainTime;
 - (NSString *)remainTimeLong;
 
 - (NSInteger)getRemainMinutes;
+
+- (NSInteger)getMaxBidUser;
+- (NSInteger)getMaxBidPrice;
 
 @end

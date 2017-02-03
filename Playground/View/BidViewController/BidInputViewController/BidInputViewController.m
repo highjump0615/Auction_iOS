@@ -16,6 +16,7 @@
 #import "ApiManager.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "UserData.h"
+#import "BidData.h"
 
 @interface BidInputViewController () {
     PCItemView *mViewItemCore;
@@ -122,10 +123,10 @@
     [mViewAuctionCore setValueText:[NSString stringWithFormat:@"$%ld", (long)mItem.price]];
     
     // bid price
-    [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", (long)mItem.maxBid]];
+    [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", (long)[mItem getMaxBidPrice]]];
     
     // label limit
-    [self.mLblLimit setText:[NSString stringWithFormat:@"Your bid must be higher than $%ld", (long)mItem.maxBid]];
+    [self.mLblLimit setText:[NSString stringWithFormat:@"Your bid must be higher than $%ld", (long)[mItem getMaxBidPrice]]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -159,7 +160,7 @@
     }
     
     NSInteger nPrice = [self.mTextBid.text integerValue];
-    if (nPrice < mItem.maxBid) {
+    if (nPrice < [mItem getMaxBidPrice]) {
         [PHUiHelper showAlertView:self message:@"Your price is not enough"];
         return;
     }
@@ -177,8 +178,9 @@
          [SVProgressHUD dismiss];
          
          // update max bid price
-         mItem.maxBid = nPrice;
-         mItem.maxBidUser = user.id;
+         BidData *newBid = [[BidData alloc] init];
+         newBid.price = nPrice;
+         newBid.userId = user.id;
          
          // add item to user's bid items
          [user.bidItems addObject:mItem];

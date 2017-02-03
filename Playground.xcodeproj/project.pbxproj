@@ -106,6 +106,7 @@
 		63507DC31E36906A0076D66A /* orange_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63507DC01E36906A0076D66A /* orange_bg@2x.png */; };
 		63507DC41E36906A0076D66A /* orange_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63507DC11E36906A0076D66A /* orange_bg@3x.png */; };
 		6356D8141E326CE000DCFF36 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6356D8131E326CE000DCFF36 /* MobileCoreServices.framework */; };
+		635C8AAF1E43E96C00658C6B /* BidData.m in Sources */ = {isa = PBXBuildFile; fileRef = 635C8AAE1E43E96C00658C6B /* BidData.m */; };
 		63608A491E2B3FBB001D0853 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63608A481E2B3FBB001D0853 /* ProfileViewController.m */; };
 		63608A4E1E2B4284001D0853 /* profile_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 63608A4B1E2B4284001D0853 /* profile_mail.png */; };
 		63608A4F1E2B4284001D0853 /* profile_mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63608A4C1E2B4284001D0853 /* profile_mail@2x.png */; };
@@ -349,6 +350,8 @@
 		63507DC01E36906A0076D66A /* orange_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange_bg@2x.png"; sourceTree = "<group>"; };
 		63507DC11E36906A0076D66A /* orange_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange_bg@3x.png"; sourceTree = "<group>"; };
 		6356D8131E326CE000DCFF36 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		635C8AAD1E43E96C00658C6B /* BidData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidData.h; sourceTree = "<group>"; };
+		635C8AAE1E43E96C00658C6B /* BidData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidData.m; sourceTree = "<group>"; };
 		635FEB2225CFBD8B92E1EC66 /* Pods_PlaygroundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlaygroundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63608A471E2B3FBB001D0853 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		63608A481E2B3FBB001D0853 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
@@ -748,6 +751,8 @@
 				63BFE8551E3E5DFD00442351 /* ItemData.m */,
 				63BFE8571E3F0BA500442351 /* CommentData.h */,
 				63BFE8581E3F0BA500442351 /* CommentData.m */,
+				635C8AAD1E43E96C00658C6B /* BidData.h */,
+				635C8AAE1E43E96C00658C6B /* BidData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1726,6 +1731,7 @@
 				C3D6D8CB1E27089300019747 /* LandingViewController.m in Sources */,
 				63AC61A11E2D471400F0E79D /* BidCommentCell.m in Sources */,
 				630731D21E2CBF2900A15A20 /* BidPhotoCell.m in Sources */,
+				635C8AAF1E43E96C00658C6B /* BidData.m in Sources */,
 				63F1C8121E2B85FA00F79EA7 /* InboxViewController.m in Sources */,
 				633EB9021E31643A00C3A4C0 /* CommonUtils.m in Sources */,
 				6339E58F1E2E415E009927AE /* BidInputViewController.m in Sources */,

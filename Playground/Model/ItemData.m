@@ -8,6 +8,7 @@
 
 #import "ItemData.h"
 #import "PHDataHelper.h"
+#import "BidData.h"
 
 @interface ItemData() {
     NSInteger mnMinOffset;
@@ -54,10 +55,11 @@
         mnMinOffset = [self getRemainMinutes] - self.minuteRemain;
         
         // max bid
-        NSDictionary *dicMaxBid = [data valueForKey:@"maxbid"];
-        if (![PHDataHelper isObjectNull:dicMaxBid]) {
-            self.maxBid = [[dicMaxBid valueForKey:@"price"] integerValue];
-            self.maxBidUser = [[dicMaxBid valueForKey:@"user_id"] integerValue];
+        self.bids = [[NSMutableArray alloc] init];
+        NSArray *aryMaxBid = [data valueForKey:@"maxbid"];
+        for (NSDictionary *dicBid in aryMaxBid) {
+            BidData *bidData = [[BidData alloc] initWithDic:dicBid];
+            [self.bids addObject:bidData];
         }
     }
     
@@ -88,6 +90,36 @@
                          (long)nMinDiff / 60 % 24,
                          (long)nMinDiff % 60];
     return strTime;
+}
+
+/**
+ get max bid user id
+ @return <#return value description#>
+ */
+- (NSInteger)getMaxBidUser {
+    NSInteger nUserId = 0;
+    
+    if (self.bids.count > 0) {
+        BidData *bid = [self.bids objectAtIndex:0];
+        nUserId = bid.userId;
+    }
+    
+    return nUserId;
+}
+
+/**
+ get max bid price
+ @return <#return value description#>
+ */
+- (NSInteger)getMaxBidPrice {
+    NSInteger nPrice = 0;
+    
+    if (self.bids.count > 0) {
+        BidData *bid = [self.bids objectAtIndex:0];
+        nPrice = bid.price;
+    }
+    
+    return nPrice;
 }
 
 

@@ -98,7 +98,7 @@
         [self.mImgViewBg setImage:[UIImage imageNamed:@"purple_bg"]];
     }
     // 3. blue if current user is in highest bid
-    else if (mItem.maxBidUser == user.id) {
+    else if ([mItem getMaxBidUser] == user.id) {
         [self.mImgViewBg setImage:[UIImage imageNamed:@"blue_bg"]];
     }
     // 4. red in other cases
