@@ -8,7 +8,16 @@
 
 #import "PCBaseView.h"
 
+@protocol PCItemViewDelegate<NSObject>
+
+@optional
+- (void)onImageItem:(NSInteger)index;
+
+@end
+
 @interface PCItemView : PCBaseView
+
+@property (weak, nonatomic) id <PCItemViewDelegate> delegate;
 
 + (id)getView;
 - (void)showTimeLimit:(BOOL)show;

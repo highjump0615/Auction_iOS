@@ -1285,8 +1285,8 @@
 			buildConfigurationList = C303401F1E2052BF00782925 /* Build configuration list for PBXNativeTarget "Playground" */;
 			buildPhases = (
 				E73AABE9A3CD466507D395F7 /* [CP] Check Pods Manifest.lock */,
-				C3033FEE1E2052BE00782925 /* Sources */,
 				C3033FEF1E2052BE00782925 /* Frameworks */,
+				C3033FEE1E2052BE00782925 /* Sources */,
 				C3033FF01E2052BE00782925 /* Resources */,
 				A03DD60977D21B7C40E3269E /* [CP] Embed Pods Frameworks */,
 				428496498060FE8B3D1C4FDB /* [CP] Copy Pods Resources */,

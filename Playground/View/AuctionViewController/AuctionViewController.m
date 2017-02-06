@@ -19,14 +19,17 @@
 
 #import "UserData.h"
 #import "ItemData.h"
+#import "BidData.h"
 
 
-@interface AuctionViewController () {
+@interface AuctionViewController () <PCItemViewDelegate> {
     NSMutableArray *maryViewItemCore;
     
     PCNoticeTimeout *mViewTimeoutCore;
     PCNoticePrice *mViewAuctionCore;
     PCNoticePrice *mViewBidCore;
+    
+    NSTimer *mTimerItem;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *mImgviewItem;
@@ -84,16 +87,19 @@
     
     PCItemView *viewItemCore = [PCItemView getView];
     viewItemCore.frame = self.mViewItem1.bounds;
+    viewItemCore.delegate = self;
     [self.mViewItem1 addSubview:viewItemCore];
     [maryViewItemCore addObject:viewItemCore];
     
     viewItemCore = [PCItemView getView];
     viewItemCore.frame = self.mViewItem2.bounds;
+    viewItemCore.delegate = self;
     [self.mViewItem2 addSubview:viewItemCore];
     [maryViewItemCore addObject:viewItemCore];
     
     viewItemCore = [PCItemView getView];
     viewItemCore.frame = self.mViewItem3.bounds;
+    viewItemCore.delegate = self;
     [self.mViewItem3 addSubview:viewItemCore];
     [maryViewItemCore addObject:viewItemCore];
     
@@ -187,13 +193,18 @@
         [maryViewItemCore[0] setHidden:YES];
     }
     
-    // timeout & price
+    //
+    // timeout
+    //
     if ([item getUserRank:user] < 0) {
         // not in top 3, hide timeout view
         [self.mCstTimeHeight setConstant:0];
         [self.mViewTimeout setHidden:YES];
     }
+    
+    [self updateTimeout];
 
+    // price
     [mViewAuctionCore setValueText:[NSString stringWithFormat:@"$%ld", (long)item.price]];
     [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", (long)[item getMaxBidPrice]]];
     
@@ -234,6 +245,48 @@
 }
 */
 
+- (void)updateTimeout {
+    UserData *user = [UserData currentUser];
+    ItemData *item = (ItemData *)self.mItemData;
+    
+    // top 1
+    if ([item getUserRank:user] == 0) {
+        [mViewTimeoutCore setTitle:@"Time Remaining"];
+        [mViewTimeoutCore setValueText:[item remainAuctionTimeLong:24*60]];
+    }
+    // top 2
+    else if ([item getUserRank:user] == 1) {
+        [mViewTimeoutCore setTitle:@"Available in"];
+        [mViewTimeoutCore setValueText:[item remainAuctionTimeLong:24*60]];
+    }
+    // top 3
+    else if ([item getUserRank:user] == 2) {
+        [mViewTimeoutCore setTitle:@"Available in"];
+        [mViewTimeoutCore setValueText:[item remainAuctionTimeLong:48*60]];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {    
+    //
+    // timer for updating timeout
+    //
+    mTimerItem = [NSTimer scheduledTimerWithTimeInterval:30
+                                                  target:self
+                                                selector:@selector(updateItem:)
+                                                userInfo:nil
+                                                 repeats:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    // stop timer
+    [mTimerItem invalidate];
+}
+
+- (void)updateItem:(id)sender {
+    // timeout
+    [self updateTimeout];
+}
+
 - (IBAction)onButGiveup:(id)sender {
     PCAlertDialog *viewAlert = [PCAlertDialog getView];
     viewAlert.frame = self.view.bounds;
@@ -246,6 +299,17 @@
 }
 
 - (IBAction)onButDelete:(id)sender {
+}
+
+#pragma mark - PCItemViewDelegate
+
+/**
+ show bid prices of each user when clicked
+ @param index <#index description#>
+ */
+- (void)onImageItem:(NSInteger)index {
+    BidData *bData = [((ItemData *)self.mItemData).bids objectAtIndex:index];
+    [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", (long)bData.price]];
 }
 
 @end

@@ -16,6 +16,7 @@
 #import "CategoryCell.h"
 #import "CategoryDetailViewController.h"
 #import "BidViewController.h"
+#import "AuctionViewController.h"
 #import "CategoryData.h"
 #import "ApiManager.h"
 #import "ItemData.h"
@@ -127,6 +128,10 @@
     }
     else if ([[segue identifier] isEqualToString:@"Category2Bid"]) {
         BidViewController *view = (BidViewController *)[segue destinationViewController];
+        view.mItemData = [maryItem objectAtIndex:mnSelectedIndex];
+    }
+    else if ([[segue identifier] isEqualToString:@"Category2Auction"]) {
+        AuctionViewController *view = (AuctionViewController *)[segue destinationViewController];
         view.mItemData = [maryItem objectAtIndex:mnSelectedIndex];
     }
 }
@@ -256,8 +261,17 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     mnSelectedIndex = indexPath.row;
     
-    // go to bid page
-    [self performSegueWithIdentifier:@"Category2Bid" sender:nil];
+    // determine where to go
+    ItemData *data = [maryItem objectAtIndex:mnSelectedIndex];
+    
+    if ([data availableToBid]) {
+        // go to bid page
+        [self performSegueWithIdentifier:@"Category2Bid" sender:nil];
+    }
+    else {
+        // go to auction page
+        [self performSegueWithIdentifier:@"Category2Auction" sender:nil];
+    }
 }
 
 

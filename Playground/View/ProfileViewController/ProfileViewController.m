@@ -18,6 +18,7 @@
 #import "CategoryExploreCell.h"
 #import "ItemData.h"
 #import "BidViewController.h"
+#import "AuctionViewController.h"
 
 @interface ProfileViewController () <UITextFieldDelegate> {
     double dTitleHeight;
@@ -103,6 +104,10 @@
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"Profile2Bid"]) {
         BidViewController *vc = [segue destinationViewController];
+        vc.mItemData = mItemSelected;
+    }
+    else if ([[segue identifier] isEqualToString:@"Profile2Auction"]) {
+        AuctionViewController *vc = [segue destinationViewController];
         vc.mItemData = mItemSelected;
     }
 }
@@ -291,9 +296,15 @@
         mItemSelected = [user.bidItems objectAtIndex:indexPath.row];
     }
     
-    // go to auction page
-    [self performSegueWithIdentifier:@"Profile2Bid" sender:nil];
-//    [self performSegueWithIdentifier:@"Profile2Auction" sender:nil];
+    // determine where to go
+    if ([mItemSelected availableToBid]) {
+        // go to bid page
+        [self performSegueWithIdentifier:@"Profile2Bid" sender:nil];
+    }
+    else {
+        // go to auction page
+        [self performSegueWithIdentifier:@"Profile2Auction" sender:nil];
+    }
 }
 
 @end

@@ -29,6 +29,7 @@
 - (id)initWithDic:(NSDictionary *)data;
 - (NSString *)remainTime;
 - (NSString *)remainTimeLong;
+- (NSString *)remainAuctionTimeLong:(NSInteger)minAdd;
 
 - (NSInteger)getRemainMinutes;
 - (NSString *)getCoverImageUrl;

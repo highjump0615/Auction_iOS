@@ -38,6 +38,14 @@
     
     // font
     [self.mButTime.titleLabel setFont:[PHTextHelper myriadProLight:12]];
+    
+    // add click target to image view
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onImage:)];
+    [singleTap setNumberOfTapsRequired:1];
+    singleTap.cancelsTouchesInView = NO;
+    [self.mImgviewPhoto addGestureRecognizer:singleTap];
+    
+    [self.mImgviewPhoto setUserInteractionEnabled:YES];
 }
 
 /*
@@ -47,6 +55,18 @@
     // Drawing code
 }
 */
+
+- (void)onImage:(UITapGestureRecognizer *) sender {
+    PCItemView *viewItem = (PCItemView *)sender.view;
+    
+    if (!self.delegate) {
+        return;
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(onImageItem:)]) {
+        [self.delegate onImageItem:viewItem.tag];
+    }
+}
 
 + (id)getView {
     return [super getView:@"PCItemView"];
@@ -105,6 +125,9 @@
     else {
         [self.mImgViewBg setImage:[UIImage imageNamed:@"red_bg"]];
     }
+    
+    // set tag for delegate
+    [self.mImgviewPhoto setTag:mItem.id];
 }
 
 - (void)setUserData:(id)user item:(id)item {
@@ -125,6 +148,9 @@
     else {
         [self.mImgViewBg setImage:[UIImage imageNamed:@"red_bg"]];
     }
+    
+    // set tag for delegate
+    [self.mImgviewPhoto setTag:mItem.id];
 }
 
 

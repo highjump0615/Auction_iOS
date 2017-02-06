@@ -95,6 +95,22 @@
 }
 
 /**
+ minutes difference after bid is over
+ @param minAdd 24 hours or 48 hours
+ @return <#return value description#>
+ */
+- (NSString *)remainAuctionTimeLong:(NSInteger)minAdd {
+    NSInteger nMinDiff = [self getRemainMinutes];
+    nMinDiff = nMinDiff + minAdd;
+    
+    NSString *strTime = [NSString stringWithFormat:@"%02ldH %02ldM",
+                         (long)nMinDiff / 60,
+                         (long)nMinDiff % 60];
+    return strTime;
+}
+
+
+/**
  get max bid user id
  @return <#return value description#>
  */
