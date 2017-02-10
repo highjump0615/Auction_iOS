@@ -54,9 +54,6 @@
     dTitleHeight = 52;
     dItemWidth = 100;
     dItemHeight = 108;
-    
-    // load data
-    [self getUserInfo];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -76,6 +73,9 @@
                                                 selector:@selector(updateItem:)
                                                 userInfo:nil
                                                  repeats:YES];
+    
+    // load data
+    [self getUserInfo];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -115,14 +115,16 @@
 
 - (void)getUserInfo {
     //
-    // call login api
+    // call user info api
     //
     [[ApiManager sharedInstance] getUserInfo:^(id response)
      {
          // set data of the user
          UserData *user = [UserData currentUser];
+         
          [user fetchAuctionItems:[response objectForKey:@"auctions"]];
          [user fetchBidItems:[response objectForKey:@"bids"]];
+         user.countGivenUp = [[response objectForKey:@"givenup"] integerValue];
          
          // reload table
          [self.mTableView reloadData];

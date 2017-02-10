@@ -46,7 +46,6 @@
     
     // primary button
     [self.mButPrimary.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
-    [PHUiHelper makeRounded:self.mButPrimary];
     
     // cancel button
     [self.mButCancel.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
@@ -63,7 +62,22 @@
     [self setAlpha:0];
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    // Set the preferredMaxLayoutWidth of the mutli-line bodyLabel based on the evaluated width of the label's frame,
+    // as this will allow the text to wrap correctly, and as a result allow the label to take on the correct height.
+    self.mLblMessage.preferredMaxLayoutWidth = CGRectGetWidth(self.mLblMessage.frame);
+    
+    [PHUiHelper makeRounded:self.mButPrimary];
+}
+
+- (void)updateConstraints {
+    [super updateConstraints];
+}
+
 + (id)getView {
+    // primary button
     return [super getView:@"PCAlertDialog"];
 }
 
@@ -119,6 +133,20 @@
 }
 
 - (IBAction)onButCancel:(id)sender {
+    [self showView:NO animated:YES];
+}
+
+- (IBAction)onButPrimary:(id)sender {
+    
+    // do operation
+    if (!self.delegate) {
+        return;
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(onButAlertPrimary)]) {
+        [self.delegate onButAlertPrimary];
+    }
+
     [self showView:NO animated:YES];
 }
 

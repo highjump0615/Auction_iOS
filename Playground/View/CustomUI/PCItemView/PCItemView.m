@@ -10,9 +10,13 @@
 #import "PHUiHelper.h"
 #import "PHTextHelper.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+
 #import "ItemData.h"
-#import "ApiConfig.h"
 #import "UserData.h"
+
+#import "ApiConfig.h"
+#import "ApiManager.h"
+
 
 @interface PCItemView() {
     ItemData *mItem;
@@ -110,16 +114,16 @@
     UserData *user = [UserData currentUser];
     
     // 1. yellow if its current user's
-    if ([mItem.username isEqualToString:user.username]) {
+    if ([mItem isMine]) {
         [self.mImgViewBg setImage:[UIImage imageNamed:@"yellow_bg"]];
-    }
-    // 2. purple if bid is over
-    else if ([mItem getRemainMinutes] <= 0) {
-        [self.mImgViewBg setImage:[UIImage imageNamed:@"purple_bg"]];
     }
     // 3. blue if current user is in highest bid
     else if ([mItem getMaxBidUser] == user.id) {
         [self.mImgViewBg setImage:[UIImage imageNamed:@"blue_bg"]];
+    }
+    // 2. purple if bid is over
+    else if ([mItem getRemainMinutes] <= 0) {
+        [self.mImgViewBg setImage:[UIImage imageNamed:@"purple_bg"]];
     }
     // 4. red in other cases
     else {
@@ -130,18 +134,44 @@
     [self.mImgviewPhoto setTag:mItem.id];
 }
 
-- (void)setUserData:(id)user item:(id)item {
-    UserData *uData = (UserData *)user;
+
+/**
+ set user info (photo)
+ @param user <#user description#>
+ @param item <#item description#>
+ */
+- (void)setUserDataCore:(UserData *)user item:(id)item {
+    [self.mImgviewPhoto sd_setImageWithURL:[NSURL URLWithString:[user photoUrl]]];
+}
+
+- (void)setUserData:(NSInteger)userId item:(id)item {
     ItemData *iData = (ItemData *)item;
+    UserData *currentUser = [UserData currentUser];
     
-    [self.mImgviewPhoto sd_setImageWithURL:[NSURL URLWithString:[uData photoUrl]]];
+    if (userId == currentUser.id) {
+        [self setUserDataCore:currentUser item:iData];
+    }
+    else {
+        //
+        // call user  api
+        //
+        [[ApiManager sharedInstance] getUserWithId:userId
+                                           success:^(id response)
+        {
+            UserData *uData = [[UserData alloc] initWithDic:response];
+            [self setUserDataCore:uData item:iData];
+        }
+                                              fail:^(NSError *error, id response)
+        {
+        }];
+    }
     
     //
     // set border color
     //
     
     // 1. blue if current user is in highest bid
-    if ([iData getMaxBidUser] == uData.id) {
+    if ([item getMaxBidUser] == userId) {
         [self.mImgViewBg setImage:[UIImage imageNamed:@"blue_bg"]];
     }
     // 2. red in other cases
@@ -150,7 +180,7 @@
     }
     
     // set tag for delegate
-    [self.mImgviewPhoto setTag:mItem.id];
+    [self.mImgviewPhoto setTag:userId];
 }
 
 

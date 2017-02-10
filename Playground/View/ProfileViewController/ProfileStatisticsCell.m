@@ -55,6 +55,9 @@
     
     // bid count
     [self.mLblBidCount setText:[NSString stringWithFormat:@"%ld", (long)user.bidItems.count]];
+    
+    // given up count
+    [self.mLblGiveupCount setText:[NSString stringWithFormat:@"%ld", (long)user.countGivenUp]];
 }
 
 @end

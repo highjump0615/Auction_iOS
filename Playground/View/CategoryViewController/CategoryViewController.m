@@ -76,6 +76,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.mTableView reloadData];
+}
+
 /**
  explore items from api
  @param sender <#sender description#>

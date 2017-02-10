@@ -23,6 +23,6 @@
 - (void)showTimeLimit:(BOOL)show;
 
 - (void)setItemData:(id)item;
-- (void)setUserData:(id)user item:(id)item;
+- (void)setUserData:(NSInteger)userId item:(id)item;
 
 @end

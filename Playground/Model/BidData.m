@@ -7,6 +7,7 @@
 //
 
 #import "BidData.h"
+#import "PHDataHelper.h"
 
 @implementation BidData
 
@@ -17,6 +18,7 @@
         self.id = [[data valueForKey:@"id"] integerValue];
         self.price = [[data valueForKey:@"price"] integerValue];
         self.userId = [[data valueForKey:@"user_id"] integerValue];
+        self.dateGiveup = [PHDataHelper stringToDate:[data valueForKey:@"giveup_at"] format:@"yyyy-MM-dd HH:mm:ss"];
     }
     
     return self;

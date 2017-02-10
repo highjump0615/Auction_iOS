@@ -48,6 +48,7 @@
         
         // end date
         self.dateEnd = [PHDataHelper stringToDate:[data valueForKey:@"end_at"] format:@"yyyy-MM-dd HH:mm:ss"];
+        self.contact = [[data valueForKey:@"contact"] integerValue];
         
         // set other fields
         self.username = [data valueForKey:@"username"];
@@ -71,7 +72,18 @@
 - (NSInteger)getRemainMinutes {
     // get current date
     NSDate *dateToday = [NSDate date];
-    NSTimeInterval diff = [self.dateEnd timeIntervalSinceDate:dateToday];
+    
+    // end time in normal case
+    NSDate *dateTarget = self.dateEnd;
+    
+    // if someone gave up, give up time is target
+    for (BidData *bid in self.bids) {
+        if (bid.dateGiveup) {
+            dateTarget = bid.dateGiveup;
+        }
+    }
+    
+    NSTimeInterval diff = [dateTarget timeIntervalSinceDate:dateToday];
     
     return floor(diff / 60) - mnMinOffset;
 }
@@ -117,9 +129,14 @@
 - (NSInteger)getMaxBidUser {
     NSInteger nUserId = 0;
     
-    if (self.bids.count > 0) {
-        BidData *bid = [self.bids objectAtIndex:0];
+    for (BidData *bid in self.bids) {
+        // except given up bids
+        if (bid.dateGiveup) {
+            continue;
+        }
+        
         nUserId = bid.userId;
+        break;
     }
     
     return nUserId;
@@ -132,9 +149,14 @@
 - (NSInteger)getMaxBidPrice {
     NSInteger nPrice = 0;
     
-    if (self.bids.count > 0) {
-        BidData *bid = [self.bids objectAtIndex:0];
+    for (BidData *bid in self.bids) {
+        // except given up bids
+        if (bid.dateGiveup) {
+            continue;
+        }
+        
         nPrice = bid.price;
+        break;
     }
     
     return nPrice;
@@ -150,14 +172,19 @@
  @return -1: not in top 3, 0~2: rank
  */
 - (NSInteger)getUserRank:(id)userInfo {
-    NSInteger nRank = -1;
+    NSInteger nRank = -1, nRankTemp = -1;
     UserData *user = (UserData *)userInfo;
     
-    for (NSInteger i = 0; i < self.bids.count; i++) {
-        BidData *bData = [self.bids objectAtIndex:i];
+    for (BidData *bData in self.bids) {
+        // skip given up bids
+        if (bData.dateGiveup) {
+            continue;
+        }
+        
+        nRankTemp++;
         
         if (bData.userId == user.id) {
-            nRank = i;
+            nRank = nRankTemp;
             break;
         }
     }
@@ -166,11 +193,42 @@
 }
 
 /**
+ get current user's bid of the item
+ @return <#return value description#>
+ */
+- (id)getMyBid {
+    BidData *bData;
+    UserData *user = [UserData currentUser];
+    
+    for (BidData *bid in self.bids) {
+        if (bid.userId == user.id) {
+            bData = bid;
+            break;
+        }
+    }
+    
+    return bData;
+}
+
+/**
  get url of cover image
  @return <#return value description#>
  */
 - (NSString *)getCoverImageUrl {
     return [NSString stringWithFormat:@"%@%@", PH_API_BASE_ITEM_FILE_URL, self.coverImage];
+}
+
+/**
+ determin it is current user's item
+ @return <#return value description#>
+ */
+- (BOOL)isMine {
+    UserData *user = [UserData currentUser];
+    if ([self.username isEqualToString:user.username]) {
+        return YES;
+    }
+    
+    return NO;
 }
 
 @end

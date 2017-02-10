@@ -117,8 +117,7 @@
     [self.mLblUsername setText:item.username];
     
     // disable bid button if it is his own
-    UserData *user = [UserData currentUser];
-    if ([item.username isEqualToString:user.username]) {
+    if ([item isMine]) {
         [self.mButBid setEnabled:NO];
     }
 

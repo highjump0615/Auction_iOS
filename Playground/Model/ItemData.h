@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString *coverImage;
 @property (nonatomic, retain) NSArray *imagePreview;
 @property (nonatomic, retain) NSDate *dateEnd;
+@property (nonatomic) NSInteger contact;
 
 // other fields
 @property (nonatomic, retain) NSString *username;
@@ -39,5 +40,8 @@
 
 - (BOOL)availableToBid;
 - (NSInteger)getUserRank:(id)userInfo;
+
+- (BOOL)isMine;
+- (id)getMyBid;
 
 @end

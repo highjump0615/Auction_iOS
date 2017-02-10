@@ -12,6 +12,7 @@
 
 @property (nonatomic) NSInteger price;
 @property (nonatomic) NSInteger userId;
+@property (nonatomic, retain) NSDate *dateGiveup;
 
 - (id)initWithDic:(NSDictionary *)data;
 

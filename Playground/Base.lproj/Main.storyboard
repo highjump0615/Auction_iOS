@@ -748,6 +748,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oG4-X2-6sT"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wg-Ve-gBJ">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="W0c-bT-vhU"/>
                                 </constraints>
@@ -783,7 +784,7 @@
                             <constraint firstItem="T6n-r7-nB4" firstAttribute="top" secondItem="8SH-O3-dib" secondAttribute="bottom" constant="10" id="3cd-4U-Ynm"/>
                             <constraint firstItem="oG4-X2-6sT" firstAttribute="centerY" secondItem="T6n-r7-nB4" secondAttribute="centerY" id="5uw-Ib-k8E"/>
                             <constraint firstAttribute="trailing" secondItem="8SH-O3-dib" secondAttribute="trailing" constant="15" id="6Jg-mD-oFp"/>
-                            <constraint firstItem="s9P-zs-UZt" firstAttribute="width" secondItem="pAd-CW-tZR" secondAttribute="width" priority="750" id="78M-vY-pu7"/>
+                            <constraint firstItem="s9P-zs-UZt" firstAttribute="width" secondItem="pAd-CW-tZR" secondAttribute="width" id="78M-vY-pu7"/>
                             <constraint firstItem="4Ys-nJ-mc5" firstAttribute="centerY" secondItem="pAd-CW-tZR" secondAttribute="centerY" id="8IH-sO-8cL"/>
                             <constraint firstItem="29X-OA-RPz" firstAttribute="centerX" secondItem="5c1-4f-LAa" secondAttribute="centerX" id="ARi-2O-lzd"/>
                             <constraint firstItem="4Ys-nJ-mc5" firstAttribute="leading" secondItem="5c1-4f-LAa" secondAttribute="leading" id="Av8-Al-fdz"/>
@@ -796,7 +797,7 @@
                             <constraint firstItem="s9P-zs-UZt" firstAttribute="centerY" secondItem="pAd-CW-tZR" secondAttribute="centerY" id="JgO-YK-vd3"/>
                             <constraint firstItem="NCq-us-UDC" firstAttribute="width" secondItem="4Ys-nJ-mc5" secondAttribute="width" priority="750" id="Jr0-Ff-7LN"/>
                             <constraint firstItem="29X-OA-RPz" firstAttribute="height" secondItem="3Wg-Ve-gBJ" secondAttribute="height" id="LTn-ST-96A"/>
-                            <constraint firstItem="AQZ-zy-3TG" firstAttribute="width" secondItem="pAd-CW-tZR" secondAttribute="width" priority="750" id="M6u-Xw-bvF"/>
+                            <constraint firstItem="AQZ-zy-3TG" firstAttribute="width" secondItem="pAd-CW-tZR" secondAttribute="width" id="M6u-Xw-bvF"/>
                             <constraint firstItem="s9P-zs-UZt" firstAttribute="height" secondItem="pAd-CW-tZR" secondAttribute="height" id="MMS-M3-d0h"/>
                             <constraint firstItem="3Wg-Ve-gBJ" firstAttribute="leading" secondItem="5c1-4f-LAa" secondAttribute="leading" constant="16" id="Mn8-Rc-IQY"/>
                             <constraint firstItem="wOP-aQ-vzM" firstAttribute="centerY" secondItem="4Ys-nJ-mc5" secondAttribute="centerY" id="NkU-DI-9Jn"/>
@@ -850,6 +851,8 @@
                         <outlet property="mCstUserHeight" destination="QSg-dt-Jel" id="Cq1-bv-Yam"/>
                         <outlet property="mCstWidth1" destination="xFH-qH-Nlc" id="Axl-HY-ayS"/>
                         <outlet property="mCstWidth2" destination="qcw-Nv-W9O" id="Bvt-65-sCm"/>
+                        <outlet property="mCstWidthEqual1" destination="M6u-Xw-bvF" id="46l-yx-JbQ"/>
+                        <outlet property="mCstWidthEqual2" destination="78M-vY-pu7" id="Ohy-Rh-BGd"/>
                         <outlet property="mImgviewItem" destination="qMm-41-ne8" id="gAN-mM-4lF"/>
                         <outlet property="mLblItemname" destination="sVA-0o-vWI" id="Qxp-JQ-rl5"/>
                         <outlet property="mViewAuction" destination="T6n-r7-nB4" id="rNW-HZ-fVZ"/>
@@ -1925,7 +1928,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jEc-Vm-6Tk" id="3aM-pO-6Eh">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Him" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dru-Ws-Lfu">
@@ -2853,7 +2856,7 @@ EENoYXRUYWJsZUNlbGw
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="8OU-d1-nx7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pDi-f2-sFG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pDi-f2-sFG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3193,7 +3196,7 @@ EENoYXRUYWJsZUNlbGw
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kt7-VT-3e6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kt7-VT-3e6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3214,7 +3217,7 @@ EENoYXRUYWJsZUNlbGw
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3SY-4z-NJA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3SY-4z-NJA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

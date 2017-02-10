@@ -20,6 +20,10 @@
  */
 + (NSDate *)stringToDate:(NSString *)value format:(NSString *)format {
     
+    if ([PHDataHelper isObjectNull:value]) {
+        return nil;
+    }
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
     

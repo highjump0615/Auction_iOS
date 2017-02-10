@@ -36,8 +36,9 @@
                        success:(void (^)(id response))sucess
                           fail:(void (^)(NSError *error, id response))fail;
 
-- (void)getUser:(void (^)(id response))sucess
-           fail:(void (^)(NSError *error, id response))fail;
+- (void)getUserWithId:(NSInteger)userId
+              success:(void (^)(id response))sucess
+                 fail:(void (^)(NSError *error, id response))fail;
 
 - (void)getUserInfo:(void (^)(id response))sucess
                fail:(void (^)(NSError *error, id response))fail;
@@ -98,5 +99,17 @@
                  oldpassword:(NSString *)passwordOld
                      success:(void (^)(id response))sucess
                         fail:(void (^)(NSError *error, id response))fail;
+
+- (void)contactItemWithId:(NSInteger)itemId
+                  success:(void (^)(id response))sucess
+                     fail:(void (^)(NSError *error, id response))fail;
+
+- (void)giveupBidWithItemId:(NSInteger)itemId
+                    success:(void (^)(id response))sucess
+                       fail:(void (^)(NSError *error, id response))fail;
+
+- (void)deleteBidWithItemId:(NSInteger)itemId
+                    success:(void (^)(id response))sucess
+                       fail:(void (^)(NSError *error, id response))fail;
 
 @end

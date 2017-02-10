@@ -8,7 +8,16 @@
 
 #import "PCBaseView.h"
 
+@protocol PCAlertDialogDelegate<NSObject>
+
+@optional
+- (void)onButAlertPrimary;
+
+@end
+
 @interface PCAlertDialog : PCBaseView
+
+@property (weak, nonatomic) id <PCAlertDialogDelegate> delegate;
 
 + (id)getView;
 - (void)showView:(BOOL)bShow animated:(BOOL)animated;
