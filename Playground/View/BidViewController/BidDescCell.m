@@ -126,7 +126,7 @@
     [mViewAuctionCore setValueText:[NSString stringWithFormat:@"$%ld", (long)item.price]];
     
     // bid price
-    [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", (long)item.maxBid]];
+    [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", (long)[item getMaxBidPrice]]];
 }
 
 @end

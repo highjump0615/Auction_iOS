@@ -91,6 +91,11 @@
     
     // auction button
     [self.mButAuction.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
     [PHUiHelper makeRounded:self.mButAuction];
 }
 

@@ -104,6 +104,14 @@
 }
 
 /**
+ set title of the navigation bar
+ @param value <#value description#>
+ */
+- (void)setTitle:(NSString *)value {
+    [mNavbar setTitle:value bold:YES];
+}
+
+/**
  show/hide congratulations title
  @param show <#show description#>
  */

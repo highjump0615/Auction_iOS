@@ -117,6 +117,10 @@
     [defaults synchronize];
 }
 
+/**
+ get url of photo
+ @return url
+ */
 - (NSString *)photoUrl {
     return [NSString stringWithFormat:@"%@%@", PH_API_BASE_USER_FILE_URL, self.photo];
 }

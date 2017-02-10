@@ -36,12 +36,10 @@
     [self.mLblItemname setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     // photo
-    [PHUiHelper makeRounded:self.mImgviewUser];
     [self.mImgviewUser.layer setBorderWidth:0.5];
     [self.mImgviewUser.layer setBorderColor:[PHColorHelper colorTextGray].CGColor];
     
     // button
-    [PHUiHelper makeRounded:self.mButRate];
     [self.mButRate.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
     
     // rate view
@@ -53,6 +51,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    [PHUiHelper makeRounded:self.mImgviewUser];
+    [PHUiHelper makeRounded:self.mButRate];
 }
 
 /*

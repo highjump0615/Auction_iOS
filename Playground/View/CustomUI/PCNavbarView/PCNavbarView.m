@@ -87,5 +87,12 @@
     [self.mImgviewCongrat setHidden:!show];
 }
 
+- (void)setTitle:(NSString *)value bold:(BOOL)bold {
+    [self.mLblTitle setText:value];
+    
+    if (bold) {
+        [self.mLblTitle setFont:[PHTextHelper myriadProBold:[PHTextHelper fontSizeNormalLarge]]];
+    }
+}
 
 @end

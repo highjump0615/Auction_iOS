@@ -16,6 +16,7 @@
 #import "ApiManager.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "UserData.h"
+#import "BidData.h"
 
 @interface BidInputViewController () {
     PCItemView *mViewItemCore;
@@ -55,9 +56,6 @@
     [self.mLblUsername setFont:[PHTextHelper myriadProRegular:10]];
     [self.mLblLimit setFont:[PHTextHelper myriadProRegular:10]];
     
-    // bid button
-    [PHUiHelper makeRounded:self.mButBid];
-    
     // keyboard event
     [self enableKeyboardNotification];
     
@@ -68,7 +66,6 @@
     
     [self.mTextBid.layer setBorderColor:[PHColorHelper colorTextBlack].CGColor];
     [self.mTextBid.layer setBorderWidth:1.0];
-    [PHUiHelper makeRounded:self.mTextBid];
     
     // add item view
     mViewItemCore = [PCItemView getView];
@@ -122,10 +119,16 @@
     [mViewAuctionCore setValueText:[NSString stringWithFormat:@"$%ld", (long)mItem.price]];
     
     // bid price
-    [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", (long)mItem.maxBid]];
+    [mViewBidCore setValueText:[NSString stringWithFormat:@"$%ld", (long)[mItem getMaxBidPrice]]];
     
     // label limit
-    [self.mLblLimit setText:[NSString stringWithFormat:@"Your bid must be higher than $%ld", (long)mItem.maxBid]];
+    [self.mLblLimit setText:[NSString stringWithFormat:@"Your bid must be higher than $%ld", (long)[mItem getMaxBidPrice]]];
+}
+
+- (void)viewDidLayoutSubviews {
+    // bid button
+    [PHUiHelper makeRounded:self.mButBid];
+    [PHUiHelper makeRounded:self.mTextBid];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -155,10 +158,11 @@
     // check validity
     if (self.mTextBid.text.length == 0) {
         [PHUiHelper showAlertView:self message:@"Input your price"];
+        return;
     }
     
     NSInteger nPrice = [self.mTextBid.text integerValue];
-    if (nPrice < mItem.maxBid) {
+    if (nPrice < [mItem getMaxBidPrice]) {
         [PHUiHelper showAlertView:self message:@"Your price is not enough"];
         return;
     }
@@ -170,14 +174,20 @@
                                               item:mItem.id
                                            success:^(id response)
      {
+         UserData *user = [UserData currentUser];
+         
          // hide progress view
          [SVProgressHUD dismiss];
          
          // update max bid price
-         mItem.maxBid = nPrice;
+         BidData *newBid = [[BidData alloc] init];
+         newBid.price = nPrice;
+         newBid.userId = user.id;
+         
+         // insert bid object to the first position
+         [mItem.bids insertObject:newBid atIndex:0];
          
          // add item to user's bid items
-         UserData *user = [UserData currentUser];
          [user.bidItems addObject:mItem];
 
          // back to prev page

@@ -135,15 +135,16 @@
     }
 }
 
-- (void)getUser:(void (^)(id response))sucess
-           fail:(void (^)(NSError *error, id response))fail {
+- (void)getUserWithId:(NSInteger)userId
+              success:(void (^)(id response))sucess
+                 fail:(void (^)(NSError *error, id response))fail {
     // url
-    NSString *strUrl = [NSString stringWithFormat:@"%@%@", PH_API_BASE_URL, PH_API_GETUSER];
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@/%ld", PH_API_BASE_URL, PH_API_GETUSER, (long)userId];
     
     [[ApiClientCore sharedInstance] sendToServiceByGet:strUrl
                                                 params:nil
-                                                success:sucess
-                                                   fail:fail];
+                                               success:sucess
+                                                  fail:fail];
 }
 
 - (void)getUserInfo:(void (^)(id response))sucess
@@ -261,17 +262,17 @@
                                                    fail:fail];
 }
 
-- (void)getMaxBidOnItem:(NSInteger)itemId
-                success:(void (^)(id response))sucess
-                   fail:(void (^)(NSError *error, id response))fail {
-    // url
-    NSString *strUrl = [NSString stringWithFormat:@"%@%@/%ld", PH_API_BASE_URL, PH_API_GETMAXBID, (long)itemId];
-    
-    [[ApiClientCore sharedInstance] sendToServiceByGet:strUrl
-                                                params:nil
-                                               success:sucess
-                                                  fail:fail];
-}
+//- (void)getMaxBidOnItem:(NSInteger)itemId
+//                success:(void (^)(id response))sucess
+//                   fail:(void (^)(NSError *error, id response))fail {
+//    // url
+//    NSString *strUrl = [NSString stringWithFormat:@"%@%@/%ld", PH_API_BASE_URL, PH_API_GETMAXBID, (long)itemId];
+//    
+//    [[ApiClientCore sharedInstance] sendToServiceByGet:strUrl
+//                                                params:nil
+//                                               success:sucess
+//                                                  fail:fail];
+//}
 
 - (void)getComment:(NSInteger)itemId
            success:(void (^)(id response))sucess
@@ -371,6 +372,60 @@
         [dictParam setObject:password forKey:@"password"];
         [dictParam setObject:passwordOld forKey:@"oldpassword"];
     }
+    
+    // call web service
+    [[ApiClientCore sharedInstance] sendToServiceByPost:strUrl
+                                                 params:dictParam
+                                                success:sucess
+                                                   fail:fail];
+}
+
+- (void)contactItemWithId:(NSInteger)itemId
+                  success:(void (^)(id response))sucess
+                     fail:(void (^)(NSError *error, id response))fail {
+    // url
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@", PH_API_BASE_URL, PH_API_CONTACT_ITEM];
+    
+    // param
+    NSMutableDictionary *dictParam = [NSMutableDictionary dictionary];
+    
+    [dictParam setObject:[NSNumber numberWithInteger:itemId] forKey:@"item"];
+    
+    // call web service
+    [[ApiClientCore sharedInstance] sendToServiceByPost:strUrl
+                                                 params:dictParam
+                                                success:sucess
+                                                   fail:fail];
+}
+
+- (void)giveupBidWithItemId:(NSInteger)itemId
+                    success:(void (^)(id response))sucess
+                       fail:(void (^)(NSError *error, id response))fail {
+    // url
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@", PH_API_BASE_URL, PH_API_GIVEUPBID];
+    
+    // param
+    NSMutableDictionary *dictParam = [NSMutableDictionary dictionary];
+    
+    [dictParam setObject:[NSNumber numberWithInteger:itemId] forKey:@"item"];
+    
+    // call web service
+    [[ApiClientCore sharedInstance] sendToServiceByPost:strUrl
+                                                 params:dictParam
+                                                success:sucess
+                                                   fail:fail];
+}
+
+- (void)deleteBidWithItemId:(NSInteger)itemId
+                    success:(void (^)(id response))sucess
+                       fail:(void (^)(NSError *error, id response))fail {
+    // url
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@", PH_API_BASE_URL, PH_API_DELETEBID];
+    
+    // param
+    NSMutableDictionary *dictParam = [NSMutableDictionary dictionary];
+    
+    [dictParam setObject:[NSNumber numberWithInteger:itemId] forKey:@"item"];
     
     // call web service
     [[ApiClientCore sharedInstance] sendToServiceByPost:strUrl

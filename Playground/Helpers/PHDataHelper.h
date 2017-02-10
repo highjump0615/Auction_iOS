@@ -12,5 +12,6 @@
 
 + (NSDate *)stringToDate:(NSString *)value format:(NSString *)format;
 + (NSString *)dateToString:(NSDate *)value format:(NSString *)format;
++ (BOOL)isObjectNull:(NSObject *)object;
 
 @end

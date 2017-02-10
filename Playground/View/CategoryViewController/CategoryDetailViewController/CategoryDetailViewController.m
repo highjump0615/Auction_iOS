@@ -15,6 +15,7 @@
 #import "ApiManager.h"
 #import "ItemData.h"
 #import "BidViewController.h"
+#import "AuctionViewController.h"
 
 @interface CategoryDetailViewController () <UITextFieldDelegate>  {
     double mdCellHeight;
@@ -76,6 +77,10 @@
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"CategoryDetail2Bid"]) {
         BidViewController *vc = [segue destinationViewController];
+        vc.mItemData = [maryItem objectAtIndex:mnSelectedIndex];
+    }
+    else if ([[segue identifier] isEqualToString:@"CategoryDetail2Auction"]) {
+        AuctionViewController *vc = [segue destinationViewController];
         vc.mItemData = [maryItem objectAtIndex:mnSelectedIndex];
     }
 }
@@ -237,9 +242,18 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     mnSelectedIndex = indexPath.row;
+    
+    // determine where to go
+    ItemData *data = [maryItem objectAtIndex:mnSelectedIndex];
 
-    // go to detail page
-    [self performSegueWithIdentifier:@"CategoryDetail2Bid" sender:nil];
+    if ([data availableToBid]) {
+        // go to bid page
+        [self performSegueWithIdentifier:@"CategoryDetail2Bid" sender:nil];
+    }
+    else {
+        // go to auction page
+        [self performSegueWithIdentifier:@"CategoryDetail2Auction" sender:nil];
+    }
 }
 
 

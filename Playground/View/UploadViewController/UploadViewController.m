@@ -67,10 +67,15 @@
         
         [maryViewUploadPreviewCore addObject:viewUpload];
     }
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
     
     // next button
     [PHUiHelper makeRounded:self.mButNext];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

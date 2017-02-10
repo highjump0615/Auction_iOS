@@ -19,14 +19,29 @@
 
 @property (nonatomic, retain) NSString *coverImage;
 @property (nonatomic, retain) NSArray *imagePreview;
+@property (nonatomic, retain) NSDate *dateEnd;
+@property (nonatomic) NSInteger contact;
 
 // other fields
 @property (nonatomic, retain) NSString *username;
 @property (nonatomic) NSInteger minuteRemain;
-@property (nonatomic) NSInteger maxBid;
+@property (nonatomic, retain) NSMutableArray *bids;
 
 - (id)initWithDic:(NSDictionary *)data;
 - (NSString *)remainTime;
 - (NSString *)remainTimeLong;
+- (NSString *)remainAuctionTimeLong:(NSInteger)minAdd;
+
+- (NSInteger)getRemainMinutes;
+- (NSString *)getCoverImageUrl;
+
+- (NSInteger)getMaxBidUser;
+- (NSInteger)getMaxBidPrice;
+
+- (BOOL)availableToBid;
+- (NSInteger)getUserRank:(id)userInfo;
+
+- (BOOL)isMine;
+- (id)getMyBid;
 
 @end

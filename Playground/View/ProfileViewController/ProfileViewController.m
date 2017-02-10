@@ -18,6 +18,7 @@
 #import "CategoryExploreCell.h"
 #import "ItemData.h"
 #import "BidViewController.h"
+#import "AuctionViewController.h"
 
 @interface ProfileViewController () <UITextFieldDelegate> {
     double dTitleHeight;
@@ -28,6 +29,7 @@
     UICollectionView *mCVbid;
     
     ItemData *mItemSelected;
+    NSTimer *mTimerItem;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
@@ -52,9 +54,6 @@
     dTitleHeight = 52;
     dItemWidth = 100;
     dItemHeight = 108;
-    
-    // load data
-    [self getUserInfo];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -65,7 +64,31 @@
     
     // refresh table
     [self.mTableView reloadData];
+    
+    //
+    // timer for updating timeout
+    //
+    mTimerItem = [NSTimer scheduledTimerWithTimeInterval:30
+                                                  target:self
+                                                selector:@selector(updateItem:)
+                                                userInfo:nil
+                                                 repeats:YES];
+    
+    // load data
+    [self getUserInfo];
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    // stop timer
+    [mTimerItem invalidate];
+}
+
+- (void)updateItem:(id)sender {
+    [self.mTableView reloadData];
+    
+    NSLog(@"updating item in profile view");
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -83,19 +106,25 @@
         BidViewController *vc = [segue destinationViewController];
         vc.mItemData = mItemSelected;
     }
+    else if ([[segue identifier] isEqualToString:@"Profile2Auction"]) {
+        AuctionViewController *vc = [segue destinationViewController];
+        vc.mItemData = mItemSelected;
+    }
 }
 
 
 - (void)getUserInfo {
     //
-    // call login api
+    // call user info api
     //
     [[ApiManager sharedInstance] getUserInfo:^(id response)
      {
          // set data of the user
          UserData *user = [UserData currentUser];
+         
          [user fetchAuctionItems:[response objectForKey:@"auctions"]];
          [user fetchBidItems:[response objectForKey:@"bids"]];
+         user.countGivenUp = [[response objectForKey:@"givenup"] integerValue];
          
          // reload table
          [self.mTableView reloadData];
@@ -269,9 +298,15 @@
         mItemSelected = [user.bidItems objectAtIndex:indexPath.row];
     }
     
-    // go to auction page
-    [self performSegueWithIdentifier:@"Profile2Bid" sender:nil];
-//    [self performSegueWithIdentifier:@"Profile2Auction" sender:nil];
+    // determine where to go
+    if ([mItemSelected availableToBid]) {
+        // go to bid page
+        [self performSegueWithIdentifier:@"Profile2Bid" sender:nil];
+    }
+    else {
+        // go to auction page
+        [self performSegueWithIdentifier:@"Profile2Auction" sender:nil];
+    }
 }
 
 @end

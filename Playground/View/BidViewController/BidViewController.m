@@ -30,6 +30,7 @@
     NSInteger mnSelectedComment;
     
     NSMutableArray *maryComment;
+    NSTimer *mTimerItem;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableview;
@@ -61,7 +62,6 @@
     
     // font
     [self.mButComment.titleLabel setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
-    [PHUiHelper makeRounded:self.mButComment];
     
     // keyboard event
     [self enableKeyboardNotification];
@@ -69,18 +69,18 @@
     // input text field
     [PHTextHelper initTextRegular:self.mTextInput];
     
-    //
-    // call get max bid api
-    //
-    [[ApiManager sharedInstance] getMaxBidOnItem:((ItemData *)self.mItemData).id
-                                    success:^(id response)
-     {
-         ((ItemData *)self.mItemData).maxBid = [[response objectForKey:@"value"] integerValue];
-         
-         // refresh table
-         [self.mTableview reloadData];
-     }
-                                       fail:nil];
+//    //
+//    // call get max bid api
+//    //
+//    [[ApiManager sharedInstance] getMaxBidOnItem:((ItemData *)self.mItemData).id
+//                                    success:^(id response)
+//     {
+//         ((ItemData *)self.mItemData).maxBid = [[response objectForKey:@"value"] integerValue];
+//         
+//         // refresh table
+//         [self.mTableview reloadData];
+//     }
+//                                       fail:nil];
     
     //
     // call get comment api
@@ -114,6 +114,12 @@
                                        fail:nil];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    [PHUiHelper makeRounded:self.mButComment];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -122,6 +128,26 @@
 - (void)viewDidAppear:(BOOL)animated {
     // refresh table for update
     [self.mTableview reloadData];
+    
+    //
+    // timer for updating timeout
+    //
+    mTimerItem = [NSTimer scheduledTimerWithTimeInterval:30
+                                                  target:self
+                                                selector:@selector(updateItem:)
+                                                userInfo:nil
+                                                 repeats:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    // stop timer
+    [mTimerItem invalidate];
+}
+
+- (void)updateItem:(id)sender {
+    [self.mTableview reloadData];
+    
+    NSLog(@"updating item in bid view");
 }
 
 #pragma mark - Navigation
