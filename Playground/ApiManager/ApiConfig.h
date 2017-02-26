@@ -11,12 +11,12 @@
 
 #define     PH_FAIL_STATE               400
 
-#define     PH_API_BASE_URL             @"http://tnb.vij.mybluehost.me/playground/public/api/v1/"
-#define     PH_API_BASE_ITEM_FILE_URL   @"http://tnb.vij.mybluehost.me/playground/public/uploads/item/"
-#define     PH_API_BASE_USER_FILE_URL   @"http://tnb.vij.mybluehost.me/playground/public/uploads/user/"
-//#define     PH_API_BASE_URL             @"http://localhost/playground/public/api/v1/"
-//#define     PH_API_BASE_ITEM_FILE_URL   @"http://localhost/playground/public/uploads/item/"
-//#define     PH_API_BASE_USER_FILE_URL   @"http://localhost/playground/public/uploads/user/"
+//#define     PH_API_BASE_URL             @"http://tnb.vij.mybluehost.me/playground/public/api/v1/"
+//#define     PH_API_BASE_ITEM_FILE_URL   @"http://tnb.vij.mybluehost.me/playground/public/uploads/item/"
+//#define     PH_API_BASE_USER_FILE_URL   @"http://tnb.vij.mybluehost.me/playground/public/uploads/user/"
+#define     PH_API_BASE_URL             @"http://localhost/playground/public/api/v1/"
+#define     PH_API_BASE_ITEM_FILE_URL   @"http://localhost/playground/public/uploads/item/"
+#define     PH_API_BASE_USER_FILE_URL   @"http://localhost/playground/public/uploads/user/"
 
 
 // user api
@@ -44,6 +44,11 @@
 #define     PH_API_GETCOMMENT           @"comment"
 #define     PH_API_ADDCOMMENT           @"addcomment"
 
+// inbox api
+#define     PH_API_GETINBOX             @"inbox"
+#define     PH_API_DELETEINBOX          @"deleteinbox"
 
+// rate api
+#define     PH_API_RATE                 @"rate"
 
 #endif /* ApiConfig_h */

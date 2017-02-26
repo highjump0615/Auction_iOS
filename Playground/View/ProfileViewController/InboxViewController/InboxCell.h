@@ -12,4 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *mButRate;
 
+- (void)fillContent:(id)data;
+
 @end

@@ -334,7 +334,7 @@
     
     // already contacted
     // or received contact request
-    if (item.contact == user.id || item.contact > 0) {
+    if (item.contact == user.id && item.contact > 0) {
         [self.mButContact setTitle:@"Pending..." forState:UIControlStateNormal];
         [self.mButContact setEnabled:NO];
     }

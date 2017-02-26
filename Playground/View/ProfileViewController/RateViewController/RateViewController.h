@@ -10,4 +10,6 @@
 
 @interface RateViewController : BaseViewController
 
+- (void)setItemData:(id)item;
+
 @end
