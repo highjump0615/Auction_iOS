@@ -48,6 +48,7 @@
 #define     PH_API_GETINBOX             @"inbox"
 #define     PH_API_DELETEINBOX          @"deleteinbox"
 
-
+// rate api
+#define     PH_API_RATE                 @"rate"
 
 #endif /* ApiConfig_h */

@@ -10,6 +10,8 @@
 #import "PHTextHelper.h"
 #import "PHColorHelper.h"
 #import "PHUiHelper.h"
+#import "UserData.h"
+#import "ItemData.h"
 
 @interface InboxCell()
 
@@ -39,5 +41,25 @@
     [PHUiHelper makeRounded:self.mButRate];
 }
 
+
+- (void)fillContent:(id)data {
+    [super fillContent:data];
+    
+    UserData *user = [UserData currentUser];
+    ItemData *item = (ItemData *)data;
+    
+    if ([item.username isEqualToString:user.username]) {
+        [self.mButRate setEnabled:NO];
+        
+        [self.mButRate.layer setBorderColor:[PHColorHelper colorTextGray].CGColor];
+        [self.mButRate setTitleColor:[PHColorHelper colorTextGray] forState:UIControlStateNormal];
+    }
+    else {
+        [self.mButRate setEnabled:YES];
+        
+        [self.mButRate.layer setBorderColor:[PHColorHelper colorTextBlack].CGColor];
+        [self.mButRate setTitleColor:[PHColorHelper colorTextBlack] forState:UIControlStateNormal];
+    }
+}
 
 @end

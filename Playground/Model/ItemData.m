@@ -30,6 +30,7 @@
         self.category = [[data valueForKey:@"category"] integerValue];
         self.price = [[data valueForKey:@"price"] integerValue];
         self.condition = [[data valueForKey:@"condition"] integerValue];
+        self.rate = [[data valueForKey:@"rate"] integerValue];
         
         self.status = [[data valueForKey:@"status"] integerValue];
         
@@ -51,7 +52,7 @@
         self.contact = [[data valueForKey:@"contact"] integerValue];
         
         // set other fields
-        self.username = [data valueForKey:@"username"];
+        self.user = [[UserData alloc] initWithDic:[data valueForKey:@"userdata"]];
         self.minuteRemain = [[data valueForKey:@"minute_remain"] integerValue];
         
         // save minute offset, local time is not correct
@@ -216,6 +217,14 @@
  */
 - (NSString *)getCoverImageUrl {
     return [NSString stringWithFormat:@"%@%@", PH_API_BASE_ITEM_FILE_URL, self.coverImage];
+}
+
+/**
+ get user name of item
+ @return <#return value description#>
+ */
+- (NSString *)username {
+    return self.user.username;
 }
 
 /**

@@ -58,6 +58,9 @@
     
     // given up count
     [self.mLblGiveupCount setText:[NSString stringWithFormat:@"%ld", (long)user.countGivenUp]];
+    
+    // rate
+    [self.mLblRatingValue setText:[NSString stringWithFormat:@"%ld%%", (long)user.rate]];
 }
 
 @end

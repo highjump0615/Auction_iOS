@@ -125,6 +125,7 @@
          [user fetchAuctionItems:[response objectForKey:@"auctions"]];
          [user fetchBidItems:[response objectForKey:@"bids"]];
          user.countGivenUp = [[response objectForKey:@"givenup"] integerValue];
+         user.rate = [[response objectForKey:@"rate"] integerValue];
          
          // reload table
          [self.mTableView reloadData];

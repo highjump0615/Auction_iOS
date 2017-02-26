@@ -8,6 +8,8 @@
 
 #import "BaseModelData.h"
 
+@class UserData;
+
 @interface ItemData : BaseModelData
 
 @property (nonatomic, retain) NSString *title;
@@ -17,13 +19,15 @@
 @property (nonatomic) NSInteger condition;
 @property (nonatomic) NSInteger status;
 
+@property (nonatomic) NSInteger rate;
+
 @property (nonatomic, retain) NSString *coverImage;
 @property (nonatomic, retain) NSArray *imagePreview;
 @property (nonatomic, retain) NSDate *dateEnd;
 @property (nonatomic) NSInteger contact;
 
 // other fields
-@property (nonatomic, retain) NSString *username;
+@property (nonatomic, retain) UserData *user;
 @property (nonatomic) NSInteger minuteRemain;
 @property (nonatomic, retain) NSMutableArray *bids;
 
@@ -43,5 +47,7 @@
 
 - (BOOL)isMine;
 - (id)getMyBid;
+
+- (NSString *)username;
 
 @end

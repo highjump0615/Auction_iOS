@@ -12,9 +12,12 @@
 #import "ApiManager.h"
 #import "InboxData.h"
 
+#import "RateViewController.h"
+
 
 @interface InboxViewController () <UITextFieldDelegate> {
     NSMutableArray *maryData;
+    NSInteger mnSelectedIndex;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
@@ -88,15 +91,19 @@
      }];
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"Inbox2Rate"]) {
+        RateViewController *vc = (RateViewController *)[segue destinationViewController];
+        InboxData *inbox = [maryData objectAtIndex:mnSelectedIndex];
+        [vc setItemData:inbox.item];
+    }
 }
-*/
+
 
 - (IBAction)onButEdit:(id)sender {
     [self.mTableview setEditing:!self.mTableview.editing animated:YES];
@@ -108,6 +115,8 @@
  @param sender <#sender description#>
  */
 - (void)onButRate:(id)sender {
+    mnSelectedIndex = ((UIButton *)sender).tag;
+    
     // go to rate page
     [self performSegueWithIdentifier:@"Inbox2Rate" sender:nil];
 }
@@ -124,6 +133,9 @@
 
     InboxCell *cellInbox = (InboxCell *)[tableView dequeueReusableCellWithIdentifier:@"InboxCell"];
     [cellInbox fillContent:inbox.item];
+    
+    // set rate
+    cellInbox.mButRate.tag = indexPath.row;
     [cellInbox.mButRate addTarget:self action:@selector(onButRate:) forControlEvents:UIControlEventTouchUpInside];
 
     return cellInbox;
@@ -182,7 +194,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    // go to rate page
+    // go to chat page
 //    [self performSegueWithIdentifier:@"Inbox2Chat" sender:nil];
 }
 

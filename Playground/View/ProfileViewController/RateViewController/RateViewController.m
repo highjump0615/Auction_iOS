@@ -12,8 +12,17 @@
 #import "PHUiHelper.h"
 #import "PCRateView.h"
 
+#import <SDWebImage/UIImageView+WebCache.h>
+
+#import "UserData.h"
+#import "ItemData.h"
+
+#import "ApiManager.h"
+
+
 @interface RateViewController () {
     PCRateView *mViewRateCore;
+    ItemData *mItem;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
@@ -46,6 +55,31 @@
     mViewRateCore = [PCRateView getView];
     mViewRateCore.frame = self.mViewRate.bounds;
     [self.mViewRate addSubview:mViewRateCore];
+    
+    //
+    // set contents
+    //
+    
+    // user & item data
+    [self.mImgviewUser sd_setImageWithURL:[NSURL URLWithString:[mItem.user photoUrl]]];
+    [self.mLblUsername setText:mItem.username];
+    [self.mLblItemname setText:mItem.title];
+    
+    // rate
+    [mViewRateCore setRate:mItem.rate];
+    
+    // if already rated, no allowed to rate again
+    if (mItem.rate > 0) {
+        [self disableRateButton];
+    }
+}
+
+/**
+ disable rate button and rate view
+ */
+- (void)disableRateButton {
+    [mViewRateCore setUserInteractionEnabled:NO];
+    [self.mButRate setEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,6 +94,10 @@
     [PHUiHelper makeRounded:self.mButRate];
 }
 
+- (void)setItemData:(id)item {
+    mItem = item;
+}
+
 /*
 #pragma mark - Navigation
 
@@ -69,5 +107,22 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)onButRate:(id)sender {
+    //
+    // call rate api
+    //
+    [[ApiManager sharedInstance] rateItemWithId:mItem.id
+                                           rate:[mViewRateCore getRate]
+                                           success:^(id response)
+     {
+     }
+                                              fail:^(NSError *error, id response)
+     {
+     }];
+    
+    [mItem setRate:[mViewRateCore getRate]];
+    [self disableRateButton];
+}
 
 @end

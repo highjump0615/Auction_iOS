@@ -463,5 +463,24 @@
                                                    fail:fail];
 }
 
+- (void)rateItemWithId:(NSInteger)itemId
+                  rate:(NSInteger)value
+               success:(void (^)(id response))sucess
+                  fail:(void (^)(NSError *error, id response))fail {
+    // url
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@", PH_API_BASE_URL, PH_API_RATE];
+    
+    // param
+    NSMutableDictionary *dictParam = [NSMutableDictionary dictionary];
+    
+    [dictParam setObject:[NSNumber numberWithInteger:itemId] forKey:@"item"];
+    [dictParam setObject:[NSNumber numberWithInteger:value] forKey:@"rate"];
+    
+    // call web service
+    [[ApiClientCore sharedInstance] sendToServiceByPost:strUrl
+                                                 params:dictParam
+                                                success:sucess
+                                                   fail:fail];
+}
 
 @end

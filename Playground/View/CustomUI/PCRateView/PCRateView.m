@@ -57,7 +57,7 @@
  @return 0~100
  */
 - (NSInteger)getRate {
-    return mnStar * 20;
+    return (mnStar + 1) * 20;
 }
 
 /**

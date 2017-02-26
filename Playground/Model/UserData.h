@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSMutableArray *auctionItems;
 @property (nonatomic, retain) NSMutableArray *bidItems;
 @property (nonatomic) NSInteger countGivenUp;
+@property (nonatomic) NSInteger rate;
 
 
 + (UserData *)currentUser;
