@@ -9,8 +9,13 @@
 #import "InboxViewController.h"
 #import "InboxCell.h"
 #import "PHTextHelper.h"
+#import "ApiManager.h"
+#import "InboxData.h"
 
-@interface InboxViewController () <UITextFieldDelegate>
+
+@interface InboxViewController () <UITextFieldDelegate> {
+    NSMutableArray *maryData;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *mLblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *mLblNotice;
@@ -24,12 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // set margin for tableview
-    UIEdgeInsets edgeTable = self.mTableview.contentInset;
-    edgeTable.top = 44 + self.mViewTitle.bounds.size.height;
-//    edgeTable.bottom = 50;
-    [self.mTableview setContentInset:edgeTable];
-    
     // text & keyboard
     [self setSearchDelegate:self];
     [self setGestureRecognizer];
@@ -39,11 +38,54 @@
     
     [self.mLblTitle setFont:[PHTextHelper myriadProBlack:[PHTextHelper fontSizeLarge]]];
     [self.mLblNotice setFont:[PHTextHelper myriadProRegular:[PHTextHelper fontSizeNormal]]];
+    
+    // init data
+    maryData = [[NSMutableArray alloc] init];
+    
+    // load data
+    [self getInbox];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    // set margin for tableview
+    UIEdgeInsets edgeTable = self.mTableview.contentInset;
+    edgeTable.top = 64 + self.mViewTitle.bounds.size.height;
+    //    edgeTable.bottom = 50;
+    [self.mTableview setContentInset:edgeTable];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)getInbox {
+    //
+    // call inbox api
+    //
+    [[ApiManager sharedInstance] getInbox:^(id response)
+     {
+         // clear data
+         [maryData removeAllObjects];
+         
+         // add item data
+         NSArray *aryItem = (NSArray *)response;
+         
+         for (NSDictionary *dicItem in aryItem) {
+             InboxData *bData = [[InboxData alloc] initWithDic:dicItem];
+             [maryData addObject:bData];
+             
+             [self.mLblNotice setHidden:YES];
+         }
+         
+         // reload table
+         [self.mTableview reloadData];
+     }
+                                       fail:^(NSError *error, id response)
+     {
+     }];
 }
 
 /*
@@ -73,12 +115,15 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return maryData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    InboxData *inbox = [maryData objectAtIndex:indexPath.row];
 
     InboxCell *cellInbox = (InboxCell *)[tableView dequeueReusableCellWithIdentifier:@"InboxCell"];
+    [cellInbox fillContent:inbox.item];
     [cellInbox.mButRate addTarget:self action:@selector(onButRate:) forControlEvents:UIControlEventTouchUpInside];
 
     return cellInbox;
@@ -94,6 +139,40 @@
     return YES;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // delete button
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        InboxData *inbox = [maryData objectAtIndex:indexPath.row];
+        
+        //
+        // call delete inbox api
+        //
+        [[ApiManager sharedInstance] deleteInboxWithId:inbox.id
+                                               success:^(id response)
+         {
+         }
+                                                  fail:^(NSError *error, id response)
+         {
+         }];
+        
+        //
+        // delete from list with animation
+        //
+        NSArray *aryIndexPath = [[NSArray alloc] initWithObjects:
+                                 [NSIndexPath indexPathForRow:indexPath.row inSection:0],
+                                 nil];
+        [tableView beginUpdates];
+        
+        [tableView deleteRowsAtIndexPaths:aryIndexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        // remove object from array
+        [maryData removeObject:inbox];
+        
+        [tableView endUpdates];
+    }
+}
+
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -104,7 +183,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     // go to rate page
-    [self performSegueWithIdentifier:@"Inbox2Chat" sender:nil];
+//    [self performSegueWithIdentifier:@"Inbox2Chat" sender:nil];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -112,4 +112,12 @@
                     success:(void (^)(id response))sucess
                        fail:(void (^)(NSError *error, id response))fail;
 
+- (void)getInbox:(void (^)(id response))sucess
+            fail:(void (^)(NSError *error, id response))fail;
+
+- (void)deleteInboxWithId:(NSInteger)inboxId
+                  success:(void (^)(id response))sucess
+                     fail:(void (^)(NSError *error, id response))fail;
+
+
 @end

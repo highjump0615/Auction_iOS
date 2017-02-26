@@ -87,7 +87,7 @@
 - (void)exploreItem:(UIRefreshControl *)sender {
 
     //
-    // call login api
+    // call explore api
     //
     [[ApiManager sharedInstance] getExplore:^(id response)
      {

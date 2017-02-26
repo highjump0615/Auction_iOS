@@ -184,6 +184,7 @@
 		C30340051E2052BE00782925 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30340031E2052BE00782925 /* LaunchScreen.storyboard */; };
 		C30340101E2052BE00782925 /* PlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C303400F1E2052BE00782925 /* PlaygroundTests.m */; };
 		C303401B1E2052BE00782925 /* PlaygroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C303401A1E2052BE00782925 /* PlaygroundUITests.m */; };
+		C37F672C1E61996600BCC15A /* InboxData.m in Sources */ = {isa = PBXBuildFile; fileRef = C37F672B1E61996500BCC15A /* InboxData.m */; };
 		C38731421E22D2F0007B6BD1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C387313F1E22D2F0007B6BD1 /* logo.png */; };
 		C38731431E22D2F0007B6BD1 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C38731401E22D2F0007B6BD1 /* logo@2x.png */; };
 		C38731441E22D2F0007B6BD1 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C38731411E22D2F0007B6BD1 /* logo@3x.png */; };
@@ -475,6 +476,8 @@
 		C30340161E2052BE00782925 /* PlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C303401A1E2052BE00782925 /* PlaygroundUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundUITests.m; sourceTree = "<group>"; };
 		C303401C1E2052BE00782925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C37F672A1E61996500BCC15A /* InboxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxData.h; sourceTree = "<group>"; };
+		C37F672B1E61996500BCC15A /* InboxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxData.m; sourceTree = "<group>"; };
 		C387313F1E22D2F0007B6BD1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		C38731401E22D2F0007B6BD1 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		C38731411E22D2F0007B6BD1 /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
@@ -753,6 +756,8 @@
 				63BFE8581E3F0BA500442351 /* CommentData.m */,
 				635C8AAD1E43E96C00658C6B /* BidData.h */,
 				635C8AAE1E43E96C00658C6B /* BidData.m */,
+				C37F672A1E61996500BCC15A /* InboxData.h */,
+				C37F672B1E61996500BCC15A /* InboxData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1708,6 +1713,7 @@
 				63BFE8591E3F0BA500442351 /* CommentData.m in Sources */,
 				63F1C8281E2BA9C200F79EA7 /* PCRateView.m in Sources */,
 				63AC619E1E2D445F00F0E79D /* BidPhotoCollectionCell.m in Sources */,
+				C37F672C1E61996600BCC15A /* InboxData.m in Sources */,
 				63398D4A1E28E7EC00BB3E55 /* PHColorHelper.m in Sources */,
 				63F1C8421E2BD54700F79EA7 /* ChatViewController.m in Sources */,
 				637679091E2A42E100AB0B31 /* PHUiHelper.m in Sources */,
