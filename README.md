@@ -17,10 +17,10 @@ Place bid, Get max bid, Give up, Delete, ...
 #### 2.1 UI Implementation
 - Implemented responsive UI design with Autolayout
 - Used Autoresize for some customized controls
-- Implemented length limit of Textfield and TextView    
-textFieldDidBeginEditing, textFieldShouldEndEditing functions are used mainly.
+- Implemented length limit of ``Textfield`` and ``TextView``    
+``textFieldDidBeginEditing()``, ``textFieldShouldEndEditing()`` functions are used mainly.
 - Made tabbar item working as button  
-Implemented using shouldSelectViewController of UITabBarControllerDelegate.
+Implemented using shouldSelectViewController of ``UITabBarControllerDelegate``.
 - Saved data in plist file  
 Created in Resource manually, implemented read/write programatically.
 
